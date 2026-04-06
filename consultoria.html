@@ -687,6 +687,82 @@
       font-style: italic;
     }
 
+    .plan-result {
+      background: var(--primary-glow);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+      font-size: 0.85rem;
+    }
+
+    .plan-result strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .plan-result span {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .decision-block {
+      background: var(--bg2);
+      border-radius: 20px;
+      padding: 40px;
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .decision-block h3 {
+      font-size: 1.4rem;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+
+    .decision-options {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .decision-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      flex: 1;
+      min-width: 200px;
+      max-width: 280px;
+      text-align: left;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .decision-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .decision-icon {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .decision-item span {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .decision-item strong {
+      color: var(--primary);
+      font-size: 0.95rem;
+    }
+
     /* ── PROCESO ── */
     #proceso { background: var(--bg2); }
 
@@ -1060,173 +1136,187 @@
 <!-- ── PLANES ── -->
 <section id="planes">
   <div class="container">
-    <div class="section-label">Planes disponibles</div>
-    <h2 class="section-title">Elegí el nivel de servicio<br/>que necesita tu organismo.</h2>
-    <p class="section-text">
-      Todos los planes incluyen soporte por WhatsApp y mail, reuniones de seguimiento y documentación de lo trabajado. El precio final se define según el alcance acordado.
+    <p class="section-text" style="text-align:center;max-width:700px;margin:0 auto 40px;">
+      Acompaño a organismos y empresas a ordenar, profesionalizar y escalar su área IT, pasando de una operación reactiva a una gestión predecible y alineada al negocio.
     </p>
 
     <div class="planes-grid">
 
-      <!-- PLAN ESENCIAL -->
+      <!-- PLAN BASE OPERATIVA -->
       <div class="plan-card">
         <div class="plan-header">
           <div class="plan-name">Plan</div>
-          <div class="plan-title">Esencial</div>
+          <div class="plan-title">Base Operativa</div>
           <div class="plan-price">
             <span class="price-amount">$900.000</span>
             <span class="price-period">/mes</span>
           </div>
-          <div class="price-note">15 horas mensuales · Facturación mensual</div>
-          <p class="plan-desc">Para organismos que necesitan soporte técnico puntual y asesoramiento en demanda, sin un proyecto en curso.</p>
+          <p class="plan-desc">Para organizaciones que necesitan ordenar su operación IT y tomar control básico.</p>
         </div>
         <div class="plan-body">
           <ul class="plan-features">
             <li>
               <span class="feat-check yes">✓</span>
-              Hasta 15 horas mensuales de consultoría
+              Soporte técnico y asesoramiento continuo
             </li>
             <li>
               <span class="feat-check yes">✓</span>
-              Consultas técnicas por WhatsApp y mail
+              Diagnóstico de sistemas actuales
             </li>
             <li>
               <span class="feat-check yes">✓</span>
-              1 reunión de seguimiento semanal
+              Identificación de riesgos operativos
             </li>
             <li>
               <span class="feat-check yes">✓</span>
-              Revisión de sistemas y procesos existentes
+              Recomendaciones prácticas priorizadas
             </li>
             <li>
               <span class="feat-check yes">✓</span>
-              Recomendaciones y documentación básica
+              1 reunión semanal de seguimiento
             </li>
             <li>
               <span class="feat-check yes">✓</span>
-              Asesoramiento en herramientas y proveedores
+              Canal directo (WhatsApp / mail)
             </li>
           </ul>
-          <div class="plan-separator"></div>
-          <p class="plan-extras">Horas adicionales disponibles fuera del plan · Ideal como punto de entrada</p>
-          <a class="btn btn-outline" href="https://wa.me/5493885120704" target="_blank" rel="noopener" style="width:100%;margin-top:18px;">Consultar este plan</a>
+          <div class="plan-result">
+            <strong>Resultado esperado:</strong>
+            <span>✔ Claridad del estado actual · ✔ Reducción de errores operativos · ✔ Base para crecimiento ordenado</span>
+          </div>
+          <a class="btn btn-outline" href="https://wa.me/5493885120704?text=Hola,%20quiero%20agendar%20un%20diagnóstico%20inicial%20del%20plan%20Base%20Operativa" target="_blank" rel="noopener" style="width:100%;margin-top:18px;">Agendar diagnóstico inicial</a>
         </div>
       </div>
 
-      <!-- PLAN INTEGRAL (destacado) -->
+      <!-- PLAN GESTIÓN Y EVOLUCIÓN (destacado) -->
       <div class="plan-card featured">
         <div class="plan-badge">Más elegido</div>
         <div class="plan-header">
           <div class="plan-name">Plan</div>
-          <div class="plan-title">Integral</div>
+          <div class="plan-title">Gestión y Evolución</div>
           <div class="plan-price">
             <span class="price-amount">$1.800.000</span>
             <span class="price-period">/mes</span>
           </div>
-          <div class="price-note">30 horas mensuales · Facturación mensual</div>
-          <p class="plan-desc">Para organismos con necesidades activas de modernización, proyectos en curso o equipos que requieren acompañamiento continuo.</p>
+          <p class="plan-desc">Para organizaciones que ya tienen operación activa y necesitan mejorar, escalar y ejecutar proyectos.</p>
         </div>
         <div class="plan-body">
           <ul class="plan-features">
             <li>
               <span class="feat-check featured-yes">✓</span>
-              Hasta 30 horas mensuales de consultoría
+              Todo lo del plan Base Operativa +
             </li>
             <li>
               <span class="feat-check featured-yes">✓</span>
-              Soporte técnico prioritario (respuesta &lt;4hs)
+              Diseño de procesos y sistemas
             </li>
             <li>
               <span class="feat-check featured-yes">✓</span>
-              2 reuniones de seguimiento semanales
+              Acompañamiento al equipo interno
             </li>
             <li>
               <span class="feat-check featured-yes">✓</span>
-              Análisis y diseño de sistemas o procesos
+              Gestión de iniciativas en curso
             </li>
             <li>
               <span class="feat-check featured-yes">✓</span>
-              Dashboard / reporte de gestión mensual
+              Reportes mensuales de gestión
             </li>
             <li>
               <span class="feat-check featured-yes">✓</span>
-              Capacitación interna (hasta 2 sesiones/mes)
+              2 reuniones semanales
             </li>
             <li>
               <span class="feat-check featured-yes">✓</span>
-              Documentación técnica y funcional
-            </li>
-            <li>
-              <span class="feat-check featured-yes">✓</span>
-              Acompañamiento a equipo técnico interno
+              Soporte prioritario
             </li>
           </ul>
-          <div class="plan-separator"></div>
-          <p class="plan-extras" style="color:rgba(26,79,160,0.6);">Incluye gestión de proyecto para iniciativas en curso</p>
-          <a class="btn btn-accent" href="https://wa.me/5493885120704" target="_blank" rel="noopener" style="width:100%;margin-top:18px;">Consultar este plan</a>
+          <div class="plan-result">
+            <strong>Resultado esperado:</strong>
+            <span>✔ Procesos definidos y medibles · ✔ Proyectos avanzando con control · ✔ Equipo alineado y con dirección</span>
+          </div>
+          <a class="btn btn-accent" href="https://wa.me/5493885120704?text=Hola,%20quiero%20agendar%20un%20diagnóstico%20inicial%20del%20plan%20Gestión%20y%20Evolución" target="_blank" rel="noopener" style="width:100%;margin-top:18px;">Agendar diagnóstico inicial</a>
         </div>
       </div>
 
-      <!-- PLAN ESTRATÉGICO -->
+      <!-- PLAN DIRECCIÓN ESTRATÉGICA IT -->
       <div class="plan-card">
         <div class="plan-header">
           <div class="plan-name">Plan</div>
-          <div class="plan-title">Estratégico</div>
+          <div class="plan-title">Dirección Estratégica IT</div>
           <div class="plan-price">
             <span class="price-amount">Consultar</span>
           </div>
-          <div class="price-note">Horas a convenir según necesidad · Presencia intensiva</div>
-          <p class="plan-desc">Para organismos con múltiples iniciativas simultáneas, transformación digital en curso o que necesitan una presencia más intensiva.</p>
+          <p class="plan-desc">Para organizaciones que necesitan liderazgo tecnológico y transformación real.</p>
         </div>
         <div class="plan-body">
           <ul class="plan-features">
             <li>
               <span class="feat-check yes">✓</span>
-              Horas ilimitadas según demanda acordada
+              Dirección integral del área IT
             </li>
             <li>
               <span class="feat-check yes">✓</span>
-              Soporte técnico prioritario (respuesta &lt;2hs)
+              Roadmap tecnológico
             </li>
             <li>
               <span class="feat-check yes">✓</span>
-              Reuniones semanales de seguimiento
+              Coordinación de proveedores externos
             </li>
             <li>
               <span class="feat-check yes">✓</span>
-              Gestión de múltiples proyectos en paralelo
+              Gestión simultánea de múltiples proyectos
             </li>
             <li>
               <span class="feat-check yes">✓</span>
-              Roadmap tecnológico del organismo
+              Reportes ejecutivos para directorio
             </li>
             <li>
               <span class="feat-check yes">✓</span>
-              Capacitaciones sin límite de sesiones
+              Capacitación continua
             </li>
             <li>
               <span class="feat-check yes">✓</span>
-              Coordinación de equipos y proveedores externos
-            </li>
-            <li>
-              <span class="feat-check yes">✓</span>
-              Reportes ejecutivos para autoridades
+              Alta disponibilidad
             </li>
           </ul>
-          <div class="plan-separator"></div>
-          <p class="plan-extras">Modalidad más cercana a un CTO externo · Presencia en el organismo según necesidad</p>
-          <a class="btn btn-outline" href="https://wa.me/5493885120704" target="_blank" rel="noopener" style="width:100%;margin-top:18px;">Consultar este plan</a>
+          <div class="plan-result">
+            <strong>Resultado esperado:</strong>
+            <span>✔ IT alineado al negocio · ✔ Decisiones estratégicas con respaldo · ✔ Ejecución sostenida sin depender del cliente</span>
+          </div>
+          <a class="btn btn-outline" href="https://wa.me/5493885120704?text=Hola,%20quiero%20conocer%20el%20plan%20Dirección%20Estratégica%20IT" target="_blank" rel="noopener" style="width:100%;margin-top:18px;">Solicitar evaluación</a>
         </div>
       </div>
 
     </div>
 
-    <p style="text-align:center;color:var(--muted);font-size:0.85rem;margin-top:28px;">
-      Todos los precios se definen en función del organismo, el alcance real del trabajo y la modalidad de contratación disponible.<br/>
-      Escribinos y armamos una propuesta a medida.
-    </p>
+    <!-- BLOQUE DECISIÓN GUIADA -->
+    <div class="decision-block">
+      <h3>¿No sabés qué plan elegir?</h3>
+      <div class="decision-options">
+        <div class="decision-item">
+          <span class="decision-icon">🎯</span>
+          <span>Si hoy tu IT es <strong>reactivo</strong></span>
+          <strong>→ Base Operativa</strong>
+        </div>
+        <div class="decision-item">
+          <span class="decision-icon">📈</span>
+          <span>Si tenés <strong>proyectos en marcha</strong></span>
+          <strong>→ Gestión y Evolución</strong>
+        </div>
+        <div class="decision-item">
+          <span class="decision-icon">🚀</span>
+          <span>Si necesitás <strong>liderazgo tecnológico</strong></span>
+          <strong>→ Dirección Estratégica IT</strong>
+        </div>
+      </div>
   </div>
 </section>
+
+<p style="text-align:center;color:var(--muted);font-size:0.85rem;margin-top:28px;">
+  Todos los precios se definen en función del organismo, el alcance real del trabajo y la modalidad de contratación disponible.<br/>
+  Escribinos y armamos una propuesta a medida.
+</p>
 
 <!-- ── ENTREGABLES ── -->
 <section id="entregables" style="background:var(--bg2);">
