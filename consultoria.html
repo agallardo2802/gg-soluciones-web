@@ -546,6 +546,33 @@
       background: var(--card);
       border: 1px solid var(--border2);
       border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 200px;
+    }
+
+    .alcance-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+    .alcance-card:hover::before { opacity: 1; }
+
+    .alcance-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .alcance-card {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
       padding: 26px;
       box-shadow: var(--shadow);
       transition: all 0.25s;
@@ -1324,57 +1351,6 @@
         </div>
       </div>
       <p class="practice-outro">Todo dentro de un mismo esquema, sin necesidad de incorporar múltiples perfiles.</p>
-    </div>
-      <div class="alcance-card">
-        <span class="alcance-emoji">🔄</span>
-        <h3>Procesos y modernización</h3>
-        <ul class="alcance-list">
-          <li>Mapeo y rediseño de procesos internos</li>
-          <li>Digitalización de trámites y expedientes</li>
-          <li>Detección de cuellos de botella operativos</li>
-          <li>Implementación de buenas prácticas</li>
-        </ul>
-      </div>
-      <div class="alcance-card">
-        <span class="alcance-emoji">📊</span>
-        <h3>Datos e inteligencia</h3>
-        <ul class="alcance-list">
-          <li>Dashboards y reportes ejecutivos (Power BI)</li>
-          <li>Indicadores de gestión y KPIs</li>
-          <li>Análisis y limpieza de bases de datos</li>
-          <li>Reportería para autoridades y auditorías</li>
-        </ul>
-      </div>
-      <div class="alcance-card">
-        <span class="alcance-emoji">🤖</span>
-        <h3>Inteligencia Artificial</h3>
-        <ul class="alcance-list">
-          <li>Automatización de tareas repetitivas</li>
-          <li>Asistentes internos para equipos</li>
-          <li>Análisis de documentos y expedientes</li>
-          <li>Evaluación de herramientas IA disponibles</li>
-        </ul>
-      </div>
-      <div class="alcance-card">
-        <span class="alcance-emoji">👥</span>
-        <h3>Capacitación y transferencia</h3>
-        <ul class="alcance-list">
-          <li>Talleres y capacitaciones IT para el equipo</li>
-          <li>Documentación de procesos y sistemas</li>
-          <li>Formación en herramientas digitales</li>
-          <li>Acompañamiento a equipos técnicos internos</li>
-        </ul>
-      </div>
-      <div class="alcance-card">
-        <span class="alcance-emoji">🏛️</span>
-        <h3>Estrategia y consultoría</h3>
-        <ul class="alcance-list">
-          <li>Roadmap de modernización tecnológica</li>
-          <li>Análisis de costos y alternativas</li>
-          <li>Acompañamiento a decisiones de autoridades</li>
-          <li>Evaluación de proveedores y plataformas</li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
