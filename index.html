@@ -703,9 +703,9 @@
 
     .contact-wrap {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1fr 1fr;
       gap: 20px;
-      align-items: start;
+      align-items: stretch;
     }
 
     .contact-main {
@@ -802,6 +802,10 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
+    }
+
+    .contact-side .info-card {
+      flex: 1;
     }
 
     .info-card {
@@ -1274,11 +1278,9 @@
     </div>
 
     <div class="contact-side">
-      <div class="info-card">
-        <h3>Modelo de trabajo</h3>
+      <div class="info-card" style="background: var(--accent-dim); border-color: rgba(0,212,170,0.2);">
+        <h3 style="color: var(--accent);">Modelo de trabajo</h3>
         <ul class="info-list">
-          <li><span>📍</span><span>San Salvador de Jujuy, Argentina</span></li>
-          <li><span>🗺️</span><span>Clientes en todo el país (Convenio Multilateral)</span></li>
           <li><span>🤝</span><span>Trabajo por proyecto, consultoría o capacitación</span></li>
           <li><span>⏱️</span><span>Respuesta en menos de 24 hs</span></li>
           <li><span>✔️</span><span>Análisis siempre antes del presupuesto</span></li>
