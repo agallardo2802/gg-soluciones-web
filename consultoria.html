@@ -591,6 +591,67 @@
       margin-top: 1px;
     }
 
+    .alcance-result {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border2);
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .practice-block {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: 20px;
+      padding: 40px;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .practice-block h3 {
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+
+    .practice-intro {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .practice-roles {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .practice-role {
+      background: var(--primary-glow);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .practice-role .role-icon {
+      font-size: 1.2rem;
+    }
+
+    .practice-role strong {
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .practice-outro {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
     /* ── PLANES ── */
     #planes { background: var(--bg); }
 
@@ -1063,7 +1124,7 @@
   <div class="hero-lines"></div>
   <div class="container hero-inner">
     <div class="hero-kicker">Servicio mensual · Organismos provinciales</div>
-    <h1>Consultoría IT &amp; Modernización<br/>de Procesos <em>sin retener</em> talento fijo.</h1>
+    <h1>Consultoría IT & Modernización<br/>de Procesos <em>sin necesidad de ampliar</em> estructura interna.</h1>
     <p class="hero-sub">
       Accedé a experiencia integral en tecnología, procesos y sistemas para ordenar, mejorar y escalar tu operación, sin necesidad de incorporar estructura interna. Un servicio mensual flexible que te permite avanzar con control, reducir riesgos y tomar decisiones con mayor claridad, sin costos ocultos ni procesos de selección.
     </p>
@@ -1165,20 +1226,102 @@
     <div class="section-label">Alcance del servicio</div>
     <h2 class="section-title">¿En qué podemos intervenir?</h2>
     <p class="section-text">
-      El servicio mensual cubre cualquier necesidad relacionada con tecnología, sistemas, datos y modernización de procesos dentro del organismo.
+      El servicio se adapta a la realidad del organismo, cubriendo tanto la operación diaria como iniciativas de mejora y modernización. No es solo soporte técnico: es capacidad de gestión, ejecución y acompañamiento sobre sistemas, procesos y datos.
     </p>
 
     <div class="alcance-grid">
       <div class="alcance-card">
         <span class="alcance-emoji">🖥️</span>
-        <h3>Sistemas y desarrollo</h3>
+        <h3>Sistemas e Integraciones</h3>
         <ul class="alcance-list">
-          <li>Análisis y diseño de sistemas a medida</li>
-          <li>Relevamiento de sistemas existentes</li>
-          <li>Integración entre plataformas y APIs</li>
-          <li>Supervisión técnica de proyectos</li>
+          <li>Diseño y evolución de sistemas a medida</li>
+          <li>Relevamiento y diagnóstico de sistemas existentes</li>
+          <li>Integración entre plataformas (APIs, ERP, herramientas externas)</li>
+          <li>Supervisión técnica de desarrollos internos o proveedores</li>
         </ul>
+        <div class="alcance-result">👉 Resultado: sistemas conectados, estables y alineados al negocio</div>
       </div>
+      <div class="alcance-card">
+        <span class="alcance-emoji">🔄</span>
+        <h3>Procesos y Operación</h3>
+        <ul class="alcance-list">
+          <li>Análisis y rediseño de procesos internos</li>
+          <li>Digitalización de circuitos y trámites</li>
+          <li>Identificación de ineficiencias y cuellos de botella</li>
+          <li>Implementación de buenas prácticas operativas</li>
+        </ul>
+        <div class="alcance-result">👉 Resultado: menos fricción operativa y mayor control</div>
+      </div>
+      <div class="alcance-card">
+        <span class="alcance-emoji">📊</span>
+        <h3>Datos y Gestión</h3>
+        <ul class="alcance-list">
+          <li>Dashboards ejecutivos (Power BI)</li>
+          <li>Definición de indicadores y métricas clave</li>
+          <li>Análisis y mejora de calidad de datos</li>
+          <li>Reportes para toma de decisiones y auditorías</li>
+        </ul>
+        <div class="alcance-result">👉 Resultado: decisiones con información clara y confiable</div>
+      </div>
+      <div class="alcance-card">
+        <span class="alcance-emoji">🤖</span>
+        <h3>Automatización e IA</h3>
+        <ul class="alcance-list">
+          <li>Automatización de tareas repetitivas</li>
+          <li>Asistentes internos para equipos</li>
+          <li>Procesamiento de documentos</li>
+          <li>Evaluación e implementación de herramientas IA</li>
+        </ul>
+        <div class="alcance-result">👉 Resultado: ahorro de tiempo y aumento de productividad</div>
+      </div>
+      <div class="alcance-card">
+        <span class="alcance-emoji">👥</span>
+        <h3>Equipo y Capacitación</h3>
+        <ul class="alcance-list">
+          <li>Formación del equipo interno</li>
+          <li>Documentación de procesos y sistemas</li>
+          <li>Acompañamiento operativo en el día a día</li>
+          <li>Transferencia de conocimiento</li>
+        </ul>
+        <div class="alcance-result">👉 Resultado: autonomía progresiva del organismo</div>
+      </div>
+      <div class="alcance-card">
+        <span class="alcance-emoji">🏛️</span>
+        <h3>Estrategia y Dirección IT</h3>
+        <ul class="alcance-list">
+          <li>Roadmap tecnológico</li>
+          <li>Evaluación de proveedores y soluciones</li>
+          <li>Análisis de costos y alternativas</li>
+          <li>Acompañamiento a decisiones de gestión</li>
+        </ul>
+        <div class="alcance-result">👉 Resultado: IT alineado a objetivos del organismo</div>
+      </div>
+    </div>
+
+    <!-- QUÉ SIGNIFICA EN LA PRÁCTICA -->
+    <div class="practice-block">
+      <h3>💡 Qué significa esto en la práctica</h3>
+      <p class="practice-intro">Dependiendo de la necesidad, el servicio puede actuar como:</p>
+      <div class="practice-roles">
+        <div class="practice-role">
+          <span class="role-icon">🔧</span>
+          <strong>Soporte técnico calificado</strong>
+        </div>
+        <div class="practice-role">
+          <span class="role-icon">📋</span>
+          <strong>Analista funcional</strong>
+        </div>
+        <div class="practice-role">
+          <span class="role-icon">🎯</span>
+          <strong>Líder de proyecto</strong>
+        </div>
+        <div class="practice-role">
+          <span class="role-icon">🎓</span>
+          <strong>Dirección IT externa</strong>
+        </div>
+      </div>
+      <p class="practice-outro">Todo dentro de un mismo esquema, sin necesidad de incorporar múltiples perfiles.</p>
+    </div>
       <div class="alcance-card">
         <span class="alcance-emoji">🔄</span>
         <h3>Procesos y modernización</h3>
