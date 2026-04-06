@@ -1,35 +1,16 @@
-# GG Soluciones - Sitio Web
+# GG Soluciones
 
-Sitio web profesional de GG Soluciones - Desarrollo de Software & Consultoría IT.
+Sitio web de GG Soluciones - Desarrollo de Software & Consultoría IT.
 
-## 🌐 Páginas
+## Páginas
 
-- **Inicio**: `index.html` - Landing principal con todos los servicios
-- **Consultoría**: `consultoria.html` - Página independiente del servicio mensual para organismos provinciales
+- `index.html` - Landing principal
+- `consultoria.html` - Servicio de consultoría mensual para organismos provinciales
 
-## ✨ Características
+## Deploy
 
-- Diseño responsive (móvil, tablet, desktop)
-- Toggle modo claro/oscuro
-- Fuentes: Syne + DM Sans
-- Totalmente estático (HTML + CSS)
-- Cards con protección contra overflow de texto
-
-## 🚀 Deploy
-
-Deploy automático con Vercel:
-https://gg-soluciones-web.vercel.app
-
-## 🛠️ Tecnologías
-
-- HTML5
-- CSS3 (CSS Variables, Flexbox, Grid)
-- Google Fonts (Syne, DM Sans)
-
-## 📍 Ubicación
-
-San Salvador de Jujuy, Argentina
+https://agallardo2802.github.io/gg-soluciones-web/
 
 ---
 
-© 2026 GG Soluciones - Todos los derechos reservados
+© 2026 GG Soluciones
