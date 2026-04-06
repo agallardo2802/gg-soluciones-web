@@ -463,6 +463,46 @@
       font-weight: 300;
     }
 
+    /* ─── PROBLEMAS ─── */
+    #problemas { padding: 80px 0; background: var(--bg); }
+
+    .problemas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .problema-card {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: 16px;
+      padding: 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .problema-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .problema-icon {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .problema-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .problema-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
     /* ─── SERVICES ─── */
     #servicios { padding: 80px 0; }
 
@@ -528,6 +568,15 @@
       line-height: 1.6;
       overflow-wrap: break-word;
       word-wrap: break-word;
+    }
+
+    .service-result {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-top: 8px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border2);
     }
 
     .service-tags {
@@ -935,7 +984,7 @@
       <a href="#servicios">Servicios</a>
       <a href="#proyectos">Proyectos</a>
       <a href="#proceso">Proceso</a>
-      <a href="consultoria.html" target="_blank" style="color:var(--accent);font-weight:700;">Estado →</a>
+      <a href="consultoria.html" target="_blank" style="color:var(--accent);font-weight:700;">Propuesta →</a>
       <a href="#contacto">Contacto</a>
       <button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar tema">
         <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
@@ -954,26 +1003,27 @@
   <div class="container hero-grid">
     <div>
       <div class="hero-badge">12 años de experiencia · San Salvador de Jujuy</div>
-      <h2>Soluciones integrales<br/>y <em>escalables</em><br/>para tu organización.</h2>
+      <h2>Transformamos sistemas, procesos y equipos<br/>en <em>operaciones eficientes</em></h2>
       <p>
-        Un sistema no existe en el vacío. Pensamos cada solución como parte de un ecosistema: costos, procesos, tecnología, personas y organización. Así diseñamos soluciones que realmente funcionan y escalan.
+        Ayudamos a organismos y empresas a ordenar su operación, integrar sistemas y tomar decisiones con datos. No solo desarrollamos software: resolvemos problemas estructurales.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#contacto">Consultá sin cargo</a>
         <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
       </div>
+      <p style="font-size:0.85rem; color:var(--muted); margin-top:10px;">Enfoque en Estado, salud y organizaciones con alta complejidad operativa</p>
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-value">12</div>
-          <div class="stat-label">años de trayectoria</div>
+          <div class="stat-value">+12</div>
+          <div class="stat-label">años en proyectos IT complejos</div>
         </div>
         <div class="stat">
-          <div class="stat-value">+20</div>
-          <div class="stat-label">proyectos entregados</div>
+          <div class="stat-value">+40K</div>
+          <div class="stat-label">usuarios impactados</div>
         </div>
         <div class="stat">
-          <div class="stat-value">360°</div>
-          <div class="stat-label">enfoque integral</div>
+          <div class="stat-value">100%</div>
+          <div class="stat-label">organismos con operación crítica</div>
         </div>
       </div>
     </div>
@@ -992,6 +1042,46 @@
         Trabajo por proyecto · Consultoría · Capacitación
       </div>
     </aside>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── PROBLEMAS QUE RESOLVEMOS ─── -->
+<section id="problemas">
+  <div class="container">
+    <div class="section-label">Qué resuelves</div>
+    <h2 class="section-title">Problemas que resolvemos</h2>
+    <p class="section-text">
+      Entendemos los dolores típicos de organizaciones con alta complejidad operativa.
+    </p>
+    <div class="problemas-grid">
+      <div class="problema-card">
+        <span class="problema-icon">🔧</span>
+        <h3>Sistemas que no escalan</h3>
+        <p>Infraestructura que se vuelve lenta, inestable o costosa a medida que crece el uso.</p>
+      </div>
+      <div class="problema-card">
+        <span class="problema-icon">📋</span>
+        <h3>Procesos manuales desordenados</h3>
+        <p>Trámites lentos, errores humanos y dependencia de personas específicas.</p>
+      </div>
+      <div class="problema-card">
+        <span class="problema-icon">📉</span>
+        <h3>Falta de información para decidir</h3>
+        <p>Datos dispersos, reportes lento o inexistentes para la toma de decisiones.</p>
+      </div>
+      <div class="problema-card">
+        <span class="problema-icon">👥</span>
+        <h3>Equipos sin estructura metodológica</h3>
+        <p>Falta de procesos claros, documentación o conocimiento compartido.</p>
+      </div>
+      <div class="problema-card">
+        <span class="problema-icon">🔗</span>
+        <h3>Dependencia de proveedores externos</h3>
+        <p>Sin capacidad interna para evaluar, negociar o acompañar decisiones técnicas.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1017,6 +1107,7 @@
           <span class="tag">SQL Server</span>
           <span class="tag">Azure</span>
         </div>
+        <p class="service-result">Resultado: sistemas estables y escalables en producción</p>
       </article>
 
       <article class="service-card">
@@ -1028,6 +1119,7 @@
           <span class="tag">APIs REST</span>
           <span class="tag">Interoperabilidad</span>
         </div>
+        <p class="service-result">Resultado: infraestructura preparada para crecer sin rework</p>
       </article>
 
       <article class="service-card">
@@ -1039,6 +1131,7 @@
           <span class="tag">Agentes IA</span>
           <span class="tag">Integración</span>
         </div>
+        <p class="service-result">Resultado: reducción de tareas manuales y mayor productividad</p>
       </article>
 
       <article class="service-card">
@@ -1046,6 +1139,12 @@
         <h3>Business Intelligence – Power BI</h3>
         <p>Convertimos datos en información útil para decidir. Diseñamos indicadores que reflejan el negocio real: operación, RRHH, costos, avance de proyectos y más.</p>
         <div class="service-tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">KPIs</span>
+          <span class="tag">Dashboards</span>
+        </div>
+        <p class="service-result">Resultado: decisiones basadas en datos reales</p>
+      </article>
           <span class="tag">Power BI</span>
           <span class="tag">KPIs</span>
           <span class="tag">Dashboards</span>
@@ -1082,7 +1181,7 @@
               Servicio destacado
             </div>
             <h3 style="font-size:1.3rem;margin-bottom:10px;line-height:1.3;">Servicio Mensual para Organismos Provinciales</h3>
-            <p style="color:var(--muted);font-size:0.9rem;margin-bottom:16px;max-width:620px;overflow-wrap:break-word;word-wrap:break-word;">Accedé a experiencia integral en IT, procesos y modernización sin incorporar personal de planta. Planes escalables según la necesidad del organismo, con soporte continuo, entregables mensuales y transferencia de conocimiento al equipo propio.</p>
+            <p style="color:var(--muted);font-size:0.9rem;margin-bottom:16px;max-width:620px;overflow-wrap:break-word;word-wrap:break-word;">Accedé a experiencia integral en IT, procesos y modernización sin necesidad de ampliar estructura interna. Planes escalables según la necesidad del organismo, con soporte continuo, entregables mensuales y transferencia de conocimiento al equipo propio.</p>
             <div class="service-tags">
               <span class="tag">Consultoría IT</span>
               <span class="tag">Modernización de procesos</span>
@@ -1219,6 +1318,9 @@
   <div class="container">
     <div class="section-label">Metodología</div>
     <h2 class="section-title">Cómo trabajamos</h2>
+    <p class="section-text" style="font-weight:600; margin-bottom:10px;">
+      No desarrollamos sin entender el problema completo.
+    </p>
     <p class="section-text">
       Siempre análisis y diseño antes de código. El presupuesto se define después de entender el problema real.
     </p>
@@ -1305,6 +1407,7 @@
           <li><span>📚</span><span>Documentación técnica de APIs</span></li>
         </ul>
       </div>
+      <p style="margin-top:20px; font-size:0.9rem; font-weight:600;">Primera reunión sin costo · Análisis inicial incluido</p>
     </div>
   </div>
 </section>
