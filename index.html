@@ -516,12 +516,15 @@
       background: var(--card);
       border: 1px solid var(--border2);
       border-radius: var(--radius);
-      padding: 28px;
+      padding: 24px;
       transition: all 0.3s;
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 220px;
     }
 
     .service-card::after {
@@ -545,11 +548,16 @@
     }
 
     .service-icon {
-      width: 46px; height: 46px;
-      border-radius: 12px;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+      flex-shrink: 0;
+    }
       font-size: 1.3rem;
       margin-bottom: 18px;
     }
@@ -557,15 +565,15 @@
     .service-card h3 {
       font-size: 1.05rem;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       line-height: 1.3;
     }
 
     .service-card p {
       color: var(--muted);
-      font-size: 0.88rem;
-      margin-bottom: 16px;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      line-height: 1.5;
       overflow-wrap: break-word;
       word-wrap: break-word;
     }
@@ -1137,7 +1145,7 @@
       <article class="service-card">
         <div class="service-icon" style="background: rgba(245,158,11,0.1);">📊</div>
         <h3>Business Intelligence – Power BI</h3>
-        <p>Convertimos datos en información útil para decidir. Diseñamos indicadores que reflejan el negocio real: operación, RRHH, costos, avance de proyectos y más.</p>
+        <p>Convertimos datos en información útil para decidir. Diseñamos indicadores que reflejan el negocio real.</p>
         <div class="service-tags">
           <span class="tag">Power BI</span>
           <span class="tag">KPIs</span>
@@ -1145,32 +1153,29 @@
         </div>
         <p class="service-result">Resultado: decisiones basadas en datos reales</p>
       </article>
-          <span class="tag">Power BI</span>
-          <span class="tag">KPIs</span>
-          <span class="tag">Dashboards</span>
-        </div>
-      </article>
 
       <article class="service-card">
         <div class="service-icon" style="background: rgba(239,68,68,0.1);">🏛️</div>
         <h3>Consultoría para modernización del Estado</h3>
-        <p>La transformación digital en el Estado requiere pensar en normativa, RRHH, presupuesto y cultura organizacional, no solo en tecnología. Eso es lo que hacemos.</p>
+        <p>La transformación digital en el Estado requiere pensar en normativa, RRHH, presupuesto y cultura organizacional.</p>
         <div class="service-tags">
           <span class="tag">Transformación digital</span>
           <span class="tag">Procesos</span>
           <span class="tag">Estado</span>
         </div>
+        <p class="service-result">Resultado: IT alineado a objetivos institucionales</p>
       </article>
 
       <article class="service-card">
         <div class="service-icon" style="background: rgba(16,185,129,0.1);">👥</div>
         <h3>Management y capacitación IT</h3>
-        <p>Las soluciones las sostienen las personas. Capacitamos equipos, coordinamos proyectos y transferimos conocimiento para que la organización pueda operar y crecer de forma autónoma.</p>
+        <p>Las soluciones las sostienen las personas. Capacitamos equipos y transferimos conocimiento.</p>
         <div class="service-tags">
           <span class="tag">Gestión de equipos</span>
           <span class="tag">Capacitación</span>
           <span class="tag">Metodología</span>
         </div>
+        <p class="service-result">Resultado: autonomía progresiva del equipo</p>
       </article>
 
       <article class="service-card" style="grid-column: 1 / -1; background: linear-gradient(135deg, var(--card) 0%, var(--card2) 100%); border-color: var(--primary);">
