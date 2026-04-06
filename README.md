@@ -4,7 +4,7 @@ Sitio web profesional de GG Soluciones - Desarrollo de Software & Consultoría I
 
 ## 🌐 Páginas
 
-- **Inicio**: `inicio.html` - Landing principal con todos los servicios
+- **Inicio**: `index.html` - Landing principal con todos los servicios
 - **Consultoría**: `consultoria.html` - Página independiente del servicio mensual para organismos provinciales
 
 ## ✨ Características
