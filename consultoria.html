@@ -83,6 +83,72 @@
       box-shadow: 0 2px 16px rgba(15,28,46,0.06);
     }
 
+    /* ── ABOUT MINI ── */
+    .about-mini {
+      background: var(--card);
+      border-bottom: 1px solid var(--border2);
+      padding: 48px 0;
+    }
+
+    .about-mini-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .about-mini-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-mini-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .about-mini-text h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .about-mini-text p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 500px;
+    }
+
+    .about-mini-stats {
+      display: flex;
+      gap: 32px;
+    }
+
+    .about-mini-stat {
+      text-align: center;
+    }
+
+    .about-mini-stat strong {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .about-mini-stat span {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
     .header-inner {
       display: flex;
       align-items: center;
@@ -960,6 +1026,36 @@
     </div>
   </div>
 </header>
+
+<!-- ── QUIÉNES SOMOS ── -->
+<section class="about-mini">
+  <div class="container">
+    <div class="about-mini-content">
+      <div class="about-mini-text">
+        <span class="about-mini-label">Sobre GG Soluciones</span>
+        <h2>12 años acompañando a organizaciones jujeñas en su transformación digital</h2>
+        <p>Somos una empresa de desarrollo de software y consultoría IT con presencia en Jujuy. Nous aiding organizations to modernize their processes, implement agile methodologies, and achieve sustainable growth through technology.</p>
+        <a href="index.html" class="btn btn-outline" style="display:inline-flex;gap:8px;margin-top:16px;">
+          Conocenos más →
+        </a>
+      </div>
+      <div class="about-mini-stats">
+        <div class="about-mini-stat">
+          <strong>12+</strong>
+          <span>años de experiencia</span>
+        </div>
+        <div class="about-mini-stat">
+          <strong>50+</strong>
+          <span>proyectos entregados</span>
+        </div>
+        <div class="about-mini-stat">
+          <strong>100%</strong>
+          <span>en Jujuy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ── HERO ── -->
 <section class="hero">
