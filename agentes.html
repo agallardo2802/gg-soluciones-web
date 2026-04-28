@@ -449,6 +449,331 @@
 
     .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
+    /* ── CÓMO FUNCIONAN ── */
+    #como-funcionan { background: var(--bg2); }
+
+    .como-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .como-conceptos {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .concepto-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .concepto-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--primary-glow); border: 1px solid var(--border);
+      color: var(--primary-light); font-weight: 800; font-size: 0.9rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .concepto-item h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+    .concepto-item p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+    .como-visual {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .como-visual h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 20px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    .orquesta-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .orq-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .orq-box {
+      background: var(--primary-glow);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      white-space: nowrap;
+    }
+
+    .orq-box.center {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      border-color: transparent;
+      text-align: center;
+      padding: 10px 18px;
+      font-size: 0.85rem;
+    }
+
+    .orq-arrow { color: var(--muted); font-size: 0.8rem; flex-shrink: 0; }
+
+    .orq-agents {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .orq-agent {
+      background: var(--card2);
+      border: 1px solid var(--border2);
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .llm-note {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(0,168,122,0.2);
+      border-radius: 10px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ── HÍBRIDO N8N ── */
+    #hibrido { background: var(--bg); }
+
+    .hibrido-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .hibrido-card {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: all 0.25s;
+    }
+
+    .hibrido-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+
+    .hibrido-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      border-radius: 999px; padding: 4px 12px;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .hibrido-badge.ia { background: var(--primary-glow); color: var(--primary-light); border: 1px solid var(--border); }
+    .hibrido-badge.n8n { background: var(--accent2-dim); color: var(--accent2); border: 1px solid rgba(232,160,32,0.2); }
+
+    .hibrido-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+    .hibrido-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+
+    .hibrido-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 7px;
+    }
+
+    .hibrido-list li {
+      font-size: 0.83rem; color: var(--muted);
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+
+    .hibrido-list li::before { content: '→'; color: var(--primary); font-weight: 700; flex-shrink: 0; }
+
+    .hibrido-list.n8n-list li::before { color: var(--accent2); }
+
+    .hibrido-combinado {
+      background: linear-gradient(135deg, var(--card) 0%, var(--card2) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+    }
+
+    .hibrido-combinado-text { flex: 1; min-width: 260px; }
+    .hibrido-combinado-text h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: var(--primary-light); }
+    .hibrido-combinado-text p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── COSTOS DE USO ── */
+    #costos-uso { background: var(--bg2); }
+
+    .costos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .costo-card {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.25s;
+    }
+
+    .costo-card:hover { box-shadow: var(--shadow); border-color: var(--border); }
+
+    .costo-provider {
+      font-size: 1rem; font-weight: 700; margin-bottom: 6px;
+    }
+
+    .costo-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
+
+    .costo-ref {
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--accent); background: var(--accent-dim);
+      border-radius: 8px; padding: 5px 10px;
+      display: inline-block;
+    }
+
+    .costos-disclaimer {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 24px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+
+    .costos-disclaimer-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .costos-disclaimer p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; margin: 0; }
+    .costos-disclaimer strong { color: var(--text); }
+
+    /* ── PLANES ── */
+    #planes { background: var(--bg); }
+
+    .planes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .plan-card {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      position: relative;
+      display: flex; flex-direction: column;
+    }
+
+    .plan-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+    .plan-card.featured {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--primary), var(--shadow-lg);
+      transform: scale(1.02);
+    }
+
+    .plan-card.featured:hover { transform: scale(1.02) translateY(-4px); }
+
+    .plan-badge {
+      position: absolute; top: 16px; right: 16px;
+      background: var(--accent); color: #fff;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 999px;
+    }
+
+    .plan-header { padding: 28px 28px 24px; border-bottom: 1px solid var(--border2); }
+
+    .plan-card.featured .plan-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: #fff;
+    }
+
+    .plan-name {
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--primary); margin-bottom: 6px;
+    }
+
+    .plan-card.featured .plan-name { color: rgba(255,255,255,0.75); }
+
+    .plan-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; }
+
+    .plan-price { display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px; }
+
+    .price-amount { font-size: 1.8rem; font-weight: 800; color: var(--primary); line-height: 1; }
+    .plan-card.featured .price-amount { color: #fff; }
+
+    .price-period { font-size: 0.85rem; color: var(--muted); }
+    .plan-card.featured .price-period { color: rgba(255,255,255,0.65); }
+
+    .plan-desc { font-size: 0.87rem; color: var(--muted); line-height: 1.55; margin-top: 10px; }
+    .plan-card.featured .plan-desc { color: rgba(255,255,255,0.75); }
+
+    .plan-body { padding: 24px 28px 28px; flex: 1; display: flex; flex-direction: column; }
+
+    .plan-features {
+      list-style: none; display: flex;
+      flex-direction: column; gap: 11px; margin-bottom: 24px; flex: 1;
+    }
+
+    .plan-features li {
+      display: flex; gap: 10px;
+      align-items: flex-start; font-size: 0.87rem; color: var(--text);
+    }
+
+    .feat-check {
+      width: 20px; height: 20px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 0.65rem; font-weight: 700; margin-top: 1px;
+    }
+
+    .feat-check.yes { background: var(--accent-dim); color: var(--accent); }
+    .feat-check.featured-yes { background: rgba(26,79,160,0.12); color: var(--primary); }
+
+    .plan-separator { height: 1px; background: var(--border2); margin: 16px 0; }
+
+    .plan-retainer {
+      background: var(--primary-glow);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-top: auto;
+    }
+
+    .plan-retainer strong { display: block; color: var(--primary-light); margin-bottom: 3px; font-size: 0.85rem; }
+
+    .retainer-note {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: 14px;
+      padding: 20px 24px;
+      display: flex; gap: 14px; align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .retainer-note p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; flex: 1; min-width: 240px; }
+    .retainer-note strong { color: var(--text); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       .areas-grid { grid-template-columns: repeat(3, 1fr); }
@@ -456,6 +781,11 @@
       .flujo-steps::before { display: none; }
       .int-grid { grid-template-columns: repeat(2, 1fr); }
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .como-grid { grid-template-columns: 1fr; }
+      .hibrido-grid { grid-template-columns: 1fr; }
+      .planes-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+      .plan-card.featured { transform: none; }
+      .costos-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 768px) {
@@ -463,6 +793,7 @@
       .modos-grid { grid-template-columns: 1fr; }
       .guilds-grid { grid-template-columns: repeat(2, 1fr); }
       .flujo-steps { grid-template-columns: repeat(2, 1fr); }
+      .costos-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
@@ -471,6 +802,7 @@
       .int-grid { grid-template-columns: 1fr; }
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
       .flujo-steps { grid-template-columns: 1fr; }
+      .orq-agents { grid-template-columns: repeat(2, 1fr); }
     }
 
     @keyframes fadeUp {
@@ -561,6 +893,77 @@
   </div>
 </div>
 
+<!-- ── CÓMO FUNCIONAN ── -->
+<section id="como-funcionan">
+  <div class="container">
+    <div class="section-label">Concepto</div>
+    <h2 class="section-title">¿Qué es un agente y cómo trabajan en equipo?</h2>
+    <p class="section-text">
+      No es magia ni un chatbot mejorado. Es software con un rol, un contexto y acceso a herramientas — igual que una persona en tu equipo, pero que nunca se olvida de los estándares.
+    </p>
+
+    <div class="como-grid">
+      <div class="como-conceptos">
+        <div class="concepto-item">
+          <div class="concepto-num">1</div>
+          <div>
+            <h4>Un agente = un rol especializado</h4>
+            <p>Cada agente tiene instrucciones específicas de su área, conoce los estándares del stack y sabe cuándo escalar a otro agente. Un agente de testing no escribe código — revisa, prueba y reporta.</p>
+          </div>
+        </div>
+        <div class="concepto-item">
+          <div class="concepto-num">2</div>
+          <div>
+            <h4>El orquestador coordina el flujo</h4>
+            <p>Hay un agente principal que reparte trabajo, junta resultados y toma decisiones de secuencia. Vos le das un objetivo — él delega al equipo correcto.</p>
+          </div>
+        </div>
+        <div class="concepto-item">
+          <div class="concepto-num">3</div>
+          <div>
+            <h4>Memoria entre sesiones</h4>
+            <p>Las decisiones arquitectónicas, los bugs resueltos y las convenciones del equipo se guardan y están disponibles en la próxima sesión. No empezás de cero cada vez.</p>
+          </div>
+        </div>
+        <div class="concepto-item">
+          <div class="concepto-num">4</div>
+          <div>
+            <h4>El humano siempre lidera</h4>
+            <p>Los agentes ejecutan, el equipo decide. En modo interactivo pausan después de cada fase para que revises antes de continuar. Nunca autonomía sin control.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="como-visual">
+        <h3>Cómo fluye un pedido</h3>
+        <div class="orquesta-flow">
+          <div class="orq-row">
+            <div class="orq-box" style="background:var(--accent-dim);color:var(--accent);border-color:rgba(0,168,122,0.2);">👤 Tu equipo</div>
+            <span class="orq-arrow">→</span>
+            <div class="orq-box center" style="flex:1;">🤖 Orquestador</div>
+          </div>
+          <div style="text-align:center;color:var(--muted);font-size:0.8rem;padding:4px 0;">delega según el objetivo</div>
+          <div class="orq-agents">
+            <div class="orq-agent">🎯 Producto</div>
+            <div class="orq-agent">💻 Dev</div>
+            <div class="orq-agent">🧪 Testing</div>
+            <div class="orq-agent">⚙️ DevOps</div>
+            <div class="orq-agent">📊 Datos</div>
+            <div class="orq-agent">🔒 Seguridad</div>
+          </div>
+          <div style="text-align:center;color:var(--muted);font-size:0.8rem;padding:4px 0;">resultados consolidados</div>
+          <div class="orq-row" style="justify-content:center;">
+            <div class="orq-box" style="background:var(--accent-dim);color:var(--accent);border-color:rgba(0,168,122,0.2);">✅ Entregable listo para revisar</div>
+          </div>
+        </div>
+        <div class="llm-note">
+          💡 Cada agente usa el modelo de IA que configurás — Claude, OpenAI u otro. El costo de uso lo pagás directamente al proveedor.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── AREAS ── -->
 <section id="areas">
   <div class="container">
@@ -648,6 +1051,54 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ── HÍBRIDO N8N ── -->
+<section id="hibrido">
+  <div class="container">
+    <div class="section-label">Automatización completa</div>
+    <h2 class="section-title">Híbrido: Agentes IA + N8N</h2>
+    <p class="section-text">
+      Los agentes IA manejan el trabajo inteligente y contextual. N8N automatiza los procesos repetitivos con triggers, flujos y APIs. Juntos cubren todo el espectro de automatización de un equipo de desarrollo.
+    </p>
+
+    <div class="hibrido-grid">
+      <div class="hibrido-card">
+        <div class="hibrido-badge ia">🤖 Agentes IA</div>
+        <h3>Trabajo inteligente y contextual</h3>
+        <p>Para tareas que requieren razonamiento, decisiones y conocimiento del contexto del proyecto.</p>
+        <ul class="hibrido-list">
+          <li>Revisión de código con criterio arquitectónico</li>
+          <li>Generación de specs y documentación técnica</li>
+          <li>Análisis de impacto de un cambio en el sistema</li>
+          <li>Sugerencias de refactor basadas en el codebase real</li>
+          <li>Detección de problemas de seguridad en contexto</li>
+        </ul>
+      </div>
+
+      <div class="hibrido-card">
+        <div class="hibrido-badge n8n">⚡ N8N</div>
+        <h3>Procesos repetitivos y flujos automáticos</h3>
+        <p>Para tareas que se repiten con reglas fijas, sin necesidad de razonamiento.</p>
+        <ul class="hibrido-list n8n-list">
+          <li>Notificar al equipo cuando se crea un PR o ticket</li>
+          <li>Sincronizar Jira con GitHub o Azure DevOps</li>
+          <li>Generar reportes automáticos en Power BI o Slack</li>
+          <li>Ejecutar pipelines ante eventos de calendario</li>
+          <li>Mover datos entre sistemas sin código manual</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hibrido-combinado">
+      <div style="font-size:2rem;">🔗</div>
+      <div class="hibrido-combinado-text">
+        <h3>Combinados: el sistema de automatización más completo</h3>
+        <p>N8N detecta el evento, dispara el flujo y puede invocar un agente IA cuando la tarea requiere inteligencia. El agente devuelve el resultado y N8N lo distribuye. Sin intervención manual en toda la cadena.</p>
+      </div>
+      <a class="btn btn-primary" href="https://wa.me/5493885120704" target="_blank" rel="noopener" style="flex-shrink:0;">Consultá el híbrido →</a>
     </div>
   </div>
 </section>
@@ -783,6 +1234,40 @@
   </div>
 </section>
 
+<!-- ── COSTOS DE USO ── -->
+<section id="costos-uso">
+  <div class="container">
+    <div class="section-label">Transparencia de costos</div>
+    <h2 class="section-title">El costo del modelo de IA va aparte</h2>
+    <p class="section-text">
+      Nuestro servicio cubre la implementación, configuración y consultoría. El costo de uso del modelo de IA lo pagás directamente al proveedor que elijas — sin intermediarios ni markup.
+    </p>
+
+    <div class="costos-grid">
+      <div class="costo-card">
+        <div class="costo-provider">🟣 Claude (Anthropic)</div>
+        <p>El más potente para razonamiento complejo y código. Ideal para arquitectura, specs detalladas y revisiones profundas.</p>
+        <span class="costo-ref">Desde ~USD 3 / millón de tokens</span>
+      </div>
+      <div class="costo-card">
+        <div class="costo-provider">⚫ OpenAI (GPT-4o)</div>
+        <p>Ampliamente conocido, con buen ecosistema de herramientas y plugins. Buena opción si ya lo usás en tu organización.</p>
+        <span class="costo-ref">Desde ~USD 2,5 / millón de tokens</span>
+      </div>
+      <div class="costo-card">
+        <div class="costo-provider">🟠 OpenCode / local</div>
+        <p>Opción para equipos que prefieren modelos locales o con restricciones de privacidad de datos. Sin costo de API.</p>
+        <span class="costo-ref">Costo de infraestructura propio</span>
+      </div>
+    </div>
+
+    <div class="costos-disclaimer">
+      <div class="costos-disclaimer-icon">💬</div>
+      <p>En un equipo de 5 desarrolladores usando agentes activamente, el costo mensual de API ronda los <strong>USD 30–80</strong> dependiendo del volumen de uso y el modelo elegido. Te ayudamos a estimar el costo real para tu caso antes de arrancar.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ── INTEGRACIONES ── -->
 <section id="integraciones">
   <div class="container">
@@ -849,6 +1334,105 @@
           <span>Frontend moderno y escalable</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PLANES ── -->
+<section id="planes">
+  <div class="container">
+    <div class="section-label">Inversión</div>
+    <h2 class="section-title">Planes de implementación</h2>
+    <p class="section-text">
+      Precio fijo por implementación. Sin sorpresas. El costo de uso del modelo de IA va aparte y lo pagás directamente al proveedor.
+    </p>
+
+    <div class="planes-grid">
+
+      <div class="plan-card">
+        <div class="plan-header">
+          <div class="plan-name">Plan</div>
+          <div class="plan-title">Arranque</div>
+          <div class="plan-price">
+            <span class="price-amount">USD 2.500</span>
+          </div>
+          <div class="price-period">implementación única</div>
+          <p class="plan-desc">Para equipos que quieren empezar con el núcleo de desarrollo sin comprometer todo el ciclo de una vez.</p>
+        </div>
+        <div class="plan-body">
+          <ul class="plan-features">
+            <li><span class="feat-check yes">✓</span> 3 áreas: Dev, Testing y DevOps</li>
+            <li><span class="feat-check yes">✓</span> Guilds del stack del cliente (hasta 2 tecnologías)</li>
+            <li><span class="feat-check yes">✓</span> 1 integración (GitHub o Azure DevOps)</li>
+            <li><span class="feat-check yes">✓</span> 1 sesión de capacitación al equipo</li>
+            <li><span class="feat-check yes">✓</span> Documentación de uso</li>
+          </ul>
+          <div class="plan-retainer">
+            <strong>+ Retainer mensual opcional</strong>
+            Soporte, evolución y nuevos agentes: USD 400/mes
+          </div>
+        </div>
+      </div>
+
+      <div class="plan-card featured">
+        <div class="plan-badge">Recomendado</div>
+        <div class="plan-header">
+          <div class="plan-name">Plan</div>
+          <div class="plan-title">Equipo Completo</div>
+          <div class="plan-price">
+            <span class="price-amount">USD 4.500</span>
+          </div>
+          <div class="price-period">implementación única</div>
+          <p class="plan-desc">El ciclo completo de desarrollo cubierto. Para equipos que quieren máximo impacto desde el primer mes.</p>
+        </div>
+        <div class="plan-body">
+          <ul class="plan-features">
+            <li><span class="feat-check featured-yes">✓</span> 7 áreas completas del ciclo</li>
+            <li><span class="feat-check featured-yes">✓</span> Guilds del stack completo del cliente</li>
+            <li><span class="feat-check featured-yes">✓</span> Hasta 4 integraciones</li>
+            <li><span class="feat-check featured-yes">✓</span> 2 sesiones de capacitación al equipo</li>
+            <li><span class="feat-check featured-yes">✓</span> Documentación completa</li>
+            <li><span class="feat-check featured-yes">✓</span> Configuración de flujo SDD + C4</li>
+            <li><span class="feat-check featured-yes">✓</span> Opción híbrido con N8N incluida</li>
+          </ul>
+          <div class="plan-retainer" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.75);">
+            <strong style="color:#fff;">+ Retainer mensual opcional</strong>
+            Soporte, evolución y nuevos agentes: USD 500/mes
+          </div>
+        </div>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-header">
+          <div class="plan-name">Plan</div>
+          <div class="plan-title">Empresa</div>
+          <div class="plan-price">
+            <span class="price-amount">Consultar</span>
+          </div>
+          <div class="price-period">según alcance</div>
+          <p class="plan-desc">Para organizaciones con múltiples equipos, integraciones complejas o requerimientos de privacidad y datos sensibles.</p>
+        </div>
+        <div class="plan-body">
+          <ul class="plan-features">
+            <li><span class="feat-check yes">✓</span> Multi-equipo con configuración independiente</li>
+            <li><span class="feat-check yes">✓</span> Integraciones custom según el ecosistema</li>
+            <li><span class="feat-check yes">✓</span> Soporte continuo con SLA definido</li>
+            <li><span class="feat-check yes">✓</span> Opción modelos locales (sin API externa)</li>
+            <li><span class="feat-check yes">✓</span> Capacitación a líderes técnicos</li>
+            <li><span class="feat-check yes">✓</span> Evolución y nuevos agentes mensual</li>
+          </ul>
+          <div class="plan-retainer">
+            <strong>Diagnóstico inicial sin costo</strong>
+            Analizamos tu caso antes de proponer precio y alcance.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="retainer-note">
+      <span style="font-size:1.4rem;">💡</span>
+      <p><strong>¿Qué incluye el retainer mensual?</strong> Soporte ante dudas del equipo, incorporación de nuevos agentes o guilds, ajustes a las integraciones existentes y evolución del sistema a medida que crece el equipo. No es soporte técnico de la API del proveedor — eso va con ellos directamente.</p>
     </div>
   </div>
 </section>
