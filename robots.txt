@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ggsoluciones.com.ar/sitemap.xml
