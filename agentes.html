@@ -19,10 +19,10 @@
       --primary: #1a4fa0;
       --primary-light: #2563c9;
       --primary-glow: rgba(26,79,160,0.1);
-      --accent: #00a87a;
-      --accent-dim: rgba(0,168,122,0.1);
-      --accent2: #e8a020;
-      --accent2-dim: rgba(232,160,32,0.1);
+      --accent: #2f80ed;
+      --accent-dim: rgba(47,128,237,0.12);
+      --accent2: #60a5fa;
+      --accent2-dim: rgba(96,165,250,0.12);
       --border: rgba(26,79,160,0.12);
       --border2: rgba(15,28,46,0.07);
       --shadow: 0 8px 40px rgba(15,28,46,0.10);
@@ -41,10 +41,10 @@
       --primary: #3b82f6;
       --primary-light: #60a5fa;
       --primary-glow: rgba(59,130,246,0.18);
-      --accent: #00d4aa;
-      --accent-dim: rgba(0,212,170,0.12);
-      --accent2: #fbbf24;
-      --accent2-dim: rgba(251,191,36,0.1);
+      --accent: #93c5fd;
+      --accent-dim: rgba(147,197,253,0.14);
+      --accent2: #bfdbfe;
+      --accent2-dim: rgba(191,219,254,0.12);
       --border: rgba(59,130,246,0.15);
       --border2: rgba(255,255,255,0.06);
       --shadow: 0 20px 60px rgba(0,0,0,0.5);
@@ -129,7 +129,7 @@
     .btn-primary:hover { background: var(--primary-light); transform: translateY(-1px); }
 
     .btn-accent { background: var(--accent); color: #060d1a; font-weight: 700; box-shadow: 0 4px 18px var(--accent-dim); }
-    .btn-accent:hover { background: #008f68; color: #060d1a; transform: translateY(-1px); }
+    .btn-accent:hover { background: #1d4ed8; color: #fff; transform: translateY(-1px); }
 
     .btn-white { background: #fff; color: var(--primary); font-weight: 700; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
     .btn-white:hover { background: #f0f4ff; transform: translateY(-1px); }
@@ -163,7 +163,7 @@
       top: -120px; right: -120px;
       width: 500px; height: 500px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,168,122,0.18) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(47,128,237,0.18) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -360,8 +360,8 @@
     }
 
     .modo-badge.orchestrator { background: var(--primary-glow); color: var(--primary-light); border: 1px solid var(--border); }
-    .modo-badge.plan { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(0,168,122,0.2); }
-    .modo-badge.skills { background: var(--accent2-dim); color: var(--accent2); border: 1px solid rgba(232,160,32,0.2); }
+    .modo-badge.plan { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(47,128,237,0.2); }
+    .modo-badge.skills { background: var(--accent2-dim); color: var(--accent2); border: 1px solid rgba(96,165,250,0.2); }
 
     .modo-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
     .modo-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
@@ -433,7 +433,7 @@
       content: '';
       position: absolute; top: -80px; right: -80px;
       width: 400px; height: 400px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,168,122,0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(47,128,237,0.15) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -547,7 +547,7 @@
       margin-top: 16px;
       padding: 12px 16px;
       background: var(--accent-dim);
-      border: 1px solid rgba(0,168,122,0.2);
+      border: 1px solid rgba(47,128,237,0.2);
       border-radius: 10px;
       font-size: 0.8rem;
       color: var(--accent);
@@ -583,7 +583,7 @@
     }
 
     .hibrido-badge.ia { background: var(--primary-glow); color: var(--primary-light); border: 1px solid var(--border); }
-    .hibrido-badge.n8n { background: var(--accent2-dim); color: var(--accent2); border: 1px solid rgba(232,160,32,0.2); }
+    .hibrido-badge.n8n { background: var(--accent2-dim); color: var(--accent2); border: 1px solid rgba(96,165,250,0.2); }
 
     .hibrido-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
     .hibrido-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
@@ -983,7 +983,7 @@
         <h3>Cómo fluye un pedido</h3>
         <div class="orquesta-flow">
           <div class="orq-row">
-            <div class="orq-box" style="background:var(--accent-dim);color:var(--accent);border-color:rgba(0,168,122,0.2);">👤 Tu equipo</div>
+            <div class="orq-box" style="background:var(--accent-dim);color:var(--accent);border-color:rgba(47,128,237,0.2);">👤 Tu equipo</div>
             <span class="orq-arrow">→</span>
             <div class="orq-box center" style="flex:1;">🤖 Orquestador</div>
           </div>
@@ -998,7 +998,7 @@
           </div>
           <div style="text-align:center;color:var(--muted);font-size:0.8rem;padding:4px 0;">resultados consolidados</div>
           <div class="orq-row" style="justify-content:center;">
-            <div class="orq-box" style="background:var(--accent-dim);color:var(--accent);border-color:rgba(0,168,122,0.2);">✅ Entregable listo para revisar</div>
+            <div class="orq-box" style="background:var(--accent-dim);color:var(--accent);border-color:rgba(47,128,237,0.2);">✅ Entregable listo para revisar</div>
           </div>
         </div>
         <div class="llm-note">

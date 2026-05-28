@@ -20,10 +20,10 @@
       --primary: #1a4fa0;
       --primary-light: #2563c9;
       --primary-glow: rgba(26,79,160,0.1);
-      --accent: #00a87a;
-      --accent-dim: rgba(0,168,122,0.1);
-      --accent2: #e8a020;
-      --accent2-dim: rgba(232,160,32,0.1);
+      --accent: #2f80ed;
+      --accent-dim: rgba(47,128,237,0.12);
+      --accent2: #60a5fa;
+      --accent2-dim: rgba(96,165,250,0.12);
       --border: rgba(26,79,160,0.12);
       --border2: rgba(15,28,46,0.07);
       --shadow: 0 8px 40px rgba(15,28,46,0.10);
@@ -31,7 +31,7 @@
       --radius: 20px;
       --max: 1160px;
       --orb-1: rgba(26,79,160,0.08);
-      --orb-2: rgba(0,168,122,0.06);
+      --orb-2: rgba(47,128,237,0.07);
       --noise-opacity: 0.02;
     }
 
@@ -45,16 +45,16 @@
       --primary: #3b82f6;
       --primary-light: #60a5fa;
       --primary-glow: rgba(59,130,246,0.18);
-      --accent: #00d4aa;
-      --accent-dim: rgba(0,212,170,0.12);
-      --accent2: #fbbf24;
-      --accent2-dim: rgba(251,191,36,0.1);
+      --accent: #93c5fd;
+      --accent-dim: rgba(147,197,253,0.14);
+      --accent2: #bfdbfe;
+      --accent2-dim: rgba(191,219,254,0.12);
       --border: rgba(59,130,246,0.15);
       --border2: rgba(255,255,255,0.06);
       --shadow: 0 20px 60px rgba(0,0,0,0.5);
       --shadow-lg: 0 30px 80px rgba(0,0,0,0.6);
       --orb-1: rgba(59,130,246,0.12);
-      --orb-2: rgba(0,212,170,0.07);
+      --orb-2: rgba(147,197,253,0.08);
       --noise-opacity: 0.025;
     }
 
@@ -211,7 +211,7 @@
       box-shadow: 0 4px 18px var(--accent-dim);
     }
     .btn-accent:hover {
-      background: #008f68;
+      background: #1d4ed8;
       color: #000;
       box-shadow: 0 6px 24px var(--accent-dim);
       transform: translateY(-1px);
@@ -259,7 +259,7 @@
       align-items: center;
       gap: 8px;
       background: var(--accent-dim);
-      border: 1px solid rgba(0,212,170,0.25);
+      border: 1px solid rgba(47,128,237,0.25);
       border-radius: 999px;
       padding: 7px 16px;
       font-size: 0.82rem;
@@ -1002,7 +1002,9 @@
           "itemListElement": [
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desarrollo de sistemas a medida" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Arquitectura de sistemas" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consultoría y acompañamiento tecnológico" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consultoría e Implementación de Agentes IA" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Capacitación en adopción de Inteligencia Artificial" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Intelligence con Power BI" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consultoría para modernización del Estado" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Management y capacitación IT" } }
@@ -1047,6 +1049,7 @@
     <nav class="nav">
       <a href="#inicio">Inicio</a>
       <a href="#servicios">Servicios</a>
+      <a href="capacitacion.html">Capacitación IA</a>
       <a href="#proyectos">Proyectos</a>
       <a href="#proceso">Proceso</a>
       <a href="#contacto">Contacto</a>
@@ -1175,84 +1178,128 @@
       Cada servicio es parte de una visión más amplia. Un sistema tecnológico es solo una pieza: también importan las personas, los procesos, los costos y la estrategia. Trabajamos pensando en el ecosistema completo.
     </p>
 
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:28px 0 34px;">
+      <div style="background:var(--card);border:1px solid var(--border2);border-radius:18px;padding:18px;box-shadow:var(--shadow);">
+        <strong style="display:block;margin-bottom:6px;color:var(--text);">Consultoría y acompañamiento</strong>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.5;">Diagnóstico, roadmap, arquitectura, gobierno y decisiones técnicas. Acompañamos, validamos y ordenamos la transformación.</p>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border2);border-radius:18px;padding:18px;box-shadow:var(--shadow);">
+        <strong style="display:block;margin-bottom:6px;color:var(--text);">Desarrollo a medida</strong>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.5;">Construcción de sistemas, portales, APIs, integraciones y automatizaciones específicas para la operación.</p>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border2);border-radius:18px;padding:18px;box-shadow:var(--shadow);">
+        <strong style="display:block;margin-bottom:6px;color:var(--text);">Agentes IA</strong>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.5;">Implementación de agentes especializados para equipos y procesos concretos. No es capacitación general.</p>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border2);border-radius:18px;padding:18px;box-shadow:var(--shadow);">
+        <strong style="display:block;margin-bottom:6px;color:var(--text);">Capacitación IA</strong>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.5;">Formación de equipos para adoptar IA con criterio, seguridad, productividad y evaluación.</p>
+      </div>
+    </div>
+
     <div class="services-grid">
       <article class="service-card">
         <div class="service-icon" style="background: rgba(59,130,246,0.12);">💻</div>
         <h3>Desarrollo de sistemas a medida</h3>
-        <p>Sistemas diseñados desde cero considerando el ecosistema donde van a operar: procesos existentes, usuarios, integraciones y costos de operación a largo plazo.</p>
+        <p>Construimos soluciones concretas cuando la organización necesita ejecutar: sistemas internos, portales, APIs, integraciones y automatizaciones a medida.</p>
         <div class="service-tags">
           <span class="tag">C# / .NET</span>
           <span class="tag">React</span>
           <span class="tag">SQL Server</span>
           <span class="tag">Azure</span>
         </div>
-        <p class="service-result">Resultado: sistemas estables y escalables en producción</p>
+        <p class="service-result">Alcance: ejecución técnica y puesta en producción</p>
       </article>
 
       <article class="service-card">
-        <div class="service-icon" style="background: rgba(0,212,170,0.1);">🏗️</div>
+        <div class="service-icon" style="background: rgba(47,128,237,0.1);">🏗️</div>
         <h3>Arquitectura de sistemas</h3>
-        <p>Arquitecturas que contemplen el sistema como un todo: escalabilidad, interoperabilidad, costos de infraestructura y capacidad real del equipo que lo va a mantener.</p>
+        <p>Diseñamos o revisamos arquitectura para iniciativas existentes o futuras: escalabilidad, interoperabilidad, costos y capacidad real del equipo.</p>
         <div class="service-tags">
           <span class="tag">Arquitectura escalable</span>
           <span class="tag">APIs REST</span>
           <span class="tag">Interoperabilidad</span>
         </div>
-        <p class="service-result">Resultado: infraestructura preparada para crecer sin rework</p>
+        <p class="service-result">Alcance: diseño, revisión y acompañamiento técnico</p>
       </article>
 
       <article class="service-card">
         <div class="service-icon" style="background: rgba(168,85,247,0.1);">🤖</div>
         <h3>Herramientas e integración de IA</h3>
-        <p>Implementamos IA evaluando el impacto real sobre los equipos, los procesos y los costos. No tecnología por moda, sino herramientas que resuelven problemas concretos.</p>
+        <p>Evaluamos, diseñamos e integramos IA según el impacto real en equipos, procesos y costos. Cuando hay implementación de agentes, se trabaja como servicio específico.</p>
         <div class="service-tags">
           <span class="tag">Automatización</span>
           <span class="tag">Agentes IA</span>
           <span class="tag">Integración</span>
         </div>
-        <p class="service-result">Resultado: reducción de tareas manuales y mayor productividad</p>
+        <p class="service-result">Alcance: automatización, integración y oportunidades con IA</p>
       </article>
 
       <article class="service-card">
         <div class="service-icon" style="background: rgba(245,158,11,0.1);">📊</div>
         <h3>Business Intelligence – Power BI</h3>
-        <p>Convertimos datos en información útil para decidir. Diseñamos indicadores que reflejan el negocio real.</p>
+        <p>Convertimos datos en tableros e indicadores para decidir mejor. No reemplaza sistemas operativos: ordena información, KPIs y reporting.</p>
         <div class="service-tags">
           <span class="tag">Power BI</span>
           <span class="tag">KPIs</span>
           <span class="tag">Dashboards</span>
         </div>
-        <p class="service-result">Resultado: decisiones basadas en datos reales</p>
+        <p class="service-result">Alcance: dashboards, modelo de datos, KPIs y reportes</p>
       </article>
 
       <article class="service-card">
         <div class="service-icon" style="background: rgba(239,68,68,0.1);">🏛️</div>
         <h3>Consultoría para modernización del Estado</h3>
-        <p>La transformación digital en el Estado requiere pensar en normativa, RRHH, presupuesto y cultura organizacional.</p>
+        <p>Acompañamos modernización estatal desde procesos, normativa, RRHH, presupuesto y cultura organizacional. No es solo software: es orden institucional.</p>
         <div class="service-tags">
           <span class="tag">Transformación digital</span>
           <span class="tag">Procesos</span>
           <span class="tag">Estado</span>
         </div>
-        <p class="service-result">Resultado: IT alineado a objetivos institucionales</p>
+        <p class="service-result">Alcance: diagnóstico, roadmap, procesos y acompañamiento</p>
       </article>
 
       <article class="service-card">
         <div class="service-icon" style="background: rgba(16,185,129,0.1);">👥</div>
         <h3>Management y capacitación IT</h3>
-        <p>Las soluciones las sostienen las personas. Capacitamos equipos y transferimos conocimiento.</p>
+        <p>Formamos equipos para sostener procesos, metodología y adopción tecnológica. Para programas específicos de IA, ver Capacitación IA.</p>
         <div class="service-tags">
           <span class="tag">Gestión de equipos</span>
           <span class="tag">Capacitación</span>
           <span class="tag">Metodología</span>
         </div>
-        <p class="service-result">Resultado: autonomía progresiva del equipo</p>
+        <p class="service-result">Alcance: formación, transferencia y autonomía operativa</p>
       </article>
 
       <article class="service-card" style="grid-column: 1 / -1; background: linear-gradient(135deg, var(--card) 0%, var(--card2) 100%); border-color: var(--primary);">
         <div style="display:flex; align-items:stretch; gap:24px; flex-wrap:wrap;">
           <div style="flex:1; min-width:260px; overflow:hidden;">
-            <div style="display:inline-flex;align-items:center;gap:8px;background:var(--accent-dim);border:1px solid rgba(0,212,170,0.25);border-radius:999px;padding:5px 14px;font-size:0.75rem;font-weight:700;color:var(--accent);margin-bottom:14px;letter-spacing:0.06em;text-transform:uppercase;">
+            <div style="display:inline-flex;align-items:center;gap:8px;background:var(--primary-glow);border:1px solid var(--border);border-radius:999px;padding:5px 14px;font-size:0.75rem;font-weight:700;color:var(--primary-light);margin-bottom:14px;letter-spacing:0.06em;text-transform:uppercase;">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--primary-light);box-shadow:0 0 6px var(--primary-light);flex-shrink:0;"></span>
+              Consultoría y acompañamiento
+            </div>
+            <h3 style="font-size:1.3rem;margin-bottom:10px;line-height:1.3;">Consultoría y Transformación Tecnológica</h3>
+            <p style="color:var(--muted);font-size:0.9rem;margin-bottom:16px;max-width:720px;overflow-wrap:break-word;word-wrap:break-word;">Para organizaciones que necesitan ordenar decisiones, definir roadmap, revisar arquitectura, priorizar iniciativas y acompañar la modernización sin confundir consultoría con desarrollo llave en mano.</p>
+            <div class="service-tags">
+              <span class="tag">Diagnóstico</span>
+              <span class="tag">Roadmap</span>
+              <span class="tag">Arquitectura</span>
+              <span class="tag">Gobierno tecnológico</span>
+              <span class="tag">Acompañamiento</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;flex-shrink:0;align-items:center;justify-content:center;">
+            <a href="transformacion-tecnologica.html" style="border-radius:12px;padding:13px 24px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.9rem;background:var(--primary);color:#fff;box-shadow:0 4px 18px var(--primary-glow);display:inline-flex;align-items:center;gap:8px;text-decoration:none;white-space:nowrap;">
+              Ver alcance completo →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="service-card" style="grid-column: 1 / -1; background: linear-gradient(135deg, var(--card) 0%, var(--card2) 100%); border-color: var(--primary);">
+        <div style="display:flex; align-items:stretch; gap:24px; flex-wrap:wrap;">
+          <div style="flex:1; min-width:260px; overflow:hidden;">
+            <div style="display:inline-flex;align-items:center;gap:8px;background:var(--accent-dim);border:1px solid rgba(47,128,237,0.25);border-radius:999px;padding:5px 14px;font-size:0.75rem;font-weight:700;color:var(--accent);margin-bottom:14px;letter-spacing:0.06em;text-transform:uppercase;">
               <span style="width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 6px var(--accent);flex-shrink:0;"></span>
               Servicio destacado
             </div>
@@ -1296,6 +1343,31 @@
           <div style="display:flex;flex-direction:column;flex-shrink:0;align-items:center;justify-content:center;">
             <a href="agentes.html" style="border-radius:12px;padding:13px 24px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.9rem;background:var(--primary);color:#fff;box-shadow:0 4px 18px var(--primary-glow);display:inline-flex;align-items:center;gap:8px;text-decoration:none;white-space:nowrap;">
               Ver propuesta completa →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="service-card" style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(26,79,160,0.08) 0%, var(--card) 100%); border-color: var(--primary);">
+        <div style="display:flex; align-items:stretch; gap:24px; flex-wrap:wrap;">
+          <div style="flex:1; min-width:260px; overflow:hidden;">
+            <div style="display:inline-flex;align-items:center;gap:8px;background:var(--accent-dim);border:1px solid rgba(47,128,237,0.25);border-radius:999px;padding:5px 14px;font-size:0.75rem;font-weight:700;color:var(--accent);margin-bottom:14px;letter-spacing:0.06em;text-transform:uppercase;">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 6px var(--accent);flex-shrink:0;"></span>
+              Nueva capacitación
+            </div>
+            <h3 style="font-size:1.3rem;margin-bottom:10px;line-height:1.3;">Programa de Adopción de Inteligencia Artificial</h3>
+            <p style="color:var(--muted);font-size:0.9rem;margin-bottom:16px;max-width:720px;overflow-wrap:break-word;word-wrap:break-word;">Capacitación práctica para empresas y organismos públicos que necesitan mejorar productividad, modernizar procesos y formar equipos internos en el uso seguro, ordenado y medible de IA.</p>
+            <div class="service-tags">
+              <span class="tag">3 programas</span>
+              <span class="tag">8 clases por programa</span>
+              <span class="tag">Hasta 15 personas</span>
+              <span class="tag">Evaluación y certificación</span>
+              <span class="tag">Empresas y Gobierno</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;flex-shrink:0;align-items:center;justify-content:center;">
+            <a href="capacitacion.html" style="border-radius:12px;padding:13px 24px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.9rem;background:var(--accent);color:var(--bg);box-shadow:0 4px 18px var(--accent-dim);display:inline-flex;align-items:center;gap:8px;text-decoration:none;white-space:nowrap;">
+              Ver programa completo →
             </a>
           </div>
         </div>
@@ -1394,7 +1466,7 @@
       </div>
 
       <div class="project-card">
-        <div class="project-icon-wrap" style="background: rgba(0,212,170,0.1);">📈</div>
+        <div class="project-icon-wrap" style="background: rgba(47,128,237,0.1);">📈</div>
         <div>
           <h3>Dashboards Power BI</h3>
           <p>Diseño y desarrollo de tableros de Business Intelligence para organismos y empresas. Indicadores de gestión, KPIs y seguimiento de performance operativa.</p>
@@ -1498,13 +1570,13 @@
     </div>
 
     <div class="contact-side">
-      <div class="info-card" style="background: linear-gradient(135deg, rgba(0,212,170,0.15) 0%, rgba(0,168,122,0.1) 100%); border-color: var(--accent);">
+      <div class="info-card" style="background: linear-gradient(135deg, rgba(47,128,237,0.15) 0%, rgba(26,79,160,0.08) 100%); border-color: var(--accent);">
         <h3 style="color: var(--accent);">🎯 Primera reunión sin costo</h3>
         <p style="font-size:0.9rem; color:var(--text); margin-top:8px;">Análisis inicial incluido · Sin compromiso</p>
         <p style="font-size:0.85rem; color:var(--muted); margin-top:12px;">Te escuchamos antes de proponer nada. La primera reunión está dedicada a entender juntos tu situación real y cómo podemos ayudarte.</p>
       </div>
 
-      <div class="info-card" style="background: var(--accent-dim); border-color: rgba(0,212,170,0.2);">
+      <div class="info-card" style="background: var(--accent-dim); border-color: rgba(47,128,237,0.2);">
         <h3 style="color: var(--accent);">Modelo de trabajo</h3>
         <ul class="info-list">
           <li><span>🤝</span><span>Trabajo por proyecto, consultoría o capacitación</span></li>
