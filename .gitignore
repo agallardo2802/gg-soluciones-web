@@ -1,0 +1,7 @@
+# Local tooling / editor config
+.atl/
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
