@@ -5,83 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Consultoría IT para Organismos Provinciales en Jujuy | GG Soluciones</title>
   <meta name="description" content="Servicio mensual de consultoría IT y modernización para organismos provinciales de Jujuy. Planes escalables, soporte continuo y transferencia de conocimiento. GG Soluciones." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    :root {
-      /* Modo Claro (default) */
-      --bg: #f5f7fa;
-      --bg2: #edf0f5;
-      --card: #ffffff;
-      --card2: #f0f4f9;
-      --text: #0f1c2e;
-      --muted: #5a6e85;
-      --primary: #1a4fa0;
-      --primary-light: #2563c9;
-      --primary-glow: rgba(26,79,160,0.1);
-      --accent: #2f80ed;
-      --accent-dim: rgba(47,128,237,0.12);
-      --accent2: #60a5fa;
-      --accent2-dim: rgba(96,165,250,0.12);
-      --border: rgba(26,79,160,0.12);
-      --border2: rgba(15,28,46,0.07);
-      --shadow: 0 8px 40px rgba(15,28,46,0.10);
-      --shadow-lg: 0 20px 60px rgba(15,28,46,0.14);
-      --radius: 20px;
-      --max: 1100px;
-    }
-
-    [data-theme="dark"] {
-      --bg: #060d1a;
-      --bg2: #0b1526;
-      --card: #0f1e35;
-      --card2: #132239;
-      --text: #e8eef7;
-      --muted: #7a93b0;
-      --primary: #3b82f6;
-      --primary-light: #60a5fa;
-      --primary-glow: rgba(59,130,246,0.18);
-      --accent: #93c5fd;
-      --accent-dim: rgba(147,197,253,0.14);
-      --accent2: #bfdbfe;
-      --accent2-dim: rgba(191,219,254,0.12);
-      --border: rgba(59,130,246,0.15);
-      --border2: rgba(255,255,255,0.06);
-      --shadow: 0 20px 60px rgba(0,0,0,0.5);
-      --shadow-lg: 0 30px 80px rgba(0,0,0,0.6);
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: Inter, Segoe UI, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      overflow-x: hidden;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    h1,h2,h3,h4 { font-family: Inter, Segoe UI, Arial, sans-serif; }
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: min(100% - 40px, var(--max));
-      margin: 0 auto;
-    }
-
-    /* ── HEADER ── */
-    .header {
-      background: var(--card);
-      border-bottom: 1px solid var(--border2);
-      padding: 16px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 16px rgba(15,28,46,0.06);
-    }
+    /* page-specific styles only */
 
     /* ── ABOUT MINI ── */
     .about-mini {
@@ -149,116 +75,12 @@
       color: var(--muted);
     }
 
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .brand-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .brand-text span {
-      font-size: 0.78rem;
-      color: var(--muted);
-      font-family: Inter, Segoe UI, Arial, sans-serif;
-    }
-
-    .brand a { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
-    .brand a:hover { opacity: 0.8; }
-    .brand img { height: 40px; width: auto; }
-
-    .header-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--primary-glow);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 7px 16px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border-radius: 12px;
-      padding: 11px 22px;
-      font-family: Inter, Segoe UI, Arial, sans-serif;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: all 0.22s;
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-      box-shadow: 0 4px 18px rgba(26,79,160,0.28);
-    }
-    .btn-primary:hover {
-      background: var(--primary-light);
-      box-shadow: 0 6px 28px rgba(26,79,160,0.38);
-      transform: translateY(-1px);
-    }
-
-    .btn-accent {
-      background: var(--accent);
-      color: #060d1a;
-      font-weight: 700;
-      box-shadow: 0 4px 18px var(--accent-dim);
-    }
-    .btn-accent:hover {
-      background: #1d4ed8;
-      color: #060d1a;
-      transform: translateY(-1px);
-    }
-
     .btn-outline {
       background: transparent;
       color: var(--primary);
       border: 1.5px solid var(--primary);
     }
     .btn-outline:hover { background: var(--primary-glow); }
-
-    /* Theme Toggle */
-    .theme-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: var(--border2);
-      border: 1px solid var(--border2);
-      cursor: pointer;
-      color: var(--muted);
-      transition: all 0.2s;
-    }
-    .theme-toggle:hover {
-      background: var(--card2);
-      color: var(--text);
-    }
-    .theme-toggle .icon-moon { display: none; }
-    [data-theme="dark"] .theme-toggle .icon-sun { display: none; }
-    [data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 
     /* ── HERO ── */
     .hero {
@@ -423,33 +245,6 @@
     /* ── SECTION BASE ── */
     section { padding: 72px 0; }
 
-    .section-label {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
-
-    .section-title {
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 14px;
-    }
-
-    .section-text {
-      color: var(--muted);
-      font-size: 1rem;
-      max-width: 800px;
-      font-weight: 300;
-      margin-bottom: 48px;
-      line-height: 1.7;
-    }
-
     /* ── PROPUESTA DE VALOR ── */
     .value-grid {
       display: grid;
@@ -509,8 +304,6 @@
 
     .value-card > div {
       display: contents;
-    }
-      word-wrap: break-word;
     }
 
     .value-full {
@@ -1052,30 +845,7 @@
       flex-shrink: 0;
     }
 
-    /* ── FOOTER ── */
-    .footer {
-      background: var(--card);
-      border-top: 1px solid var(--border2);
-      padding: 22px 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
     .footer-inner img { height: 28px; width: auto; }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
@@ -1135,14 +905,14 @@
         "@type": "Offer",
         "name": "Plan Base Operativa",
         "priceCurrency": "ARS",
-        "price": "900000",
+        "price": "1500000",
         "priceSpecification": { "@type": "UnitPriceSpecification", "unitCode": "MON" }
       },
       {
         "@type": "Offer",
         "name": "Plan Gestión y Evolución",
         "priceCurrency": "ARS",
-        "price": "1800000",
+        "price": "3000000",
         "priceSpecification": { "@type": "UnitPriceSpecification", "unitCode": "MON" }
       }
     ]
@@ -1154,15 +924,21 @@
 <!-- ── HEADER ── -->
 <header class="header">
   <div class="container header-inner">
-    <div class="brand">
-      <div class="brand-logo" style="background:none;padding:0;width:auto;">
-        <a href="index.html"><img src="logo.png" alt="GG Soluciones" style="height:40px;width:auto;"></a>
+    <a class="brand" href="index.html">
+      <div class="brand-logo">
+        <img src="logo.png" alt="GG Soluciones" style="height:40px;width:auto;" />
       </div>
       <div class="brand-text">
-        <span style="font-size:0.78rem;color:var(--muted);">Consultoría IT y Modernización de Procesos</span>
+        <span>Desarrollo & Consultoría IT</span>
       </div>
-    </div>
-    <div style="display:flex;align-items:center;gap:12px;">
+    </a>
+    <nav class="nav">
+      <a href="index.html">Inicio</a>
+      <a href="agentes.html">Agentes IA</a>
+      <a href="consultoria.html" class="active">Consultoría</a>
+      <a href="capacitacion.html">Capacitación</a>
+      <a href="transformacion-tecnologica.html">Transformación</a>
+      <a href="#contacto">Contacto</a>
       <button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar tema">
         <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -1171,9 +947,24 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.098.546 4.07 1.504 5.786L.057 23.998l6.344-1.667A11.938 11.938 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.804 9.804 0 01-5.003-1.371l-.36-.213-3.761.989 1.004-3.666-.235-.376A9.797 9.797 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
         WhatsApp
       </a>
-    </div>
+    </nav>
+    <!-- Hamburger for mobile -->
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<!-- Mobile nav overlay -->
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Inicio</a>
+  <a href="agentes.html">Agentes IA</a>
+  <a href="consultoria.html" class="active">Consultoría</a>
+  <a href="capacitacion.html">Capacitación</a>
+  <a href="transformacion-tecnologica.html">Transformación</a>
+  <a href="#contacto">Contacto</a>
+  <a class="btn btn-accent" href="https://wa.me/5493885120704" target="_blank" rel="noopener">WhatsApp</a>
+</div>
 
 <!-- ── QUIÉNES SOMOS ── -->
 <section class="about-mini">
@@ -1420,7 +1211,7 @@
           <div class="plan-name">Plan</div>
           <div class="plan-title">Base Operativa</div>
           <div class="plan-price">
-            <span class="price-amount">$900.000</span>
+            <span class="price-amount">$1.500.000</span>
             <span class="price-period">/mes</span>
           </div>
           <p class="plan-desc">Para organizaciones que necesitan ordenar su operación IT y tomar control básico.</p>
@@ -1467,7 +1258,7 @@
           <div class="plan-name">Plan</div>
           <div class="plan-title">Gestión y Evolución</div>
           <div class="plan-price">
-            <span class="price-amount">$1.800.000</span>
+            <span class="price-amount">$3.000.000</span>
             <span class="price-period">/mes</span>
           </div>
           <p class="plan-desc">Para organizaciones que ya tienen operación activa y necesitan mejorar, escalar y ejecutar proyectos.</p>
@@ -1681,5 +1472,21 @@
   // Load saved theme
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navMobile = document.getElementById('navMobile');
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('open');
+    navMobile.classList.toggle('open');
+    document.body.style.overflow = navMobile.classList.contains('open') ? 'hidden' : '';
+  });
+  navMobile.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navToggle.classList.remove('open');
+      navMobile.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
 </script>
 </html>

@@ -5,96 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agentes IA para Equipos de Desarrollo en Jujuy | GG Soluciones</title>
   <meta name="description" content="Implementación de agentes IA especializados para equipos de desarrollo en Jujuy. 7 áreas cubiertas, metodología SDD+C4, integración con Azure DevOps, GitHub y N8N. GG Soluciones." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    :root {
-      --bg: #f5f7fa;
-      --bg2: #edf0f5;
-      --card: #ffffff;
-      --card2: #f0f4f9;
-      --text: #0f1c2e;
-      --muted: #5a6e85;
-      --primary: #1a4fa0;
-      --primary-light: #2563c9;
-      --primary-glow: rgba(26,79,160,0.1);
-      --accent: #2f80ed;
-      --accent-dim: rgba(47,128,237,0.12);
-      --accent2: #60a5fa;
-      --accent2-dim: rgba(96,165,250,0.12);
-      --border: rgba(26,79,160,0.12);
-      --border2: rgba(15,28,46,0.07);
-      --shadow: 0 8px 40px rgba(15,28,46,0.10);
-      --shadow-lg: 0 20px 60px rgba(15,28,46,0.14);
-      --radius: 20px;
-      --max: 1100px;
-    }
-
-    [data-theme="dark"] {
-      --bg: #060d1a;
-      --bg2: #0b1526;
-      --card: #0f1e35;
-      --card2: #132239;
-      --text: #e8eef7;
-      --muted: #7a93b0;
-      --primary: #3b82f6;
-      --primary-light: #60a5fa;
-      --primary-glow: rgba(59,130,246,0.18);
-      --accent: #93c5fd;
-      --accent-dim: rgba(147,197,253,0.14);
-      --accent2: #bfdbfe;
-      --accent2-dim: rgba(191,219,254,0.12);
-      --border: rgba(59,130,246,0.15);
-      --border2: rgba(255,255,255,0.06);
-      --shadow: 0 20px 60px rgba(0,0,0,0.5);
-      --shadow-lg: 0 30px 80px rgba(0,0,0,0.6);
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: Inter, Segoe UI, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      overflow-x: hidden;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    h1,h2,h3,h4 { font-family: Inter, Segoe UI, Arial, sans-serif; }
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: min(100% - 40px, var(--max));
-      margin: 0 auto;
-    }
-
-    /* ── HEADER ── */
-    .header {
-      background: var(--card);
-      border-bottom: 1px solid var(--border2);
-      padding: 16px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 16px rgba(15,28,46,0.06);
-      transition: background 0.3s;
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand { display: flex; align-items: center; gap: 14px; }
-    .brand a { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
-    .brand a:hover { opacity: 0.8; }
-    .brand img { height: 40px; width: auto; }
-    .brand-text span { font-size: 0.78rem; color: var(--muted); }
+    /* page-specific styles only */
 
     .header-tag {
       display: inline-flex;
@@ -109,44 +22,11 @@
       color: var(--primary);
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border-radius: 12px;
-      padding: 11px 22px;
-      font-family: Inter, Segoe UI, Arial, sans-serif;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: all 0.22s;
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 4px 18px rgba(26,79,160,0.28); }
-    .btn-primary:hover { background: var(--primary-light); transform: translateY(-1px); }
-
-    .btn-accent { background: var(--accent); color: #060d1a; font-weight: 700; box-shadow: 0 4px 18px var(--accent-dim); }
-    .btn-accent:hover { background: #1d4ed8; color: #fff; transform: translateY(-1px); }
-
     .btn-white { background: #fff; color: var(--primary); font-weight: 700; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
     .btn-white:hover { background: #f0f4ff; transform: translateY(-1px); }
 
     .btn-ghost-white { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.25); }
     .btn-ghost-white:hover { background: rgba(255,255,255,0.18); }
-
-    .theme-toggle {
-      display: flex; align-items: center; justify-content: center;
-      width: 40px; height: 40px; border-radius: 10px;
-      background: var(--border2); border: 1px solid var(--border2);
-      cursor: pointer; color: var(--muted); transition: all 0.2s;
-    }
-    .theme-toggle:hover { background: var(--card2); color: var(--text); }
-    .theme-toggle .icon-moon { display: none; }
-    [data-theme="dark"] .theme-toggle .icon-sun { display: none; }
-    [data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 
     /* ── HERO ── */
     .hero {
@@ -843,14 +723,14 @@
       {
         "@type": "Offer",
         "name": "Plan Arranque",
-        "priceCurrency": "USD",
-        "price": "2500"
+        "priceCurrency": "ARS",
+        "price": "3500000"
       },
       {
         "@type": "Offer",
         "name": "Plan Equipo Completo",
-        "priceCurrency": "USD",
-        "price": "4500"
+        "priceCurrency": "ARS",
+        "price": "6500000"
       }
     ]
   }
@@ -861,30 +741,47 @@
 <!-- ── HEADER ── -->
 <header class="header">
   <div class="container header-inner">
-    <div class="brand">
-      <a href="index.html">
-        <img src="logo.png" alt="GG Soluciones" />
-        <div class="brand-text">
-          <span>Desarrollo & Consultoría IT</span>
-        </div>
-      </a>
-    </div>
-    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-      <div class="header-tag">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        Nuevo servicio
+    <a class="brand" href="index.html">
+      <div class="brand-logo">
+        <img src="logo.png" alt="GG Soluciones" style="height:40px;width:auto;" />
       </div>
+      <div class="brand-text">
+        <span>Desarrollo & Consultoría IT</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Inicio</a>
+      <a href="agentes.html" class="active">Agentes IA</a>
+      <a href="consultoria.html">Consultoría</a>
+      <a href="capacitacion.html">Capacitación</a>
+      <a href="transformacion-tecnologica.html">Transformación</a>
+      <a href="#contacto">Contacto</a>
       <button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar tema">
         <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
       <a class="btn btn-accent" href="https://wa.me/5493885120704" target="_blank" rel="noopener">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.098.546 4.07 1.504 5.786L.057 23.998l6.344-1.667A11.938 11.938 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.804 9.804 0 01-5.003-1.371l-.36-.213-3.761.989 1.004-3.666-.235-.376A9.797 9.797 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
-        Consultá sin cargo
+        WhatsApp
       </a>
-    </div>
+    </nav>
+    <!-- Hamburger for mobile -->
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<!-- Mobile nav overlay -->
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Inicio</a>
+  <a href="agentes.html" class="active">Agentes IA</a>
+  <a href="consultoria.html">Consultoría</a>
+  <a href="capacitacion.html">Capacitación</a>
+  <a href="transformacion-tecnologica.html">Transformación</a>
+  <a href="#contacto">Contacto</a>
+  <a class="btn btn-accent" href="https://wa.me/5493885120704" target="_blank" rel="noopener">WhatsApp</a>
+</div>
 
 <!-- ── HERO ── -->
 <section class="hero">
@@ -1292,23 +1189,23 @@
       <div class="costo-card">
         <div class="costo-provider">🟣 Claude (Anthropic)</div>
         <p>El más potente para razonamiento complejo y código. Ideal para arquitectura, specs detalladas y revisiones profundas.</p>
-        <span class="costo-ref">Desde ~USD 3 / millón de tokens</span>
+        <span class="costo-ref">Pago por uso · directo a Anthropic</span>
       </div>
       <div class="costo-card">
         <div class="costo-provider">⚫ OpenAI (GPT-4o)</div>
         <p>Ampliamente conocido, con buen ecosistema de herramientas y plugins. Buena opción si ya lo usás en tu organización.</p>
-        <span class="costo-ref">Desde ~USD 2,5 / millón de tokens</span>
+        <span class="costo-ref">Pago por uso · directo a OpenAI</span>
       </div>
       <div class="costo-card">
         <div class="costo-provider">🟠 OpenCode / local</div>
-        <p>Opción para equipos que prefieren modelos locales o con restricciones de privacidad de datos. Sin costo de API.</p>
-        <span class="costo-ref">Costo de infraestructura propio</span>
+        <p>Opción para equipos que prefieren modelos locales o con restricciones de privacidad de datos.</p>
+        <span class="costo-ref">Sin costo de API · infraestructura propia</span>
       </div>
     </div>
 
     <div class="costos-disclaimer">
       <div class="costos-disclaimer-icon">💬</div>
-      <p>En un equipo de 5 desarrolladores usando agentes activamente, el costo mensual de API ronda los <strong>USD 30–80</strong> dependiendo del volumen de uso y el modelo elegido. Te ayudamos a estimar el costo real para tu caso antes de arrancar.</p>
+      <p>El costo de uso depende del volumen y del modelo que elijas, y lo pagás directamente al proveedor — nosotros no aplicamos ningún markup. Antes de arrancar te ayudamos a estimar el costo real para tu caso, sin sorpresas.</p>
     </div>
   </div>
 </section>
@@ -1399,7 +1296,7 @@
           <div class="plan-name">Plan</div>
           <div class="plan-title">Arranque</div>
           <div class="plan-price">
-            <span class="price-amount">USD 2.500</span>
+            <span class="price-amount">$3.500.000</span>
           </div>
           <div class="price-period">implementación única</div>
           <p class="plan-desc">Para equipos que quieren empezar con el núcleo de desarrollo sin comprometer todo el ciclo de una vez.</p>
@@ -1414,7 +1311,7 @@
           </ul>
           <div class="plan-retainer">
             <strong>+ Retainer mensual opcional</strong>
-            Soporte, evolución y nuevos agentes: USD 400/mes
+            Soporte, evolución y nuevos agentes: $560.000/mes
           </div>
         </div>
       </div>
@@ -1425,7 +1322,7 @@
           <div class="plan-name">Plan</div>
           <div class="plan-title">Equipo Completo</div>
           <div class="plan-price">
-            <span class="price-amount">USD 4.500</span>
+            <span class="price-amount">$6.500.000</span>
           </div>
           <div class="price-period">implementación única</div>
           <p class="plan-desc">El ciclo completo de desarrollo cubierto. Para equipos que quieren máximo impacto desde el primer mes.</p>
@@ -1442,7 +1339,7 @@
           </ul>
           <div class="plan-retainer" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.75);">
             <strong style="color:#fff;">+ Retainer mensual opcional</strong>
-            Soporte, evolución y nuevos agentes: USD 500/mes
+            Soporte, evolución y nuevos agentes: $700.000/mes
           </div>
         </div>
       </div>
@@ -1509,6 +1406,22 @@
     const saved = localStorage.getItem('theme');
     if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
   })();
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navMobile = document.getElementById('navMobile');
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('open');
+    navMobile.classList.toggle('open');
+    document.body.style.overflow = navMobile.classList.contains('open') ? 'hidden' : '';
+  });
+  navMobile.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navToggle.classList.remove('open');
+      navMobile.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
 </script>
 </body>
 </html>
