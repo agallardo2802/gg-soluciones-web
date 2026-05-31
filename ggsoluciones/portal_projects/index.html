@@ -359,7 +359,7 @@
 </div>
 
 <script>
-  // ── AUTH (SHA-256 — no plaintext credentials in source) ──
+  // ── AUTH (SHA-256 — one-way, no plaintext in source) ──
   const _hu = 'b556a5d59867610ad1db74991745d639ae1c6e9eb531cc41b3cc89689413edf0';
   const _hp = '02e8da346e9ef49a03d53a0ae6bfe4de009a6aeba5e900250a4c4daf9d1763f1';
   const SESSION_KEY = 'ggs_portal_ok';
@@ -370,7 +370,7 @@
 
   async function sha256(str) {
     const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
   }
 
   function showPortal() {
@@ -387,18 +387,27 @@
     document.getElementById('loginError').textContent = '';
   }
 
+  function setError(msg) {
+    document.getElementById('loginError').textContent = msg;
+    document.getElementById('inputPass').value = '';
+    document.getElementById('inputPass').focus();
+  }
+
   async function tryLogin() {
     const u = document.getElementById('inputUser').value.trim();
     const p = document.getElementById('inputPass').value;
-    const [hu, hp] = await Promise.all([sha256(u), sha256(p)]);
-    if (hu === _hu && hp === _hp) {
-      sessionStorage.setItem(SESSION_KEY, '1');
-      document.getElementById('loginError').textContent = '';
-      showPortal();
-    } else {
-      document.getElementById('loginError').textContent = 'Usuario o contraseña incorrectos.';
-      document.getElementById('inputPass').value = '';
-      document.getElementById('inputPass').focus();
+    if (!u || !p) { setError('Completá usuario y contraseña.'); return; }
+    try {
+      const [hu, hp] = await Promise.all([sha256(u), sha256(p)]);
+      if (hu === _hu && hp === _hp) {
+        sessionStorage.setItem(SESSION_KEY, '1');
+        document.getElementById('loginError').textContent = '';
+        showPortal();
+      } else {
+        setError('Usuario o contraseña incorrectos.');
+      }
+    } catch (e) {
+      setError('Error al verificar credenciales. Intentá de nuevo.');
     }
   }
 
@@ -407,7 +416,7 @@
     showPortal();
   }
 
-  document.getElementById('loginBtn').addEventListener('click', () => tryLogin());
+  document.getElementById('loginBtn').addEventListener('click', tryLogin);
   document.getElementById('logoutBtn').addEventListener('click', showLogin);
 
   ['inputUser', 'inputPass'].forEach(id => {
