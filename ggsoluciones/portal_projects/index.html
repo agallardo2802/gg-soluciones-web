@@ -360,16 +360,20 @@
 </div>
 
 <script>
-  // ── CREDENTIALS (client-side only) ──
-  const _u = atob('YWdhbGxhcmRv');   // agallardo
-  const _p = atob('RzFtbmFzMWE=');   // G1mnas1a
+  // ── AUTH (SHA-256 — no plaintext credentials in source) ──
+  const _hu = 'b556a5d59867610ad1db74991745d639ae1c6e9eb531cc41b3cc89689413edf0';
+  const _hp = '02e8da346e9ef49a03d53a0ae6bfe4de009a6aeba5e900250a4c4daf9d1763f1';
   const SESSION_KEY = 'ggs_portal_ok';
 
   // ── THEME ──
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
 
-  // ── AUTH ──
+  async function sha256(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
   function showPortal() {
     document.getElementById('loginOverlay').classList.add('hidden');
     document.getElementById('portalContent').classList.remove('hidden');
@@ -384,10 +388,11 @@
     document.getElementById('loginError').textContent = '';
   }
 
-  function tryLogin() {
+  async function tryLogin() {
     const u = document.getElementById('inputUser').value.trim();
     const p = document.getElementById('inputPass').value;
-    if (u === _u && p === _p) {
+    const [hu, hp] = await Promise.all([sha256(u), sha256(p)]);
+    if (hu === _hu && hp === _hp) {
       sessionStorage.setItem(SESSION_KEY, '1');
       document.getElementById('loginError').textContent = '';
       showPortal();
@@ -403,10 +408,9 @@
     showPortal();
   }
 
-  document.getElementById('loginBtn').addEventListener('click', tryLogin);
+  document.getElementById('loginBtn').addEventListener('click', () => tryLogin());
   document.getElementById('logoutBtn').addEventListener('click', showLogin);
 
-  // Enter key on fields
   ['inputUser', 'inputPass'].forEach(id => {
     document.getElementById(id).addEventListener('keydown', e => {
       if (e.key === 'Enter') tryLogin();
