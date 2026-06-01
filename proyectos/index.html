@@ -420,9 +420,10 @@
     </div>
   </section>
 
-  <!-- ─── FOOTER ─── -->
+  <!-- ─── FOOTER (igual al home) ─── -->
   <footer class="footer">
     <div class="container footer-inner">
+      <img src="../logo.png" alt="GG Soluciones" style="height:32px;width:auto;" />
       <span>Alejandro Gallardo · San Salvador de Jujuy, Argentina</span>
       <span>© 2026 GG Soluciones · Todos los derechos reservados</span>
     </div>
@@ -489,7 +490,8 @@
     }
   }
 
-  if (sessionStorage.getItem(SESSION_KEY) === '1') { showPortal(); }
+  // Siempre pedir login al cargar la página (no auto-resume de sesión)
+  sessionStorage.removeItem(SESSION_KEY);
 
   document.getElementById('loginBtn').addEventListener('click', tryLogin);
   document.getElementById('logoutBtn').addEventListener('click', showLogin);
