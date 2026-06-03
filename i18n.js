@@ -26,35 +26,36 @@
       nodes.push(n);
     }
     nodes.forEach(n => {
+      // Restaurar español: independiente del diccionario (el texto ya está en inglés)
+      if (lang === 'es') {
+        if (n._ggsEs !== undefined) n.nodeValue = n._ggsEs;
+        return;
+      }
+      // Traducir a inglés
       const key = norm(n.nodeValue);
       if (!key) return;
       const en = T[key];
       if (en === undefined) return;
-      if (lang === 'en') {
-        if (n._ggsEs === undefined) n._ggsEs = n.nodeValue;
-        // preservar espacios de borde
-        const lead = n.nodeValue.match(/^\s*/)[0];
-        const trail = n.nodeValue.match(/\s*$/)[0];
-        n.nodeValue = lead + en + trail;
-      } else if (n._ggsEs !== undefined) {
-        n.nodeValue = n._ggsEs;
-      }
+      if (n._ggsEs === undefined) n._ggsEs = n.nodeValue;
+      const lead = n.nodeValue.match(/^\s*/)[0];
+      const trail = n.nodeValue.match(/\s*$/)[0];
+      n.nodeValue = lead + en + trail;
     });
   }
 
   function applyAttrs(root) {
     ATTRS.forEach(attr => {
       root.querySelectorAll('[' + attr + ']').forEach(el => {
+        const store = '_ggsEs_' + attr;
+        if (lang === 'es') {
+          if (el[store] !== undefined) el.setAttribute(attr, el[store]);
+          return;
+        }
         const key = norm(el.getAttribute(attr));
         const en = T[key];
         if (en === undefined) return;
-        const store = '_ggsEs_' + attr;
-        if (lang === 'en') {
-          if (el[store] === undefined) el[store] = el.getAttribute(attr);
-          el.setAttribute(attr, en);
-        } else if (el[store] !== undefined) {
-          el.setAttribute(attr, el[store]);
-        }
+        if (el[store] === undefined) el[store] = el.getAttribute(attr);
+        el.setAttribute(attr, en);
       });
     });
   }
