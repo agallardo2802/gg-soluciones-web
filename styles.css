@@ -80,6 +80,47 @@ a { color: inherit; text-decoration: none; }
   .container { width: calc(100% - 32px); }
 }
 
+/* ─── HERO AURORA (design system Stitch — aplica a todas las vistas) ─── */
+.hero { position: relative; }
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: -12% -8% auto -8%;
+  height: 640px;
+  background:
+    radial-gradient(42% 50% at 18% 28%, rgba(47,128,237,0.18), transparent 70%),
+    radial-gradient(38% 46% at 82% 18%, rgba(26,79,160,0.16), transparent 70%),
+    radial-gradient(32% 42% at 62% 72%, rgba(96,165,250,0.13), transparent 70%);
+  filter: blur(24px);
+  z-index: 0;
+  pointer-events: none;
+  animation: heroAurora 18s ease-in-out infinite alternate;
+}
+@keyframes heroAurora {
+  0%   { transform: translate(0,0) scale(1); }
+  50%  { transform: translate(3%, 2%) scale(1.08); }
+  100% { transform: translate(-2%, -1%) scale(1.04); }
+}
+.hero .container { position: relative; z-index: 1; }
+
+/* ─── CARD HOVER (elevación Stitch — clases de todas las vistas) ─── */
+.area-card, .costo-card, .guild-card, .alcance-card,
+.plan-card, .program-card, .service-card, .row-card,
+.bridge-card, .hero-card, .problema-card {
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.area-card:hover, .costo-card:hover, .guild-card:hover, .alcance-card:hover,
+.plan-card:hover, .program-card:hover, .row-card:hover, .bridge-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
+}
+
+/* Reduce motion: respetar preferencia del usuario */
+@media (prefers-reduced-motion: reduce) {
+  .hero::after { animation: none; }
+}
+
 /* ─── NOISE OVERLAY ─── */
 body::before {
   content: '';
