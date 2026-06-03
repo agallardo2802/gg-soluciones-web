@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
 
 /* ─── DESIGN TOKENS ─── */
 :root {
@@ -15,11 +15,14 @@
   --accent-dim: rgba(47,128,237,0.12);
   --accent2: #60a5fa;
   --accent2-dim: rgba(96,165,250,0.12);
-  --border: rgba(26,79,160,0.12);
+  --border: rgba(26,79,160,0.10);
   --border2: rgba(15,28,46,0.07);
-  --shadow: 0 8px 40px rgba(15,28,46,0.10);
-  --shadow-lg: 0 20px 60px rgba(15,28,46,0.14);
-  --radius: 20px;
+  /* Elevación — design system Stitch "Corporate Trust & Innovation" */
+  --shadow: 0 4px 20px rgba(26,79,160,0.05);
+  --shadow-lg: 0 12px 32px rgba(26,79,160,0.12);
+  --shadow-xl: 0 24px 48px rgba(0,0,0,0.08);
+  --radius: 16px;
+  --radius-sm: 8px;
   --max: 1280px;
   --orb-1: rgba(26,79,160,0.08);
   --orb-2: rgba(47,128,237,0.07);
@@ -42,8 +45,9 @@
   --accent2-dim: rgba(191,219,254,0.12);
   --border: rgba(59,130,246,0.15);
   --border2: rgba(255,255,255,0.06);
-  --shadow: 0 20px 60px rgba(0,0,0,0.5);
-  --shadow-lg: 0 30px 80px rgba(0,0,0,0.6);
+  --shadow: 0 4px 20px rgba(0,0,0,0.35);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.45);
+  --shadow-xl: 0 24px 48px rgba(0,0,0,0.55);
   --orb-1: rgba(59,130,246,0.12);
   --orb-2: rgba(147,197,253,0.08);
   --noise-opacity: 0.025;
@@ -237,8 +241,8 @@ body::before {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border-radius: 12px;
-  padding: 11px 20px;
+  border-radius: var(--radius-sm);
+  padding: 12px 24px;
   font-family: Inter, Segoe UI, Arial, sans-serif;
   font-weight: 600;
   font-size: 0.9rem;
@@ -249,13 +253,14 @@ body::before {
 }
 
 .btn-primary {
-  background: var(--primary);
+  background: var(--accent);
   color: #fff;
   box-shadow: 0 4px 18px var(--primary-glow);
 }
+/* Stitch: hover aplica degradado del azul de acento al azul primario */
 .btn-primary:hover {
-  background: var(--primary-light);
-  box-shadow: 0 6px 24px var(--primary-glow);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+  box-shadow: var(--shadow-lg);
   transform: translateY(-1px);
 }
 
