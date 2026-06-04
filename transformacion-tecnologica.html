@@ -1,106 +1,119 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Consultoría y Transformación Tecnológica | GG Soluciones</title>
-  <meta name="description" content="Consultoría tecnológica, desarrollo de sistemas, automatización, agentes IA, arquitectura, gobierno y transformación digital para empresas y organismos públicos." />
-  <link rel="canonical" href="https://ggsoluciones.com.ar/transformacion-tecnologica.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="GG Soluciones" />
-  <meta property="og:title" content="Consultoría y Transformación Tecnológica | GG Soluciones" />
-  <meta property="og:description" content="Acompañamiento estratégico y técnico para modernizar procesos, desarrollar sistemas, automatizar operación e incorporar IA con gobierno." />
-  <meta property="og:url" content="https://ggsoluciones.com.ar/transformacion-tecnologica.html" />
-  <meta property="og:locale" content="es_AR" />
-  <link rel="stylesheet" href="styles.css?v=20260603d" />
-  <style>
-    /* page-specific styles only */
-    .hero{background:radial-gradient(circle at top left,rgba(47,128,237,.20),transparent 34%),linear-gradient(135deg,var(--primary) 0%,#0f1c2e 100%);color:#fff;padding:92px 0 86px}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:46px;align-items:center}.badge{display:inline-flex;padding:8px 14px;border-radius:999px;background:rgba(47,128,237,.16);border:1px solid rgba(147,197,253,.35);color:#dbeafe;font-weight:800;font-size:.84rem;margin-bottom:22px}.hero p{font-size:1.14rem;color:#d7e2ef;max-width:760px;margin-bottom:28px}.hero-actions{display:flex;flex-wrap:wrap;gap:14px}.hero-panel{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:28px;padding:28px;box-shadow:0 24px 80px rgba(0,0,0,.25)}.hero-panel h3{font-size:1.25rem;margin-bottom:16px}.metric{display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12)}.metric:last-child{border-bottom:none}.metric strong{color:#fff}.metric span{color:#cbd5e1;text-align:right}.hero .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.28)}.hero .btn-ghost:hover{background:rgba(255,255,255,.22);color:#fff}.guided{background:radial-gradient(circle at top right,rgba(47,128,237,.22),transparent 40%),linear-gradient(135deg,var(--primary),#0f1c2e);color:#fff;border-radius:28px;padding:42px;margin-bottom:40px;display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center;box-shadow:var(--shadow-lg)}.guided .tag{display:inline-flex;padding:6px 13px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(147,197,253,.35);color:#dbeafe;font-size:.82rem;font-weight:800;margin-bottom:16px}.guided h3{font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.12;letter-spacing:-.03em;margin-bottom:14px;color:#fff}.guided p{color:#d7e2ef;font-size:1.06rem;margin:0}.guided ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}.guided li{display:flex;gap:11px;align-items:flex-start;color:#e6eef8;line-height:1.45}.guided li::before{content:'';flex-shrink:0;width:18px;height:18px;margin-top:3px;border-radius:50%;background:rgba(96,165,250,.25);border:1px solid rgba(147,197,253,.6)}@media(max-width:900px){.guided{grid-template-columns:1fr;padding:30px}}
-    section{padding:78px 0}.section-title{max-width:830px;margin-bottom:38px}.section-title .section-label{display:inline-flex;color:var(--accent);font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;margin-bottom:10px}.section-title h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.045em;margin-bottom:14px}.section-title p{color:var(--muted);font-size:1.06rem}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}.card{background:var(--card);border:1px solid var(--border2);border-radius:24px;padding:28px;box-shadow:var(--shadow)}.card h3{font-size:1.28rem;margin-bottom:10px;letter-spacing:-.02em}.card p,.card li{color:var(--muted)}.icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--primary-glow);color:var(--primary);font-weight:900;margin-bottom:18px}.tag{display:inline-flex;padding:6px 11px;border-radius:999px;background:var(--primary-glow);color:var(--primary);font-size:.82rem;font-weight:800;margin-bottom:14px}ul{padding-left:18px;margin:14px 0}li{margin:7px 0}.services{background:var(--bg2)}.service-card{position:relative;overflow:hidden}.service-card.featured{border:2px solid var(--primary)}.method{background:var(--card)}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.step{background:var(--card);border:1px solid var(--border2);border-radius:22px;padding:24px;box-shadow:var(--shadow)}.step-number{width:34px;height:34px;border-radius:50%;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:900;margin-bottom:16px}.modalities{width:100%;border-collapse:collapse;background:var(--card);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}.modalities th,.modalities td{padding:18px;border-bottom:1px solid var(--border2);text-align:left}.modalities th{background:var(--primary);color:#fff}.modalities td{color:var(--muted)}.modalities tr:last-child td{border-bottom:none}.sectors{background:var(--bg2)}.cta{background:linear-gradient(135deg,var(--primary),#0f1c2e);color:#fff;border-radius:34px;padding:54px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}.cta h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.08;letter-spacing:-.045em;margin-bottom:14px}.cta p{color:#cbd5e1}.cta-panel{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:24px}.cta-panel p{margin-bottom:18px}footer{padding:38px 0;color:var(--muted);text-align:center;border-top:1px solid var(--border2)}@media(max-width:900px){.hero-grid,.grid-3,.grid-2,.steps,.cta{grid-template-columns:1fr}.hero{padding:72px 0 56px}.cta{padding:34px}.modalities{display:block;overflow-x:auto}}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Consultoría y Transformación Tecnológica | GG Soluciones</title>
+<meta name="description" content="Diseñamos, acompañamos y evolucionamos iniciativas tecnológicas: desarrollo de sistemas, automatización, IA, datos y arquitectura con criterio estratégico." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="app.css?v=1" />
 </head>
 <body>
-  <header class="header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <div class="brand-logo">
-          <img src="logo.png" alt="GG Soluciones" style="height:40px;width:auto;" />
-        </div>
-        <div class="brand-text">
-          <span>Desarrollo & Consultoría IT</span>
-        </div>
-      </a>
-      <nav class="nav">
-        <a href="index.html">Inicio</a>
-        <a href="agentes.html">Agentes IA</a>
-        <a href="consultoria.html">Consultoría</a>
-        <a href="capacitacion.html">Capacitación</a>
-        <a href="transformacion-tecnologica.html" class="active">Transformación</a>
-        <a href="#contacto">Contacto</a>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar tema">
-          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <a class="btn btn-accent" href="https://wa.me/5493885120704" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.098.546 4.07 1.504 5.786L.057 23.998l6.344-1.667A11.938 11.938 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.804 9.804 0 01-5.003-1.371l-.36-.213-3.761.989 1.004-3.666-.235-.376A9.797 9.797 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
-          WhatsApp
-        </a>
-      </nav>
-      <!-- Hamburger for mobile -->
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
+<div class="glow-orb a"></div>
+<div class="glow-orb b"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html"><img src="logo.png" alt="GG Soluciones" /> GG Soluciones</a>
+    <nav class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="agentes.html">Agentes IA</a>
+      <a href="consultoria.html">Consultoría</a>
+      <a href="capacitacion.html">Capacitación</a>
+      <a href="transformacion-tecnologica.html" class="active">Transformación</a>
+    </nav>
+    <div class="nav-tools">
+      <div class="lang-toggle"><button class="lang-opt" data-lang="es" type="button">ES</button><span class="lang-sep">|</span><button class="lang-opt" data-lang="en" type="button">EN</button></div>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Cambiar tema">
+        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
+      <a class="btn btn-primary" href="https://wa.me/5493885120704" target="_blank" rel="noopener">Hablemos</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
     </div>
-  </header>
-
-  <!-- Mobile nav overlay -->
-  <div class="nav-mobile" id="navMobile">
-    <a href="index.html">Inicio</a>
-    <a href="agentes.html">Agentes IA</a>
-    <a href="consultoria.html">Consultoría</a>
-    <a href="capacitacion.html">Capacitación</a>
-    <a href="transformacion-tecnologica.html" class="active">Transformación</a>
-    <a href="#contacto">Contacto</a>
-    <a class="btn btn-accent" href="https://wa.me/5493885120704" target="_blank" rel="noopener">WhatsApp</a>
   </div>
-  <main>
-    <section class="hero"><div class="container hero-grid"><div><div class="badge">Consultoría · Automatización · IA · Transformación Digital</div><h1>Consultoría y acompañamiento tecnológico para modernizar tu operación.</h1><p>Diseñamos, acompañamos y evolucionamos iniciativas tecnológicas para organismos públicos y empresas que necesitan desarrollar sistemas, automatizar procesos, incorporar IA y ordenar su arquitectura con criterio estratégico.</p><div class="hero-actions"><a class="btn btn-accent" href="#contacto">Solicitar relevamiento</a><a class="btn btn-ghost" href="#servicios">Ver servicios</a></div></div><aside class="hero-panel"><h3>Una vertical distinta a capacitación</h3><div class="metric"><strong>Consultoría</strong><span>Estrategia y decisiones técnicas</span></div><div class="metric"><strong>Desarrollo</strong><span>Sistemas, APIs e integraciones</span></div><div class="metric"><strong>Automatización</strong><span>Workflows y asistentes IA</span></div><div class="metric"><strong>Gobierno</strong><span>Seguridad, control y escalabilidad</span></div></aside></div></section>
-    <section><div class="container"><div class="section-title"><span class="section-label">Introducción</span><h2>Más que cursos: soporte estratégico y técnico para transformar procesos.</h2><p>La consultoría no se limita al desarrollo técnico. Integra análisis de procesos, arquitectura tecnológica, automatización, gobierno, seguridad, metodologías modernas, adopción organizacional y acompañamiento estratégico.</p></div><div class="grid-3"><div class="card"><div class="icon">01</div><h3>Visión integral</h3><p>Procesos, operaciones, infraestructura, desarrollo, automatización, IA y gobierno tecnológico en una misma mirada.</p></div><div class="card"><div class="icon">02</div><h3>Enfoque realista</h3><p>Priorizamos problemas reales, impacto operativo, escalabilidad, adopción gradual y reducción de complejidad.</p></div><div class="card"><div class="icon">03</div><h3>Tecnología y negocio</h3><p>Las decisiones técnicas se evalúan por productividad, eficiencia, costos, sostenibilidad e impacto organizacional.</p></div></div></div></section>
-    <section id="servicios" class="services"><div class="container"><div class="section-title"><span class="section-label">Servicios ofrecidos</span><h2>Seis frentes para acompañar la evolución tecnológica.</h2><p>Cada servicio puede contratarse de forma puntual o como parte de un acompañamiento por proyecto.</p></div><div class="guided"><div><span class="tag">Acompañamiento guiado</span><h3>Tu equipo ejecuta la modernización. Nosotros guiamos.</h3><p>Acompañamos a tu equipo en el análisis y diseño de sus sistemas internos durante la modernización. La ejecución queda en manos de tu gente; nosotros aportamos criterio técnico, estándares y revisión en cada decisión clave — para que avancen con seguridad y aprendan en el proceso.</p></div><ul><li>Análisis de los sistemas internos actuales junto a tu equipo</li><li>Diseño de arquitectura y definición técnica compartida</li><li>Estándares, buenas prácticas y criterio en cada decisión</li><li>Revisión y mentoring durante la ejecución</li><li>Transferencia real de conocimiento: tu equipo gana autonomía</li></ul></div><div class="grid-3"><article class="card service-card featured"><div class="tag">Estrategia</div><h3>Consultoría estratégica en transformación digital</h3><p>Acompañamiento para definir estrategias de modernización tecnológica y adopción de herramientas digitales.</p><ul><li>Relevamiento de procesos</li><li>Análisis de madurez tecnológica</li><li>Roadmap y priorización</li><li>Evaluación de impacto operativo</li></ul></article><article class="card service-card"><div class="tag">Sistemas</div><h3>Acompañamiento para desarrollo de sistemas</h3><p>Asistencia técnica y estratégica durante el diseño y desarrollo de soluciones internas.</p><ul><li>Arquitectura y definición tecnológica</li><li>Diseño de APIs e integraciones</li><li>Escalabilidad, seguridad y control</li><li>Revisión funcional y técnica</li></ul></article><article class="card service-card"><div class="tag">Automatización</div><h3>Automatización de procesos</h3><p>Reducción de tareas manuales y mejora de eficiencia mediante workflows y asistentes inteligentes.</p><ul><li>Tareas repetitivas</li><li>Workflows operativos</li><li>Integración entre plataformas</li><li>Optimización y trazabilidad</li></ul></article><article class="card service-card"><div class="tag">Gobierno IA</div><h3>Arquitectura y gobierno IA</h3><p>Lineamientos para una adopción segura, escalable y controlada de Inteligencia Artificial.</p><ul><li>Arquitectura IA</li><li>Seguridad y accesos</li><li>Logging, auditoría y compliance</li><li>Estrategia de adopción</li></ul></article><article class="card service-card"><div class="tag">Agentes</div><h3>Diseño de agentes inteligentes</h3><p>Implementación de asistentes y agentes orientados a automatización y asistencia operativa.</p><ul><li>Asistentes administrativos</li><li>Agentes de soporte</li><li>Automatización documental</li><li>Informes y análisis de información</li></ul></article><article class="card service-card"><div class="tag">Casos de uso</div><h3>Soluciones aplicables</h3><p>Ideal para sistemas administrativos, pagos, portales internos, gestión documental e integraciones entre sistemas.</p><ul><li>Gobierno y empresas</li><li>Operaciones complejas</li><li>Equipos con necesidad de escala</li><li>Procesos con alto componente manual</li></ul></article></div></div></section>
-    <section id="metodologia" class="method"><div class="container"><div class="section-title"><span class="section-label">Metodología</span><h2>Un proceso de acompañamiento por etapas.</h2><p>Ordenamos la iniciativa antes de construir para reducir riesgo, enfocar inversión y mejorar adopción.</p></div><div class="steps"><div class="step"><div class="step-number">1</div><h3>Relevamiento</h3><p>Entrevistas, análisis de procesos, identificación de necesidades y definición de objetivos.</p></div><div class="step"><div class="step-number">2</div><h3>Diseño y estrategia</h3><p>Arquitectura propuesta, roadmap, definición tecnológica, priorización e identificación de riesgos.</p></div><div class="step"><div class="step-number">3</div><h3>Acompañamiento técnico</h3><p>Seguimiento de implementación, validación funcional, revisiones técnicas y control de calidad.</p></div><div class="step"><div class="step-number">4</div><h3>Optimización y evolución</h3><p>Ajustes, mejora continua, evolución tecnológica y preparación para escalar.</p></div></div></div></section>
-    <section><div class="container"><div class="section-title"><span class="section-label">Modalidades</span><h2>Opciones flexibles según alcance y necesidad.</h2></div><table class="modalities"><thead><tr><th>Modalidad</th><th>Descripción</th></tr></thead><tbody><tr><td>Consultoría puntual</td><td>Revisión o asistencia específica.</td></tr><tr><td>Bolsa de horas</td><td>Horas mensuales disponibles para acompañamiento técnico.</td></tr><tr><td>Acompañamiento por proyecto</td><td>Seguimiento integral de una iniciativa tecnológica.</td></tr><tr><td>Consultoría ejecutiva</td><td>Dirección estratégica y toma de decisiones.</td></tr><tr><td>Workshops técnicos</td><td>Sesiones específicas para equipos o áreas.</td></tr></tbody></table></div></section>
-    <section class="sectors"><div class="container"><div class="section-title"><span class="section-label">Sectores objetivo</span><h2>Gobierno y empresas con necesidad real de modernización.</h2></div><div class="grid-2"><div class="card"><h3>Gobierno</h3><ul><li>Modernización administrativa</li><li>Digitalización y automatización</li><li>Gobierno IA</li><li>Optimización operativa</li></ul></div><div class="card"><h3>Empresas</h3><ul><li>Mejora operativa</li><li>Integración de sistemas</li><li>IA aplicada</li><li>Transformación digital</li></ul></div></div></div></section>
-    <section><div class="container"><div class="section-title"><span class="section-label">Alcance</span><h2>Qué incluye y qué queda fuera.</h2></div><div class="grid-2"><div class="card"><h3>Incluye</h3><ul><li>Reuniones de relevamiento</li><li>Documentación técnica</li><li>Recomendaciones</li><li>Revisión funcional</li><li>Acompañamiento estratégico</li><li>Workshops y asistencia técnica</li></ul></div><div class="card"><h3>No incluye</h3><ul><li>Desarrollo completo llave en mano</li><li>Infraestructura física</li><li>Licencias de terceros</li><li>Soporte 24x7</li><li>Operación diaria de sistemas</li><li>Contratación de servicios externos</li></ul></div></div></div></section>
-    <section id="contacto"><div class="container"><div class="cta"><div><h2>Solicitá una reunión de relevamiento.</h2><p>Las propuestas se arman de forma personalizada según alcance, complejidad, usuarios, modalidad, duración y necesidad de acompañamiento.</p></div><div class="cta-panel"><p><strong>Consultoría Tecnológica · IA · Automatización · Transformación Digital</strong></p><a class="btn btn-accent" href="https://wa.me/5493885120704?text=Hola,%20quiero%20solicitar%20una%20reunión%20por%20consultoría%20y%20transformación%20tecnológica" target="_blank" rel="noopener">Contactar por WhatsApp</a></div></div></div></section>
-  </main>
-  <footer class="footer">
-  <div class="container footer-inner">
-    <img src="logo.png" alt="GG Soluciones" style="height:32px;width:auto;" />
-    <span>Alejandro Gallardo · San Salvador de Jujuy, Argentina</span>
-    <span>© 2026 GG Soluciones · Todos los derechos reservados</span>
-  </div>
-</footer>
-  <script>
-    function toggleTheme(){const html=document.documentElement;const currentTheme=html.getAttribute('data-theme');const newTheme=currentTheme==='dark'?'light':'dark';html.setAttribute('data-theme',newTheme);localStorage.setItem('theme',newTheme)}
-    document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'light');
+  <div class="wrap"><div class="nav-mobile" id="navMobile">
+    <a href="index.html">Inicio</a><a href="agentes.html">Agentes IA</a><a href="consultoria.html">Consultoría</a><a href="capacitacion.html">Capacitación</a><a href="transformacion-tecnologica.html">Transformación</a>
+  </div></div>
+</header>
 
-    // Mobile nav toggle
-    const navToggle = document.getElementById('navToggle');
-    const navMobile = document.getElementById('navMobile');
-    navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('open');
-      navMobile.classList.toggle('open');
-      document.body.style.overflow = navMobile.classList.contains('open') ? 'hidden' : '';
-    });
-    navMobile.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        navToggle.classList.remove('open');
-        navMobile.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
-  </script>
-  <script src="translations.js?v=20260603d"></script>
-  <script src="i18n.js?v=20260603d"></script>
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Consultoría · IA · Automatización · Transformación</span>
+    <h1>Diseñamos, acompañamos y <span class="accent-text">evolucionamos</span> tu tecnología</h1>
+    <p class="lead">Para organismos públicos y empresas que necesitan desarrollar sistemas, automatizar procesos, incorporar IA y ordenar su arquitectura con criterio estratégico. No solo software: orden institucional.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://wa.me/5493885120704" target="_blank" rel="noopener">Solicitar relevamiento</a>
+      <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
+    </div>
+    <p class="hero-note">Siempre análisis y diseño antes de código. El presupuesto se define después de entender el problema real.</p>
+  </div>
+</section>
+
+<section class="block" id="servicios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">Servicios ofrecidos</div>
+      <h2>Seis frentes para acompañar la evolución tecnológica</h2>
+      <p>Cada servicio puede contratarse de forma puntual o como parte de un acompañamiento por proyecto.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><div class="ico">💻</div><h3>Desarrollo a medida</h3><p>Construcción de sistemas, portales, APIs, integraciones y automatizaciones específicas para la operación.</p></div>
+      <div class="card reveal"><div class="ico">🧭</div><h3>Arquitectura y estrategia</h3><p>Diseñamos o revisamos arquitectura: escalabilidad, interoperabilidad, costos y capacidad real del equipo.</p></div>
+      <div class="card reveal"><div class="ico">⚙️</div><h3>Automatización & IA</h3><p>Evaluamos, diseñamos e integramos IA según el impacto real en equipos, procesos y costos.</p></div>
+      <div class="card reveal"><div class="ico">📊</div><h3>Datos & BI</h3><p>Dashboards en Power BI, pipelines ETL/ELT, definición de KPIs y gobernanza de datos orientada a decisiones.</p></div>
+      <div class="card reveal"><div class="ico">🔗</div><h3>Integración de sistemas</h3><p>Integración entre plataformas (APIs, ERP, herramientas externas) para que dejen de ser islas.</p></div>
+      <div class="card reveal"><div class="ico">🎓</div><h3>Equipo y capacitación</h3><p>Formamos equipos para sostener procesos, metodología y adopción tecnológica.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="casos">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="sec-tag">Proyectos de referencia</div><h2>Trabajo realizado en 12 años</h2></div>
+    <div class="drag-hint">Arrastrá para explorar →</div>
+  </div>
+  <div class="wrap">
+    <div class="gallery" id="gallery">
+      <div class="slide"><span class="tag">Estado</span><div><h3>Sistema de Actas Digitales</h3><p>Digitalización y gestión del proceso de registro de actas con trazabilidad completa.</p></div><div class="res accent-text">100% trazable</div></div>
+      <div class="slide"><span class="tag">Salud</span><div><h3>Informatización clínica</h3><p>Gestión y digitalización de procesos y registros médicos con foco en interoperabilidad.</p></div><div class="res accent-text">+ interoperable</div></div>
+      <div class="slide"><span class="tag">Datos</span><div><h3>Nodo de datos personales</h3><p>Arquitectura interoperable y segura, conforme a requerimientos gubernamentales.</p></div><div class="res accent-text">Seguro y conforme</div></div>
+      <div class="slide"><span class="tag">Gestión</span><div><h3>Documentación de inmuebles</h3><p>Digitalización de documentación, flujos de aprobación y reporting para el área.</p></div><div class="res accent-text">Flujos ordenados</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">Cómo trabajamos</div>
+      <h2>Ordenamos la iniciativa antes de construir</h2>
+      <p>Para reducir riesgo, enfocar la inversión y mejorar la adopción.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n"><span class="accent-text">01</span></div><h3>Relevamiento</h3><p>Relevamiento del ecosistema completo: procesos, RRHH, costos, tecnología existente y objetivos reales.</p></div>
+      <div class="step reveal"><div class="n"><span class="accent-text">02</span></div><h3>Análisis y diseño</h3><p>Arquitectura propuesta, roadmap, definición tecnológica, priorización e identificación de riesgos.</p></div>
+      <div class="step reveal"><div class="n"><span class="accent-text">03</span></div><h3>Ejecución y entrega</h3><p>Desarrollo por etapas, entrega incremental, documentación y transferencia al equipo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <h2>Solicitá una reunión de <span class="accent-text">relevamiento</span></h2>
+      <p>Te escuchamos antes de proponer nada. La primera reunión está dedicada a entender juntos tu situación real y cómo podemos ayudarte.</p>
+      <a class="btn btn-primary" href="https://wa.me/5493885120704" target="_blank" rel="noopener">Hablemos por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ft"><div class="wrap ft-in"><span>Alejandro Gallardo · San Salvador de Jujuy, Argentina</span><span>© 2026 GG Soluciones · Todos los derechos reservados</span></div></footer>
+
+<script src="app.js?v=1"></script>
+<script src="translations.js?v=20260603d"></script>
+<script src="i18n.js?v=20260603d"></script>
 </body>
 </html>
