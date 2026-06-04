@@ -863,6 +863,8 @@ window.GGS_TRANSLATIONS = {
   "Desarrollo por etapas, entrega incremental, documentación y transferencia al equipo.": "Phased development, incremental delivery, documentation and transfer to the team.",
   "Solicitá una reunión de": "Request a",
   "relevamiento": "discovery meeting",
-  "Elegí cómo empezar": "Choose how to start",
-  "Ver los planes": "See the plans"
+  "Grupo de hasta 15 participantes · 8 clases": "Group of up to 15 participants · 8 classes",
+  "Cada programa incluye evaluación intermedia, evaluación final y certificación de participación o aprobación.": "Each program includes a midterm assessment, a final assessment and a certificate of participation or completion.",
+  "Formato de trabajo": "Working format",
+  "Programas disponibles": "Available programs"
 };
