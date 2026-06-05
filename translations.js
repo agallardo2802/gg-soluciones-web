@@ -903,5 +903,10 @@ window.GGS_TRANSLATIONS = {
   "Cód. área + número": "Area code + number",
   "Enviar por WhatsApp": "Send via WhatsApp",
   "Se abre WhatsApp con tu consulta ya redactada. Revisás y enviás.": "WhatsApp opens with your message ready. You review and send.",
-  "Completá al menos tu nombre y la descripción.": "Please fill in at least your name and the description."
+  "Completá al menos tu nombre y la descripción.": "Please fill in at least your name and the description.",
+
+  /* ── Clientes ── */
+  "Clientes": "Clients",
+  "Organismos y empresas que confían en nosotros": "Agencies and companies that trust us",
+  "Trabajo realizado en el sector público y privado de Jujuy a lo largo de 12 años.": "Work done in Jujuy's public and private sector over 12 years."
 };
