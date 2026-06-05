@@ -82,8 +82,31 @@
         'Email: ' + (v('email') || '—'),
         'Teléfono: ' + (v('telefono') || '—')
       ];
-      var url = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(L.join('\n'));
+      var mensaje = L.join('\n');
+
+      // 1) Enviar copia por email (Formsubmit AJAX, en segundo plano)
+      try {
+        fetch('https://formsubmit.co/ajax/agallardo2802@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: 'Nueva consulta web — ' + nombre,
+            _template: 'table',
+            _captcha: 'false',
+            Tipo: v('tipo'), Proyecto: v('proyecto'), Necesidad: v('descripcion'),
+            Objetivo: v('objetivo'), Impacta: v('usuarios'), Sistemas: v('sistemas'),
+            Plazo: v('plazo'), Presupuesto: v('presupuesto'),
+            Nombre: nombre, Organizacion: v('organizacion'), Email: v('email'), Telefono: v('telefono')
+          })
+        }).catch(function(){ /* si falla el email, igual se envía por WhatsApp */ });
+      } catch (e) {}
+
+      // 2) Abrir WhatsApp con el mensaje redactado (gesto del usuario)
+      var url = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(mensaje);
       window.open(url, '_blank', 'noopener');
+
+      var ok = document.getElementById('intakeError');
+      if (ok) { ok.style.color = 'var(--accent)'; ok.textContent = '¡Gracias! Te abrimos WhatsApp y nos llega una copia por email.'; }
     });
   }
 
