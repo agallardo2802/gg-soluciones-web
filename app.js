@@ -46,7 +46,48 @@
     m.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { m.classList.remove('open'); }); });
   }
 
-  function init() { bindTheme(); bindReveal(); bindGallery(); bindMobileNav(); }
+  // ── INTAKE FORM → WhatsApp ──
+  function bindIntake() {
+    var form = document.getElementById('intakeForm');
+    if (!form) return;
+    var PHONE = '5493885120704';
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = form.elements;
+      function v(n) { return (f[n] && f[n].value || '').trim(); }
+      var nombre = v('nombre');
+      if (!nombre || !v('descripcion')) {
+        var err = document.getElementById('intakeError');
+        if (err) err.textContent = 'Completá al menos tu nombre y la descripción.';
+        return;
+      }
+      var L = [
+        '*Nueva consulta — GG Soluciones*',
+        '',
+        '*Tipo de proyecto:* ' + (v('tipo') || '—'),
+        '*Idea / proyecto:* ' + (v('proyecto') || '—'),
+        '',
+        '*Qué necesita resolver:*',
+        v('descripcion'),
+        '',
+        '*Objetivo esperado:* ' + (v('objetivo') || '—'),
+        '*A quién impacta:* ' + (v('usuarios') || '—'),
+        '*Sistemas/herramientas actuales:* ' + (v('sistemas') || '—'),
+        '*Plazo deseado:* ' + (v('plazo') || '—'),
+        '*Presupuesto estimado:* ' + (v('presupuesto') || '—'),
+        '',
+        '*Contacto*',
+        'Nombre: ' + nombre,
+        'Organización: ' + (v('organizacion') || '—'),
+        'Email: ' + (v('email') || '—'),
+        'Teléfono: ' + (v('telefono') || '—')
+      ];
+      var url = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(L.join('\n'));
+      window.open(url, '_blank', 'noopener');
+    });
+  }
+
+  function init() { bindTheme(); bindReveal(); bindGallery(); bindMobileNav(); bindIntake(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
