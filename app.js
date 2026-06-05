@@ -84,6 +84,9 @@
       ];
       var mensaje = L.join('\n');
 
+      // 0) Registrar el lead en dataLayer (GTM → conversión)
+      try { (window.GGS_track || function(){})({ event: 'generate_lead', form: 'intake', tipo_proyecto: v('tipo') || 'no_indicado' }); } catch (e) {}
+
       // 1) Enviar copia por email (Formsubmit AJAX, en segundo plano)
       try {
         fetch('https://formsubmit.co/ajax/agallardo2802@gmail.com', {
@@ -110,7 +113,28 @@
     });
   }
 
-  function init() { bindTheme(); bindReveal(); bindGallery(); bindMobileNav(); bindIntake(); }
+  // ── TRACKING (dataLayer para GTM) ──
+  function track(obj) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(obj);
+  }
+  function bindTracking() {
+    // Click en cualquier botón/enlace de WhatsApp
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href*="wa.me"]');
+      if (a) {
+        track({ event: 'whatsapp_click', link_text: (a.textContent || '').trim().slice(0, 60), page: location.pathname });
+      }
+      var lang = e.target.closest('.lang-opt');
+      if (lang) track({ event: 'lang_change', lang: lang.dataset.lang });
+      var th = e.target.closest('#themeBtn');
+      if (th) track({ event: 'theme_toggle' });
+    });
+  }
+  // exponer para que bindIntake registre el lead
+  window.GGS_track = track;
+
+  function init() { bindTheme(); bindReveal(); bindGallery(); bindMobileNav(); bindIntake(); bindTracking(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
