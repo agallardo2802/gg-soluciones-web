@@ -208,6 +208,18 @@
       border-color: var(--primary);
     }
 
+    /* ── CÓDIGOS (admin) ── */
+    .codes-panel { background: var(--card); border: 1px solid var(--border2); border-radius: 12px; padding: 4px 18px; margin: 24px 0 4px; }
+    .codes-panel summary { cursor: pointer; font-weight: 700; color: var(--text); padding: 12px 0; list-style: none; }
+    .codes-panel summary::-webkit-details-marker { display: none; }
+    .codes-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 12px; padding: 8px 0 14px; }
+    .code-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--card2); border: 1px solid var(--border2); border-radius: 10px; padding: 12px 14px; }
+    .code-item .ci-l { font-size: 0.82rem; color: var(--muted); }
+    .code-item .ci-c { font-family: 'Space Grotesk', monospace; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.05em; color: var(--primary); }
+    .code-copy { background: var(--primary); color: #fff; border: none; border-radius: 8px; padding: 6px 10px; font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap; }
+    .code-copy:hover { opacity: 0.9; }
+    .codes-note { font-size: 0.78rem; color: var(--muted); padding-bottom: 12px; margin: 0; }
+
     /* ── PROJECT GRID ── */
     .portal-wrap { padding: 32px 0 72px; }
     .section-label {
@@ -375,6 +387,13 @@
   <section class="portal-wrap">
     <div class="container">
 
+      <!-- CÓDIGOS DE ACCESO (solo admin) -->
+      <details class="codes-panel" id="codesPanel">
+        <summary>🔑 Códigos de acceso de propuestas</summary>
+        <div class="codes-list" id="codesList"></div>
+        <p class="codes-note">Estos códigos protegen cada propuesta. Compartilos solo con el destinatario. Recordá: es protección disuasiva, no seguridad de servidor.</p>
+      </details>
+
       <!-- REGISTRO CIVIL -->
       <div class="section-label" data-section="Registro Civil">Registro Civil de la Provincia</div>
       <div class="project-grid">
@@ -471,9 +490,34 @@
     return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
   }
 
+  // Códigos de acceso de las propuestas (visibles solo tras login de admin)
+  var PROPOSAL_CODES = [
+    { label: 'HCE · Ministerio de Salud', code: 'GMWL-KCLA' },
+    { label: 'Actas Digitales · Registro Civil', code: '229L-CMPE' },
+    { label: 'Acompañamiento · Hacienda', code: 'YSQN-EK93' }
+  ];
+  function renderCodes() {
+    var list = document.getElementById('codesList');
+    if (!list || list.dataset.done) return;
+    list.innerHTML = PROPOSAL_CODES.map(function (p) {
+      return '<div class="code-item"><div><div class="ci-l">' + p.label + '</div>' +
+        '<div class="ci-c">' + p.code + '</div></div>' +
+        '<button class="code-copy" data-code="' + p.code + '">Copiar</button></div>';
+    }).join('');
+    list.dataset.done = '1';
+    list.addEventListener('click', function (e) {
+      var b = e.target.closest('.code-copy');
+      if (!b) return;
+      navigator.clipboard && navigator.clipboard.writeText(b.dataset.code);
+      var t = b.textContent; b.textContent = '¡Copiado!';
+      setTimeout(function () { b.textContent = t; }, 1200);
+    });
+  }
+
   function showPortal() {
     document.getElementById('loginOverlay').classList.add('hidden');
     document.getElementById('portalContent').classList.remove('hidden');
+    renderCodes();
   }
 
   function showLogin() {
