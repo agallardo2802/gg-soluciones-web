@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Propuesta · Historia Clínica Electrónica Provincial — Ministerio de Salud de Jujuy | GG Soluciones</title>
+<meta name="description" content="Propuesta técnica de HCE provincial para el Ministerio de Salud de Jujuy. Ecosistema modular, interoperabilidad gobernada, HSI como núcleo clínico." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="app.css?v=4" />
+<link rel="icon" type="image/png" href="logo.png" />
+</head>
+<body>
+<div class="glow-orb a"></div>
+<div class="glow-orb b"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html"><img src="logo.png" alt="GG Soluciones" /> GG Soluciones</a>
+    <div class="nav-tools">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Cambiar tema">
+        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a class="btn btn-ghost" href="https://wa.me/5493885120704" target="_blank" rel="noopener">Coordinar reunión</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero left">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Propuesta técnica · Confidencial · Marzo 2026</span>
+    <h1>Historia Clínica Electrónica <span class="accent-text">Provincial</span></h1>
+    <p class="lead">Ministerio de Salud de la Provincia de Jujuy. HCE · Ecosistema Modular · 2026. Interoperabilidad gobernada como base de la transformación digital del sistema de salud.</p>
+    <div class="doc-actions" style="display:flex;gap:12px;flex-wrap:wrap;">
+      <button class="btn btn-primary" onclick="window.print()">Descargar / Imprimir PDF</button>
+      <a class="btn btn-ghost" href="https://wa.me/5493885120704" target="_blank" rel="noopener">Coordinar reunión</a>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px;">
+  <div class="wrap doc">
+
+    <table class="ptable">
+      <tr><td class="k">Elaborado por</td><td>Alejandro Gallardo · Consultor IT</td></tr>
+      <tr><td class="k">Versión</td><td>1.0 · Propuesta técnica y estratégica consolidada</td></tr>
+      <tr><td class="k">Fecha</td><td>Marzo 2026</td></tr>
+      <tr><td class="k">Clasificación</td><td>Confidencial · Uso interno Ministerio</td></tr>
+    </table>
+
+    <!-- 1 -->
+    <h2 class="reveal">1. El problema estructural</h2>
+    <p class="reveal">La provincia de Jujuy no enfrenta un problema tecnológico — enfrenta un problema estructural de gobernanza y fragmentación.</p>
+    <div class="callout red reveal">
+      <h4>🔴 Cuatro problemas estructurales que ningún sistema por sí solo resuelve</h4>
+      <p><span class="ci">1. No existe un repositorio clínico único del paciente.</span> El mismo paciente existe de formas distintas en Más Salud, HSI e Innova. No hay historia longitudinal real.</p>
+      <p><span class="ci">2. No existe un modelo de interoperabilidad gobernado.</span> Las integraciones existentes son puntuales, frágiles y sin mantenimiento centralizado.</p>
+      <p><span class="ci">3. Los sistemas no están gobernados.</span> No hay arquitectura de referencia ni dueño técnico del ecosistema.</p>
+      <p><span class="ci">4. Cada sistema optimiza localmente → el sistema global falla.</span> Alta digitalización, baja interoperabilidad.</p>
+    </div>
+    <p class="reveal">Este proyecto no propone reemplazar lo existente: propone ordenarlo, integrarlo y hacerlo interoperable bajo un modelo de gobernanza claro. La tecnología es el medio. El problema a resolver es estructural.</p>
+
+    <!-- 2 -->
+    <h2 class="reveal">2. Resumen ejecutivo</h2>
+    <p class="reveal">La Provincia de Jujuy cuenta con un ecosistema digital de salud complejo y maduro: más de 20 sistemas en operación, 26 hospitales, 151 puestos de salud, 96 CAPS, 24 nodos APS y 25 postas sanitarias. El desafío no es digitalizar desde cero — es articular, consolidar y modernizar lo existente bajo un modelo de interoperabilidad gobernado.</p>
+    <div class="callout blue reveal">
+      <h4>Tres verdades que definen esta propuesta</h4>
+      <p><span class="ci">1. Innova falla en campo</span> — pérdida de datos en guardia, sin recetas electrónicas, carga lenta, ausencia de feedback visual. Problemas que el personal enfrenta todos los días.</p>
+      <p><span class="ci">2. HSI cubre el núcleo clínico, pero tiene brechas conocidas</span> — facturación, recetas electrónicas y offline. Eso es lo que el desarrollo a medida viene a cubrir.</p>
+      <p><span class="ci">3. El desarrollo a medida no es opcional</span> — es la solución a lo que está roto hoy: offline-first, recetas electrónicas, facturación integrada, UX clínica fluida.</p>
+    </div>
+    <p class="reveal">Estrategia en dos etapas:</p>
+    <ul class="bullets reveal">
+      <li><strong>Etapa 1</strong> — Análisis, diseño del ecosistema e implementación de HSI como núcleo clínico (6 meses).</li>
+      <li><strong>Etapa 2</strong> — Desarrollo e integración de sistemas satélite (a definir según análisis).</li>
+      <li><strong>Operación continua</strong> — Consultoría de seguimiento mensual post-implementación.</li>
+    </ul>
+    <div class="callout amber reveal">
+      <p><span class="ci">El costo de la Etapa 2 no puede determinarse sin antes completar el análisis.</span> Presupuestar los satélites sin analizar el ecosistema sería como calcular el costo de una obra civil sin ver el terreno.</p>
+    </div>
+
+    <!-- 3 -->
+    <h2 class="reveal">3. Diagnóstico del ecosistema actual</h2>
+    <h3 class="reveal">3.1 Mapa del ecosistema</h3>
+    <table class="ptable reveal">
+      <thead><tr><th>Capa</th><th>Sistemas</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Operación central</td><td>Más Salud: ambulatoria, turnos, call center, guardia, facturación, SUMAR, derivaciones, identificación de pacientes</td><td class="ok">✔ En producción</td></tr>
+        <tr><td class="k">Núcleo clínico</td><td>HSI: historia clínica, guardia, internación, turnos, imágenes, laboratorio. FHIR/HL7/SNOMED.</td><td>Parcial · En expansión</td></tr>
+        <tr><td class="k">A reemplazar</td><td>Innova: sistema privado para sanatorios, adaptado sin análisis profundo para uso público.</td><td class="bad">✖ Reemplazar con HSI</td></tr>
+        <tr><td class="k">Satélites específicos</td><td>SIP Perinatal, Gestión Sexual, Carnet Sanitario, Sistema Asma, Ficha Cardiovascular, Quirófano, Imágenes, Portal Pacientes, Turnos WhatsApp.</td><td class="ok">✔ Operativos</td></tr>
+        <tr><td class="k">Red provincial</td><td>26 hospitales · 151 puestos · 96 CAPS · 24 nodos APS · 25 postas · ~300 efectores</td><td>Conectividad mixta</td></tr>
+      </tbody>
+    </table>
+    <h3 class="reveal">3.2 Por qué reemplazar Innova — evidencia operativa</h3>
+    <div class="callout red reveal">
+      <h4>🛑 Problemas documentados en uso real</h4>
+      <p><span class="ci">Pérdida de datos al cortar la conexión.</span> Todo lo ingresado se pierde. Sin persistencia local. Riesgo clínico real.</p>
+      <p><span class="ci">No utilizable en guardia.</span> Latencia y dependencia de conectividad. El personal opta por no usarlo.</p>
+      <p><span class="ci">Carga de diagnósticos y medicamentos de uno en uno.</span> Sin carga múltiple. El personal abandona el registro.</p>
+      <p><span class="ci">Sin feedback visual de carga.</span> Genera acciones duplicadas, errores y frustración.</p>
+      <p><span class="ci">Sin recetas electrónicas ni facturación operativa.</span> La facturación solo opera en Windows y requiere VPN.</p>
+    </div>
+    <p class="reveal"><strong>Decisión:</strong> Innova debe ser reemplazado progresivamente por HSI en todos los efectores donde está activo.</p>
+
+    <!-- 4 -->
+    <h2 class="reveal">4. Interoperabilidad — el eje central</h2>
+    <p class="reveal">No es conectar sistemas punto a punto. Es construir un modelo gobernado que permita que cualquier sistema intercambie información con cualquier otro, hoy y en el futuro, sin reescribir integraciones cada vez.</p>
+    <div class="callout blue reveal">
+      <h4>📌 Interoperabilidad gobernada: cinco pilares</h4>
+      <p><span class="ci">1. API Gateway centralizado</span> — capa única de integración. Sin integraciones directas, sin fragilidad.</p>
+      <p><span class="ci">2. Estándares abiertos: FHIR R4 · HL7 v2 · SNOMED CT</span> — lenguaje común para todos los sistemas.</p>
+      <p><span class="ci">3. Identidad única del paciente</span> — un solo ID válido en todos los sistemas, vinculado a RENAPER.</p>
+      <p><span class="ci">4. Modelo de datos clínico unificado</span> — los satélites se acoplan al núcleo, no reinventan el modelo.</p>
+      <p><span class="ci">5. Control de acceso y auditoría transversal</span> — RBAC, doble factor, cifrado y log inmutable. Ley 25.326 y 26.529.</p>
+    </div>
+
+    <!-- 5 -->
+    <h2 class="reveal">5. HSI como núcleo clínico — evidencia y brechas</h2>
+    <p class="reveal">HSI es el sistema de HCE público con mayor adopción en Argentina, con crecimiento sostenido desde 2021 y respaldo del Ministerio de Salud de la Nación y la OPS.</p>
+    <div class="stat-row reveal">
+      <div class="stat-box"><div class="v accent-text">+1.800</div><div class="l">instituciones conectadas</div></div>
+      <div class="stat-box"><div class="v accent-text">6 M</div><div class="l">pacientes</div></div>
+      <div class="stat-box"><div class="v accent-text">35 M</div><div class="l">documentos clínicos</div></div>
+      <div class="stat-box"><div class="v accent-text">82.000</div><div class="l">profesionales de salud</div></div>
+    </div>
+    <p class="reveal"><strong>Jujuy es provincia fundadora del proyecto HSI</strong> — formó parte del grupo inicial junto a Buenos Aires, La Rioja, Córdoba, Mendoza, Río Negro, Chubut y Formosa. No está subiendo a un tren ajeno: es parte de la red desde el inicio.</p>
+    <h3 class="reveal">5.1 Fortalezas y brechas</h3>
+    <table class="ptable reveal">
+      <thead><tr><th>✔ HSI cubre bien</th><th>✖ Brechas a cubrir con satélites</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Historia clínica ambulatoria · internación y guardia · integración RENAPER · turnos · FHIR/HL7/SNOMED · arquitectura Kubernetes · open source sin licencia.</td>
+          <td>Facturación SUMAR/obras sociales · farmacia · capa operativa/administrativa · BI ministerial · imágenes y laboratorio · funcionamiento offline.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="callout amber reveal">
+      <h4>Nota sobre offline-first — el problema más crítico en campo</h4>
+      <p>La pérdida de datos en guardia no se resuelve con mejor conectividad: es un problema de diseño. Un sistema offline-first persiste los datos localmente, sincroniza al reconectar y nunca pierde lo ingresado. Se analizará en Etapa 1 si HSI puede extenderse con esta capacidad.</p>
+    </div>
+
+    <!-- 6 -->
+    <h2 class="reveal">6. Modelo operativo de la HCE</h2>
+    <table class="ptable reveal">
+      <thead><tr><th>Componente</th><th>Rol</th><th>Principio clave</th></tr></thead>
+      <tbody>
+        <tr><td class="k">HSI — Núcleo clínico</td><td>Fuente única de verdad clínica del paciente.</td><td>Single source of truth.</td></tr>
+        <tr><td class="k">API Gateway</td><td>Intermediario obligatorio entre todos los sistemas.</td><td>Ningún sistema se conecta directo a otro.</td></tr>
+        <tr><td class="k">Satélites</td><td>Módulos especializados, independientes e interoperables.</td><td>Datos compartidos, no duplicados.</td></tr>
+        <tr><td class="k">Ministerio</td><td>Dueño del ecosistema. Define estándares y controla la evolución.</td><td>Sin gobernanza central, vuelve a fragmentarse.</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 7 -->
+    <h2 class="reveal">7. Opciones estratégicas</h2>
+    <h3 class="reveal">Opción A — HSI como núcleo + satélites <span class="verdict yes">✅ Recomendada</span></h3>
+    <p class="reveal">HSI actúa como núcleo clínico. Lo que no es interoperable o no existe se desarrolla como satélite conectado vía API Gateway con estándares HL7/FHIR.</p>
+    <table class="ptable reveal">
+      <thead><tr><th>Rol</th><th>Perfil</th><th>Etapa 1 (2m)</th><th>Etapa 2 (4m)</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Consultor IT — PM + Arquitecto</td><td>Diseño, coordinación, gobernanza</td><td>100%</td><td>100%</td></tr>
+        <tr><td class="k">Analista Funcional</td><td>Relevamiento, casos de uso, UAT</td><td>100%</td><td>100%</td></tr>
+        <tr><td class="k">Backend Developer</td><td>API Gateway, integraciones, satélites</td><td>—</td><td>100%</td></tr>
+        <tr><td class="k">Frontend Developer</td><td>Interfaces de satélites, UX clínico</td><td>—</td><td>100%</td></tr>
+        <tr><td class="k">Total</td><td>4 personas</td><td>2 personas</td><td>4 personas</td></tr>
+      </tbody>
+    </table>
+    <h3 class="reveal">Opción B — Desarrollo desde cero <span class="verdict no">✖ No recomendada</span></h3>
+    <div class="callout amber reveal">
+      <h4>⚠️ El factor de irreversibilidad</h4>
+      <p>Construir una HCE desde cero es alto costo hundido y difícil reversión. Si se frena, la provincia queda sin HCE y sin recuperar la inversión. Innova fue exactamente eso.</p>
+    </div>
+    <h3 class="reveal">7.3 Comparativa</h3>
+    <table class="ptable reveal">
+      <thead><tr><th>Criterio</th><th>Opción A — HSI + Satélites</th><th>Opción B — Desde cero</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Tiempo Fase 1</td><td class="ok">6 meses</td><td class="bad">12–18 meses</td></tr>
+        <tr><td class="k">Equipo necesario</td><td class="ok">4 personas</td><td class="bad">7 personas</td></tr>
+        <tr><td class="k">Costo relativo</td><td class="ok">Menor (núcleo sin licencia)</td><td class="bad">Significativamente mayor</td></tr>
+        <tr><td class="k">Riesgo de fracaso</td><td class="ok">Bajo — base validada en Jujuy</td><td class="bad">Muy alto — sin precedentes</td></tr>
+        <tr><td class="k">Interoperabilidad</td><td class="ok">FHIR/HL7/SNOMED desde el día 1</td><td class="bad">Requiere construirlo todo</td></tr>
+        <tr><td class="k">Sostenibilidad</td><td class="ok">Comunidad nacional (Pladema)</td><td class="bad">Dependencia total del equipo</td></tr>
+        <tr><td class="k">Veredicto</td><td><span class="verdict yes">✅ Recomendada</span></td><td><span class="verdict no">✖ No recomendada</span></td></tr>
+      </tbody>
+    </table>
+
+    <!-- 8 -->
+    <h2 class="reveal">8. El desarrollo a medida — el eje del proyecto</h2>
+    <p class="reveal">HSI resuelve el núcleo clínico. Pero los problemas que el personal enfrenta a diario se resuelven con sistemas diseñados para la realidad operativa concreta de Jujuy.</p>
+    <table class="ptable reveal">
+      <thead><tr><th>Problema en campo</th><th>Lo que el desarrollo a medida resuelve</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Pérdida de datos en guardia</td><td>Offline-first: datos locales, sincronización automática al reconectar.</td></tr>
+        <tr><td class="k">Inutilizable en guardia por latencia</td><td>Satélite de guardia: velocidad, carga mínima, uso sin mouse.</td></tr>
+        <tr><td class="k">Carga de uno en uno</td><td>Búsqueda rápida, carga múltiple, autocompletado.</td></tr>
+        <tr><td class="k">Sin feedback visual</td><td>UX con estados de carga visibles y prevención de duplicados.</td></tr>
+        <tr><td class="k">Sin recetas electrónicas</td><td>Módulo de prescripción integrado a HSI con estándares nacionales.</td></tr>
+        <tr><td class="k">Sin facturación integrada</td><td>Satélite de facturación propio, sin dependencia de terceros.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout green reveal">
+      <p><span class="ci">🎯 Cada módulo desarrollado queda en propiedad de la provincia</span> — sin dependencia de proveedores, sin costos de licencia y con evolución propia. Es la diferencia entre alquilar una solución y construir patrimonio tecnológico.</p>
+    </div>
+
+    <!-- 9 -->
+    <h2 class="reveal">9. Roadmap de implementación — Opción A</h2>
+    <h3 class="reveal">Etapa 1 — Análisis y diseño (2 meses)</h3>
+    <p class="reveal">Etapa crítica que no puede omitirse: determina el costo y alcance de todo lo que sigue. Su entregable es la hoja de ruta técnica y presupuestaria definitiva.</p>
+    <ul class="bullets reveal">
+      <li><strong>Hito temprano</strong> — identidad única del paciente operativa (RENAPER + HSI + Más Salud).</li>
+      <li>Relevamiento funcional completo del ecosistema.</li>
+      <li>Análisis de HSI: brechas para hospitales, viabilidad offline-first.</li>
+      <li>Identificación de satélites: qué existe, qué es interoperable, qué desarrollar.</li>
+      <li>Arquitectura técnica definitiva (API Gateway, modelo de integración, estándares).</li>
+      <li>Plan de reemplazo de Innova + convivencia con Más Salud.</li>
+      <li>Presupuesto definitivo de satélites y cronograma de despliegue.</li>
+    </ul>
+    <h3 class="reveal">Etapa 2 — Implementación de HSI (4 meses)</h3>
+    <table class="ptable reveal">
+      <thead><tr><th>Actividad</th><th>Prioridad</th><th>Meses</th></tr></thead>
+      <tbody>
+        <tr><td>Configuración y parametrización de HSI</td><td class="bad">P1 — Crítico</td><td>1–2</td></tr>
+        <tr><td>Integración con Más Salud vía API Gateway</td><td class="bad">P1 — Crítico</td><td>1–3</td></tr>
+        <tr><td>Seguridad y auditoría (RBAC, 2FA, AES-256)</td><td class="bad">P1 — Crítico</td><td>1–2</td></tr>
+        <tr><td>Offline-first (según resultado del análisis)</td><td>A evaluar</td><td>2–4</td></tr>
+        <tr><td>Piloto en hospitales de referencia (Pablo Soria + 2 zonales)</td><td class="bad">P1 — Crítico</td><td>3–4</td></tr>
+        <tr><td>Rollout progresivo red provincial</td><td>P2 — Alto</td><td>4+</td></tr>
+      </tbody>
+    </table>
+    <div class="callout blue reveal">
+      <h4>Gestión del cambio (desde el día 1)</h4>
+      <p>El factor que más determina el éxito no es la tecnología — es la adopción. Campeones clínicos por hospital, validación funcional con usuarios reales, capacitación presencial por rol y zona, y soporte in-situ 90 días post-despliegue. <span class="ci">No se escala a un nuevo efector hasta superar el 70% de adopción real en el anterior. Instalación no es adopción.</span></p>
+    </div>
+
+    <!-- 10 -->
+    <h2 class="reveal">10. Modelo de costos</h2>
+    <table class="ptable reveal">
+      <thead><tr><th>Etapa</th><th>Modalidad</th><th>Definición</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Etapa 1 — Análisis y Diseño</td><td>Costo cerrado por etapa</td><td class="ok">Cotizable hoy</td></tr>
+        <tr><td class="k">Etapa 2 — Implementación HSI</td><td>Costo por efector desplegado</td><td class="ok">Cotizable hoy</td></tr>
+        <tr><td class="k">Etapa 3 — Satélites</td><td>Costo por módulo / satélite</td><td>Post-análisis</td></tr>
+        <tr><td class="k">Operación continua</td><td>Abono mensual por horas de consultoría</td><td>A convenir</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 11 -->
+    <h2 class="reveal">11. Infraestructura — condición crítica</h2>
+    <p class="reveal">La propuesta de software no puede tener éxito sin la infraestructura adecuada. Responsabilidad del Ministerio, garantizada antes del rollout en cada efector.</p>
+    <table class="ptable reveal">
+      <thead><tr><th>Componente</th><th>Especificación mínima</th><th>Responsable</th></tr></thead>
+      <tbody>
+        <tr><td class="k">PC por puesto</td><td>Intel i3+ · 16 GB RAM · SSD 500 GB</td><td>Ministerio</td></tr>
+        <tr><td class="k">Conectividad por efector</td><td>Red principal + red de respaldo obligatoria</td><td>Ministerio</td></tr>
+        <tr><td class="k">Datacenter provincial</td><td>Alta disponibilidad · redundancia · backups · VPN</td><td>Ministerio</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 12 -->
+    <h2 class="reveal">12. Riesgos y factores críticos de éxito</h2>
+    <table class="ptable reveal">
+      <thead><tr><th>Sev.</th><th>Riesgo</th><th>Mitigación</th></tr></thead>
+      <tbody>
+        <tr><td class="bad">Crítico</td><td>Infraestructura insuficiente en efectores</td><td>Relevamiento previo. Rollout condicionado.</td></tr>
+        <tr><td class="bad">Crítico</td><td>Falta de participación del Ministerio en Etapa 1</td><td>Cláusula contractual. Referentes designados.</td></tr>
+        <tr><td>Alto</td><td>Resistencia al cambio del personal</td><td>Capacitación presencial. Soporte in-situ 90 días.</td></tr>
+        <tr><td>Alto</td><td>Incompatibilidad con legacy de obras sociales</td><td>Capa de adaptadores. PAMI primero.</td></tr>
+        <tr><td>Medio</td><td>Scope creep</td><td>Gestión por sprints. Change requests formales.</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 13 -->
+    <h2 class="reveal">13. Condiciones y próximos pasos</h2>
+    <h3 class="reveal">Lo que requiere el Ministerio para avanzar</h3>
+    <ul class="bullets reveal">
+      <li>Involucramiento formal de la Unidad IT bajo estructura de proyecto.</li>
+      <li>Acceso técnico al ecosistema actual (código, bases, APIs, documentación).</li>
+      <li>Participación activa durante toda la Etapa 1 — no delegable.</li>
+      <li>Plan de infraestructura con cronograma de equipamiento y conectividad.</li>
+      <li>Aprobación presupuestaria de la Etapa 1 con hitos mensuales.</li>
+    </ul>
+    <h3 class="reveal">Lo que NO incluye esta propuesta</h3>
+    <ul class="bullets reveal">
+      <li>Desarrollo ni mantenimiento de Más Salud u otros sistemas existentes.</li>
+      <li>Migración masiva de datos históricos (cotizable por separado).</li>
+      <li>Infraestructura física: servidores, equipos, conectividad, licencias.</li>
+      <li>Capacitación a escala provincial completa (el piloto incluye 3 hospitales).</li>
+    </ul>
+    <div class="callout blue reveal">
+      <h4>La decisión no es si avanzar o no</h4>
+      <p>La provincia ya invirtió en múltiples sistemas. El problema no es tecnológico — es estructural. Este proyecto no propone empezar de nuevo: propone ordenar, integrar y escalar lo existente.</p>
+      <p><span class="ci">La decisión es si hacerlo de forma controlada o seguir acumulando complejidad, fragmentación y costo.</span></p>
+    </div>
+
+    <div style="margin-top:32px;">
+      <a class="btn btn-primary" href="https://wa.me/5493885120704" target="_blank" rel="noopener">Coordinar reunión de validación</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ft"><div class="wrap ft-in"><span>Alejandro Gallardo · San Salvador de Jujuy, Argentina</span><a href="mailto:agallardo2802@gmail.com">agallardo2802@gmail.com</a><span>© 2026 GG Soluciones · Confidencial</span></div></footer>
+
+<script src="app.js?v=4"></script>
+</body>
+</html>
