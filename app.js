@@ -134,7 +134,20 @@
   // exponer para que bindIntake registre el lead
   window.GGS_track = track;
 
-  function init() { bindTheme(); bindReveal(); bindGallery(); bindMobileNav(); bindIntake(); bindTracking(); }
+  // ── MODAL ──
+  function bindModal() {
+    function open(id) { var m = document.getElementById(id); if (m) { m.classList.add('open'); document.body.style.overflow = 'hidden'; } }
+    function closeAll() { document.querySelectorAll('.modal-overlay.open').forEach(function (m) { m.classList.remove('open'); }); document.body.style.overflow = ''; }
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-modal-open]');
+      if (t) { e.preventDefault(); open(t.getAttribute('data-modal-open')); return; }
+      if (e.target.closest('[data-modal-close]')) { closeAll(); return; }
+      if (e.target.classList && e.target.classList.contains('modal-overlay')) { closeAll(); }
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+  }
+
+  function init() { bindTheme(); bindReveal(); bindGallery(); bindMobileNav(); bindIntake(); bindTracking(); bindModal(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();

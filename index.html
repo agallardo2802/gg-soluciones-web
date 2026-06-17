@@ -29,7 +29,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="app.css?v=6" />
+<link rel="stylesheet" href="app.css?v=7" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -86,7 +86,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow"><span class="dot"></span> 12 años de experiencia · San Salvador de Jujuy</span>
+    <span class="eyebrow"><span class="dot"></span> 12 años de experiencia</span>
     <h1>Transformamos sistemas, procesos y equipos<br/><span class="accent-text">en operaciones eficientes</span></h1>
     <p class="lead">Ayudamos a organismos y empresas a ordenar su operación, integrar sistemas y tomar decisiones con datos. No solo desarrollamos software: resolvemos problemas estructurales.</p>
     <div class="hero-cta">
@@ -182,14 +182,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<section class="block" id="contanos">
-  <div class="wrap">
-    <div class="sec-head center reveal">
+<div class="modal-overlay" id="ideaModal">
+  <div class="modal-box">
+    <button class="modal-close" data-modal-close aria-label="Cerrar">×</button>
+    <div class="sec-head" style="margin-bottom:24px;">
       <div class="sec-tag">Contanos tu idea</div>
-      <h2>Describí tu necesidad y armamos tu proyecto</h2>
+      <h2 style="font-size:1.6rem;">Describí tu necesidad y armamos tu proyecto</h2>
       <p>Completá estos campos clave. Con esa información preparamos una propuesta concreta para tu idea — sin compromiso.</p>
     </div>
-    <form class="intake reveal" id="intakeForm" novalidate>
+    <form class="intake" id="intakeForm" novalidate>
       <div class="intake-grid">
         <div class="field">
           <label for="i-tipo">Tipo de proyecto</label>
@@ -269,22 +270,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="intake-note" id="intakeError" style="color:#e25; margin-top:10px;"></div>
     </form>
   </div>
-</section>
+</div>
 
 <section class="cta-final" id="contacto">
   <div class="wrap">
     <div class="cta-box reveal">
       <h2>¿Listo para <span class="accent-text">ordenar tu operación</span>?</h2>
       <p>La primera reunión es sin cargo. Analizamos tu necesidad y te decimos con honestidad cómo podemos ayudarte.</p>
-      <a class="btn btn-primary" href="https://wa.me/5493885120704" target="_blank" rel="noopener">Consultá sin cargo</a>
+      <div class="hero-cta" style="justify-content:center;">
+        <a class="btn btn-primary" href="https://wa.me/5493885120704" target="_blank" rel="noopener">Consultá sin cargo</a>
+        <button class="btn btn-ghost" type="button" data-modal-open="ideaModal">Contanos tu idea</button>
+      </div>
     </div>
   </div>
 </section>
 
-<footer class="ft"><div class="wrap ft-in"><span>Alejandro Gallardo · San Salvador de Jujuy, Argentina</span><a href="mailto:agallardo2802@gmail.com">agallardo2802@gmail.com</a><span>© 2026 GG Soluciones · Todos los derechos reservados</span></div></footer>
+<footer class="ft"><div class="wrap ft-in"><span>De Jujuy al mundo</span><span>© 2026 GG Soluciones · Todos los derechos reservados</span></div></footer>
 
-<script src="app.js?v=4"></script>
-<script src="translations.js?v=20260603f"></script>
+<script src="app.js?v=5"></script>
+<script src="translations.js?v=20260603g"></script>
 <script src="i18n.js?v=20260603e"></script>
 </body>
 </html>

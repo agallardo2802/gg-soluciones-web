@@ -867,6 +867,9 @@ window.GGS_TRANSLATIONS = {
   "Cada programa incluye evaluación intermedia, evaluación final y certificación de participación o aprobación.": "Each program includes a midterm assessment, a final assessment and a certificate of participation or completion.",
   "Formato de trabajo": "Working format",
   "Programas disponibles": "Available programs",
+  "12 años de experiencia": "12 years of experience",
+  "De Jujuy al mundo": "From Jujuy to the world",
+  "ordenar tu operación": "organize your operation",
 
   /* ── Formulario de contacto ── */
   "Contanos tu idea": "Tell us your idea",
