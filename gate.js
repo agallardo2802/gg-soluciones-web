@@ -22,7 +22,7 @@
     'background:radial-gradient(900px 500px at 20% 10%,rgba(47,128,237,.28),transparent 60%),linear-gradient(135deg,#0a1628,#0f2748 55%,#1a4fa0);}' +
     '#gateOverlay .gbox{width:100%;max-width:400px;background:rgba(255,255,255,.08);backdrop-filter:blur(20px);' +
     'border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:40px 34px;box-shadow:0 30px 80px rgba(0,0,0,.45);text-align:center;font-family:Inter,system-ui,sans-serif;}' +
-    '#gateOverlay img{height:46px;margin-bottom:14px;}' +
+    '#gateOverlay img{height:60px;margin-bottom:14px;}' +
     '#gateOverlay h3{color:#fff;font-size:1.1rem;margin:0 0 4px;font-family:"Space Grotesk",Inter,sans-serif;}' +
     '#gateOverlay p{color:rgba(255,255,255,.6);font-size:.82rem;margin:0 0 22px;}' +
     '#gateOverlay input{width:100%;padding:13px 14px;border:1px solid rgba(255,255,255,.18);border-radius:12px;background:rgba(255,255,255,.07);' +
