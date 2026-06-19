@@ -161,12 +161,20 @@
       flex-wrap: wrap;
       margin-bottom: 32px;
     }
+    .print-brand { display: none; }
 
     @media print {
       .header, .nav-mobile, .nav-toggle, .footer, .doc-actions,
       #gateOverlay { display: none !important; }
       body, html { background: #fff !important; color: #111 !important; filter: none !important; font-size: 12px; }
       body > * { filter: none !important; pointer-events: auto !important; }
+      .print-brand {
+        display: flex !important; align-items: center; gap: 12px;
+        padding: 12px 0 16px; border-bottom: 2px solid #1a4fa0; margin-bottom: 24px;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+      .print-brand img { height: 48px; width: auto; }
+      .print-brand span { font-size: 0.9rem; font-weight: 600; color: #1a4fa0; letter-spacing: 0.02em; }
       .doc-hero { background: #0f1c2e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 28px 0; }
       .doc-wrap { padding: 20px 0; }
       .price-table thead th, .payment-table thead th,
@@ -179,6 +187,7 @@
 <script src="gate.js?v=3"></script>
 </head>
 <body>
+<div class="print-brand"><img src="logo.png" alt="GG Soluciones" /><span>GG Soluciones · ggsoluciones.com.ar</span></div>
 
 <!-- ── HEADER ── -->
 <header class="header">
