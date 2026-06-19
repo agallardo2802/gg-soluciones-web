@@ -163,15 +163,20 @@
     }
 
     @media print {
-      .header, .nav-mobile, .nav-toggle, .footer, .doc-actions { display: none !important; }
-      .doc-hero { background: #0f1c2e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 32px 0; }
-      .doc-wrap { padding: 24px 0; }
-      .price-table thead th, .doc h2 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      body { font-size: 12px; }
+      .header, .nav-mobile, .nav-toggle, .footer, .doc-actions,
+      #gateOverlay { display: none !important; }
+      body, html { background: #fff !important; color: #111 !important; filter: none !important; font-size: 12px; }
+      body > * { filter: none !important; pointer-events: auto !important; }
+      .doc-hero { background: #0f1c2e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 28px 0; }
+      .doc-wrap { padding: 20px 0; }
+      .price-table thead th, .payment-table thead th,
+      .doc-callout, .doc h2 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      h2, h3 { page-break-after: avoid; }
+      table, .doc-callout { page-break-inside: avoid; }
     }
   </style>
 <script>window.GGS_GATE = { key: 'ggs_gate_hacienda', hash: 'e4ebe13a79cd633bc3154a6775d5687c9e33d69ec69630f62e82f871704b88a5', title: 'Ingresá el código de acceso para ver esta propuesta del Ministerio de Hacienda.' };</script>
-<script src="gate.js?v=2"></script>
+<script src="gate.js?v=3"></script>
 </head>
 <body>
 

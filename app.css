@@ -266,8 +266,22 @@ footer.ft { position: relative; z-index:1; border-top: 1px solid var(--line); pa
 .doc-back:hover { color: var(--accent); }
 
 @media print {
-  header.nav, .nav-toggle, .glow-orb, .doc-actions, footer.ft { display: none !important; }
-  body { background: #fff; color: #000; }
+  header.nav, .nav-toggle, .glow-orb, .doc-actions, footer.ft,
+  #gateOverlay, .modal-overlay { display: none !important; }
+  body, html { background: #fff !important; color: #111 !important; filter: none !important; }
+  body > * { filter: none !important; pointer-events: auto !important; }
+  /* hero gradient prints correctly */
+  .hero, .cta-final, .cta-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  /* proposal-specific */
+  .doc-hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 28px 0 !important; }
+  .callout, .stat-box, .ptable thead th, .verdict {
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .wrap { max-width: 100% !important; }
+  .cards { grid-template-columns: 1fr 1fr !important; }
+  /* avoid orphan headings */
+  h2, h3 { page-break-after: avoid; }
+  .callout, .stat-box, table { page-break-inside: avoid; }
 }
 
 /* ── MODAL ── */

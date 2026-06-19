@@ -227,15 +227,20 @@
     }
 
     @media print {
-      .header, .nav-mobile, .nav-toggle, .footer, .doc-actions { display: none !important; }
-      .doc-hero { background: #0f1c2e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 32px 0; }
-      .doc-wrap { padding: 24px 0; }
-      .price-table thead th, .doc h2, .arch-box-header, .payment-table thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      body { font-size: 12px; }
+      .header, .nav-mobile, .nav-toggle, .footer, .doc-actions,
+      #gateOverlay { display: none !important; }
+      body, html { background: #fff !important; color: #111 !important; filter: none !important; font-size: 12px; }
+      body > * { filter: none !important; pointer-events: auto !important; }
+      .doc-hero { background: #0f1c2e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 28px 0; }
+      .doc-wrap { padding: 20px 0; }
+      .price-table thead th, .payment-table thead th, .arch-box-header,
+      .doc-callout, .doc h2 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      h2, h3 { page-break-after: avoid; }
+      table, .doc-callout { page-break-inside: avoid; }
     }
   </style>
 <script>window.GGS_GATE = { key: 'ggs_gate_actas', hash: 'f62c31afb063fb071eef4067d360ff5375744ec30c24ac4f8cf0e630d3416080', title: 'Ingresá el código de acceso para ver esta propuesta del Registro Civil.' };</script>
-<script src="gate.js?v=2"></script>
+<script src="gate.js?v=3"></script>
 </head>
 <body>
 

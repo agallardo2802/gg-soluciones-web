@@ -17,7 +17,8 @@
 
   // Ocultar el contenido hasta validar
   var style = document.createElement('style');
-  style.textContent = 'body > *:not(#gateOverlay){filter:blur(8px);pointer-events:none;user-select:none;}' +
+  style.textContent = '@media print{#gateOverlay{display:none!important;}body>*{filter:none!important;pointer-events:auto!important;}}' +
+    'body > *:not(#gateOverlay){filter:blur(8px);pointer-events:none;user-select:none;}' +
     '#gateOverlay{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;' +
     'background:radial-gradient(900px 500px at 20% 10%,rgba(47,128,237,.28),transparent 60%),linear-gradient(135deg,#0a1628,#0f2748 55%,#1a4fa0);}' +
     '#gateOverlay .gbox{width:100%;max-width:400px;background:rgba(255,255,255,.08);backdrop-filter:blur(20px);' +
