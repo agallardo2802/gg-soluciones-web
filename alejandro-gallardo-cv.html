@@ -1,374 +1,1017 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alejandro Gallardo — CV</title>
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alejandro Gallardo — CV</title>
+  
+  <!-- Preconnect and Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Inline script to load theme immediately and prevent FOUC -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+  
+  <style>
+    /* Design Tokens — Corporate Trust & Innovation */
+    :root {
+      --bg: #f5f7fa;
+      --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #eef2f8 100%);
+      --surface: #ffffff;
+      --surface-glass: rgba(255, 255, 255, 0.75);
+      --border: rgba(26, 79, 160, 0.08);
+      --border-hover: rgba(47, 128, 237, 0.35);
+      --text: #0f1c2e;
+      --text-muted: #51647d;
+      --primary: #1a4fa0;
+      --primary-light: #2563c9;
+      --accent: #2f80ed;
+      --accent-light: rgba(47, 128, 237, 0.08);
+      --accent-glow: rgba(47, 128, 237, 0.2);
+      --shadow: 0 4px 20px rgba(26, 79, 160, 0.04);
+      --shadow-lg: 0 12px 32px rgba(26, 79, 160, 0.08);
+      --shadow-xl: 0 20px 40px rgba(15, 28, 46, 0.05);
+      --orb-a: rgba(26, 79, 160, 0.08);
+      --orb-b: rgba(47, 128, 237, 0.07);
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-title: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    }
 
-:root {
-  --purple: #1a56a0;
-  --purple-light: #e8f0fb;
-  --purple-mid: #3b7dd8;
-  --dark: #1a1a2e;
-  --muted: #777;
-  --border: #e8e8e8;
-  --white: #fff;
-  --bg: #f5f5f5;
-}
+    [data-theme="dark"] {
+      --bg: #05080f;
+      --bg-gradient: linear-gradient(135deg, #05080f 0%, #0a1020 100%);
+      --surface: #0e1626;
+      --surface-glass: rgba(14, 22, 38, 0.7);
+      --border: rgba(255, 255, 255, 0.07);
+      --border-hover: rgba(96, 165, 250, 0.4);
+      --text: #eaf0fb;
+      --text-muted: #8ea2c0;
+      --primary: #3b82f6;
+      --primary-light: #60a5fa;
+      --accent: #60a5fa;
+      --accent-light: rgba(96, 165, 250, 0.1);
+      --accent-glow: rgba(96, 165, 250, 0.3);
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.35);
+      --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.45);
+      --orb-a: rgba(26, 79, 160, 0.4);
+      --orb-b: rgba(47, 128, 237, 0.3);
+    }
 
-body {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  background: var(--bg);
-  color: var(--dark);
-  font-size: 14px;
-  line-height: 1.6;
-}
+    /* General Resets */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background 0.3s, color 0.3s;
+      position: relative;
+    }
+    
+    /* Background Noise Overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.02;
+      pointer-events: none;
+      z-index: 1;
+    }
 
-/* ── Top bar ── */
-.topbar {
-  background: var(--purple);
-  padding: 0 40px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.topbar-left {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-.topbar-brand {
-  font-size: 14px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.02em;
-}
-.topbar-meta {
-  font-size: 12px;
-  color: rgba(255,255,255,0.6);
-}
-.topbar-links {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.topbar-link {
-  font-size: 12px;
-  color: rgba(255,255,255,0.75);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: color 0.15s;
-}
-.topbar-link:hover { color: #fff; }
-.topbar-link svg { width: 13px; height: 13px; fill: currentColor; }
-.btn-dl {
-  background: var(--white);
-  color: var(--purple);
-  border: none;
-  border-radius: 4px;
-  padding: 8px 22px;
-  font-size: 12.5px;
-  font-weight: 700;
-  cursor: pointer;
-  letter-spacing: 0.03em;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  transition: opacity 0.15s;
-  flex-shrink: 0;
-}
-.btn-dl:hover { opacity: 0.88; }
-.btn-dl svg { width: 15px; height: 15px; fill: var(--purple); }
+    /* Glow Background Orbs */
+    .glow-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.8;
+    }
+    .glow-orb.a { width: 600px; height: 600px; background: var(--orb-a); top: -200px; left: -100px; animation: orbMotion1 25s ease-in-out infinite alternate; }
+    .glow-orb.b { width: 500px; height: 500px; background: var(--orb-b); bottom: -100px; right: -100px; animation: orbMotion2 20s ease-in-out infinite alternate; }
+    
+    @keyframes orbMotion1 {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(50px, 30px) scale(1.1); }
+      100% { transform: translate(-30px, -20px) scale(0.9); }
+    }
+    @keyframes orbMotion2 {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-40px, 40px) scale(0.9); }
+      100% { transform: translate(20px, -30px) scale(1.1); }
+    }
 
-/* ── Page ── */
-.page {
-  max-width: 1020px;
-  margin: 32px auto 48px;
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  background: var(--white);
-  box-shadow: 0 4px 32px rgba(0,0,0,0.10);
-}
+    /* Sticky Navigation Header */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: color-mix(in srgb, var(--surface) 80%, transparent);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .topbar-brand {
+      font-family: var(--font-title);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .topbar-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      border-left: 1px solid var(--border);
+      padding-left: 16px;
+    }
+    .topbar-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .topbar-link {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      transition: var(--transition);
+    }
+    .topbar-link:hover {
+      color: var(--text);
+      background: var(--accent-light);
+      border-color: var(--border-hover);
+    }
+    .topbar-link svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+    
+    /* Download Button */
+    .btn-dl {
+      background: linear-gradient(120deg, var(--accent), var(--primary));
+      color: #fff !important;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 8px 18px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px var(--accent-glow);
+    }
+    .btn-dl:hover {
+      transform: translateY(-1.5px);
+      filter: brightness(1.08);
+      box-shadow: 0 6px 16px var(--accent-glow);
+    }
+    .btn-dl svg {
+      width: 14px;
+      height: 14px;
+      fill: #fff;
+    }
+    
+    /* Sun/Moon Theme Toggler */
+    .theme-toggle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .theme-toggle:hover {
+      background: var(--accent-light);
+      border-color: var(--border-hover);
+      transform: scale(1.05);
+    }
+    .theme-toggle svg {
+      stroke: currentColor;
+      transition: transform 0.5s ease;
+    }
+    .theme-toggle .moon { display: none; }
+    .theme-toggle .sun { display: block; }
+    [data-theme="dark"] .theme-toggle .moon { display: block; }
+    [data-theme="dark"] .theme-toggle .sun { display: none; }
 
-/* ══════════ LEFT COLUMN ══════════ */
-.left {
-  padding: 0 0 40px;
-  border-right: 1px solid var(--border);
-}
+    /* ── Main Sheet Container ── */
+    .page {
+      max-width: 1100px;
+      margin: 40px auto 60px;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 0;
+      background: var(--surface-glass);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+      position: relative;
+      z-index: 10;
+      transition: background 0.3s, border-color 0.3s;
+    }
 
-.photo-wrap {
-  width: 100%;
-  height: 260px;
-  overflow: hidden;
-  background: #ddd;
-}
-.photo-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
-.photo-initials {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #6c3fc5 0%, #a78bfa 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 64px;
-  font-weight: 700;
-  color: rgba(255,255,255,0.9);
-  letter-spacing: -2px;
-}
+    /* ══════════ LEFT COLUMN ══════════ */
+    .left {
+      padding: 40px 28px;
+      background: color-mix(in srgb, var(--surface) 35%, transparent);
+      border-right: 1px solid var(--border);
+    }
 
-.left-body { padding: 28px 28px 0; }
+    /* Profile picture frame */
+    .photo-wrap {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--border);
+      position: relative;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+    }
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .photo-wrap:hover img {
+      transform: scale(1.06);
+    }
+    .photo-initials {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-title);
+      font-size: 72px;
+      font-weight: 700;
+      color: #fff;
+    }
 
-.l-name { font-size: 26px; font-weight: 800; color: var(--dark); line-height: 1.1; margin-bottom: 4px; }
-.l-role { font-size: 12px; color: var(--muted); font-weight: 400; margin-bottom: 20px; }
+    .l-name-box {
+      margin-bottom: 24px;
+    }
+    .l-name {
+      font-family: var(--font-title);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .l-role {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+      line-height: 1.45;
+    }
 
-.l-info { margin-bottom: 20px; }
-.l-info-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 9px;
-  margin-bottom: 9px;
-  font-size: 12.5px;
-  color: #444;
-  text-decoration: none;
-}
-.l-info-row svg { width: 15px; height: 15px; fill: var(--purple); flex-shrink: 0; margin-top: 1px; }
-.l-info-row .val { word-break: break-all; }
+    .l-info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+    }
+    .l-info-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .l-info-row:hover {
+      color: var(--text);
+    }
+    .l-info-row svg {
+      width: 15px;
+      height: 15px;
+      fill: var(--accent);
+      flex-shrink: 0;
+    }
+    .l-info-row .val {
+      word-break: break-all;
+    }
 
-.social-row { display: flex; gap: 10px; margin-bottom: 28px; }
-.social-icon {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 700;
-}
-.si-li { background: #0A66C2; color: #fff; }
-.si-wb { background: var(--purple); color: #fff; }
-.si-em { background: #EA4335; color: #fff; }
+    /* Section Headings */
+    .s-head {
+      margin-bottom: 20px;
+    }
+    .s-head .bar {
+      width: 28px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+    .s-head .title {
+      font-family: var(--font-title);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .s-head .sub {
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
 
-/* Section heading */
-.s-head { margin-bottom: 16px; }
-.s-head .bar { width: 28px; height: 3px; background: var(--purple); border-radius: 2px; margin-bottom: 6px; }
-.s-head .title { font-size: 16px; font-weight: 800; color: var(--dark); }
-.s-head .sub { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+    .l-section {
+      margin-bottom: 36px;
+    }
 
-.l-section { margin-bottom: 28px; }
+    /* Impact Stats grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .stat-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px 6px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .stat-box:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow);
+    }
+    .stat-num {
+      font-family: var(--font-title);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-lbl {
+      font-size: 10px;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
 
-/* About */
-.about-text { font-size: 12.5px; color: #555; line-height: 1.7; }
+    /* Skills list with animated progress */
+    .skill-item {
+      margin-bottom: 14px;
+    }
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .skill-pct {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .skill-bar-bg {
+      height: 5px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 3px;
+      width: 0%;
+      transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1);
+    }
 
-/* Stats */
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 4px;
-}
-.stat-box { text-align: center; }
-.stat-num { font-size: 28px; font-weight: 800; color: var(--purple); line-height: 1; }
-.stat-lbl { font-size: 11px; color: var(--muted); line-height: 1.3; margin-top: 3px; }
+    /* Education vertical blocks */
+    .edu-timeline {
+      position: relative;
+      padding-left: 20px;
+    }
+    .edu-timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .edu-entry {
+      position: relative;
+      margin-bottom: 18px;
+    }
+    .edu-entry:last-child {
+      margin-bottom: 0;
+    }
+    .edu-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 3px solid var(--accent);
+      position: absolute;
+      left: -20px;
+      top: 3px;
+      box-shadow: 0 0 0 3px var(--bg);
+    }
+    .edu-degree {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .edu-school {
+      font-size: 11.5px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .edu-period {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .badge-grad {
+      display: inline-block;
+      font-size: 9.5px;
+      font-weight: 700;
+      background: rgba(34, 197, 94, 0.1);
+      color: #22c55e;
+      border-radius: 3px;
+      padding: 1px 6px;
+      margin-top: 4px;
+    }
+    [data-theme="dark"] .badge-grad {
+      background: rgba(34, 197, 94, 0.15);
+    }
 
-/* Skills bars */
-.skill-item { margin-bottom: 14px; }
-.skill-header { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; margin-bottom: 5px; }
-.skill-pct { color: var(--muted); font-weight: 400; }
-.skill-bar-bg { height: 5px; background: var(--border); border-radius: 3px; }
-.skill-bar-fill { height: 5px; background: var(--purple); border-radius: 3px; }
+    /* Certifications layout */
+    .cert-entry {
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--border);
+    }
+    .cert-entry:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .cert-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .cert-issuer {
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .cert-year {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
 
-/* Education left */
-.edu-tl { position: relative; padding-left: 20px; }
-.edu-tl::before { content:''; position:absolute; left:6px; top:8px; bottom:0; width:2px; background:var(--border); }
-.edu-entry { position: relative; margin-bottom: 16px; }
-.edu-dot {
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  background: var(--purple);
-  position: absolute;
-  left: -20px; top: 3px;
-  display: flex; align-items: center; justify-content: center;
-}
-.edu-dot::after { content:''; width:6px; height:6px; border-radius:50%; background:#fff; }
-.edu-degree { font-size: 12.5px; font-weight: 700; color: var(--dark); }
-.edu-school { font-size: 11.5px; color: var(--purple); font-weight: 600; }
-.edu-period { font-size: 11px; color: var(--muted); }
-.badge-grad {
-  display: inline-block; font-size: 10px; font-weight: 700;
-  background: #e6f4ec; color: #1a7a4a;
-  border-radius: 3px; padding: 1px 6px; margin-top: 2px;
-}
+    /* Languages design */
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 12.5px;
+    }
+    .lang-name {
+      font-weight: 600;
+      color: var(--text);
+    }
+    .lang-lv {
+      color: var(--accent);
+      background: var(--accent-light);
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
 
-/* Certs */
-.cert-entry { margin-bottom: 10px; }
-.cert-name { font-size: 12px; font-weight: 700; color: var(--dark); line-height: 1.3; }
-.cert-issuer { font-size: 11px; color: var(--purple); }
-.cert-year { font-size: 11px; color: var(--muted); }
+    /* ══════════ RIGHT COLUMN ══════════ */
+    .right {
+      padding: 44px 40px;
+      background: var(--surface);
+    }
 
-/* Langs */
-.lang-row { display:flex; justify-content:space-between; margin-bottom:6px; font-size:12.5px; }
-.lang-lv { color: var(--muted); font-size: 11.5px; }
+    .r-name-box {
+      display: none; /* hidden on desktop as left col shows it */
+    }
+    .r-summary {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      border-left: 3px solid var(--accent);
+      padding-left: 18px;
+      margin-bottom: 36px;
+    }
+    .r-summary strong {
+      color: var(--text);
+      font-weight: 600;
+    }
 
-/* ══════════ RIGHT COLUMN ══════════ */
-.right { padding: 36px 40px 48px; }
+    .r-section {
+      margin-bottom: 36px;
+    }
+    .r-section:last-child {
+      margin-bottom: 0;
+    }
 
-.r-name { font-size: 36px; font-weight: 800; color: var(--dark); line-height: 1.05; }
-.r-role { font-size: 13px; color: var(--muted); margin-top: 4px; margin-bottom: 16px; }
-.r-summary {
-  font-size: 13px; color: #555; line-height: 1.75;
-  border-left: 3px solid var(--purple);
-  padding-left: 14px;
-  margin-bottom: 36px;
-}
-.r-summary strong { color: var(--dark); font-weight: 700; }
+    /* Experience timeline design */
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+      margin-top: 10px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    
+    .exp-entry {
+      position: relative;
+      margin-bottom: 28px;
+    }
+    .exp-entry:last-child {
+      margin-bottom: 0;
+    }
+    
+    .timeline-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 3px solid var(--border);
+      position: absolute;
+      left: -24px;
+      top: 6px;
+      z-index: 2;
+      box-shadow: 0 0 0 4px var(--surface);
+      transition: var(--transition);
+    }
+    .exp-entry:hover .timeline-dot {
+      border-color: var(--accent);
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+    
+    .timeline-dot.current {
+      border-color: var(--accent);
+      animation: pulseDot 2s infinite;
+    }
+    @keyframes pulseDot {
+      0% { box-shadow: 0 0 0 0 var(--accent-glow); }
+      70% { box-shadow: 0 0 0 8px transparent; }
+      100% { box-shadow: 0 0 0 0 transparent; }
+    }
+    
+    .exp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .exp-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .exp-title-box {
+      display: flex;
+      flex-direction: column;
+    }
+    .exp-role {
+      font-family: var(--font-title);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .exp-company {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-top: 2px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .exp-period {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 600;
+      background: var(--accent-light);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+    .badge-current {
+      font-size: 9.5px;
+      font-weight: 700;
+      background: rgba(34, 197, 94, 0.15);
+      color: #22c55e;
+      border-radius: 3px;
+      padding: 1px 6px;
+      display: inline-block;
+    }
 
-.r-section { margin-bottom: 36px; }
+    .exp-bullets {
+      list-style: none;
+      padding: 0;
+    }
+    .exp-bullets li {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 6px;
+      line-height: 1.55;
+    }
+    .exp-bullets li:last-child {
+      margin-bottom: 0;
+    }
+    .exp-bullets li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      position: absolute;
+      left: 0;
+      top: 7px;
+    }
+    .exp-bullets li strong {
+      color: var(--text);
+      font-weight: 600;
+    }
 
-/* Experience */
-.exp-entry { margin-bottom: 28px; }
-.exp-role { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em; color: var(--dark); }
-.exp-company { font-size: 13px; color: var(--purple); font-weight: 700; margin-top: 1px; display: flex; align-items: center; gap: 8px; }
-.exp-period { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-top: 2px; margin-bottom: 8px; }
-.exp-desc { font-size: 12.5px; color: #555; line-height: 1.7; margin-bottom: 8px; }
-.exp-bullets { list-style: none; padding: 0; }
-.exp-bullets li {
-  font-size: 12.5px; color: #555; padding-left: 16px;
-  position: relative; margin-bottom: 4px; line-height: 1.55;
-}
-.exp-bullets li::before {
-  content: 'o'; position: absolute; left: 0;
-  color: var(--purple); font-size: 11px; top: 2px;
-}
-.exp-bullets li strong { color: var(--dark); font-weight: 700; }
+    /* Projects grid with filter animation support */
+    .filter-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: var(--font-body);
+    }
+    .filter-btn:hover {
+      background: var(--accent-light);
+      border-color: var(--border-hover);
+      color: var(--text);
+    }
+    .filter-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 12px var(--accent-glow);
+    }
 
-.badge-current {
-  font-size: 10px; font-weight: 700;
-  background: #e6f4ec; color: #1a7a4a;
-  border-radius: 3px; padding: 2px 7px;
-}
+    .proj-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .proj-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+      transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+      transform-origin: center center;
+    }
+    .proj-card:hover {
+      transform: translateY(-4px) scale(1.01);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-lg);
+    }
+    .proj-name {
+      font-family: var(--font-title);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .proj-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      flex-grow: 1;
+      margin-bottom: 12px;
+    }
+    .proj-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .proj-tag {
+      font-size: 9.5px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-weight: 600;
+    }
 
-/* Divider between exp entries */
-.exp-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 28px; }
+    /* Scroll Reveal Transition styling */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.21, 1, 0.36, 1), transform 0.6s cubic-bezier(0.21, 1, 0.36, 1);
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* Projects grid */
-.proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.proj-card {
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--purple);
-  border-radius: 6px;
-  padding: 14px 16px;
-}
-.proj-name { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 5px; }
-.proj-desc { font-size: 12px; color: #666; line-height: 1.55; }
-.proj-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
-.proj-tag {
-  font-size: 10.5px; background: var(--purple-light);
-  color: var(--purple); border-radius: 3px; padding: 2px 8px; font-weight: 600;
-}
+    /* Footer styling */
+    .cv-footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      padding: 0 20px 40px;
+      font-weight: 500;
+    }
 
-/* Footer */
-.cv-footer {
-  max-width: 1020px; margin: 0 auto;
-  text-align: center; font-size: 11px; color: var(--muted);
-  padding: 16px 0 32px;
-}
+    /* Responsive grid styles */
+    @media (max-width: 992px) {
+      .page {
+        grid-template-columns: 1fr;
+        margin: 20px 16px;
+      }
+      .left {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 40px;
+      }
+      .right {
+        padding: 40px;
+      }
+      .topbar {
+        padding: 0 20px;
+      }
+      .proj-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
-/* ── Print ── */
-@media print {
-  @page { margin: 14mm 12mm; size: A4 portrait; }
+    @media (max-width: 600px) {
+      .left, .right {
+        padding: 28px 20px;
+      }
+      .topbar-meta {
+        display: none;
+      }
+      .topbar-links {
+        gap: 8px;
+      }
+      .topbar-link {
+        padding: 6px;
+      }
+      .topbar-link span {
+        display: none;
+      }
+      .btn-dl span {
+        display: inline;
+      }
+      .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .exp-period {
+        margin-top: 4px;
+      }
+    }
 
-  body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .topbar { display: none !important; }
-  .cv-footer { display: none !important; }
+    /* Print styling rules */
+    @media print {
+      @page {
+        margin: 12mm 12mm;
+        size: A4 portrait;
+      }
 
-  .page {
-    margin: 0;
-    box-shadow: none;
-    border-radius: 0;
-    max-width: 100%;
-    width: 100%;
-    min-height: auto;
-    grid-template-columns: 74mm 1fr;
-    font-size: 10.5pt;
-  }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      body::before, .glow-orb, .topbar, .filter-group, .cv-footer {
+        display: none !important;
+      }
 
-  .left { padding-bottom: 20mm; }
-  .left-body { padding: 16px 20px 0; }
-  .photo-wrap { height: 200px; }
-  .l-name { font-size: 17pt; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        border: none;
+        background: #fff !important;
+        grid-template-columns: 70mm 1fr !important;
+        max-width: 100% !important;
+        width: 100% !important;
+      }
 
-  .right { padding: 24px 28px 20mm; }
-  .r-name { font-size: 22pt; }
-  .r-summary { font-size: 9.5pt; margin-bottom: 20px; }
+      .left {
+        background: #fcfcfc !important;
+        border-right: 1px solid #ddd !important;
+        padding: 0 16px 0 0 !important;
+      }
+      .right {
+        background: #fff !important;
+        padding: 0 0 0 20px !important;
+      }
+      
+      .photo-wrap {
+        height: 180px;
+        width: 180px;
+        margin: 0 auto 20px !important;
+        border: 1px solid #ccc !important;
+      }
+      
+      .l-name { font-size: 18pt !important; }
+      .stat-box {
+        background: #fff !important;
+        border: 1px solid #ddd !important;
+        padding: 6px 4px !important;
+      }
+      .stat-num { font-size: 16pt !important; color: #1a4fa0 !important; }
+      
+      .skill-bar-bg { background: #eee !important; }
+      .skill-bar-fill {
+        background: #1a4fa0 !important;
+        width: var(--print-width, 0%) !important;
+      }
 
-  .exp-entry { page-break-inside: avoid; }
-  .proj-grid { page-break-inside: avoid; }
-  .proj-card { page-break-inside: avoid; }
-  .l-section { page-break-inside: avoid; }
+      .exp-card {
+        border: none !important;
+        border-bottom: 1px solid #eee !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        padding: 10px 0 !important;
+        background: transparent !important;
+      }
+      
+      .proj-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+      }
+      .proj-card {
+        display: block !important;
+        opacity: 1 !important;
+        transform: none !important;
+        border: 1px solid #ddd !important;
+        border-left: 3px solid #1a4fa0 !important;
+        background: #fff !important;
+        padding: 8px 10px !important;
+        page-break-inside: avoid;
+      }
 
-  .skill-bar-fill { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .s-head .bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .left { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-}
-</style>
+      .exp-entry, .l-section {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div class="topbar-left">
-    <span class="topbar-brand">Alejandro Gallardo</span>
-    <span class="topbar-meta">Director de Tecnología</span>
-  </div>
-  <div class="topbar-links">
-    <a class="topbar-link" href="mailto:agallardo2802@gmail.com">
-      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-      agallardo2802@gmail.com
-    </a>
-    <a class="topbar-link" href="https://www.ggsoluciones.com.ar" target="_blank">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-      ggsoluciones.com.ar
-    </a>
-    <a class="topbar-link" href="https://www.linkedin.com/in/agallardo2802" target="_blank">
-      <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-      LinkedIn
-    </a>
-    <button class="btn-dl" onclick="window.print()">
-      <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
-      Descargar CV
-    </button>
-  </div>
-</div>
+  <!-- Glow background decorations -->
+  <div class="glow-orb a"></div>
+  <div class="glow-orb b"></div>
 
-<div class="page">
-
-  <!-- ═══ LEFT ═══ -->
-  <div class="left">
-
-    <div class="photo-wrap">
-      <img src="assets/img/alejandro-perfil.png" alt="Alejandro Gallardo"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-      <div class="photo-initials" style="display:none">AG</div>
+  <!-- Top bar / Navigation -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <span class="topbar-brand">Alejandro Gallardo</span>
+      <span class="topbar-meta">Director de Tecnología</span>
     </div>
+    <div class="topbar-links">
+      <a class="topbar-link" href="mailto:agallardo2802@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <span>agallardo2802@gmail.com</span>
+      </a>
+      <a class="topbar-link" href="https://www.ggsoluciones.com.ar" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        <span>ggsoluciones.com.ar</span>
+      </a>
+      <a class="topbar-link" href="https://www.linkedin.com/in/agallardo2802" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        <span>LinkedIn</span>
+      </a>
+      <button class="theme-toggle" id="themeBtn" aria-label="Cambiar tema">
+        <svg class="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="btn-dl" onclick="window.print()">
+        <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+        <span>Descargar CV</span>
+      </button>
+    </div>
+  </header>
 
-    <div class="left-body">
+  <!-- Main Sheet Page -->
+  <div class="page">
 
-      <div class="l-name">Alejandro Gallardo</div>
-      <div class="l-role">Director de Tecnología · Arquitectura de Sistemas · Transformación Digital · IA aplicada</div>
+    <!-- ═══ LEFT COLUMN ═══ -->
+    <aside class="left">
+      <div class="photo-wrap reveal">
+        <img src="assets/img/alejandro-perfil.png" alt="Alejandro Gallardo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="photo-initials" style="display:none">AG</div>
+      </div>
 
-      <div class="l-info">
+      <div class="l-name-box reveal">
+        <h1 class="l-name">Alejandro Gallardo</h1>
+        <div class="l-role">Director de Tecnología · Arquitectura · Transformación Digital · IA</div>
+      </div>
+
+      <div class="l-info reveal">
         <a class="l-info-row" href="mailto:agallardo2802@gmail.com">
           <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           <span class="val">agallardo2802@gmail.com</span>
@@ -387,8 +1030,8 @@ body {
         </a>
       </div>
 
-      <!-- Stats -->
-      <div class="l-section">
+      <!-- Impact Stats section -->
+      <div class="l-section reveal">
         <div class="s-head">
           <div class="bar"></div>
           <div class="title">Impacto</div>
@@ -396,74 +1039,75 @@ body {
         </div>
         <div class="stats-grid">
           <div class="stat-box">
-            <div class="stat-num">10+</div>
-            <div class="stat-lbl">Años de experiencia</div>
+            <div class="stat-num" data-count="10" data-suffix="+">0</div>
+            <div class="stat-lbl">Años experiencia</div>
           </div>
           <div class="stat-box">
-            <div class="stat-num">35</div>
+            <div class="stat-num" data-count="35" data-suffix="">0</div>
             <div class="stat-lbl">Personas lideradas</div>
           </div>
           <div class="stat-box">
-            <div class="stat-num">45%</div>
-            <div class="stat-lbl">Reducción costos Azure</div>
+            <div class="stat-num" data-count="45" data-suffix="%">0</div>
+            <div class="stat-lbl">Reducción Azure</div>
           </div>
           <div class="stat-box">
-            <div class="stat-num">100K+</div>
-            <div class="stat-lbl">Personas beneficiadas</div>
+            <div class="stat-num" data-count="100000" data-suffix="K+">0</div>
+            <div class="stat-lbl">Gente beneficiada</div>
           </div>
         </div>
       </div>
 
-      <!-- Skills -->
-      <div class="l-section">
+      <!-- Skills Section -->
+      <div class="l-section reveal">
         <div class="s-head">
           <div class="bar"></div>
           <div class="title">Habilidades técnicas</div>
           <div class="sub">Nivel de dominio</div>
         </div>
-
-        <div class="skill-item">
-          <div class="skill-header"><span>Liderazgo IT &amp; Gobierno</span><span class="skill-pct">95%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:95%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header"><span>Azure / Cloud Architecture</span><span class="skill-pct">90%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header"><span>Arquitectura de sistemas</span><span class="skill-pct">90%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header"><span>Power BI &amp; Métricas</span><span class="skill-pct">85%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header"><span>Gestión de procesos</span><span class="skill-pct">85%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header"><span>IA aplicada / Agentes LLM</span><span class="skill-pct">80%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header"><span>Implementación ERP / CRM</span><span class="skill-pct">80%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header"><span>.NET / C# / SQL Server</span><span class="skill-pct">75%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
+        <div class="skills-list">
+          <div class="skill-item">
+            <div class="skill-header"><span>Liderazgo IT &amp; Gobierno</span><span class="skill-pct">95%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span>Azure / Cloud Architecture</span><span class="skill-pct">90%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span>Arquitectura de sistemas</span><span class="skill-pct">90%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span>Power BI &amp; Métricas</span><span class="skill-pct">85%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span>Gestión de procesos</span><span class="skill-pct">85%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span>IA aplicada / Agentes LLM</span><span class="skill-pct">80%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span>Implementación ERP / CRM</span><span class="skill-pct">80%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span>.NET / C# / SQL Server</span><span class="skill-pct">75%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="75%"></div></div>
+          </div>
         </div>
       </div>
 
-      <!-- Education -->
-      <div class="l-section">
+      <!-- Education Section -->
+      <div class="l-section reveal">
         <div class="s-head">
           <div class="bar"></div>
           <div class="title">Educación</div>
           <div class="sub">Formación académica</div>
         </div>
-        <div class="edu-tl">
+        <div class="edu-timeline">
           <div class="edu-entry">
             <div class="edu-dot"></div>
             <div class="edu-degree">Técnico en Informática</div>
@@ -480,8 +1124,8 @@ body {
         </div>
       </div>
 
-      <!-- Certifications -->
-      <div class="l-section">
+      <!-- Certifications Section -->
+      <div class="l-section reveal">
         <div class="s-head">
           <div class="bar"></div>
           <div class="title">Certificaciones</div>
@@ -511,186 +1155,467 @@ body {
         </div>
       </div>
 
-      <!-- Languages -->
-      <div class="l-section">
+      <!-- Languages Section -->
+      <div class="l-section reveal">
         <div class="s-head">
           <div class="bar"></div>
           <div class="title">Idiomas</div>
         </div>
-        <div class="lang-row"><span>Español</span><span class="lang-lv">Nativo</span></div>
-        <div class="lang-row"><span>Inglés</span><span class="lang-lv">Profesional (B1)</span></div>
-        <div class="lang-row"><span>Portugués</span><span class="lang-lv">Básico</span></div>
+        <div class="lang-row"><span class="lang-name">Español</span><span class="lang-lv">Nativo</span></div>
+        <div class="lang-row"><span class="lang-name">Inglés</span><span class="lang-lv">Profesional (B1)</span></div>
+        <div class="lang-row"><span class="lang-name">Portugués</span><span class="lang-lv">Básico</span></div>
+      </div>
+    </aside>
+
+    <!-- ═══ RIGHT COLUMN ═══ -->
+    <main class="right">
+      <div class="r-name-box">
+        <h1 class="l-name">Alejandro Gallardo</h1>
+        <div class="l-role">Director de Tecnología · Arquitectura · Transformación Digital · IA</div>
+        <hr style="border: none; border-top: 1px solid var(--border); margin: 20px 0;">
       </div>
 
-    </div>
+      <p class="r-summary reveal">
+        Construyo la capa tecnológica que hace crecer a las organizaciones — sin sobreingeniería, sin dependencias críticas, con procesos que la gente realmente usa.<br><br>
+        Vengo del código. Sé lo que cuesta construir bien. Por eso cuando lidero, tomo decisiones con criterio técnico real: desacopo ERPs antes de que bloqueen el negocio, implemento IA con gobernanza antes de que genere riesgos, y armo equipos que entregan con predecibilidad.<br><br>
+        Mi diferencial es que opero en los dos planos al mismo tiempo: <strong>la estrategia y la ejecución</strong>.
+      </p>
+
+      <!-- Professional Experience Section -->
+      <section class="r-section reveal">
+        <div class="s-head">
+          <div class="bar"></div>
+          <div class="title">Experiencia profesional</div>
+          <div class="sub">Trayectoria laboral</div>
+        </div>
+
+        <div class="timeline">
+          <!-- Job 1 -->
+          <div class="exp-entry">
+            <div class="timeline-dot current"></div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div class="exp-title-box">
+                  <span class="exp-role">Director de Tecnología</span>
+                  <span class="exp-company">El Cuatro Jujuy <span class="badge-current">Actual</span></span>
+                </div>
+                <span class="exp-period">Oct 2025 · Presente</span>
+              </div>
+              <ul class="exp-bullets">
+                <li>Diseñé e implementé el marco de <strong>Gobernanza IT</strong>: catálogo de servicios, flujos L1/L2/L3, SLAs y roles.</li>
+                <li>Implementé <strong>GLPI 11</strong> como Mesa de Ayuda oficial con trazabilidad completa de incidentes.</li>
+                <li>Implementé <strong>Jira</strong> para gestión de backlog separando operation, mantenimiento y proyectos estratégicos.</li>
+                <li>Rediseño de arquitectura desacoplada del ERP mediante <strong>Data Warehouse + API Gateway centralizado</strong>.</li>
+                <li>Implementación de <strong>arquitectura de agentes IA</strong> para asistencia al equipo de desarrollo.</li>
+                <li>Cultura de documentación interna: wiki con guías operativas, onboarding y documentación técnica.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="exp-entry">
+            <div class="timeline-dot"></div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div class="exp-title-box">
+                  <span class="exp-role">Agile Delivery Manager · Infrastructure Cost Manager</span>
+                  <span class="exp-company">Nubimetrics</span>
+                </div>
+                <span class="exp-period">Ago 2024 · Sep 2025</span>
+              </div>
+              <ul class="exp-bullets">
+                <li>Dashboard de control en <strong>Power BI + Azure DevOps</strong> para monitoreo en tiempo real de sprints, bugs y calidad.</li>
+                <li>Dashboard de costos Azure para Finanzas y equipos técnicos, facilitando detección rápida de desvíos.</li>
+                <li>Referente de arquitectura de software en revisión y resolución de issues críticos.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Job 3 -->
+          <div class="exp-entry">
+            <div class="timeline-dot"></div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div class="exp-title-box">
+                  <span class="exp-role">Head of Development</span>
+                  <span class="exp-company">Nubimetrics</span>
+                </div>
+                <span class="exp-period">Ene 2022 · Ago 2024</span>
+              </div>
+              <ul class="exp-bullets">
+                <li>Lideré y reestructuré un equipo de <strong>35 desarrolladores</strong> organizados en squads ágiles.</li>
+                <li>Reducción del <strong>45%</strong> en el gasto anual de infraestructura Azure.</li>
+                <li>Rediseñé el SDLC completo: kickoffs, bug management, QA y deploys estandarizados.</li>
+                <li>Coaching a líderes técnicos, gestión del desempeño y procesos de selección.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Job 4 -->
+          <div class="exp-entry">
+            <div class="timeline-dot"></div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div class="exp-title-box">
+                  <span class="exp-role">Developer Backend Sr</span>
+                  <span class="exp-company">Nubimetrics</span>
+                </div>
+                <span class="exp-period">Ene 2021 · Ene 2022</span>
+              </div>
+              <ul class="exp-bullets">
+                <li>Desarrollo en <strong>.NET Core / Clean Architecture</strong>. Librerías reutilizables adoptadas por múltiples equipos.</li>
+                <li>Servidor de reportes de alto rendimiento con Flexmonster para grandes volúmenes de datos.</li>
+                <li>Lógica de negocio serverless en Azure Functions y Blob Storage.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Job 5 -->
+          <div class="exp-entry">
+            <div class="timeline-dot"></div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div class="exp-title-box">
+                  <span class="exp-role">Software Architect &amp; Lead Engineer</span>
+                  <span class="exp-company">Ministerio de Salud de Jujuy</span>
+                </div>
+                <span class="exp-period">Ene 2016 · Ene 2021</span>
+              </div>
+              <ul class="exp-bullets">
+                <li>Arquitecto principal del sistema <strong>MAS Salud</strong>, historia clínica digital provincial con +300 usuarios simultáneos.</li>
+                <li>Migración de infraestructura crítica a <strong>arquitectura cloud-native en Microsoft Azure</strong>.</li>
+                <li>Soluciones de monitoreo COVID-19 que beneficiaron a más de <strong>100.000 personas</strong>.</li>
+                <li>Integraciones con sistemas nacionales: RENAPER y Hacienda.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Job 6 -->
+          <div class="exp-entry">
+            <div class="timeline-dot"></div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div class="exp-title-box">
+                  <span class="exp-role">Founder &amp; Tech Lead</span>
+                  <span class="exp-company">GG Soluciones <span class="badge-current">Activo</span></span>
+                </div>
+                <span class="exp-period">Mar 2014 · Presente</span>
+              </div>
+              <ul class="exp-bullets">
+                <li>Consultoría en arquitectura, modernización tecnológica y adopción de IA para organizaciones públicas y privadas.</li>
+                <li>Rediseño de ecosistemas tecnológicos: APIs, Data Warehouse, desacople de ERP legacy.</li>
+                <li>Implementación de agentes IA y gobierno de LLMs para equipos de desarrollo.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="r-section reveal">
+        <div class="s-head">
+          <div class="bar"></div>
+          <div class="title">Proyectos destacados</div>
+          <div class="sub">Iniciativas clave</div>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="filter-group">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="ia">IA &amp; Agentes</button>
+          <button class="filter-btn" data-filter="cloud">Cloud &amp; Arquitectura</button>
+          <button class="filter-btn" data-filter="ux">Portales &amp; UX</button>
+        </div>
+
+        <div class="proj-grid">
+          <!-- Proj 1 -->
+          <div class="proj-card" data-category="ia">
+            <span class="proj-name">Arquitectura de agentes IA</span>
+            <p class="proj-desc">Diseño e implementación de arquitectura de agentes para asistencia al equipo de desarrollo con gobierno y control de fuga de información.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">LLMs</span>
+              <span class="proj-tag">AI Agents</span>
+              <span class="proj-tag">IT Governance</span>
+            </div>
+          </div>
+
+          <!-- Proj 2 -->
+          <div class="proj-card" data-category="cloud">
+            <span class="proj-name">Desacople ERP vía Data Warehouse + API Gateway</span>
+            <p class="proj-desc">Rediseño arquitectural para reducir dependencia crítica del ERP, centralizando integraciones y creando una capa de datos independiente.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">API Gateway</span>
+              <span class="proj-tag">Data Warehouse</span>
+              <span class="proj-tag">ERP</span>
+            </div>
+          </div>
+
+          <!-- Proj 3 -->
+          <div class="proj-card" data-category="cloud">
+            <span class="proj-name">Reducción 45% costos Azure</span>
+            <p class="proj-desc">Iniciativa estratégica de optimización de infraestructura cloud. Análisis, rightsizing y reestructuración con impacto directo en rentabilidad.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Azure</span>
+              <span class="proj-tag">Cost Optimization</span>
+              <span class="proj-tag">Power BI</span>
+            </div>
+          </div>
+
+          <!-- Proj 4 -->
+          <div class="proj-card" data-category="cloud">
+            <span class="proj-name">MAS Salud — Historia Clínica Digital Provincial</span>
+            <p class="proj-desc">Arquitectura y liderazgo del sistema de historia clínica digital provincial. Cloud-native en Azure, +300 usuarios simultáneos, 100k+ personas.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">.NET</span>
+              <span class="proj-tag">Azure</span>
+              <span class="proj-tag">C4 Model</span>
+            </div>
+          </div>
+
+          <!-- Proj 5 -->
+          <div class="proj-card" data-category="ux cloud">
+            <span class="proj-name">Sistema de Actas Digitales — Registro Civil</span>
+            <p class="proj-desc">Sistema para emisión de actas digitales en menos de 24 horas, eliminando trámites presenciales. Frontend web + integración con RENAPER y Hacienda para validación y firma de documentos.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">.NET</span>
+              <span class="proj-tag">Frontend Web</span>
+              <span class="proj-tag">RENAPER</span>
+              <span class="proj-tag">Estado Digital</span>
+            </div>
+          </div>
+
+          <!-- Proj 6 -->
+          <div class="proj-card" data-category="ux cloud">
+            <span class="proj-name">Ecosistema 360 — El Cuatro</span>
+            <p class="proj-desc">Plataforma integral de visión 360° del cliente. Consolidación de datos de múltiples fuentes en un ecosistema unificado para la toma de decisiones operativas y comerciales.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Arquitectura</span>
+              <span class="proj-tag">Data Integration</span>
+              <span class="proj-tag">Dashboard</span>
+              <span class="proj-tag">El Cuatro</span>
+            </div>
+          </div>
+
+          <!-- Proj 7 -->
+          <div class="proj-card" data-category="cloud">
+            <span class="proj-name">API Gateway de microservicios — El Cuatro</span>
+            <p class="proj-desc">Monorepo de microservicios que abstrae el ERP legacy Calipso y unifica todos los dominios operativos: usuarios, facturación, pagos, planes y comunicaciones bajo una arquitectura limpia y desacoplada.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">.NET 8</span>
+              <span class="proj-tag">Clean Architecture</span>
+              <span class="proj-tag">CQRS</span>
+              <span class="proj-tag">Docker</span>
+              <span class="proj-tag">ERP</span>
+            </div>
+          </div>
+
+          <!-- Proj 8 -->
+          <div class="proj-card" data-category="ia cloud">
+            <span class="proj-name">Gobernanza de AI agents en producción</span>
+            <p class="proj-desc">Sistema de control humano sobre agentes IA: los agentes solicitan autorización para ejecutar deploys en producción y un humano aprueba o rechaza. Resuelve el riesgo de autonomía excesiva en ambientes productivos.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">AI Governance</span>
+              <span class="proj-tag">.NET 8</span>
+              <span class="proj-tag">Human-in-the-loop</span>
+              <span class="proj-tag">DevOps</span>
+            </div>
+          </div>
+
+          <!-- Proj 9 -->
+          <div class="proj-card" data-category="ia ux">
+            <span class="proj-name">Portal directorio con RAG on-premise</span>
+            <p class="proj-desc">Plataforma de inteligencia operacional con reportes KPI, chatbot RAG sobre datos internos (Ollama + ChromaDB) y observabilidad completa con Prometheus y Grafana. Sin dependencia de APIs externas.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">RAG</span>
+              <span class="proj-tag">Ollama</span>
+              <span class="proj-tag">ChromaDB</span>
+              <span class="proj-tag">Grafana</span>
+              <span class="proj-tag">.NET 8</span>
+            </div>
+          </div>
+
+          <!-- Proj 10 -->
+          <div class="proj-card" data-category="ia ux">
+            <span class="proj-name">Intranet corporativa con chatbot sobre GLPI</span>
+            <p class="proj-desc">Portal interno unificado con módulos de conocimiento, chatbot RAG que consulta la base de Mesa de Ayuda (GLPI) usando Ollama local, generador de prompts y gestión de roles.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Next.js 14</span>
+              <span class="proj-tag">Auth0</span>
+              <span class="proj-tag">RAG</span>
+              <span class="proj-tag">GLPI</span>
+              <span class="proj-tag">Ollama</span>
+            </div>
+          </div>
+
+          <!-- Proj 11 -->
+          <div class="proj-card" data-category="ux">
+            <span class="proj-name">SV360 — Sucursal Virtual</span>
+            <p class="proj-desc">Portal self-service para clientes con login único, consulta de facturas, pago online vía MercadoPago y soporte guiado. Reemplaza sucursales físicas con gestión digital 360° del cliente final.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">React</span>
+              <span class="proj-tag">API Gateway</span>
+              <span class="proj-tag">MercadoPago</span>
+              <span class="proj-tag">Auth0</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
   </div>
 
-  <!-- ═══ RIGHT ═══ -->
-  <div class="right">
+  <div class="cv-footer">© 2026 Alejandro Gallardo &nbsp;·&nbsp; De Jujuy al Mundo</div>
 
-    <div class="r-name">Alejandro Gallardo</div>
-    <div class="r-role">Director de Tecnología · Arquitectura de Sistemas · Transformación Digital · IA aplicada</div>
-    <p class="r-summary">
-      Construyo la capa tecnológica que hace crecer a las organizaciones — sin sobreingeniería, sin dependencias críticas, con procesos que la gente realmente usa.<br><br>
-      Vengo del código. Sé lo que cuesta construir bien. Por eso cuando lidero, tomo decisiones con criterio técnico real: desacopo ERPs antes de que bloqueen el negocio, implemento IA con gobernanza antes de que genere riesgos, y armo equipos que entregan con predecibilidad.<br><br>
-      Mi diferencial es que opero en los dos planos al mismo tiempo: <strong>la estrategia y la ejecución</strong>.
-    </p>
+  <!-- Interactive Scripts -->
+  <script>
+    (function() {
+      // ─── THEME TOGGLER ───
+      var btn = document.getElementById('themeBtn');
+      if (btn) {
+        btn.addEventListener('click', function() {
+          var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+          var next = cur === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+        });
+      }
 
-    <!-- EXPERIENCE -->
-    <div class="r-section">
-      <div class="s-head">
-        <div class="bar"></div>
-        <div class="title">Experiencia profesional</div>
-        <div class="sub">Trayectoria laboral</div>
-      </div>
+      // ─── SCROLL REVEAL ───
+      var revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08 });
+        revealEls.forEach(function(el) {
+          revealObserver.observe(el);
+        });
+      } else {
+        revealEls.forEach(function(el) {
+          el.classList.add('in');
+        });
+      }
 
-      <div class="exp-entry">
-        <div class="exp-role">Director de Tecnología</div>
-        <div class="exp-company">El Cuatro Jujuy <span class="badge-current">Actual</span></div>
-        <div class="exp-period">Octubre 2025 · Presente</div>
-        <ul class="exp-bullets">
-          <li>Diseñé e implementé el marco de <strong>Gobernanza IT</strong>: catálogo de servicios, flujos L1/L2/L3, SLAs y roles.</li>
-          <li>Implementé <strong>GLPI 11</strong> como Mesa de Ayuda oficial con trazabilidad completa de incidentes.</li>
-          <li>Implementé <strong>Jira</strong> para gestión de backlog separando operación, mantenimiento y proyectos estratégicos.</li>
-          <li>Rediseño de arquitectura desacoplada del ERP mediante <strong>Data Warehouse + API Gateway centralizado</strong>.</li>
-          <li>Implementación de <strong>arquitectura de agentes IA</strong> para asistencia al equipo de desarrollo.</li>
-          <li>Cultura de documentación interna: wiki con guías operativas, onboarding y documentación técnica.</li>
-        </ul>
-      </div>
-      <hr class="exp-divider">
+      // ─── SKILL BAR FILLING ───
+      var skillFills = document.querySelectorAll('.skill-bar-fill');
+      var skillsList = document.querySelector('.skills-list');
+      if ('IntersectionObserver' in window && skillsList) {
+        var skillsObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              skillFills.forEach(function(fill) {
+                var w = fill.getAttribute('data-width');
+                fill.style.width = w;
+                fill.style.setProperty('--print-width', w);
+              });
+              skillsObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        skillsObserver.observe(skillsList);
+      } else {
+        skillFills.forEach(function(fill) {
+          var w = fill.getAttribute('data-width');
+          fill.style.width = w;
+          fill.style.setProperty('--print-width', w);
+        });
+      }
 
-      <div class="exp-entry">
-        <div class="exp-role">Agile Delivery Manager · Infrastructure Cost Manager</div>
-        <div class="exp-company">Nubimetrics</div>
-        <div class="exp-period">Agosto 2024 · Septiembre 2025</div>
-        <ul class="exp-bullets">
-          <li>Dashboard de control en <strong>Power BI + Azure DevOps</strong> para monitoreo en tiempo real de sprints, bugs y calidad.</li>
-          <li>Dashboard de costos Azure para Finanzas y equipos técnicos, facilitando detección rápida de desvíos.</li>
-          <li>Referente de arquitectura de software en revisión y resolución de issues críticos.</li>
-        </ul>
-      </div>
-      <hr class="exp-divider">
+      // ─── IMPACT STATS COUNTER ───
+      function animateCount(el) {
+        var countTo = parseInt(el.getAttribute('data-count'), 10);
+        var suffix = el.getAttribute('data-suffix') || '';
+        var duration = 1600;
+        var start = 0;
+        var startTime = null;
 
-      <div class="exp-entry">
-        <div class="exp-role">Head of Development</div>
-        <div class="exp-company">Nubimetrics</div>
-        <div class="exp-period">Enero 2022 · Agosto 2024</div>
-        <ul class="exp-bullets">
-          <li>Lideré y reestructuré un equipo de <strong>35 desarrolladores</strong> organizados en squads ágiles.</li>
-          <li>Reducción del <strong>45%</strong> en el gasto anual de infraestructura Azure.</li>
-          <li>Rediseñé el SDLC completo: kickoffs, bug management, QA y deploys estandarizados.</li>
-          <li>Coaching a líderes técnicos, gestión del desempeño y procesos de selección.</li>
-        </ul>
-      </div>
-      <hr class="exp-divider">
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          // cubic out easing
+          var easeProgress = 1 - Math.pow(1 - progress, 3);
+          var current = Math.floor(start + easeProgress * (countTo - start));
+          
+          if (countTo >= 1000) {
+            el.textContent = Math.floor(current / 1000) + 'K+';
+          } else {
+            el.textContent = current + suffix;
+          }
 
-      <div class="exp-entry">
-        <div class="exp-role">Developer Backend Sr</div>
-        <div class="exp-company">Nubimetrics</div>
-        <div class="exp-period">Enero 2021 · Enero 2022</div>
-        <ul class="exp-bullets">
-          <li>Desarrollo en <strong>.NET Core / Clean Architecture</strong>. Librerías reutilizables adoptadas por múltiples equipos.</li>
-          <li>Servidor de reportes de alto rendimiento con Flexmonster para grandes volúmenes de datos.</li>
-          <li>Lógica de negocio serverless en Azure Functions y Blob Storage.</li>
-        </ul>
-      </div>
-      <hr class="exp-divider">
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          } else {
+            if (countTo >= 1000) {
+              el.textContent = '100K+';
+            } else {
+              el.textContent = countTo + suffix;
+            }
+          }
+        }
+        window.requestAnimationFrame(step);
+      }
 
-      <div class="exp-entry">
-        <div class="exp-role">Software Architect &amp; Lead Engineer</div>
-        <div class="exp-company">Ministerio de Salud de Jujuy</div>
-        <div class="exp-period">Enero 2016 · Enero 2021</div>
-        <ul class="exp-bullets">
-          <li>Arquitecto principal del sistema <strong>MAS Salud</strong>, historia clínica digital provincial con +300 usuarios simultáneos.</li>
-          <li>Migración de infraestructura crítica a <strong>arquitectura cloud-native en Microsoft Azure</strong>.</li>
-          <li>Soluciones de monitoreo COVID-19 que beneficiaron a más de <strong>100.000 personas</strong>.</li>
-          <li>Integraciones con sistemas nacionales: RENAPER y Hacienda.</li>
-        </ul>
-      </div>
-      <hr class="exp-divider">
+      var statsGrid = document.querySelector('.stats-grid');
+      if ('IntersectionObserver' in window && statsGrid) {
+        var statsObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.querySelectorAll('.stat-num').forEach(function(num) {
+                animateCount(num);
+              });
+              statsObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        statsObserver.observe(statsGrid);
+      } else {
+        document.querySelectorAll('.stat-num').forEach(function(num) {
+          var countTo = parseInt(num.getAttribute('data-count'), 10);
+          var suffix = num.getAttribute('data-suffix') || '';
+          if (countTo >= 1000) {
+            num.textContent = '100K+';
+          } else {
+            num.textContent = countTo + suffix;
+          }
+        });
+      }
 
-      <div class="exp-entry">
-        <div class="exp-role">Founder &amp; Tech Lead</div>
-        <div class="exp-company">GG Soluciones <span class="badge-current">Activo</span></div>
-        <div class="exp-period">Marzo 2014 · Presente</div>
-        <ul class="exp-bullets">
-          <li>Consultoría en arquitectura, modernización tecnológica y adopción de IA para organizaciones públicas y privadas.</li>
-          <li>Rediseño de ecosistemas tecnológicos: APIs, Data Warehouse, desacople de ERP legacy.</li>
-          <li>Implementación de agentes IA y gobierno de LLMs para equipos de desarrollo.</li>
-        </ul>
-      </div>
-    </div>
+      // ─── PROJECTS FILTERING ───
+      var filterBtns = document.querySelectorAll('.filter-btn');
+      var projCards = document.querySelectorAll('.proj-card');
 
-    <!-- PROJECTS -->
-    <div class="r-section">
-      <div class="s-head">
-        <div class="bar"></div>
-        <div class="title">Proyectos destacados</div>
-        <div class="sub">Iniciativas clave</div>
-      </div>
-      <div class="proj-grid">
-        <div class="proj-card">
-          <div class="proj-name">Arquitectura de agentes IA</div>
-          <div class="proj-desc">Diseño e implementación de arquitectura de agentes para asistencia al equipo de desarrollo con gobierno y control de fuga de información.</div>
-          <div class="proj-tags"><span class="proj-tag">LLMs</span><span class="proj-tag">AI Agents</span><span class="proj-tag">IT Governance</span></div>
-        </div>
-        <div class="proj-card">
-          <div class="proj-name">Desacople ERP vía Data Warehouse + API Gateway</div>
-          <div class="proj-desc">Rediseño arquitectural para reducir dependencia crítica del ERP, centralizando integraciones y creando una capa de datos independiente.</div>
-          <div class="proj-tags"><span class="proj-tag">API Gateway</span><span class="proj-tag">Data Warehouse</span><span class="proj-tag">ERP</span></div>
-        </div>
-        <div class="proj-card">
-          <div class="proj-name">Reducción 45% costos Azure</div>
-          <div class="proj-desc">Iniciativa estratégica de optimización de infraestructura cloud. Análisis, rightsizing y reestructuración con impacto directo en rentabilidad.</div>
-          <div class="proj-tags"><span class="proj-tag">Azure</span><span class="proj-tag">Cost Optimization</span><span class="proj-tag">Power BI</span></div>
-        </div>
-        <div class="proj-card">
-          <div class="proj-name">MAS Salud — Historia Clínica Digital Provincial</div>
-          <div class="proj-desc">Arquitectura y liderazgo del sistema de historia clínica digital provincial. Cloud-native en Azure, +300 usuarios simultáneos, 100k+ personas.</div>
-          <div class="proj-tags"><span class="proj-tag">.NET</span><span class="proj-tag">Azure</span><span class="proj-tag">C4 Model</span></div>
-        </div>
-        <div class="proj-card">
-          <div class="proj-name">Sistema de Actas Digitales — Registro Civil</div>
-          <div class="proj-desc">Sistema para emisión de actas digitales en menos de 24 horas, eliminando trámites presenciales. Frontend web + integración con RENAPER y Hacienda para validación y firma de documentos.</div>
-          <div class="proj-tags"><span class="proj-tag">.NET</span><span class="proj-tag">Frontend Web</span><span class="proj-tag">RENAPER</span><span class="proj-tag">Estado Digital</span></div>
-        </div>
-        <div class="proj-card">
-          <div class="proj-name">Ecosistema 360 — El Cuatro</div>
-          <div class="proj-desc">Plataforma integral de visión 360° del cliente. Consolidación de datos de múltiples fuentes en un ecosistema unificado para la toma de decisiones operativas y comerciales.</div>
-          <div class="proj-tags"><span class="proj-tag">Arquitectura</span><span class="proj-tag">Data Integration</span><span class="proj-tag">Dashboard</span><span class="proj-tag">El Cuatro</span></div>
-        </div>
-        <div class="proj-card">
-          <div class="proj-name">API Gateway de microservicios — El Cuatro</div>
-          <div class="proj-desc">Monorepo de microservicios que abstrae el ERP legacy Calipso y unifica todos los dominios operativos: usuarios, facturación, pagos, planes y comunicaciones bajo una arquitectura limpia y desacoplada.</div>
-          <div class="proj-tags"><span class="proj-tag">.NET 8</span><span class="proj-tag">Clean Architecture</span><span class="proj-tag">CQRS</span><span class="proj-tag">Docker</span><span class="proj-tag">ERP</span></div>
-        </div>
-        <div class="proj-card">
-          <div class="proj-name">Gobernanza de AI agents en producción</div>
-          <div class="proj-desc">Sistema de control humano sobre agentes IA: los agentes solicitan autorización para ejecutar deploys en producción y un humano aprueba o rechaza. Resuelve el riesgo de autonomía excesiva en ambientes productivos.</div>
-          <div class="proj-tags"><span class="proj-tag">AI Governance</span><span class="proj-tag">.NET 8</span><span class="proj-tag">Human-in-the-loop</span><span class="proj-tag">DevOps</span></div>
-        </div>
-        <div class="proj-card">
-          <div class="proj-name">Portal directorio con RAG on-premise</div>
-          <div class="proj-desc">Plataforma de inteligencia operacional con reportes KPI, chatbot RAG sobre datos internos (Ollama + ChromaDB) y observabilidad completa con Prometheus y Grafana. Sin dependencia de APIs externas.</div>
-          <div class="proj-tags"><span class="proj-tag">RAG</span><span class="proj-tag">Ollama</span><span class="proj-tag">ChromaDB</span><span class="proj-tag">Grafana</span><span class="proj-tag">.NET 8</span></div>
-        </div>
-        <div class="proj-card">
-          <div class="proj-name">Intranet corporativa con chatbot sobre GLPI</div>
-          <div class="proj-desc">Portal interno unificado con módulos de conocimiento, chatbot RAG que consulta la base de Mesa de Ayuda (GLPI) usando Ollama local, generador de prompts y gestión de roles.</div>
-          <div class="proj-tags"><span class="proj-tag">Next.js 14</span><span class="proj-tag">Auth0</span><span class="proj-tag">RAG</span><span class="proj-tag">GLPI</span><span class="proj-tag">Ollama</span></div>
-        </div>
-        <div class="proj-card">
-          <div class="proj-name">SV360 — Sucursal Virtual</div>
-          <div class="proj-desc">Portal self-service para clientes con login único, consulta de facturas, pago online vía MercadoPago y soporte guiado. Reemplaza sucursales físicas con gestión digital 360° del cliente final.</div>
-          <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">API Gateway</span><span class="proj-tag">MercadoPago</span><span class="proj-tag">Auth0</span></div>
-        </div>
-      </div>
-    </div>
+      filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
 
-  </div>
-</div>
+          var f = btn.getAttribute('data-filter');
 
-<div class="cv-footer">© 2026 Alejandro Gallardo &nbsp;·&nbsp; De Jujuy al Mundo</div>
-
+          projCards.forEach(function(card) {
+            var cat = card.getAttribute('data-category') || '';
+            var list = cat.split(' ');
+            if (f === 'all' || list.indexOf(f) !== -1) {
+              card.style.display = 'flex';
+              card.offsetHeight; // force layout reflow
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1)';
+            } else {
+              card.style.opacity = '0';
+              card.style.transform = 'scale(0.95)';
+              setTimeout(function() {
+                if (card.style.opacity === '0') {
+                  card.style.display = 'none';
+                }
+              }, 300);
+            }
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
