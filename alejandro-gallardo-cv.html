@@ -288,7 +288,7 @@ body {
 
 /* ── Print ── */
 @media print {
-  @page { margin: 0; size: A4 portrait; }
+  @page { margin: 14mm 12mm; size: A4 portrait; }
 
   body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .topbar { display: none !important; }
@@ -297,10 +297,11 @@ body {
   .page {
     margin: 0;
     box-shadow: none;
+    border-radius: 0;
     max-width: 100%;
-    width: 210mm;
-    min-height: 297mm;
-    grid-template-columns: 82mm 1fr;
+    width: 100%;
+    min-height: auto;
+    grid-template-columns: 74mm 1fr;
     font-size: 10.5pt;
   }
 
