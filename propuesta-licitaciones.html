@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Propuesta · Sistema de Licitaciones Securizadas — Gobierno de Jujuy | GG Soluciones</title>
+<meta name="description" content="Análisis y propuesta técnica para el Sistema de Licitaciones Securizadas del Gobierno de Jujuy. Apertura protegida, auditoría inalterable, infraestructura Docker." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="app.css?v=8" />
+<link rel="icon" type="image/png" href="logo.png" />
+<script>window.GGS_GATE = { key: 'ggs_gate_licitaciones', hash: '9f1298350c6ead654516d722ff71262d41ecd3c9df92e162d359130666b810c3', title: 'Ingresá el código de acceso para ver esta propuesta del Gobierno de Jujuy.' };</script>
+<script src="gate.js?v=3"></script>
+</head>
+<body>
+<div class="print-brand"><img src="logo.png" alt="GG Soluciones" /><span>GG Soluciones · ggsoluciones.com.ar</span></div>
+<div class="glow-orb a"></div>
+<div class="glow-orb b"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html"><img src="logo.png?v=2" alt="GG Soluciones" /></a>
+    <div class="nav-tools">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Cambiar tema">
+        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a class="btn btn-ghost" href="https://wa.me/5493885120704" target="_blank" rel="noopener">Coordinar reunión</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero left">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Propuesta técnica · Confidencial · Julio 2026</span>
+    <h1>Sistema de Licitaciones <span class="accent-text">Securizadas</span></h1>
+    <p class="lead">Gobierno de Jujuy. Apertura protegida por reparto de responsabilidad, auditoría inalterable y portal público institucional. Infraestructura Docker sobre VM única, sin dependencias de nube pagos.</p>
+    <div class="doc-actions" style="display:flex;gap:12px;flex-wrap:wrap;">
+      <button class="btn btn-primary" onclick="window.print()">Descargar / Imprimir PDF</button>
+      <a class="btn btn-ghost" href="https://wa.me/5493885120704" target="_blank" rel="noopener">Coordinar reunión</a>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px;">
+  <div class="wrap doc">
+
+    <table class="ptable">
+      <tr><td class="k">Cliente</td><td>Gobierno de Jujuy (vía Silvana Mas)</td></tr>
+      <tr><td class="k">Ejecutor</td><td>GG Soluciones</td></tr>
+      <tr><td class="k">Rol</td><td>Arquitectura + Desarrollo — PM y Arquitecto: Alejandro Gallardo</td></tr>
+      <tr><td class="k">Fecha</td><td>Julio 2026</td></tr>
+      <tr><td class="k">Estado</td><td>Base de trabajo — documento de partida para armar la propuesta completa</td></tr>
+      <tr><td class="k">Clasificación</td><td>Confidencial · Uso interno</td></tr>
+    </table>
+
+    <h2 class="reveal">1. Resumen ejecutivo</h2>
+    <p class="reveal">El Gobierno de Jujuy necesita una plataforma web para gestionar licitaciones donde las ofertas presentadas queden completamente protegidas hasta el momento oficial de apertura. Nadie —ni un funcionario, ni un técnico del sistema, ni un tercero— debe poder acceder a una oferta antes de esa fecha y hora.</p>
+    <p class="reveal">Las ofertas se abren todas juntas, de forma automática, y quedan disponibles públicamente después. Todo el proceso queda registrado de manera que nadie pueda alterarlo ni borrarlo más adelante.</p>
+    <div class="callout blue reveal">
+      <h4>Base de la solución</h4>
+      <p>La "llave" para abrir las ofertas se reparte entre varios responsables institucionales, y solo alcanza para abrir cuando se juntan varios de ellos. Así ninguna persona sola puede ver nada antes de tiempo. Se complementa con un registro de auditoría inalterable, validado externamente. Todo corre sobre software libre, en una única VM con Docker, sin depender de servicios de nube pagos.</p>
+    </div>
+
+    <h2 class="reveal">2. Qué pide el pliego</h2>
+    <ul class="bullets reveal">
+      <li>Plataforma web que permita manejar varias licitaciones al mismo tiempo, cada una de forma independiente.</li>
+      <li>Toda oferta presentada quede protegida (cifrada) desde el momento en que se sube.</li>
+      <li>La apertura sea automática, en la fecha y hora programada, sin que nadie pueda adelantarla por su cuenta.</li>
+      <li>Una vez abiertas, las ofertas queden disponibles para consulta pública.</li>
+      <li>Registro completo de todo lo actuado, auditable en cualquier momento.</li>
+      <li>Sitio público, fácil de usar, con la imagen institucional del Gobierno de Jujuy.</li>
+    </ul>
+
+    <h2 class="reveal">3. Cómo se resuelve la apertura protegida</h2>
+
+    <h3 class="reveal">3.1 Reparto de responsabilidad entre custodios</h3>
+    <p class="reveal">En vez de que una sola persona o sistema tenga la capacidad de abrir las ofertas antes de tiempo, la clave para abrirlas se reparte entre varios responsables institucionales. Se necesita que un número mínimo de ellos se junte para poder abrir. Ninguno puede hacerlo solo.</p>
+
+    <div class="callout amber reveal">
+      <h4>Custodios propuestos — esquema 3 de 5</h4>
+      <p>1. Área usuaria / organismo contratante</p>
+      <p>2. Escribanía General de Gobierno o Fiscalía de Estado</p>
+      <p>3. Tribunal de Cuentas</p>
+      <p>4. Dirección de Sistemas (participa, no puede decidir solo)</p>
+      <p>5. Veedor / representante de oferentes (opcional, suma confianza frente a reclamos)</p>
+    </div>
+
+    <h3 class="reveal">3.2 Manejo de cambios de fecha</h3>
+    <table class="ptable reveal">
+      <thead><tr><th>Situación</th><th>Comportamiento</th><th>Riesgo</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Postergar apertura</td><td>Sin problema — el acto simplemente no se realiza hasta la nueva fecha</td><td class="ok">✔ Sin riesgo</td></tr>
+        <tr><td class="k">Adelantar apertura</td><td>Solo posible si los custodios se reúnen antes de forma explícita — queda registrado y auditado</td><td>Excepción controlada</td></tr>
+        <tr><td class="k">Apertura automática</td><td>Se dispara sola en la fecha programada, sin intervención humana en condiciones normales</td><td class="ok">✔ Flujo estándar</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="reveal">3.3 Registro inalterable</h3>
+    <p class="reveal">Cada paso importante del sistema queda anotado en un registro encadenado: cada anotación nueva depende de la anterior. Si alguien intentara borrar o modificar algo, se notaría. Periódicamente ese registro se valida contra un servicio externo independiente y gratuito que certifica que la información existía en ese momento tal cual está.</p>
+
+    <h2 class="reveal">4. Módulos del sistema</h2>
+
+    <table class="ptable reveal">
+      <thead><tr><th>Módulo</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Gestión de licitaciones</td><td>Multi-evento independiente. Recorrido: creación → publicación → recepción → cierre → apertura → adjudicación. Varias licitaciones activas simultáneas.</td></tr>
+        <tr><td class="k">Carga y protección de ofertas</td><td>Los oferentes suben archivos desde el portal público. Quedan protegidos automáticamente en el momento de la carga.</td></tr>
+        <tr><td class="k">Panel de custodios</td><td>Cada responsable ingresa su parte de la clave el día de la apertura, con verificación de identidad y firma del acto.</td></tr>
+        <tr><td class="k">Portal público</td><td>Solo consulta. Búsqueda de licitaciones activas y visualización de ofertas abiertas. Imagen institucional del Gobierno de Jujuy.</td></tr>
+        <tr><td class="k">Auditoría</td><td>Consulta del registro inalterable para Tribunal de Cuentas o auditoría externa.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="reveal">5. Infraestructura</h2>
+    <div class="callout blue reveal">
+      <p><strong>VM única · Docker · Postgres · .NET 8</strong> — sin dependencias de servicios de nube pagos. Dos aplicaciones web separadas: portal público (consulta) y panel de gestión (custodios y administración).</p>
+    </div>
+
+    <h2 class="reveal">6. Estimación de esfuerzo</h2>
+
+    <table class="ptable reveal">
+      <thead><tr><th>#</th><th>Frente</th><th>Horas</th><th>Complejidad</th><th>Rol principal</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Apertura protegida</td><td>180</td><td class="bad">Alta</td><td>Backend Sr / Arquitecto</td></tr>
+        <tr><td>2</td><td>Gestión de licitaciones</td><td>105</td><td>Media</td><td>Backend Sr/Ssr</td></tr>
+        <tr><td>3</td><td>Auditoría</td><td>88</td><td>Media-Alta</td><td>Backend Sr</td></tr>
+        <tr><td>4</td><td>Portal público</td><td>65</td><td>Media</td><td>Frontend React</td></tr>
+        <tr><td>5</td><td>Panel de custodios</td><td>68</td><td>Media</td><td>Frontend + Backend Ssr</td></tr>
+        <tr><td>6</td><td>Infraestructura</td><td>42</td><td class="ok">Baja-Media</td><td>DevOps / Infra</td></tr>
+        <tr><td colspan="2"><strong>Subtotal desarrollo</strong></td><td><strong>548</strong></td><td colspan="2"></td></tr>
+        <tr><td>7</td><td>Gestión de proyecto + QA transversal</td><td>82</td><td>—</td><td>PM + QA</td></tr>
+        <tr><td colspan="2"><strong>Total estimado</strong></td><td><strong>630</strong></td><td colspan="2"></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout amber reveal">
+      <h4>Notas sobre la estimación</h4>
+      <p>Número de trabajo para uso interno — no es cotización cerrada. Falta validar con el equipo antes de armar la propuesta final. Se recomienda sumar 10-15% de contingencia dado que es un desarrollo sensible sobre requerimiento legal con posibles idas y vueltas en la definición de custodios. No incluye hosting/infraestructura recurrente ni soporte post-entrega.</p>
+    </div>
+
+    <h2 class="reveal">7. Equipo propuesto</h2>
+    <ul class="bullets reveal">
+      <li><strong>Arquitecto / Backend Sr</strong> — apertura protegida y auditoría (parte más sensible, no delegable)</li>
+      <li><strong>Backend Ssr</strong> — gestión de licitaciones, panel de custodios</li>
+      <li><strong>Frontend Ssr</strong> — portal público + panel de custodios</li>
+      <li><strong>DevOps / Infra</strong> — part-time, despliegue</li>
+      <li><strong>PM / QA transversal</strong> — Alejandro Gallardo, part-time sobre todo el proyecto</li>
+    </ul>
+
+    <h2 class="reveal">8. Riesgos y supuestos</h2>
+    <table class="ptable reveal">
+      <thead><tr><th>Riesgo</th><th>Detalle</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Definición de custodios</td><td>Depende de una decisión institucional del Gobierno (quiénes, cuántos, con qué investidura legal). Puede avanzar en paralelo al desarrollo, pero condiciona el panel de custodios.</td></tr>
+        <tr><td class="k">Volumen de licitaciones simultáneas</td><td>No especificado en el pliego. Hay que confirmarlo para dimensionar bien la infraestructura.</td></tr>
+        <tr><td class="k">Manual de identidad de Jujuy</td><td>Falta el archivo / guía de marca para maquetar el portal público.</td></tr>
+        <tr><td class="k">Marco legal del acto de apertura</td><td>Conviene validar con Fiscalía de Estado o legales del Gobierno que este mecanismo sea aceptado como equivalente al acto de apertura físico tradicional.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="reveal">9. Próximos pasos</h2>
+    <ul class="bullets reveal">
+      <li>Validar internamente la estimación de horas y equipo.</li>
+      <li>Definir con el cliente el número y rol de los custodios.</li>
+      <li>Solicitar el manual de identidad visual de Jujuy.</li>
+      <li>Bajar cada frente de trabajo a historias de usuario detalladas.</li>
+      <li>Armar la propuesta completa para la licitación (pliego técnico, plan de trabajo y lo que exija el proceso formal de contratación).</li>
+    </ul>
+
+    <div class="doc-close reveal" style="margin-top:48px;padding-top:32px;border-top:1px solid var(--line);">
+      <p><strong>Alejandro Gallardo</strong><br/>Director de Tecnología · GG Soluciones<br/><a href="https://ggsoluciones.com.ar" style="color:var(--accent);">ggsoluciones.com.ar</a></p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="ft"><div class="wrap ft-in"><span>De Jujuy al mundo</span><span>© 2026 GG Soluciones · Todos los derechos reservados</span></div></footer>
+
+<script src="app.js?v=5"></script>
+</body>
+</html>
