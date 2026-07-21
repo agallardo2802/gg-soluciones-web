@@ -871,6 +871,12 @@
       }
     }
 
+    /* Language toggle */
+    .lang-toggle { display: flex; align-items: center; gap: 4px; }
+    .lang-opt { background: none; border: none; cursor: pointer; font-size: 0.78rem; font-weight: 600; color: var(--text-muted); padding: 4px 6px; border-radius: 4px; transition: color .2s; }
+    .lang-opt.active, .lang-opt:hover { color: var(--accent); }
+    .lang-sep { color: var(--border); font-size: 0.75rem; }
+
     /* Print styling rules */
     @media print {
       @page {
@@ -984,13 +990,14 @@
         <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
         <span>LinkedIn</span>
       </a>
+      <div class="lang-toggle"><button class="lang-opt" data-lang="es" type="button">ES</button><span class="lang-sep">|</span><button class="lang-opt" data-lang="en" type="button">EN</button></div>
       <button class="theme-toggle" id="themeBtn" aria-label="Cambiar tema">
         <svg class="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         <svg class="moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
       <button class="btn-dl" onclick="window.print()">
         <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
-        <span>Descargar CV</span>
+        <span data-en="Download CV">Descargar CV</span>
       </button>
     </div>
   </header>
@@ -1008,7 +1015,7 @@
 
       <div class="l-name-box reveal">
         <h1 class="l-name">Alejandro Gallardo</h1>
-        <div class="l-role">Head of IT · Arquitectura · Transformación Digital · IA</div>
+        <div class="l-role" data-en="Head of IT · Architecture · Digital Transformation · AI">Head of IT · Arquitectura · Transformación Digital · IA</div>
       </div>
 
       <div class="l-info reveal">
@@ -1034,25 +1041,25 @@
       <div class="l-section reveal">
         <div class="s-head">
           <div class="bar"></div>
-          <div class="title">Impacto</div>
-          <div class="sub">Resultados clave</div>
+          <div class="title" data-en="Impact">Impacto</div>
+          <div class="sub" data-en="Key Results">Resultados clave</div>
         </div>
         <div class="stats-grid">
           <div class="stat-box">
             <div class="stat-num" data-count="12" data-suffix="+">0</div>
-            <div class="stat-lbl">Años experiencia</div>
+            <div class="stat-lbl" data-en="Years experience">Años experiencia</div>
           </div>
           <div class="stat-box">
             <div class="stat-num" data-count="35" data-suffix="">0</div>
-            <div class="stat-lbl">Personas lideradas</div>
+            <div class="stat-lbl" data-en="People led">Personas lideradas</div>
           </div>
           <div class="stat-box">
             <div class="stat-num" data-count="45" data-suffix="%">0</div>
-            <div class="stat-lbl">Reducción Azure</div>
+            <div class="stat-lbl" data-en="Azure reduction">Reducción Azure</div>
           </div>
           <div class="stat-box">
             <div class="stat-num" data-count="100000" data-suffix="K+">0</div>
-            <div class="stat-lbl">Gente beneficiada</div>
+            <div class="stat-lbl" data-en="People benefited">Gente beneficiada</div>
           </div>
         </div>
       </div>
@@ -1061,12 +1068,12 @@
       <div class="l-section reveal">
         <div class="s-head">
           <div class="bar"></div>
-          <div class="title">Habilidades técnicas</div>
-          <div class="sub">Nivel de dominio</div>
+          <div class="title" data-en="Technical Skills">Habilidades técnicas</div>
+          <div class="sub" data-en="Proficiency level">Nivel de dominio</div>
         </div>
         <div class="skills-list">
           <div class="skill-item">
-            <div class="skill-header"><span>Liderazgo IT &amp; Gobierno</span><span class="skill-pct">95%</span></div>
+            <div class="skill-header"><span data-en="IT Leadership &amp; Governance">Liderazgo IT &amp; Gobierno</span><span class="skill-pct">95%</span></div>
             <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95%"></div></div>
           </div>
           <div class="skill-item">
@@ -1074,23 +1081,23 @@
             <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
           </div>
           <div class="skill-item">
-            <div class="skill-header"><span>Arquitectura de sistemas</span><span class="skill-pct">90%</span></div>
+            <div class="skill-header"><span data-en="Systems Architecture">Arquitectura de sistemas</span><span class="skill-pct">90%</span></div>
             <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
           </div>
           <div class="skill-item">
-            <div class="skill-header"><span>Power BI &amp; Métricas</span><span class="skill-pct">85%</span></div>
+            <div class="skill-header"><span data-en="Power BI &amp; Metrics">Power BI &amp; Métricas</span><span class="skill-pct">85%</span></div>
             <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%"></div></div>
           </div>
           <div class="skill-item">
-            <div class="skill-header"><span>Gestión de procesos</span><span class="skill-pct">85%</span></div>
+            <div class="skill-header"><span data-en="Process Management">Gestión de procesos</span><span class="skill-pct">85%</span></div>
             <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%"></div></div>
           </div>
           <div class="skill-item">
-            <div class="skill-header"><span>IA aplicada / Agentes LLM</span><span class="skill-pct">80%</span></div>
+            <div class="skill-header"><span data-en="Applied AI / LLM Agents">IA aplicada / Agentes LLM</span><span class="skill-pct">80%</span></div>
             <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%"></div></div>
           </div>
           <div class="skill-item">
-            <div class="skill-header"><span>Implementación ERP / CRM</span><span class="skill-pct">80%</span></div>
+            <div class="skill-header"><span data-en="ERP / CRM Implementation">Implementación ERP / CRM</span><span class="skill-pct">80%</span></div>
             <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%"></div></div>
           </div>
           <div class="skill-item">
@@ -1104,20 +1111,20 @@
       <div class="l-section reveal">
         <div class="s-head">
           <div class="bar"></div>
-          <div class="title">Educación</div>
-          <div class="sub">Formación académica</div>
+          <div class="title" data-en="Education">Educación</div>
+          <div class="sub" data-en="Academic background">Formación académica</div>
         </div>
         <div class="edu-timeline">
           <div class="edu-entry">
             <div class="edu-dot"></div>
-            <div class="edu-degree">Técnico en Informática</div>
+            <div class="edu-degree" data-en="IT Technician">Técnico en Informática</div>
             <div class="edu-school">Univ. Católica de Santiago del Estero</div>
             <div class="edu-period">2012 – 2016</div>
-            <span class="badge-grad">Graduado</span>
+            <span class="badge-grad" data-en="Graduate">Graduado</span>
           </div>
           <div class="edu-entry">
             <div class="edu-dot"></div>
-            <div class="edu-degree">Ingeniería en Informática</div>
+            <div class="edu-degree" data-en="Computer Engineering">Ingeniería en Informática</div>
             <div class="edu-school">Univ. Católica de Santiago del Estero</div>
             <div class="edu-period">2012 – 2018</div>
           </div>
@@ -1128,8 +1135,8 @@
       <div class="l-section reveal">
         <div class="s-head">
           <div class="bar"></div>
-          <div class="title">Certificaciones</div>
-          <div class="sub">Microsoft &amp; otros</div>
+          <div class="title" data-en="Certifications">Certificaciones</div>
+          <div class="sub" data-en="Microsoft &amp; others">Microsoft &amp; otros</div>
         </div>
         <div class="cert-entry">
           <div class="cert-name">Azure Administrator Associate</div>
@@ -1159,11 +1166,11 @@
       <div class="l-section reveal">
         <div class="s-head">
           <div class="bar"></div>
-          <div class="title">Idiomas</div>
+          <div class="title" data-en="Languages">Idiomas</div>
         </div>
-        <div class="lang-row"><span class="lang-name">Español</span><span class="lang-lv">Nativo</span></div>
-        <div class="lang-row"><span class="lang-name">Inglés</span><span class="lang-lv">Profesional (B1)</span></div>
-        <div class="lang-row"><span class="lang-name">Portugués</span><span class="lang-lv">Básico</span></div>
+        <div class="lang-row"><span class="lang-name" data-en="Spanish">Español</span><span class="lang-lv" data-en="Native">Nativo</span></div>
+        <div class="lang-row"><span class="lang-name" data-en="English">Inglés</span><span class="lang-lv" data-en="Professional (B1)">Profesional (B1)</span></div>
+        <div class="lang-row"><span class="lang-name" data-en="Portuguese">Portugués</span><span class="lang-lv" data-en="Basic">Básico</span></div>
       </div>
     </aside>
 
@@ -1171,11 +1178,11 @@
     <main class="right">
       <div class="r-name-box">
         <h1 class="l-name">Alejandro Gallardo</h1>
-        <div class="l-role">Head of IT · Arquitectura · Transformación Digital · IA</div>
+        <div class="l-role" data-en="Head of IT · Architecture · Digital Transformation · AI">Head of IT · Arquitectura · Transformación Digital · IA</div>
         <hr style="border: none; border-top: 1px solid var(--border); margin: 20px 0;">
       </div>
 
-      <p class="r-summary reveal">
+      <p class="r-summary reveal" data-en="I build the technology layer that makes organizations grow — without over-engineering, without critical dependencies, with processes people actually use.&lt;br&gt;&lt;br&gt; I come from code. I know what it takes to build things right. That's why when I lead, I make decisions with real technical judgment: I define architectures that hold up to growth, implement AI with governance before it generates risks, and establish processes that make delivery predictable.&lt;br&gt;&lt;br&gt; My differentiator is that I operate on both planes that truly matter: &lt;strong&gt;strategy and architecture&lt;/strong&gt;.">
         Construyo la capa tecnológica que hace crecer a las organizaciones — sin sobreingeniería, sin dependencias críticas, con procesos que la gente realmente usa.<br><br>
         Vengo del código. Sé lo que cuesta construir bien. Por eso cuando lidero, tomo decisiones con criterio técnico real: defino arquitecturas que aguantan el crecimiento, implemento IA con gobernanza antes de que genere riesgos, y establezco procesos que hacen predecible la entrega.<br><br>
         Mi diferencial es que me muevo en los dos planos que realmente importan: <strong>la estrategia y la arquitectura</strong>.
@@ -1185,8 +1192,8 @@
       <section class="r-section reveal">
         <div class="s-head">
           <div class="bar"></div>
-          <div class="title">Experiencia profesional</div>
-          <div class="sub">Trayectoria laboral</div>
+          <div class="title" data-en="Professional Experience">Experiencia profesional</div>
+          <div class="sub" data-en="Career path">Trayectoria laboral</div>
         </div>
 
         <div class="timeline">
@@ -1197,17 +1204,17 @@
               <div class="exp-header">
                 <div class="exp-title-box">
                   <span class="exp-role">Head of IT</span>
-                  <span class="exp-company">El Cuatro Jujuy <span class="badge-current">Actual</span></span>
+                  <span class="exp-company">El Cuatro Jujuy <span class="badge-current" data-en="Present">Actual</span></span>
                 </div>
-                <span class="exp-period">Oct 2025 · Presente · 9 meses</span>
+                <span class="exp-period" data-en="Oct 2025 · Present · 9 months">Oct 2025 · Presente · 9 meses</span>
               </div>
               <ul class="exp-bullets">
-                <li>Diseñé e implementé el marco de <strong>Gobernanza IT</strong>: catálogo de servicios, flujos L1/L2/L3, SLAs y roles.</li>
-                <li>Implementé <strong>GLPI 11</strong> como Mesa de Ayuda oficial con trazabilidad completa de incidentes.</li>
-                <li>Implementé <strong>Jira</strong> para gestión de backlog separando operation, mantenimiento y proyectos estratégicos.</li>
-                <li>Rediseño de arquitectura desacoplada del ERP mediante <strong>Data Warehouse + API Gateway centralizado</strong>.</li>
-                <li>Implementación de <strong>arquitectura de agentes IA</strong> para asistencia al equipo de desarrollo.</li>
-                <li>Cultura de documentación interna: wiki con guías operativas, onboarding y documentación técnica.</li>
+                <li data-en="Designed and implemented the &lt;strong&gt;IT Governance&lt;/strong&gt; framework: service catalog, L1/L2/L3 flows, SLAs and roles.">Diseñé e implementé el marco de <strong>Gobernanza IT</strong>: catálogo de servicios, flujos L1/L2/L3, SLAs y roles.</li>
+                <li data-en="Implemented &lt;strong&gt;GLPI 11&lt;/strong&gt; as the official Help Desk with full incident traceability.">Implementé <strong>GLPI 11</strong> como Mesa de Ayuda oficial con trazabilidad completa de incidentes.</li>
+                <li data-en="Implemented &lt;strong&gt;Jira&lt;/strong&gt; for backlog management, separating operations, maintenance and strategic projects.">Implementé <strong>Jira</strong> para gestión de backlog separando operation, mantenimiento y proyectos estratégicos.</li>
+                <li data-en="Redesign of decoupled ERP architecture via &lt;strong&gt;Data Warehouse + centralized API Gateway&lt;/strong&gt;.">Rediseño de arquitectura desacoplada del ERP mediante <strong>Data Warehouse + API Gateway centralizado</strong>.</li>
+                <li data-en="Implementation of &lt;strong&gt;AI agent architecture&lt;/strong&gt; to assist the development team.">Implementación de <strong>arquitectura de agentes IA</strong> para asistencia al equipo de desarrollo.</li>
+                <li data-en="Internal documentation culture: wiki with operational guides, onboarding and technical documentation.">Cultura de documentación interna: wiki con guías operativas, onboarding y documentación técnica.</li>
               </ul>
             </div>
           </div>
@@ -1221,12 +1228,12 @@
                   <span class="exp-role">Agile Delivery Manager · Infrastructure Cost Manager</span>
                   <span class="exp-company">Nubimetrics</span>
                 </div>
-                <span class="exp-period">Ago 2024 · Sep 2025 · 1 año 1 mes</span>
+                <span class="exp-period" data-en="Aug 2024 · Sep 2025 · 1 year 1 month">Ago 2024 · Sep 2025 · 1 año 1 mes</span>
               </div>
               <ul class="exp-bullets">
-                <li>Dashboard de control en <strong>Power BI + Azure DevOps</strong> para monitoreo en tiempo real de sprints, bugs y calidad.</li>
-                <li>Dashboard de costos Azure para Finanzas y equipos técnicos, facilitando detección rápida de desvíos.</li>
-                <li>Referente de arquitectura de software en revisión y resolución de issues críticos.</li>
+                <li data-en="Control dashboard in &lt;strong&gt;Power BI + Azure DevOps&lt;/strong&gt; for real-time monitoring of sprints, bugs and quality.">Dashboard de control en <strong>Power BI + Azure DevOps</strong> para monitoreo en tiempo real de sprints, bugs y calidad.</li>
+                <li data-en="Azure cost dashboard for Finance and technical teams, enabling rapid detection of deviations.">Dashboard de costos Azure para Finanzas y equipos técnicos, facilitando detección rápida de desvíos.</li>
+                <li data-en="Software architecture reference for the review and resolution of critical issues.">Referente de arquitectura de software en revisión y resolución de issues críticos.</li>
               </ul>
             </div>
           </div>
@@ -1240,13 +1247,13 @@
                   <span class="exp-role">Head of Development</span>
                   <span class="exp-company">Nubimetrics</span>
                 </div>
-                <span class="exp-period">Ene 2022 · Ago 2024 · 2 años 7 meses</span>
+                <span class="exp-period" data-en="Jan 2022 · Aug 2024 · 2 years 7 months">Ene 2022 · Ago 2024 · 2 años 7 meses</span>
               </div>
               <ul class="exp-bullets">
-                <li>Lideré y reestructuré un equipo de <strong>35 desarrolladores</strong> organizados en squads ágiles.</li>
-                <li>Reducción del <strong>45%</strong> en el gasto anual de infraestructura Azure.</li>
-                <li>Rediseñé el SDLC completo: kickoffs, bug management, QA y deploys estandarizados.</li>
-                <li>Coaching a líderes técnicos, gestión del desempeño y procesos de selección.</li>
+                <li data-en="Led and restructured a team of &lt;strong&gt;35 developers&lt;/strong&gt; organized into agile squads.">Lideré y reestructuré un equipo de <strong>35 desarrolladores</strong> organizados en squads ágiles.</li>
+                <li data-en="Reduction of &lt;strong&gt;45%&lt;/strong&gt; in annual Azure infrastructure spend.">Reducción del <strong>45%</strong> en el gasto anual de infraestructura Azure.</li>
+                <li data-en="Redesigned the complete SDLC: kickoffs, bug management, QA and standardized deploys.">Rediseñé el SDLC completo: kickoffs, bug management, QA y deploys estandarizados.</li>
+                <li data-en="Coaching to technical leads, performance management and recruitment processes.">Coaching a líderes técnicos, gestión del desempeño y procesos de selección.</li>
               </ul>
             </div>
           </div>
@@ -1260,12 +1267,12 @@
                   <span class="exp-role">Developer Backend Sr</span>
                   <span class="exp-company">Nubimetrics</span>
                 </div>
-                <span class="exp-period">Ene 2021 · Ene 2022 · 1 año</span>
+                <span class="exp-period" data-en="Jan 2021 · Jan 2022 · 1 year">Ene 2021 · Ene 2022 · 1 año</span>
               </div>
               <ul class="exp-bullets">
-                <li>Desarrollo en <strong>.NET Core / Clean Architecture</strong>. Librerías reutilizables adoptadas por múltiples equipos.</li>
-                <li>Servidor de reportes de alto rendimiento con Flexmonster para grandes volúmenes de datos.</li>
-                <li>Lógica de negocio serverless en Azure Functions y Blob Storage.</li>
+                <li data-en="Development in &lt;strong&gt;.NET Core / Clean Architecture&lt;/strong&gt;. Reusable libraries adopted by multiple teams.">Desarrollo en <strong>.NET Core / Clean Architecture</strong>. Librerías reutilizables adoptadas por múltiples equipos.</li>
+                <li data-en="High-performance reporting server with Flexmonster for large data volumes.">Servidor de reportes de alto rendimiento con Flexmonster para grandes volúmenes de datos.</li>
+                <li data-en="Serverless business logic in Azure Functions and Blob Storage.">Lógica de negocio serverless en Azure Functions y Blob Storage.</li>
               </ul>
             </div>
           </div>
@@ -1279,14 +1286,14 @@
                   <span class="exp-role">Software Architect &amp; Lead Engineer</span>
                   <span class="exp-company">Ministerio de Salud de Jujuy</span>
                 </div>
-                <span class="exp-period">Ene 2016 · Ene 2021 · 5 años</span>
+                <span class="exp-period" data-en="Jan 2016 · Jan 2021 · 5 years">Ene 2016 · Ene 2021 · 5 años</span>
               </div>
               <ul class="exp-bullets">
-                <li>Arquitecto principal del sistema <strong>MAS Salud</strong>, historia clínica digital de alcance provincial con +300 usuarios simultáneos. Utilicé el modelo C4 y diagramas en Figma para comunicar arquitecturas complejas a stakeholders técnicos y no técnicos.</li>
-                <li>Dirigí la migración de infraestructura crítica on-premise a <strong>arquitectura cloud-native en Microsoft Azure</strong>, mejorando escalabilidad y eficiencia operativa de servicios de salud pública.</li>
-                <li>Lideré un equipo de <strong>4 personas</strong> en el diseño e implementación de sistemas de gestión de pacientes y monitoreo de COVID-19, soluciones que beneficiaron a más de <strong>100.000 personas</strong>.</li>
-                <li>Integré sistemas nacionales críticos: <strong>RENAPER</strong> y <strong>Hacienda</strong>. Realicé auditorías de bases de datos que optimizaron significativamente el rendimiento y la integridad de los datos.</li>
-                <li>Diseñé y dicté cursos de programación <strong>.NET</strong> como referente técnico, elevando las capacidades del equipo de desarrollo.</li>
+                <li data-en="Lead architect of the &lt;strong&gt;MAS Salud&lt;/strong&gt; system, a provincial digital health record with +300 simultaneous users. Used the C4 model and Figma diagrams to communicate complex architectures to technical and non-technical stakeholders.">Arquitecto principal del sistema <strong>MAS Salud</strong>, historia clínica digital de alcance provincial con +300 usuarios simultáneos. Utilicé el modelo C4 y diagramas en Figma para comunicar arquitecturas complejas a stakeholders técnicos y no técnicos.</li>
+                <li data-en="Led the migration of critical on-premise infrastructure to &lt;strong&gt;cloud-native architecture in Microsoft Azure&lt;/strong&gt;, improving scalability and operational efficiency of public health services.">Dirigí la migración de infraestructura crítica on-premise a <strong>arquitectura cloud-native en Microsoft Azure</strong>, mejorando escalabilidad y eficiencia operativa de servicios de salud pública.</li>
+                <li data-en="Led a team of &lt;strong&gt;4 people&lt;/strong&gt; in the design and implementation of patient management systems and COVID-19 monitoring, solutions that benefited more than &lt;strong&gt;100,000 people&lt;/strong&gt;.">Lideré un equipo de <strong>4 personas</strong> en el diseño e implementación de sistemas de gestión de pacientes y monitoreo de COVID-19, soluciones que beneficiaron a más de <strong>100.000 personas</strong>.</li>
+                <li data-en="Integrated critical national systems: &lt;strong&gt;RENAPER&lt;/strong&gt; and &lt;strong&gt;Treasury&lt;/strong&gt;. Performed database audits that significantly optimized performance and data integrity.">Integré sistemas nacionales críticos: <strong>RENAPER</strong> y <strong>Hacienda</strong>. Realicé auditorías de bases de datos que optimizaron significativamente el rendimiento y la integridad de los datos.</li>
+                <li data-en="Designed and taught &lt;strong&gt;.NET&lt;/strong&gt; programming courses as technical reference, elevating the development team's capabilities.">Diseñé y dicté cursos de programación <strong>.NET</strong> como referente técnico, elevando las capacidades del equipo de desarrollo.</li>
               </ul>
             </div>
           </div>
@@ -1298,14 +1305,14 @@
               <div class="exp-header">
                 <div class="exp-title-box">
                   <span class="exp-role">Founder &amp; Tech Lead</span>
-                  <span class="exp-company">GG Soluciones <span class="badge-current">Activo</span></span>
+                  <span class="exp-company">GG Soluciones <span class="badge-current" data-en="Active">Activo</span></span>
                 </div>
-                <span class="exp-period">Mar 2014 · Presente · 11 años</span>
+                <span class="exp-period" data-en="Mar 2014 · Present · 11 years">Mar 2014 · Presente · 11 años</span>
               </div>
               <ul class="exp-bullets">
-                <li>Consultoría en arquitectura, modernización tecnológica y adopción de IA para organizaciones públicas y privadas.</li>
-                <li>Rediseño de ecosistemas tecnológicos: APIs, Data Warehouse, desacople de ERP legacy.</li>
-                <li>Implementación de agentes IA y gobierno de LLMs para equipos de desarrollo.</li>
+                <li data-en="Architecture consulting, technology modernization and AI adoption for public and private organizations.">Consultoría en arquitectura, modernización tecnológica y adopción de IA para organizaciones públicas y privadas.</li>
+                <li data-en="Redesign of technology ecosystems: APIs, Data Warehouse, decoupling of legacy ERP systems.">Rediseño de ecosistemas tecnológicos: APIs, Data Warehouse, desacople de ERP legacy.</li>
+                <li data-en="Implementation of AI agents and LLM governance for development teams.">Implementación de agentes IA y gobierno de LLMs para equipos de desarrollo.</li>
               </ul>
             </div>
           </div>
@@ -1316,23 +1323,23 @@
       <section class="r-section reveal">
         <div class="s-head">
           <div class="bar"></div>
-          <div class="title">Proyectos destacados</div>
-          <div class="sub">Iniciativas clave</div>
+          <div class="title" data-en="Featured Projects">Proyectos destacados</div>
+          <div class="sub" data-en="Key Initiatives">Iniciativas clave</div>
         </div>
 
         <!-- Filter tabs -->
         <div class="filter-group">
-          <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="ia">IA &amp; Agentes</button>
-          <button class="filter-btn" data-filter="cloud">Cloud &amp; Arquitectura</button>
-          <button class="filter-btn" data-filter="ux">Portales &amp; UX</button>
+          <button class="filter-btn active" data-filter="all" data-en="All">Todos</button>
+          <button class="filter-btn" data-filter="ia" data-en="AI &amp; Agents">IA &amp; Agentes</button>
+          <button class="filter-btn" data-filter="cloud" data-en="Cloud &amp; Architecture">Cloud &amp; Arquitectura</button>
+          <button class="filter-btn" data-filter="ux" data-en="Portals &amp; UX">Portales &amp; UX</button>
         </div>
 
         <div class="proj-grid">
           <!-- Proj 1 -->
           <div class="proj-card" data-category="ia">
-            <span class="proj-name">Arquitectura de agentes IA</span>
-            <p class="proj-desc">Diseño e implementación de arquitectura de agentes para asistencia al equipo de desarrollo con gobierno y control de fuga de información.</p>
+            <span class="proj-name" data-en="AI Agent Architecture">Arquitectura de agentes IA</span>
+            <p class="proj-desc" data-en="Design and implementation of agent architecture for development team assistance with governance and information leak control.">Diseño e implementación de arquitectura de agentes para asistencia al equipo de desarrollo con gobierno y control de fuga de información.</p>
             <div class="proj-tags">
               <span class="proj-tag">LLMs</span>
               <span class="proj-tag">AI Agents</span>
@@ -1342,8 +1349,8 @@
 
           <!-- Proj 2 -->
           <div class="proj-card" data-category="cloud">
-            <span class="proj-name">Desacople ERP vía Data Warehouse + API Gateway</span>
-            <p class="proj-desc">Rediseño arquitectural para reducir dependencia crítica del ERP, centralizando integraciones y creando una capa de datos independiente.</p>
+            <span class="proj-name" data-en="ERP Decoupling via Data Warehouse + API Gateway">Desacople ERP vía Data Warehouse + API Gateway</span>
+            <p class="proj-desc" data-en="Architectural redesign to reduce critical ERP dependency, centralizing integrations and creating an independent data layer.">Rediseño arquitectural para reducir dependencia crítica del ERP, centralizando integraciones y creando una capa de datos independiente.</p>
             <div class="proj-tags">
               <span class="proj-tag">API Gateway</span>
               <span class="proj-tag">Data Warehouse</span>
@@ -1353,8 +1360,8 @@
 
           <!-- Proj 3 -->
           <div class="proj-card" data-category="cloud">
-            <span class="proj-name">Reducción 45% costos Azure</span>
-            <p class="proj-desc">Iniciativa estratégica de optimización de infraestructura cloud. Análisis, rightsizing y reestructuración con impacto directo en rentabilidad.</p>
+            <span class="proj-name" data-en="45% Azure Cost Reduction">Reducción 45% costos Azure</span>
+            <p class="proj-desc" data-en="Strategic cloud infrastructure optimization initiative. Analysis, rightsizing and restructuring with direct impact on profitability.">Iniciativa estratégica de optimización de infraestructura cloud. Análisis, rightsizing y reestructuración con impacto directo en rentabilidad.</p>
             <div class="proj-tags">
               <span class="proj-tag">Azure</span>
               <span class="proj-tag">Cost Optimization</span>
@@ -1364,8 +1371,8 @@
 
           <!-- Proj 4 -->
           <div class="proj-card" data-category="cloud">
-            <span class="proj-name">MAS Salud — Historia Clínica Digital Provincial</span>
-            <p class="proj-desc">Arquitectura y liderazgo del sistema de historia clínica digital provincial. Cloud-native en Azure, +300 usuarios simultáneos, 100k+ personas.</p>
+            <span class="proj-name" data-en="MAS Salud — Provincial Digital Health Record">MAS Salud — Historia Clínica Digital Provincial</span>
+            <p class="proj-desc" data-en="Architecture and leadership of the provincial digital health record system. Cloud-native on Azure, +300 simultaneous users, 100k+ people.">Arquitectura y liderazgo del sistema de historia clínica digital provincial. Cloud-native en Azure, +300 usuarios simultáneos, 100k+ personas.</p>
             <div class="proj-tags">
               <span class="proj-tag">.NET</span>
               <span class="proj-tag">Azure</span>
@@ -1375,8 +1382,8 @@
 
           <!-- Proj 5 -->
           <div class="proj-card" data-category="ux cloud">
-            <span class="proj-name">Sistema de Actas Digitales — Registro Civil</span>
-            <p class="proj-desc">Sistema para emisión de actas digitales en menos de 24 horas, eliminando trámites presenciales. Frontend web + integración con RENAPER y Hacienda para validación y firma de documentos.</p>
+            <span class="proj-name" data-en="Digital Records System — Civil Registry">Sistema de Actas Digitales — Registro Civil</span>
+            <p class="proj-desc" data-en="System for issuing digital records in under 24 hours, eliminating in-person procedures. Web frontend + integration with RENAPER and Treasury for document validation and signing.">Sistema para emisión de actas digitales en menos de 24 horas, eliminando trámites presenciales. Frontend web + integración con RENAPER y Hacienda para validación y firma de documentos.</p>
             <div class="proj-tags">
               <span class="proj-tag">.NET</span>
               <span class="proj-tag">Frontend Web</span>
@@ -1387,8 +1394,8 @@
 
           <!-- Proj 6 -->
           <div class="proj-card" data-category="ux cloud">
-            <span class="proj-name">Ecosistema 360 — El Cuatro</span>
-            <p class="proj-desc">Plataforma integral de visión 360° del cliente. Consolidación de datos de múltiples fuentes en un ecosistema unificado para la toma de decisiones operativas y comerciales.</p>
+            <span class="proj-name" data-en="360 Ecosystem — El Cuatro">Ecosistema 360 — El Cuatro</span>
+            <p class="proj-desc" data-en="Comprehensive 360° customer view platform. Data consolidation from multiple sources into a unified ecosystem for operational and commercial decision-making.">Plataforma integral de visión 360° del cliente. Consolidación de datos de múltiples fuentes en un ecosistema unificado para la toma de decisiones operativas y comerciales.</p>
             <div class="proj-tags">
               <span class="proj-tag">Arquitectura</span>
               <span class="proj-tag">Data Integration</span>
@@ -1399,8 +1406,8 @@
 
           <!-- Proj 7 -->
           <div class="proj-card" data-category="cloud">
-            <span class="proj-name">API Gateway de microservicios — El Cuatro</span>
-            <p class="proj-desc">Monorepo de microservicios que abstrae el ERP legacy Calipso y unifica todos los dominios operativos: usuarios, facturación, pagos, planes y comunicaciones bajo una arquitectura limpia y desacoplada.</p>
+            <span class="proj-name" data-en="Microservices API Gateway — El Cuatro">API Gateway de microservicios — El Cuatro</span>
+            <p class="proj-desc" data-en="Microservices monorepo that abstracts the legacy Calipso ERP and unifies all operational domains: users, billing, payments, plans and communications under a clean, decoupled architecture.">Monorepo de microservicios que abstrae el ERP legacy Calipso y unifica todos los dominios operativos: usuarios, facturación, pagos, planes y comunicaciones bajo una arquitectura limpia y desacoplada.</p>
             <div class="proj-tags">
               <span class="proj-tag">.NET 8</span>
               <span class="proj-tag">Clean Architecture</span>
@@ -1412,8 +1419,8 @@
 
           <!-- Proj 8 -->
           <div class="proj-card" data-category="ia cloud">
-            <span class="proj-name">Gobernanza de AI agents en producción</span>
-            <p class="proj-desc">Sistema de control humano sobre agentes IA: los agentes solicitan autorización para ejecutar deploys en producción y un humano aprueba o rechaza. Resuelve el riesgo de autonomía excesiva en ambientes productivos.</p>
+            <span class="proj-name" data-en="AI Agent Governance in Production">Gobernanza de AI agents en producción</span>
+            <p class="proj-desc" data-en="Human control system over AI agents: agents request authorization to execute production deploys and a human approves or rejects. Resolves the risk of excessive autonomy in production environments.">Sistema de control humano sobre agentes IA: los agentes solicitan autorización para ejecutar deploys en producción y un humano aprueba o rechaza. Resuelve el riesgo de autonomía excesiva en ambientes productivos.</p>
             <div class="proj-tags">
               <span class="proj-tag">AI Governance</span>
               <span class="proj-tag">.NET 8</span>
@@ -1424,8 +1431,8 @@
 
           <!-- Proj 9 -->
           <div class="proj-card" data-category="ia ux">
-            <span class="proj-name">Portal directorio con RAG on-premise</span>
-            <p class="proj-desc">Plataforma de inteligencia operacional con reportes KPI, chatbot RAG sobre datos internos (Ollama + ChromaDB) y observabilidad completa con Prometheus y Grafana. Sin dependencia de APIs externas.</p>
+            <span class="proj-name" data-en="Directory Portal with On-premise RAG">Portal directorio con RAG on-premise</span>
+            <p class="proj-desc" data-en="Operational intelligence platform with KPI reports, RAG chatbot on internal data (Ollama + ChromaDB) and complete observability with Prometheus and Grafana. No dependency on external APIs.">Plataforma de inteligencia operacional con reportes KPI, chatbot RAG sobre datos internos (Ollama + ChromaDB) y observabilidad completa con Prometheus y Grafana. Sin dependencia de APIs externas.</p>
             <div class="proj-tags">
               <span class="proj-tag">RAG</span>
               <span class="proj-tag">Ollama</span>
@@ -1437,8 +1444,8 @@
 
           <!-- Proj 10 -->
           <div class="proj-card" data-category="ia ux">
-            <span class="proj-name">Intranet corporativa con chatbot sobre GLPI</span>
-            <p class="proj-desc">Portal interno unificado con módulos de conocimiento, chatbot RAG que consulta la base de Mesa de Ayuda (GLPI) usando Ollama local, generador de prompts y gestión de roles.</p>
+            <span class="proj-name" data-en="Corporate Intranet with GLPI Chatbot">Intranet corporativa con chatbot sobre GLPI</span>
+            <p class="proj-desc" data-en="Unified internal portal with knowledge modules, RAG chatbot that queries the Help Desk database (GLPI) using local Ollama, prompt generator and role management.">Portal interno unificado con módulos de conocimiento, chatbot RAG que consulta la base de Mesa de Ayuda (GLPI) usando Ollama local, generador de prompts y gestión de roles.</p>
             <div class="proj-tags">
               <span class="proj-tag">Next.js 14</span>
               <span class="proj-tag">Auth0</span>
@@ -1450,8 +1457,8 @@
 
           <!-- Proj 11 -->
           <div class="proj-card" data-category="ux">
-            <span class="proj-name">SV360 — Sucursal Virtual</span>
-            <p class="proj-desc">Portal self-service para clientes con login único, consulta de facturas, pago online vía MercadoPago y soporte guiado. Reemplaza sucursales físicas con gestión digital 360° del cliente final.</p>
+            <span class="proj-name" data-en="SV360 — Virtual Branch">SV360 — Sucursal Virtual</span>
+            <p class="proj-desc" data-en="Self-service customer portal with single login, invoice lookup, online payment via MercadoPago and guided support. Replaces physical branches with 360° digital management of the end customer.">Portal self-service para clientes con login único, consulta de facturas, pago online vía MercadoPago y soporte guiado. Reemplaza sucursales físicas con gestión digital 360° del cliente final.</p>
             <div class="proj-tags">
               <span class="proj-tag">React</span>
               <span class="proj-tag">API Gateway</span>
@@ -1465,7 +1472,7 @@
 
   </div>
 
-  <div class="cv-footer">© 2026 Alejandro Gallardo &nbsp;·&nbsp; De Jujuy al Mundo</div>
+  <div class="cv-footer">© 2026 Alejandro Gallardo &nbsp;·&nbsp; <span data-en="From Jujuy to the World">De Jujuy al Mundo</span></div>
 
   <!-- Interactive Scripts -->
   <script>
@@ -1614,6 +1621,51 @@
               }, 300);
             }
           });
+        });
+      });
+    })();
+  </script>
+
+  <!-- Language toggle script -->
+  <script>
+    (function() {
+      function applyCVLang(lang) {
+        var els = document.querySelectorAll('[data-en]');
+        els.forEach(function(el) {
+          if (lang === 'en') {
+            el.innerHTML = el.dataset.en;
+          } else {
+            if (el.dataset.es !== undefined) {
+              el.innerHTML = el.dataset.es;
+            }
+          }
+        });
+        document.querySelectorAll('.lang-opt').forEach(function(btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
+        localStorage.setItem('ggs_lang', lang);
+        document.documentElement.lang = lang;
+      }
+
+      // Snapshot initial Spanish content before any language switch
+      document.querySelectorAll('[data-en]').forEach(function(el) {
+        el.dataset.es = el.innerHTML;
+      });
+
+      // Apply saved preference
+      var savedLang = localStorage.getItem('ggs_lang');
+      if (savedLang === 'en') {
+        applyCVLang('en');
+      } else {
+        document.querySelectorAll('.lang-opt').forEach(function(btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-lang') === 'es');
+        });
+      }
+
+      // Bind click handlers
+      document.querySelectorAll('.lang-opt').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          applyCVLang(btn.getAttribute('data-lang'));
         });
       });
     })();
