@@ -18,7 +18,7 @@ window.GGS_TRANSLATIONS = {
   "→ Dirección Estratégica IT": "→ Strategic IT Direction",
   "→ Gestión y Evolución": "→ Management & Evolution",
   "+ Retainer mensual opcional": "+ Optional monthly retainer",
-  "+12 años": "+12 years",
+  "+10 años": "+10 years",
   "⚙️ DevOps": "⚙️ DevOps",
   "✅ Entregable listo para revisar": "✅ Deliverable ready for review",
   "✔ Claridad del estado actual · ✔ Reducción de errores operativos · ✔ Base para crecimiento ordenado": "✔ Clear view of the current state · ✔ Fewer operational errors · ✔ Foundation for orderly growth",
@@ -47,7 +47,7 @@ window.GGS_TRANSLATIONS = {
   "1 integración (GitHub o Azure DevOps)": "1 integration (GitHub or Azure DevOps)",
   "1 reunión semanal de seguimiento": "1 weekly follow-up meeting",
   "1 sesión de capacitación al equipo": "1 training session for the team",
-  "12 años de experiencia · San Salvador de Jujuy": "12 years of experience · San Salvador de Jujuy",
+  "10+ años de experiencia · San Salvador de Jujuy": "10+ years of experience · San Salvador de Jujuy",
   "15 personas": "15 people",
   "2 clases": "2 classes",
   "2 reuniones semanales": "2 weekly meetings",
@@ -461,7 +461,7 @@ window.GGS_TRANSLATIONS = {
   "Los programas pueden adaptarse por modalidad, perfil del grupo, nivel de madurez, sector y objetivos institucionales.": "Programs can be adapted by format, group profile, maturity level, sector and institutional goals.",
   "Management y capacitación IT": "IT management and training",
   "Mapas y rediseños de procesos internos": "Maps and redesigns of internal processes",
-  "Más de 12 años acompañando a organizaciones en Jujuy a ordenar, profesionalizar y evolucionar su gestión tecnológica.": "Over 12 years helping organizations in Jujuy organize, professionalize and evolve their technology management.",
+  "Más de 10 años acompañando a organizaciones en Jujuy a ordenar, profesionalizar y evolucionar su gestión tecnológica.": "Over 10 years helping organizations in Jujuy organize, professionalize and evolve their technology management.",
   "Más elegido": "Most chosen",
   "Más que cursos: soporte estratégico y técnico para transformar procesos.": "More than courses: strategic and technical support to transform processes.",
   "Material digital": "Digital materials",
@@ -692,7 +692,7 @@ window.GGS_TRANSLATIONS = {
   "Trabajo inteligente y contextual": "Intelligent, context-aware work",
   "Trabajo por proyecto · Consultoría · Capacitación": "Per-project work · Consulting · Training",
   "Trabajo por proyecto, consultoría o capacitación": "Per-project work, consulting or training",
-  "Trabajo realizado en organismos públicos, instituciones de salud y el sector privado a lo largo de 12 años.": "Work done in public agencies, healthcare institutions and the private sector over 12 years.",
+  "Trabajo realizado en organismos públicos, instituciones de salud y el sector privado a lo largo de más de 10 años.": "Work done in public agencies, healthcare institutions and the private sector over 10 years.",
   "Trámites lentos, errores humanos y dependencia de personas específicas.": "Slow procedures, human errors and dependence on specific people.",
   "Transferencia de conocimiento": "Knowledge transfer",
   "Transferencia de conocimiento incluida: tu equipo aprende y gana autonomía real.": "Knowledge transfer included: your team learns and gains real autonomy.",
@@ -856,7 +856,7 @@ window.GGS_TRANSLATIONS = {
   "Diseñamos o revisamos arquitectura: escalabilidad, interoperabilidad, costos y capacidad real del equipo.": "We design or review architecture: scalability, interoperability, costs and the team's real capacity.",
   "Integración entre plataformas (APIs, ERP, herramientas externas) para que dejen de ser islas.": "Cross-platform integration (APIs, ERP, external tools) so they stop being silos.",
   "Equipo y capacitación": "Team and training",
-  "Trabajo realizado en 12 años": "Work done over 12 years",
+  "Trabajo realizado en más de 10 años": "Work done over 10 years",
   "Ordenamos la iniciativa antes de construir": "We organize the initiative before building",
   "Para reducir riesgo, enfocar la inversión y mejorar la adopción.": "To reduce risk, focus investment and improve adoption.",
   "Ejecución y entrega": "Execution and delivery",
@@ -867,7 +867,7 @@ window.GGS_TRANSLATIONS = {
   "Cada programa incluye evaluación intermedia, evaluación final y certificación de participación o aprobación.": "Each program includes a midterm assessment, a final assessment and a certificate of participation or completion.",
   "Formato de trabajo": "Working format",
   "Programas disponibles": "Available programs",
-  "12 años de experiencia": "12 years of experience",
+  "10+ años de experiencia": "10+ years of experience",
   "De Jujuy al mundo": "From Jujuy to the world",
   "ordenar tu operación": "organize your operation",
 
@@ -911,5 +911,5 @@ window.GGS_TRANSLATIONS = {
   /* ── Clientes ── */
   "Clientes": "Clients",
   "Organismos y empresas que confían en nosotros": "Agencies and companies that trust us",
-  "Trabajo realizado en el sector público y privado de Jujuy a lo largo de 12 años.": "Work done in Jujuy's public and private sector over 12 years."
+  "Trabajo realizado en el sector público y privado de Jujuy a lo largo de más de 10 años.": "Work done in Jujuy's public and private sector over 10 years."
 };
