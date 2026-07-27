@@ -287,6 +287,8 @@ footer.ft { position: relative; z-index:1; border-top: 1px solid var(--line); pa
   }
   .wrap { max-width: 100% !important; }
   .cards { grid-template-columns: 1fr 1fr !important; }
+  /* reveal animations don't run in print — force all visible */
+  .reveal { opacity: 1 !important; transform: none !important; }
   /* avoid orphan headings */
   h2, h3 { page-break-after: avoid; }
   .callout, .stat-box, table { page-break-inside: avoid; }

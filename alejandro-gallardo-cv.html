@@ -962,6 +962,9 @@
       .exp-entry, .l-section {
         page-break-inside: avoid;
       }
+
+      /* reveal animations don't run in print — force all visible */
+      .reveal { opacity: 1 !important; transform: none !important; }
     }
   </style>
 </head>
