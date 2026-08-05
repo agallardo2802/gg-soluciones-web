@@ -11,6 +11,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="app.css?v=9" />
 <link rel="icon" type="image/png" href="logo.png" />
+<style>
+  /* wider doc area for a dense, table-heavy proposal */
+  .doc { max-width: 1100px; }
+
+  @media print {
+    /* reset CSS variables so dark-mode colors don't bleed into print */
+    :root, [data-theme="dark"] {
+      --bg: #fff;
+      --surface: #fff;
+      --text: #111;
+      --muted: #444;
+      --line: rgba(0,0,0,0.15);
+      --accent: #1a4fa0;
+    }
+    /* full-width doc in print */
+    .doc { max-width: 100% !important; }
+    /* compact hero — no need for huge padding in a PDF */
+    .hero { padding: 20px 0 16px !important; background: #fff !important; }
+    .hero h1 { font-size: 1.6rem !important; }
+    .hero .lead { font-size: 0.9rem !important; color: #444 !important; }
+    .eyebrow { color: #555 !important; }
+    /* table text slightly smaller so wide tables fit */
+    .ptable { font-size: 0.82rem; }
+    .ptable th, .ptable td { padding: 6px 8px !important; }
+  }
+</style>
 <script>window.GGS_GATE = { key: 'ggs_gate_ocr_actas', hash: '7040ebe66d7552c66946ceca4b5eb086e92287f6bbc7a4e8410f952f90b0d570', title: 'Ingresá el código de acceso para ver esta propuesta del Registro Civil.' };</script>
 <script src="gate.js?v=3"></script>
 </head>
