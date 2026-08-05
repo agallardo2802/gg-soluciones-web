@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Propuesta · OCR Asistido para RC Actas — Registro Civil | GG Soluciones</title>
+<meta name="description" content="Propuesta técnica para implementar OCR asistido con revisión humana en actas de nacimiento del Registro Civil Provincial. 230 horas, 6 semanas." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="app.css?v=9" />
+<link rel="icon" type="image/png" href="logo.png" />
+<script>window.GGS_GATE = { key: 'ggs_gate_ocr_actas', hash: '7040ebe66d7552c66946ceca4b5eb086e92287f6bbc7a4e8410f952f90b0d570', title: 'Ingresá el código de acceso para ver esta propuesta del Registro Civil.' };</script>
+<script src="gate.js?v=3"></script>
+</head>
+<body>
+<div class="print-brand"><img src="logo.png" alt="GG Soluciones" /><span>GG Soluciones · ggsoluciones.com.ar</span></div>
+<div class="glow-orb a"></div>
+<div class="glow-orb b"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html"><img src="logo.png?v=2" alt="GG Soluciones" /></a>
+    <div class="nav-tools">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Cambiar tema">
+        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a class="btn btn-ghost" href="https://wa.me/5493885120704" target="_blank" rel="noopener">Coordinar reunión</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero left">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Propuesta técnica · Confidencial · Agosto 2026</span>
+    <h1>OCR Asistido para <span class="accent-text">RC Actas</span></h1>
+    <p class="lead">Registro Civil de la Provincia. Extracción automática de datos desde imágenes de actas de nacimiento, revisión humana campo a campo y promoción auditable al registro canónico. Sin aprobación automática.</p>
+    <div class="doc-actions" style="display:flex;gap:12px;flex-wrap:wrap;">
+      <button class="btn btn-primary" onclick="window.print()">Descargar / Imprimir PDF</button>
+      <a class="btn btn-ghost" href="https://wa.me/5493885120704" target="_blank" rel="noopener">Coordinar reunión</a>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px;">
+  <div class="wrap doc">
+
+    <table class="ptable">
+      <tr><td class="k">Cliente</td><td>Registro Civil de la Provincia de Jujuy</td></tr>
+      <tr><td class="k">Ejecutor</td><td>GG Soluciones</td></tr>
+      <tr><td class="k">Rol</td><td>Arquitectura + Desarrollo — PM y Arquitecto: Alejandro Gallardo</td></tr>
+      <tr><td class="k">Versión</td><td>1.3 — 5 de agosto de 2026</td></tr>
+      <tr><td class="k">Presupuesto</td><td>230 horas · ARS 6.900.000 (tarifa ARS 30.000/h)</td></tr>
+      <tr><td class="k">Plazo estimado</td><td>6 semanas</td></tr>
+      <tr><td class="k">Clasificación</td><td>Confidencial · Uso interno</td></tr>
+    </table>
+
+    <div class="callout blue reveal">
+      <h4>Ajuste al 50% sobre estimación base</h4>
+      <p>Las horas fueron ajustadas al 50% sobre la estimación inicial, reutilizando la base ya implementada (productor Tesseract, almacenamiento MinIO, staging SQL, API administrativa y pantalla de revisión) y concentrando el alcance en actas de nacimiento v2. No representan un registro histórico de horas consumidas.</p>
+    </div>
+
+    <h2 class="reveal">1. Resumen</h2>
+    <p class="reveal">El proyecto implementa un proceso de OCR asistido con revisión humana para actas de nacimiento. El sistema extrae datos desde imágenes, los presenta a un operador, registra correcciones y solo promueve información al registro canónico después de una aprobación explícita y auditable.</p>
+    <p class="reveal">El alcance base ya dispone de productor Tesseract, almacenamiento MinIO, staging SQL, API administrativa y pantalla de revisión. El proyecto consolida esos componentes, mide su precisión con documentos reales de RC, completa la UAT y deja una operación productiva controlada.</p>
+    <div class="callout amber reveal">
+      <h4>Sin aprobación automática</h4>
+      <p>Un resultado <code>pending-review</code> sigue siendo un borrador y no modifica datos oficiales. Una persona debe comparar la imagen, corregir y aprobar o excluir cada campo.</p>
+    </div>
+
+    <h2 class="reveal">2. Resultado esperado para RC</h2>
+    <ul class="bullets reveal">
+      <li>Menor tiempo de carga y validación manual de actas de nacimiento.</li>
+      <li>Imagen y datos detectados visibles en una misma pantalla.</li>
+      <li>Corrección campo por campo antes de confirmar.</li>
+      <li>Cola operativa con asignación, prioridad, vencimiento y devolución.</li>
+      <li>Historial completo de quién revisó, qué cambió y qué discrepancias existieron.</li>
+      <li>Protección de datos dominados por RENAPER: el OCR no los sobrescribe.</li>
+      <li>Reintentos seguros, aprobación idempotente y trazabilidad de correcciones.</li>
+      <li>Métricas iniciales de cobertura, precisión y tiempo humano por documento.</li>
+    </ul>
+
+    <h2 class="reveal">3. Alcance del proyecto</h2>
+
+    <h3 class="reveal">3.1 Ingreso y procesamiento</h3>
+    <ul class="bullets reveal">
+      <li>Lectura de imágenes desde MinIO usando la ubicación autoritativa del documento.</li>
+      <li>Ejecución controlada de Tesseract y obtención de texto, posiciones y confianza.</li>
+      <li>Normalización de número, fecha, lugar de registración, personas y relaciones parentales.</li>
+      <li>Cola durable con reclamo, lease, reintento, liberación y diagnóstico seguro.</li>
+      <li>Persistencia inicial en estado <code>pending-review</code>.</li>
+    </ul>
+
+    <h3 class="reveal">3.2 Revisión humana</h3>
+    <ul class="bullets reveal">
+      <li>Cola de pendientes, casos en revisión, aprobados y vencidos.</li>
+      <li>Reclamo exclusivo de un caso por operador.</li>
+      <li>Visualización ampliable de la imagen.</li>
+      <li>Edición y validación de campos con fechas <code>dd/mm/yyyy</code>.</li>
+      <li>Confirmación o exclusión obligatoria de cada campo y relación.</li>
+      <li>Guardado de borrador y devolución voluntaria a la cola.</li>
+      <li>Asignación administrativa con prioridad y motivo.</li>
+    </ul>
+
+    <h3 class="reveal">3.3 Aprobación y promoción segura</h3>
+    <ul class="bullets reveal">
+      <li>Vista previa exacta antes de aprobar.</li>
+      <li>Hash anti-obsolescencia e idempotencia para evitar duplicados.</li>
+      <li>Promoción canónica únicamente con revisión completa y lease vigente.</li>
+      <li>Política <em>fill-only</em> para datos propios del acta.</li>
+      <li>Discrepancias registradas sin reemplazar información existente.</li>
+      <li>Datos de identidad dominados por RENAPER en modo comparación, sin sobrescritura.</li>
+    </ul>
+
+    <h3 class="reveal">3.4 Auditoría y correcciones</h3>
+    <ul class="bullets reveal">
+      <li>Historial de validaciones por operador.</li>
+      <li>Auditoría administrativa global.</li>
+      <li>Detalle de campos aplicados, sin cambios, discrepancias y exclusiones.</li>
+      <li>Ciclos de corrección con motivo y linaje, sin alterar la aprobación original.</li>
+    </ul>
+
+    <h3 class="reveal">3.5 Calidad, UAT y salida productiva</h3>
+    <ul class="bullets reveal">
+      <li>Armado con RC de una muestra representativa de actas de nacimiento.</li>
+      <li>Etiquetado de valores esperados y medición de baseline.</li>
+      <li>Ajustes de extracción para formatos y calidades presentes en la muestra.</li>
+      <li>UAT autenticada del flujo completo.</li>
+      <li>Despliegue coordinado de SQL, backend, frontend y worker.</li>
+      <li>Runbook, rollback, monitoreo inicial y capacitación operativa.</li>
+    </ul>
+
+    <h2 class="reveal">4. Plan, horas y costo</h2>
+
+    <table class="ptable reveal">
+      <thead><tr><th>Fase</th><th>Entregable</th><th style="text-align:right">Horas</th><th style="text-align:right">Costo ARS</th></tr></thead>
+      <tbody>
+        <tr><td class="k">1. Discovery y cierre funcional</td><td>Alcance, actores, corpus, reglas de autoridad y criterios RC</td><td style="text-align:right">12</td><td style="text-align:right">360.000</td></tr>
+        <tr><td class="k">2. Dataset y baseline</td><td>Muestra etiquetada, métricas iniciales y análisis de calidad</td><td style="text-align:right">20</td><td style="text-align:right">600.000</td></tr>
+        <tr><td class="k">3. Productor OCR nacimiento v2</td><td>Extracción, confianza, normalización y robustez operativa</td><td style="text-align:right">32</td><td style="text-align:right">960.000</td></tr>
+        <tr><td class="k">4. Staging y promoción SQL</td><td>Cola, revisión, preview, promoción, auditoría y correcciones</td><td style="text-align:right">24</td><td style="text-align:right">720.000</td></tr>
+        <tr><td class="k">5. Backend y seguridad</td><td>API, contratos, autorización, MinIO y manejo fail-closed</td><td style="text-align:right">20</td><td style="text-align:right">600.000</td></tr>
+        <tr><td class="k">6. Experiencia de revisión</td><td>Cola, visor, edición, asignación, aprobación e historial</td><td style="text-align:right">24</td><td style="text-align:right">720.000</td></tr>
+        <tr><td class="k">7. QA automatizada y E2E</td><td>Pruebas por componente, integración, regresión e idempotencia</td><td style="text-align:right">24</td><td style="text-align:right">720.000</td></tr>
+        <tr><td class="k">8. Calibración y UAT RC</td><td>Pruebas reales, ajustes y aceptación funcional autenticada</td><td style="text-align:right">20</td><td style="text-align:right">600.000</td></tr>
+        <tr><td class="k">9. Despliegue y operación</td><td>Release, rollback, observabilidad y estabilización</td><td style="text-align:right">12</td><td style="text-align:right">360.000</td></tr>
+        <tr><td class="k">10. Gestión, docs y capacitación</td><td>Seguimiento, manuales, transferencia y cierre</td><td style="text-align:right">12</td><td style="text-align:right">360.000</td></tr>
+        <tr><td colspan="2"><strong>Subtotal desarrollo</strong></td><td style="text-align:right"><strong>200</strong></td><td style="text-align:right"><strong>6.000.000</strong></td></tr>
+        <tr><td colspan="2">Reserva de riesgo 15% — variabilidad documental e integración productiva</td><td style="text-align:right"><strong>30</strong></td><td style="text-align:right"><strong>900.000</strong></td></tr>
+        <tr><td colspan="2"><strong>Total estimado</strong></td><td style="text-align:right"><strong>230</strong></td><td style="text-align:right"><strong>6.900.000</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout blue reveal">
+      <h4>Uso de la reserva</h4>
+      <p>La reserva no se consume automáticamente. Se utiliza únicamente para variaciones verificadas del corpus, problemas de calidad de imagen, contratos productivos distintos de los relevados o ajustes surgidos de la UAT. Cualquier consumo debe quedar informado y aprobado.</p>
+    </div>
+
+    <h2 class="reveal">5. Plazo</h2>
+    <p class="reveal"><strong>Duración estimada: 6 semanas</strong>, con trabajo coordinado entre desarrollo, QA y referentes de RC.</p>
+
+    <table class="ptable reveal">
+      <thead><tr><th>Semana</th><th>Hito</th></tr></thead>
+      <tbody>
+        <tr><td class="k">1</td><td>Alcance cerrado, responsables, muestra y baseline acordados</td></tr>
+        <tr><td class="k">2</td><td>Productor y contrato nacimiento v2 estabilizados</td></tr>
+        <tr><td class="k">3</td><td>Revisión, promoción, auditoría e integración completas</td></tr>
+        <tr><td class="k">4</td><td>Regresión y pruebas end-to-end</td></tr>
+        <tr><td class="k">5</td><td>UAT con RC y ajustes críticos</td></tr>
+        <tr><td class="k">6</td><td>Despliegue, capacitación y estabilización</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout amber reveal">
+      <h4>Condición de plazo</h4>
+      <p>El plazo supone disponibilidad de RC para entregar documentos y resolver observaciones dentro de 48 horas hábiles. Demoras en accesos, muestra o validaciones desplazan el calendario sin modificar por sí mismas las horas de trabajo.</p>
+    </div>
+
+    <h2 class="reveal">6. Criterios de aceptación propuestos</h2>
+    <p class="reveal">Estos valores son una base para discutir con RC; deben cerrarse después de medir el corpus real.</p>
+    <table class="ptable reveal">
+      <thead><tr><th>Criterio</th><th>Valor propuesto</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Muestra mínima UAT</td><td>150 actas de nacimiento, distribuidas por época, formato y calidad</td></tr>
+        <tr><td class="k">Documentos legibles sin error técnico</td><td class="ok">≥ 95%</td></tr>
+        <tr><td class="k">Precisión (número y fecha)</td><td class="ok">≥ 90% para valores no vacíos</td></tr>
+        <tr><td class="k">Cobertura (número y fecha)</td><td class="ok">≥ 85% en documentos legibles</td></tr>
+        <tr><td class="k">Casos promovidos con revisión completa</td><td class="ok">100%</td></tr>
+        <tr><td class="k">Sobrescrituras de datos RENAPER</td><td class="ok">0</td></tr>
+        <tr><td class="k">Promociones y correcciones auditadas</td><td class="ok">100%</td></tr>
+        <tr><td class="k">Reducción tiempo mediano de validación vs. proceso manual</td><td class="ok">≥ 30% (medida en UAT)</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="reveal">7. Riesgos principales</h2>
+    <table class="ptable reveal">
+      <thead><tr><th>Riesgo</th><th>Tratamiento</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Precisión desconocida sobre docs reales</td><td>Dataset y baseline antes de comprometer automatización</td></tr>
+        <tr><td class="k">Imágenes rotadas, borrosas o manuscritas</td><td>Clasificar legibilidad; calibrar reglas; derivar excepciones a revisión manual</td></tr>
+        <tr><td class="k">Diferencias entre contratos SQL, API y frontend</td><td>Pruebas de integración y validación fail-closed</td></tr>
+        <tr><td class="k">Datos sin vínculo autoritativo doc–imagen–acta</td><td>No promover; enviar a excepción y corregir trazabilidad</td></tr>
+        <tr><td class="k">Confundir HTTP 200 con OCR operativo</td><td>UAT autenticada con persistencia, preview, aprobación e historial</td></tr>
+        <tr><td class="k">Ampliar a matrimonio/defunción sin contrato propio</td><td>Mantenerlos fuera del MVP y presupuestarlos como fases posteriores</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="reveal">8. Fuera de alcance del proyecto base</h2>
+    <ul class="bullets reveal">
+      <li>Aprobación o promoción automática sin intervención humana.</li>
+      <li>OCR completo de matrimonio y defunción.</li>
+      <li>Digitalización física o mejora manual masiva de imágenes.</li>
+      <li>Corrección de datos históricos ajenos al corpus aprobado.</li>
+      <li>Sustitución de RENAPER como fuente autoritativa de identidad.</li>
+      <li>Licencias, infraestructura, almacenamiento, impuestos y soporte mensual posterior.</li>
+      <li>Garantía de precisión sobre manuscritos o imágenes ilegibles.</li>
+    </ul>
+
+    <h2 class="reveal">9. Mejoras posteriores</h2>
+    <p class="reveal">Estas iniciativas se cotizan por separado después de cerrar el MVP y disponer de métricas reales.</p>
+    <table class="ptable reveal">
+      <thead><tr><th>Mejora</th><th>Beneficio visible</th><th style="text-align:right">Estimación</th><th style="text-align:right">Costo ARS</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Contrato completo de matrimonio</td><td>Revisión y promoción segura de cónyuges y datos del matrimonio</td><td style="text-align:right">140 h · 4–5 sem.</td><td style="text-align:right">4.200.000</td></tr>
+        <tr><td class="k">Contrato completo de defunción</td><td>Revisión y promoción segura de fallecimiento y relaciones</td><td style="text-align:right">120 h · 4 sem.</td><td style="text-align:right">3.600.000</td></tr>
+        <tr><td class="k">Mejora avanzada de imagen y OCR</td><td>Rotación, deskew, denoise, clasificación de layouts y motor alternativo</td><td style="text-align:right">96 h · 3 sem.</td><td style="text-align:right">2.880.000</td></tr>
+        <tr><td class="k">Métricas, alertas y backfill controlado</td><td>Dashboard de calidad, SLA, baja confianza y reproceso por lotes</td><td style="text-align:right">64 h · 2 sem.</td><td style="text-align:right">1.920.000</td></tr>
+        <tr><td colspan="2"><strong>Backlog posterior estimado</strong></td><td style="text-align:right"><strong>420 h</strong></td><td style="text-align:right"><strong>12.600.000</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="reveal">10. Condiciones comerciales propuestas</h2>
+    <table class="ptable reveal">
+      <thead><tr><th>Concepto</th><th>Detalle</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Modalidad</td><td>Proyecto por horas con tope presupuestario</td></tr>
+        <tr><td class="k">Tarifa</td><td>ARS 30.000 por hora</td></tr>
+        <tr><td class="k">Tope del proyecto base</td><td>230 horas · ARS 6.900.000</td></tr>
+        <tr><td class="k">Facturación sugerida</td><td>20% al inicio · 30% con baseline · 30% con UAT disponible · 20% con aceptación</td></tr>
+        <tr><td class="k">Validez de la propuesta</td><td>15 días desde la fecha de emisión</td></tr>
+        <tr><td class="k">No incluye</td><td>Impuestos, infraestructura, servicios de terceros y soporte post-entrega</td></tr>
+        <tr><td class="k">Cambios de alcance</td><td>Requieren estimación y aprobación previa</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="reveal">Anexo A — Validación operativa de actas</h2>
+    <p class="reveal">La revisión de cada acta procesada no está incluida en las 230 horas del proyecto. Es una actividad operativa posterior y obligatoria: el OCR propone datos, pero una persona debe comparar la imagen, corregir y aprobar o excluir cada campo.</p>
+
+    <h3 class="reveal">Alternativa 1: auditoría total con recursos contratados</h3>
+    <table class="ptable reveal">
+      <thead><tr><th>Concepto</th><th style="text-align:right">Cantidad</th><th style="text-align:right">Costo</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Recurso de validación</td><td style="text-align:right">2 personas × 2 meses</td><td style="text-align:right">ARS 800.000/mes c/u</td></tr>
+        <tr><td class="k">Costo mensual del equipo</td><td style="text-align:right">—</td><td style="text-align:right">ARS 1.600.000</td></tr>
+        <tr><td class="k"><strong>Costo total de auditoría</strong></td><td style="text-align:right">—</td><td style="text-align:right"><strong>ARS 3.200.000</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="reveal">Alternativa 2: validación por el equipo de RC</h3>
+    <div class="callout blue reveal">
+      <p><strong>Costo externo adicional: ARS 0.</strong> RC aporta operadores, supervisión y tiempo de trabajo. El plazo de referencia continúa siendo aproximadamente 2 meses con dos recursos dedicados. GGS brinda la capacitación inicial incluida en el proyecto y RC administra la operación diaria.</p>
+    </div>
+
+    <h2 class="reveal">Evidencia técnica relevada</h2>
+    <p class="reveal">La propuesta se apoya en el checkout actual de:</p>
+    <ul class="bullets reveal">
+      <li><code>rc_actas_integraciones</code> — productor Tesseract, contratos SQL, cola, promoción y pruebas.</li>
+      <li><code>rc_actas_backend</code> — API administrativa, autorización, contratos y acceso a MinIO/SQL.</li>
+      <li><code>rc_actas_frontend</code> — cola, revisión, visor, aprobación, historial y correcciones.</li>
+    </ul>
+    <div class="callout amber reveal">
+      <h4>Advertencia</h4>
+      <p>Existe evidencia histórica de despliegue del contrato de nacimiento v2, pero la precisión sobre un corpus representativo y el runtime actual no se consideran verificados para esta propuesta. Antes de aceptar el proyecto deben refrescarse las pruebas productivas y realizarse la UAT acordada.</p>
+    </div>
+
+    <div class="doc-close reveal" style="margin-top:48px;padding-top:32px;border-top:1px solid var(--line);">
+      <p><strong>Alejandro Gallardo</strong><br/>Director de Tecnología · GG Soluciones<br/><a href="https://ggsoluciones.com.ar" style="color:var(--accent);">ggsoluciones.com.ar</a></p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="ft"><div class="wrap ft-in"><span>De Jujuy al mundo</span><span>© 2026 GG Soluciones · Todos los derechos reservados</span></div></footer>
+
+<script src="app.js?v=5"></script>
+</body>
+</html>
