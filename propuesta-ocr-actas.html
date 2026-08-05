@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
 <title>Propuesta · OCR Asistido para RC Actas — Registro Civil | GG Soluciones</title>
-<meta name="description" content="Propuesta técnica para implementar OCR asistido con revisión humana en actas de nacimiento del Registro Civil Provincial. 230 horas, 6 semanas." />
+<meta name="description" content="Propuesta técnica para implementar lectura automática con revisión humana en actas de nacimiento del Registro Civil Provincial. 200 horas, 6 semanas." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -61,8 +61,8 @@
 <section class="hero left">
   <div class="wrap">
     <span class="eyebrow"><span class="dot"></span> Propuesta técnica · Confidencial · Agosto 2026</span>
-    <h1>OCR Asistido para <span class="accent-text">RC Actas</span></h1>
-    <p class="lead">Registro Civil de la Provincia. Extracción automática de datos desde imágenes de actas de nacimiento, revisión humana campo a campo y promoción auditable al registro canónico. Sin aprobación automática.</p>
+    <h1>Lectura Automática de Actas para <span class="accent-text">Registro Civil</span></h1>
+    <p class="lead">Registro Civil de la Provincia de Jujuy. El sistema lee automáticamente los datos de las actas de nacimiento desde imágenes, los presenta a un operador para su revisión campo por campo, y solo los incorpora al sistema oficial una vez que una persona los aprueba explícitamente.</p>
     <div class="doc-actions" style="display:flex;gap:12px;flex-wrap:wrap;">
       <button class="btn btn-primary" onclick="window.print()">Descargar / Imprimir PDF</button>
       <a class="btn btn-ghost" href="https://wa.me/5493885120704" target="_blank" rel="noopener">Coordinar reunión</a>
@@ -76,86 +76,85 @@
     <table class="ptable">
       <tr><td class="k">Cliente</td><td>Registro Civil de la Provincia de Jujuy</td></tr>
       <tr><td class="k">Ejecutor</td><td>GG Soluciones</td></tr>
-      <tr><td class="k">Rol</td><td>Arquitectura + Desarrollo — PM y Arquitecto: Alejandro Gallardo</td></tr>
+      <tr><td class="k">Responsable</td><td>Alejandro Gallardo — Dirección de proyecto y arquitectura</td></tr>
       <tr><td class="k">Versión</td><td>1.3 — 5 de agosto de 2026</td></tr>
-      <tr><td class="k">Presupuesto</td><td>230 horas · ARS 6.900.000 (tarifa ARS 30.000/h)</td></tr>
+      <tr><td class="k">Presupuesto</td><td>200 horas · ARS 6.000.000 (tarifa ARS 30.000/h)</td></tr>
       <tr><td class="k">Plazo estimado</td><td>6 semanas</td></tr>
       <tr><td class="k">Clasificación</td><td>Confidencial · Uso interno</td></tr>
     </table>
 
     <div class="callout blue reveal">
-      <h4>Ajuste al 50% sobre estimación base</h4>
-      <p>Las horas fueron ajustadas al 50% sobre la estimación inicial, reutilizando la base ya implementada (productor Tesseract, almacenamiento MinIO, staging SQL, API administrativa y pantalla de revisión) y concentrando el alcance en actas de nacimiento v2. No representan un registro histórico de horas consumidas.</p>
+      <h4>Sobre este presupuesto</h4>
+      <p>El proyecto parte de un sistema de lectura automática que ya existe y fue desarrollado por GG Soluciones. Eso permite concentrar el trabajo en lo que RC realmente necesita hoy: actas de nacimiento. El presupuesto refleja ese punto de partida; no contempla rediseño general ni nuevos tipos de actas.</p>
     </div>
 
     <h2 class="reveal">1. Resumen</h2>
-    <p class="reveal">El proyecto implementa un proceso de OCR asistido con revisión humana para actas de nacimiento. El sistema extrae datos desde imágenes, los presenta a un operador, registra correcciones y solo promueve información al registro canónico después de una aprobación explícita y auditable.</p>
-    <p class="reveal">El alcance base ya dispone de productor Tesseract, almacenamiento MinIO, staging SQL, API administrativa y pantalla de revisión. El proyecto consolida esos componentes, mide su precisión con documentos reales de RC, completa la UAT y deja una operación productiva controlada.</p>
+    <p class="reveal">El proyecto pone en funcionamiento un proceso de lectura automática de actas de nacimiento con revisión humana obligatoria. El sistema extrae los datos de cada acta a partir de su imagen, los muestra a un operador para que los revise y corrija, y solo los incorpora al registro oficial después de una aprobación explícita.</p>
+    <p class="reveal">Los componentes principales —lectura de imágenes, almacenamiento, base de datos de revisión y pantalla de trabajo— ya están construidos. El proyecto los consolida, los calibra con documentos reales del Registro Civil, completa las pruebas de aceptación y deja la operación funcionando de forma controlada.</p>
     <div class="callout amber reveal">
-      <h4>Sin aprobación automática</h4>
-      <p>Un resultado <code>pending-review</code> sigue siendo un borrador y no modifica datos oficiales. Una persona debe comparar la imagen, corregir y aprobar o excluir cada campo.</p>
+      <h4>Sin carga automática al sistema oficial</h4>
+      <p>El sistema nunca incorpora datos al registro oficial sin que una persona los revise y apruebe primero. Un acta procesada queda como "borrador pendiente de revisión" hasta que un operador confirma cada campo.</p>
     </div>
 
-    <h2 class="reveal">2. Resultado esperado para RC</h2>
+    <h2 class="reveal">2. Qué gana el Registro Civil</h2>
     <ul class="bullets reveal">
       <li>Menor tiempo de carga y validación manual de actas de nacimiento.</li>
-      <li>Imagen y datos detectados visibles en una misma pantalla.</li>
-      <li>Corrección campo por campo antes de confirmar.</li>
-      <li>Cola operativa con asignación, prioridad, vencimiento y devolución.</li>
-      <li>Historial completo de quién revisó, qué cambió y qué discrepancias existieron.</li>
-      <li>Protección de datos dominados por RENAPER: el OCR no los sobrescribe.</li>
-      <li>Reintentos seguros, aprobación idempotente y trazabilidad de correcciones.</li>
-      <li>Métricas iniciales de cobertura, precisión y tiempo humano por documento.</li>
+      <li>La imagen del acta y los datos detectados visibles en la misma pantalla.</li>
+      <li>Corrección campo por campo antes de confirmar cualquier dato.</li>
+      <li>Cola de trabajo con asignación de casos, prioridad y seguimiento.</li>
+      <li>Historial completo de quién revisó cada acta, qué cambió y qué diferencias encontró.</li>
+      <li>Panel de seguimiento operativo: actas procesadas, pendientes de revisión y aprobadas.</li>
+      <li>Los datos de identidad gestionados por RENAPER no se modifican desde este sistema.</li>
+      <li>Cada aprobación queda registrada: quién la hizo, cuándo y qué datos incluyó.</li>
     </ul>
 
     <h2 class="reveal">3. Alcance del proyecto</h2>
 
-    <h3 class="reveal">3.1 Ingreso y procesamiento</h3>
+    <h3 class="reveal">3.1 Lectura y procesamiento de actas</h3>
     <ul class="bullets reveal">
-      <li>Lectura de imágenes desde MinIO usando la ubicación autoritativa del documento.</li>
-      <li>Ejecución controlada de Tesseract y obtención de texto, posiciones y confianza.</li>
-      <li>Normalización de número, fecha, lugar de registración, personas y relaciones parentales.</li>
-      <li>Cola durable con reclamo, lease, reintento, liberación y diagnóstico seguro.</li>
-      <li>Persistencia inicial en estado <code>pending-review</code>.</li>
+      <li>El sistema obtiene la imagen de cada acta desde el repositorio de documentos del Registro.</li>
+      <li>Lee automáticamente el texto, su posición en el documento y el nivel de certeza de cada dato detectado.</li>
+      <li>Identifica número de acta, fechas, lugar de registración, personas involucradas y relaciones familiares.</li>
+      <li>Si la lectura falla o la imagen no es legible, el caso queda marcado para revisión manual sin interrumpir el resto.</li>
+      <li>Cada acta ingresa al sistema como borrador pendiente de revisión humana.</li>
     </ul>
 
     <h3 class="reveal">3.2 Revisión humana</h3>
     <ul class="bullets reveal">
-      <li>Cola de pendientes, casos en revisión, aprobados y vencidos.</li>
-      <li>Reclamo exclusivo de un caso por operador.</li>
-      <li>Visualización ampliable de la imagen.</li>
-      <li>Edición y validación de campos con fechas <code>dd/mm/yyyy</code>.</li>
-      <li>Confirmación o exclusión obligatoria de cada campo y relación.</li>
-      <li>Guardado de borrador y devolución voluntaria a la cola.</li>
-      <li>Asignación administrativa con prioridad y motivo.</li>
+      <li>Cola de casos pendientes, en revisión, aprobados y vencidos.</li>
+      <li>Un operador toma un caso; mientras lo trabaja, nadie más puede modificarlo.</li>
+      <li>La imagen del acta se puede ampliar para verificar cualquier detalle.</li>
+      <li>Cada campo se valida individualmente; las fechas siguen el formato día/mes/año.</li>
+      <li>El operador confirma o descarta cada campo y relación familiar antes de aprobar.</li>
+      <li>Se puede guardar el avance y devolver el caso a la cola si no se puede terminar en ese momento.</li>
+      <li>Un supervisor puede asignar casos con prioridad y agregar un motivo.</li>
     </ul>
 
-    <h3 class="reveal">3.3 Aprobación y promoción segura</h3>
+    <h3 class="reveal">3.3 Aprobación e incorporación al registro</h3>
     <ul class="bullets reveal">
-      <li>Vista previa exacta antes de aprobar.</li>
-      <li>Hash anti-obsolescencia e idempotencia para evitar duplicados.</li>
-      <li>Promoción canónica únicamente con revisión completa y lease vigente.</li>
-      <li>Política <em>fill-only</em> para datos propios del acta.</li>
-      <li>Discrepancias registradas sin reemplazar información existente.</li>
-      <li>Datos de identidad dominados por RENAPER en modo comparación, sin sobrescritura.</li>
+      <li>Antes de confirmar, el operador ve exactamente qué datos se van a incorporar.</li>
+      <li>El sistema verifica que la información no haya cambiado desde que el operador empezó la revisión.</li>
+      <li>Solo se incorporan datos cuando la revisión está completa y el caso sigue asignado al operador.</li>
+      <li>El sistema completa los campos vacíos; no reemplaza datos que el Registro ya tiene cargados.</li>
+      <li>Si hay diferencias entre lo detectado y lo existente, quedan registradas para análisis, sin sobrescribir nada.</li>
+      <li>Los datos de identidad cuya autoridad corresponde a RENAPER se muestran para comparar, pero no se modifican.</li>
     </ul>
 
-    <h3 class="reveal">3.4 Auditoría y correcciones</h3>
+    <h3 class="reveal">3.4 Historial y auditoría</h3>
     <ul class="bullets reveal">
-      <li>Historial de validaciones por operador.</li>
-      <li>Auditoría administrativa global.</li>
-      <li>Detalle de campos aplicados, sin cambios, discrepancias y exclusiones.</li>
-      <li>Ciclos de corrección con motivo y linaje, sin alterar la aprobación original.</li>
+      <li>Cada revisión queda registrada con el nombre del operador, la fecha y el resultado.</li>
+      <li>Los supervisores pueden consultar el historial completo de cualquier acta.</li>
+      <li>Para cada aprobación se puede ver qué datos se incorporaron, cuáles no cambiaron, qué diferencias hubo y qué campos se descartaron.</li>
+      <li>Si un dato aprobado necesita corrección posterior, se registra el motivo y el historial de cambios sin alterar el registro original de aprobación.</li>
     </ul>
 
-    <h3 class="reveal">3.5 Calidad, UAT y salida productiva</h3>
+    <h3 class="reveal">3.5 Pruebas, aceptación y puesta en marcha</h3>
     <ul class="bullets reveal">
-      <li>Armado con RC de una muestra representativa de actas de nacimiento.</li>
-      <li>Etiquetado de valores esperados y medición de baseline.</li>
-      <li>Ajustes de extracción para formatos y calidades presentes en la muestra.</li>
-      <li>UAT autenticada del flujo completo.</li>
-      <li>Despliegue coordinado de SQL, backend, frontend y worker.</li>
-      <li>Runbook, rollback, monitoreo inicial y capacitación operativa.</li>
+      <li>Se arma junto con RC una muestra representativa de actas de nacimiento reales para calibrar el sistema.</li>
+      <li>Se mide la precisión inicial y se hacen ajustes según los formatos y calidades de imagen presentes en la muestra.</li>
+      <li>Las pruebas de aceptación se realizan con usuarios reales del Registro Civil sobre el flujo completo.</li>
+      <li>El despliegue incluye base de datos, sistema de administración, pantalla de revisión y servicio de procesamiento.</li>
+      <li>Se entrega un manual de operación, procedimiento de reversión ante incidentes, seguimiento inicial y capacitación al equipo operativo.</li>
     </ul>
 
     <h2 class="reveal">4. Plan, horas y costo</h2>
@@ -163,142 +162,123 @@
     <table class="ptable reveal">
       <thead><tr><th>Fase</th><th>Entregable</th><th style="text-align:right">Horas</th><th style="text-align:right">Costo ARS</th></tr></thead>
       <tbody>
-        <tr><td class="k">1. Discovery y cierre funcional</td><td>Alcance, actores, corpus, reglas de autoridad y criterios RC</td><td style="text-align:right">12</td><td style="text-align:right">360.000</td></tr>
-        <tr><td class="k">2. Dataset y baseline</td><td>Muestra etiquetada, métricas iniciales y análisis de calidad</td><td style="text-align:right">20</td><td style="text-align:right">600.000</td></tr>
-        <tr><td class="k">3. Productor OCR nacimiento v2</td><td>Extracción, confianza, normalización y robustez operativa</td><td style="text-align:right">32</td><td style="text-align:right">960.000</td></tr>
-        <tr><td class="k">4. Staging y promoción SQL</td><td>Cola, revisión, preview, promoción, auditoría y correcciones</td><td style="text-align:right">24</td><td style="text-align:right">720.000</td></tr>
-        <tr><td class="k">5. Backend y seguridad</td><td>API, contratos, autorización, MinIO y manejo fail-closed</td><td style="text-align:right">20</td><td style="text-align:right">600.000</td></tr>
-        <tr><td class="k">6. Experiencia de revisión</td><td>Cola, visor, edición, asignación, aprobación e historial</td><td style="text-align:right">24</td><td style="text-align:right">720.000</td></tr>
-        <tr><td class="k">7. QA automatizada y E2E</td><td>Pruebas por componente, integración, regresión e idempotencia</td><td style="text-align:right">24</td><td style="text-align:right">720.000</td></tr>
-        <tr><td class="k">8. Calibración y UAT RC</td><td>Pruebas reales, ajustes y aceptación funcional autenticada</td><td style="text-align:right">20</td><td style="text-align:right">600.000</td></tr>
-        <tr><td class="k">9. Despliegue y operación</td><td>Release, rollback, observabilidad y estabilización</td><td style="text-align:right">12</td><td style="text-align:right">360.000</td></tr>
-        <tr><td class="k">10. Gestión, docs y capacitación</td><td>Seguimiento, manuales, transferencia y cierre</td><td style="text-align:right">12</td><td style="text-align:right">360.000</td></tr>
-        <tr><td colspan="2"><strong>Subtotal desarrollo</strong></td><td style="text-align:right"><strong>200</strong></td><td style="text-align:right"><strong>6.000.000</strong></td></tr>
-        <tr><td colspan="2">Reserva de riesgo 15% — variabilidad documental e integración productiva</td><td style="text-align:right"><strong>30</strong></td><td style="text-align:right"><strong>900.000</strong></td></tr>
-        <tr><td colspan="2"><strong>Total estimado</strong></td><td style="text-align:right"><strong>230</strong></td><td style="text-align:right"><strong>6.900.000</strong></td></tr>
+        <tr><td class="k">1. Definición y cierre funcional</td><td>Alcance acordado, responsables, muestra de actas, reglas de autoridad y criterios de aceptación</td><td style="text-align:right">12</td><td style="text-align:right">360.000</td></tr>
+        <tr><td class="k">2. Muestra y medición inicial</td><td>Muestra etiquetada con valores esperados, medición de precisión inicial y análisis de calidad</td><td style="text-align:right">20</td><td style="text-align:right">600.000</td></tr>
+        <tr><td class="k">3. Lectura automática de actas</td><td>Extracción de datos, nivel de certeza, normalización y funcionamiento estable ante variaciones de imagen</td><td style="text-align:right">32</td><td style="text-align:right">960.000</td></tr>
+        <tr><td class="k">4. Base de datos de revisión</td><td>Cola de trabajo, revisión, vista previa, incorporación al registro, historial y correcciones</td><td style="text-align:right">24</td><td style="text-align:right">720.000</td></tr>
+        <tr><td class="k">5. Sistema de administración</td><td>Acceso por rol, seguridad, repositorio de imágenes y respuesta controlada ante fallas</td><td style="text-align:right">20</td><td style="text-align:right">600.000</td></tr>
+        <tr><td class="k">6. Pantalla de revisión</td><td>Cola, visor de imagen, edición de campos, asignación de casos, aprobación e historial</td><td style="text-align:right">24</td><td style="text-align:right">720.000</td></tr>
+        <tr><td class="k">7. Pruebas del sistema completo</td><td>Pruebas por módulo, integración entre partes, verificación de consistencia y casos sin duplicados</td><td style="text-align:right">24</td><td style="text-align:right">720.000</td></tr>
+        <tr><td class="k">8. Pruebas de aceptación con RC</td><td>Pruebas con documentos reales, ajustes y aceptación funcional por parte del Registro</td><td style="text-align:right">20</td><td style="text-align:right">600.000</td></tr>
+        <tr><td class="k">9. Puesta en marcha</td><td>Despliegue, procedimiento de reversión, panel de seguimiento operativo y estabilización</td><td style="text-align:right">12</td><td style="text-align:right">360.000</td></tr>
+        <tr><td class="k">10. Gestión, documentación y capacitación</td><td>Seguimiento del proyecto, manuales operativos, transferencia al equipo de RC y cierre</td><td style="text-align:right">12</td><td style="text-align:right">360.000</td></tr>
+        <tr><td colspan="2"><strong>Total</strong></td><td style="text-align:right"><strong>200</strong></td><td style="text-align:right"><strong>6.000.000</strong></td></tr>
       </tbody>
     </table>
 
-    <div class="callout blue reveal">
-      <h4>Uso de la reserva</h4>
-      <p>La reserva no se consume automáticamente. Se utiliza únicamente para variaciones verificadas del corpus, problemas de calidad de imagen, contratos productivos distintos de los relevados o ajustes surgidos de la UAT. Cualquier consumo debe quedar informado y aprobado.</p>
-    </div>
-
     <h2 class="reveal">5. Plazo</h2>
-    <p class="reveal"><strong>Duración estimada: 6 semanas</strong>, con trabajo coordinado entre desarrollo, QA y referentes de RC.</p>
+    <p class="reveal"><strong>Duración estimada: 6 semanas</strong>, con trabajo coordinado entre GG Soluciones y referentes del Registro Civil.</p>
 
     <table class="ptable reveal">
       <thead><tr><th>Semana</th><th>Hito</th></tr></thead>
       <tbody>
-        <tr><td class="k">1</td><td>Alcance cerrado, responsables, muestra y baseline acordados</td></tr>
-        <tr><td class="k">2</td><td>Productor y contrato nacimiento v2 estabilizados</td></tr>
-        <tr><td class="k">3</td><td>Revisión, promoción, auditoría e integración completas</td></tr>
-        <tr><td class="k">4</td><td>Regresión y pruebas end-to-end</td></tr>
-        <tr><td class="k">5</td><td>UAT con RC y ajustes críticos</td></tr>
-        <tr><td class="k">6</td><td>Despliegue, capacitación y estabilización</td></tr>
+        <tr><td class="k">1</td><td>Alcance cerrado, responsables definidos, muestra de actas acordada y medición inicial realizada</td></tr>
+        <tr><td class="k">2</td><td>Sistema de lectura automática funcionando sobre actas de nacimiento reales</td></tr>
+        <tr><td class="k">3</td><td>Pantalla de revisión, incorporación al registro, historial e integración completos</td></tr>
+        <tr><td class="k">4</td><td>Pruebas completas del sistema y verificación de consistencia</td></tr>
+        <tr><td class="k">5</td><td>Pruebas de aceptación con el equipo de RC y corrección de observaciones</td></tr>
+        <tr><td class="k">6</td><td>Puesta en marcha, capacitación y estabilización</td></tr>
       </tbody>
     </table>
 
     <div class="callout amber reveal">
       <h4>Condición de plazo</h4>
-      <p>El plazo supone disponibilidad de RC para entregar documentos y resolver observaciones dentro de 48 horas hábiles. Demoras en accesos, muestra o validaciones desplazan el calendario sin modificar por sí mismas las horas de trabajo.</p>
+      <p>El plazo supone que el Registro Civil puede entregar los documentos de la muestra y responder observaciones dentro de 48 horas hábiles. Demoras en el acceso a las actas o en la validación de resultados desplazan el calendario sin afectar las horas comprometidas.</p>
     </div>
 
     <h2 class="reveal">6. Criterios de aceptación propuestos</h2>
-    <p class="reveal">Estos valores son una base para discutir con RC; deben cerrarse después de medir el corpus real.</p>
+    <p class="reveal">Estos valores son una base para discutir con RC; se cierran después de medir la muestra real de actas.</p>
     <table class="ptable reveal">
       <thead><tr><th>Criterio</th><th>Valor propuesto</th></tr></thead>
       <tbody>
-        <tr><td class="k">Muestra mínima UAT</td><td>150 actas de nacimiento, distribuidas por época, formato y calidad</td></tr>
-        <tr><td class="k">Documentos legibles sin error técnico</td><td class="ok">≥ 95%</td></tr>
-        <tr><td class="k">Precisión (número y fecha)</td><td class="ok">≥ 90% para valores no vacíos</td></tr>
-        <tr><td class="k">Cobertura (número y fecha)</td><td class="ok">≥ 85% en documentos legibles</td></tr>
-        <tr><td class="k">Casos promovidos con revisión completa</td><td class="ok">100%</td></tr>
-        <tr><td class="k">Sobrescrituras de datos RENAPER</td><td class="ok">0</td></tr>
-        <tr><td class="k">Promociones y correcciones auditadas</td><td class="ok">100%</td></tr>
-        <tr><td class="k">Reducción tiempo mediano de validación vs. proceso manual</td><td class="ok">≥ 30% (medida en UAT)</td></tr>
+        <tr><td class="k">Muestra mínima de pruebas</td><td>150 actas de nacimiento, de distintas épocas, formatos y calidades de imagen</td></tr>
+        <tr><td class="k">Actas legibles que se procesan sin error</td><td class="ok">Al menos 95 de cada 100</td></tr>
+        <tr><td class="k">Precisión en número y fecha de acta</td><td class="ok">Al menos 90 de cada 100 valores detectados son correctos</td></tr>
+        <tr><td class="k">Cobertura en número y fecha</td><td class="ok">Al menos 85 de cada 100 actas legibles tienen esos campos detectados</td></tr>
+        <tr><td class="k">Actas incorporadas al registro con revisión completa</td><td class="ok">100%</td></tr>
+        <tr><td class="k">Datos de RENAPER modificados por el sistema</td><td class="ok">Ninguno</td></tr>
+        <tr><td class="k">Incorporaciones y correcciones con registro de operador y fecha</td><td class="ok">100%</td></tr>
+        <tr><td class="k">Reducción del tiempo de validación vs. proceso manual</td><td class="ok">Al menos 30% menos (medido durante las pruebas de aceptación)</td></tr>
       </tbody>
     </table>
 
     <h2 class="reveal">7. Riesgos principales</h2>
     <table class="ptable reveal">
-      <thead><tr><th>Riesgo</th><th>Tratamiento</th></tr></thead>
+      <thead><tr><th>Riesgo</th><th>Cómo se trata</th></tr></thead>
       <tbody>
-        <tr><td class="k">Precisión desconocida sobre docs reales</td><td>Dataset y baseline antes de comprometer automatización</td></tr>
-        <tr><td class="k">Imágenes rotadas, borrosas o manuscritas</td><td>Clasificar legibilidad; calibrar reglas; derivar excepciones a revisión manual</td></tr>
-        <tr><td class="k">Diferencias entre contratos SQL, API y frontend</td><td>Pruebas de integración y validación fail-closed</td></tr>
-        <tr><td class="k">Datos sin vínculo autoritativo doc–imagen–acta</td><td>No promover; enviar a excepción y corregir trazabilidad</td></tr>
-        <tr><td class="k">Confundir HTTP 200 con OCR operativo</td><td>UAT autenticada con persistencia, preview, aprobación e historial</td></tr>
-        <tr><td class="k">Ampliar a matrimonio/defunción sin contrato propio</td><td>Mantenerlos fuera del MVP y presupuestarlos como fases posteriores</td></tr>
+        <tr><td class="k">No se conoce la precisión sobre actas reales hasta medirlas</td><td>Se mide primero, antes de comprometer ningún resultado de automatización</td></tr>
+        <tr><td class="k">Imágenes rotadas, borrosas, muy antiguas o manuscritas</td><td>Se clasifica cada documento por legibilidad; los que no son legibles van a revisión manual</td></tr>
+        <tr><td class="k">Inconsistencias entre partes del sistema</td><td>Pruebas de integración entre módulos; ante cualquier duda el sistema rechaza la operación antes de aprobar algo incompleto</td></tr>
+        <tr><td class="k">Actas sin imagen disponible en el sistema</td><td>No se procesan; quedan marcadas como excepción para resolución del Registro</td></tr>
+        <tr><td class="k">Asumir que el sistema funciona sin hacer pruebas reales</td><td>Las pruebas de aceptación con el equipo de RC son obligatorias antes de la puesta en marcha</td></tr>
+        <tr><td class="k">Querer sumar matrimonios o defunciones sin planificación</td><td>Quedan fuera del alcance; se presupuestan como una etapa posterior separada</td></tr>
       </tbody>
     </table>
 
-    <h2 class="reveal">8. Fuera de alcance del proyecto base</h2>
+    <h2 class="reveal">8. Fuera de alcance</h2>
     <ul class="bullets reveal">
-      <li>Aprobación o promoción automática sin intervención humana.</li>
-      <li>OCR completo de matrimonio y defunción.</li>
-      <li>Digitalización física o mejora manual masiva de imágenes.</li>
-      <li>Corrección de datos históricos ajenos al corpus aprobado.</li>
-      <li>Sustitución de RENAPER como fuente autoritativa de identidad.</li>
-      <li>Licencias, infraestructura, almacenamiento, impuestos y soporte mensual posterior.</li>
-      <li>Garantía de precisión sobre manuscritos o imágenes ilegibles.</li>
+      <li>Incorporación automática de datos al sistema oficial sin revisión humana.</li>
+      <li>Lectura de actas de matrimonio o defunción.</li>
+      <li>Digitalización física o mejora manual de imágenes deterioradas.</li>
+      <li>Corrección de datos históricos fuera de la muestra acordada.</li>
+      <li>Reemplazar a RENAPER como fuente de datos de identidad.</li>
+      <li>Licencias de software, infraestructura de servidores, impuestos y soporte mensual posterior al proyecto.</li>
+      <li>Garantía de resultados sobre actas ilegibles o manuscritas en mal estado.</li>
     </ul>
 
-    <h2 class="reveal">9. Mejoras posteriores</h2>
-    <p class="reveal">Estas iniciativas se cotizan por separado después de cerrar el MVP y disponer de métricas reales.</p>
-    <table class="ptable reveal">
-      <thead><tr><th>Mejora</th><th>Beneficio visible</th><th style="text-align:right">Estimación</th><th style="text-align:right">Costo ARS</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Contrato completo de matrimonio</td><td>Revisión y promoción segura de cónyuges y datos del matrimonio</td><td style="text-align:right">140 h · 4–5 sem.</td><td style="text-align:right">4.200.000</td></tr>
-        <tr><td class="k">Contrato completo de defunción</td><td>Revisión y promoción segura de fallecimiento y relaciones</td><td style="text-align:right">120 h · 4 sem.</td><td style="text-align:right">3.600.000</td></tr>
-        <tr><td class="k">Mejora avanzada de imagen y OCR</td><td>Rotación, deskew, denoise, clasificación de layouts y motor alternativo</td><td style="text-align:right">96 h · 3 sem.</td><td style="text-align:right">2.880.000</td></tr>
-        <tr><td class="k">Métricas, alertas y backfill controlado</td><td>Dashboard de calidad, SLA, baja confianza y reproceso por lotes</td><td style="text-align:right">64 h · 2 sem.</td><td style="text-align:right">1.920.000</td></tr>
-        <tr><td colspan="2"><strong>Backlog posterior estimado</strong></td><td style="text-align:right"><strong>420 h</strong></td><td style="text-align:right"><strong>12.600.000</strong></td></tr>
-      </tbody>
-    </table>
-
-    <h2 class="reveal">10. Condiciones comerciales propuestas</h2>
+    <h2 class="reveal">9. Condiciones comerciales</h2>
     <table class="ptable reveal">
       <thead><tr><th>Concepto</th><th>Detalle</th></tr></thead>
       <tbody>
-        <tr><td class="k">Modalidad</td><td>Proyecto por horas con tope presupuestario</td></tr>
+        <tr><td class="k">Modalidad</td><td>Proyecto cerrado con presupuesto fijo</td></tr>
         <tr><td class="k">Tarifa</td><td>ARS 30.000 por hora</td></tr>
-        <tr><td class="k">Tope del proyecto base</td><td>230 horas · ARS 6.900.000</td></tr>
-        <tr><td class="k">Facturación sugerida</td><td>20% al inicio · 30% con baseline · 30% con UAT disponible · 20% con aceptación</td></tr>
+        <tr><td class="k">Total del proyecto</td><td>200 horas · ARS 6.000.000</td></tr>
+        <tr><td class="k">Forma de pago</td><td>50% al inicio · 50% al entregar</td></tr>
         <tr><td class="k">Validez de la propuesta</td><td>15 días desde la fecha de emisión</td></tr>
-        <tr><td class="k">No incluye</td><td>Impuestos, infraestructura, servicios de terceros y soporte post-entrega</td></tr>
-        <tr><td class="k">Cambios de alcance</td><td>Requieren estimación y aprobación previa</td></tr>
+        <tr><td class="k">No incluye</td><td>Impuestos, infraestructura de servidores, servicios de terceros y soporte mensual posterior</td></tr>
+        <tr><td class="k">Cambios de alcance</td><td>Requieren estimación y aprobación previa por escrito</td></tr>
       </tbody>
     </table>
 
-    <h2 class="reveal">Anexo A — Validación operativa de actas</h2>
-    <p class="reveal">La revisión de cada acta procesada no está incluida en las 230 horas del proyecto. Es una actividad operativa posterior y obligatoria: el OCR propone datos, pero una persona debe comparar la imagen, corregir y aprobar o excluir cada campo.</p>
+    <h2 class="reveal">Anexo A — Revisión operativa de las actas</h2>
+    <p class="reveal">La revisión de cada acta procesada no está incluida en las 200 horas del proyecto. Es una actividad operativa posterior y obligatoria: el sistema propone datos, pero una persona del Registro debe comparar la imagen, corregir lo que sea necesario y aprobar o descartar cada campo.</p>
 
-    <h3 class="reveal">Alternativa 1: auditoría total con recursos contratados</h3>
+    <h3 class="reveal">Alternativa 1: equipo de revisión contratado</h3>
+    <p class="reveal">Para auditar la totalidad de las actas disponibles en el sistema se puede contratar un equipo dedicado:</p>
     <table class="ptable reveal">
-      <thead><tr><th>Concepto</th><th style="text-align:right">Cantidad</th><th style="text-align:right">Costo</th></tr></thead>
+      <thead><tr><th>Concepto</th><th style="text-align:right">Detalle</th><th style="text-align:right">Costo</th></tr></thead>
       <tbody>
-        <tr><td class="k">Recurso de validación</td><td style="text-align:right">2 personas × 2 meses</td><td style="text-align:right">ARS 800.000/mes c/u</td></tr>
+        <tr><td class="k">Revisores</td><td style="text-align:right">2 personas durante 2 meses</td><td style="text-align:right">ARS 800.000/mes c/u</td></tr>
         <tr><td class="k">Costo mensual del equipo</td><td style="text-align:right">—</td><td style="text-align:right">ARS 1.600.000</td></tr>
-        <tr><td class="k"><strong>Costo total de auditoría</strong></td><td style="text-align:right">—</td><td style="text-align:right"><strong>ARS 3.200.000</strong></td></tr>
+        <tr><td class="k"><strong>Costo total</strong></td><td style="text-align:right">—</td><td style="text-align:right"><strong>ARS 3.200.000</strong></td></tr>
       </tbody>
     </table>
 
-    <h3 class="reveal">Alternativa 2: validación por el equipo de RC</h3>
+    <h3 class="reveal">Alternativa 2: revisión con el propio equipo del Registro</h3>
     <div class="callout blue reveal">
-      <p><strong>Costo externo adicional: ARS 0.</strong> RC aporta operadores, supervisión y tiempo de trabajo. El plazo de referencia continúa siendo aproximadamente 2 meses con dos recursos dedicados. GGS brinda la capacitación inicial incluida en el proyecto y RC administra la operación diaria.</p>
+      <p><strong>Sin costo adicional para el Registro.</strong> El propio equipo de RC realiza la revisión con el tiempo y los recursos que ya dispone. El plazo de referencia es igualmente de dos meses con dos personas dedicadas. GG Soluciones brinda la capacitación inicial como parte del proyecto; RC administra la operación diaria.</p>
     </div>
 
-    <h2 class="reveal">Evidencia técnica relevada</h2>
-    <p class="reveal">La propuesta se apoya en el checkout actual de:</p>
+    <h2 class="reveal">Base tecnológica existente</h2>
+    <p class="reveal">Esta propuesta se apoya en desarrollos previos de GG Soluciones para el Registro Civil:</p>
     <ul class="bullets reveal">
-      <li><code>rc_actas_integraciones</code> — productor Tesseract, contratos SQL, cola, promoción y pruebas.</li>
-      <li><code>rc_actas_backend</code> — API administrativa, autorización, contratos y acceso a MinIO/SQL.</li>
-      <li><code>rc_actas_frontend</code> — cola, revisión, visor, aprobación, historial y correcciones.</li>
+      <li>Sistema de lectura automática de actas de nacimiento — procesamiento de imágenes, extracción de datos y pruebas.</li>
+      <li>Sistema de administración — acceso por rol, seguridad y gestión de documentos.</li>
+      <li>Pantalla de revisión — cola de trabajo, visor de imagen, aprobación, historial y correcciones.</li>
     </ul>
     <div class="callout amber reveal">
-      <h4>Advertencia</h4>
-      <p>Existe evidencia histórica de despliegue del contrato de nacimiento v2, pero la precisión sobre un corpus representativo y el runtime actual no se consideran verificados para esta propuesta. Antes de aceptar el proyecto deben refrescarse las pruebas productivas y realizarse la UAT acordada.</p>
+      <h4>Estado actual</h4>
+      <p>Existe evidencia de funcionamiento previo del sistema sobre actas de nacimiento, pero la precisión sobre un conjunto representativo de actas reales y el estado actual del entorno de producción no están verificados para esta propuesta. Antes de comenzar se refrescan las pruebas productivas y se realiza la medición inicial acordada con RC.</p>
     </div>
 
     <div class="doc-close reveal" style="margin-top:48px;padding-top:32px;border-top:1px solid var(--line);">
