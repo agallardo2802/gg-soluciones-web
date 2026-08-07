@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
 <title>Propuesta · OCR Asistido para RC Actas — Registro Civil | GG Soluciones</title>
-<meta name="description" content="Propuesta técnica para implementar lectura automática con revisión humana en actas de nacimiento del Registro Civil Provincial. 200 horas, 6 semanas." />
+<meta name="description" content="Propuesta para implementar lectura automática con revisión humana en actas de nacimiento del Registro Civil Provincial. Del orden de 200 horas, 6 semanas." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -78,7 +78,8 @@
       <tr><td class="k">Ejecutor</td><td>GG Soluciones</td></tr>
       <tr><td class="k">Responsable</td><td>Alejandro Gallardo — Dirección de proyecto y arquitectura</td></tr>
       <tr><td class="k">Versión</td><td>1.3 — 5 de agosto de 2026</td></tr>
-      <tr><td class="k">Presupuesto</td><td>200 horas · ARS 6.000.000 (tarifa ARS 30.000/h)</td></tr>
+      <tr><td class="k">Esfuerzo estimado</td><td>Del orden de 200 horas (tarifa ARS 30.000/h)</td></tr>
+      <tr><td class="k">Presupuesto de referencia</td><td>ARS 6.000.000</td></tr>
       <tr><td class="k">Plazo estimado</td><td>6 semanas</td></tr>
       <tr><td class="k">Clasificación</td><td>Confidencial · Uso interno</td></tr>
     </table>
@@ -157,7 +158,68 @@
       <li>Se entrega un manual de operación, procedimiento de reversión ante incidentes, seguimiento inicial y capacitación al equipo operativo.</li>
     </ul>
 
-    <h2 class="reveal">4. Plan, horas y costo</h2>
+    <h2 class="reveal">4. Qué se entrega y qué queda pendiente</h2>
+    <p class="reveal">Para evitar interpretaciones distintas al momento del cierre, esta sección define con precisión qué recibe el Registro Civil al finalizar el proyecto y qué actividades continúan después.</p>
+
+    <h3 class="reveal">4.1 Se entrega funcionando y aceptado</h3>
+    <table class="ptable reveal">
+      <thead><tr><th>Entregable</th><th>Cómo se comprueba</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Lectura automática de actas de nacimiento</td><td>El sistema procesa la muestra acordada y cumple los valores mínimos de la sección 8</td></tr>
+        <tr><td class="k">Pantalla de revisión con cola de trabajo</td><td>Los operadores de RC revisan y aprueban actas reales durante las pruebas de aceptación</td></tr>
+        <tr><td class="k">Aprobación con historial completo</td><td>Cada aprobación de prueba muestra operador, fecha, campos incorporados y diferencias detectadas</td></tr>
+        <tr><td class="k">Panel de seguimiento operativo</td><td>Muestra actas procesadas, pendientes de revisión, aprobadas y con excepción</td></tr>
+        <tr><td class="k">Sistema instalado y en funcionamiento</td><td>Funcionando en el entorno productivo del Registro Civil</td></tr>
+        <tr><td class="k">Equipo de RC capacitado</td><td>Capacitación realizada con los operadores designados y manual entregado</td></tr>
+        <tr><td class="k">Documentación operativa</td><td>Manual de uso, procedimiento ante incidentes y reversión</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="reveal">4.2 Queda pendiente después de la entrega</h3>
+    <table class="ptable reveal">
+      <thead><tr><th>Actividad</th><th>Quién la asume</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Revisión y aprobación de cada acta del histórico</td><td>Registro Civil — ver Anexo A (no incluida en este presupuesto)</td></tr>
+        <tr><td class="k">Actas de matrimonio y defunción</td><td>Etapa posterior, se presupuesta por separado</td></tr>
+        <tr><td class="k">Mejora de imágenes deterioradas o manuscritas</td><td>Etapa posterior o resolución manual del Registro</td></tr>
+        <tr><td class="k">Operación diaria y supervisión del proceso</td><td>Registro Civil</td></tr>
+        <tr><td class="k">Soporte y evolución posterior al cierre</td><td>Se acuerda por separado si el Registro lo requiere</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="reveal">5. Responsabilidades</h2>
+    <p class="reveal">El resultado del proyecto depende de ambas partes. Esta tabla define quién responde por cada aspecto para que no queden zonas grises durante la ejecución.</p>
+
+    <table class="ptable reveal">
+      <thead><tr><th>Aspecto</th><th>GG Soluciones</th><th>Registro Civil</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Desarrollo del sistema</td><td class="ok">Responsable</td><td>—</td></tr>
+        <tr><td class="k">Pruebas técnicas y de integración</td><td class="ok">Responsable</td><td>—</td></tr>
+        <tr><td class="k">Instalación y puesta en marcha</td><td class="ok">Responsable</td><td>Provee accesos al entorno</td></tr>
+        <tr><td class="k">Muestra de actas para calibrar</td><td>Define criterios y cantidad</td><td class="ok">Responsable de entregarla</td></tr>
+        <tr><td class="k">Valores esperados de la muestra</td><td>Acompaña el proceso</td><td class="ok">Responsable de validarlos</td></tr>
+        <tr><td class="k">Responsable funcional y operadores</td><td>—</td><td class="ok">Responsable de designarlos</td></tr>
+        <tr><td class="k">Pruebas de aceptación</td><td>Prepara el entorno y acompaña</td><td class="ok">Responsable de ejecutarlas y aprobar</td></tr>
+        <tr><td class="k">Respuesta a consultas y observaciones</td><td>Dentro de 48 hs hábiles</td><td class="ok">Dentro de 48 hs hábiles</td></tr>
+        <tr><td class="k">Decisiones sobre datos ambiguos o en conflicto</td><td>Presenta las opciones</td><td class="ok">Responsable de decidir</td></tr>
+        <tr><td class="k">Capacitación del equipo operativo</td><td class="ok">Responsable</td><td>Dispone del tiempo del equipo</td></tr>
+        <tr><td class="k">Revisión operativa de las actas</td><td>—</td><td class="ok">Responsable (Anexo A)</td></tr>
+        <tr><td class="k">Infraestructura de servidores y licencias</td><td>Define requerimientos</td><td class="ok">Responsable de proveerlos</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout blue reveal">
+      <h4>Garantía de funcionamiento</h4>
+      <p>GG Soluciones corrige sin costo adicional cualquier falla del sistema que se detecte durante los <strong>60 días posteriores</strong> a la aceptación, siempre que corresponda a lo entregado y aceptado en las pruebas. No se consideran fallas los pedidos de funcionalidad nueva ni los resultados sobre actas cuya legibilidad quedó fuera de los criterios acordados.</p>
+    </div>
+
+    <div class="callout amber reveal">
+      <h4>Qué NO se garantiza</h4>
+      <p>La calidad de lectura depende directamente del estado de las imágenes. No es posible garantizar resultados sobre actas manuscritas, muy deterioradas o fuera de los formatos presentes en la muestra acordada. Esos casos se derivan a revisión manual, que es el comportamiento esperado del sistema y no una falla.</p>
+    </div>
+
+    <h2 class="reveal">6. Plan, esfuerzo y costo</h2>
+    <p class="reveal">La siguiente distribución es la estimación de trabajo por frente. Las horas son de referencia para dimensionar el proyecto y pueden redistribuirse entre fases según lo que muestre la medición inicial, sin alterar el presupuesto total acordado.</p>
 
     <table class="ptable reveal">
       <thead><tr><th>Fase</th><th>Entregable</th><th style="text-align:right">Horas</th><th style="text-align:right">Costo ARS</th></tr></thead>
@@ -172,11 +234,16 @@
         <tr><td class="k">8. Pruebas de aceptación con RC</td><td>Pruebas con documentos reales, ajustes y aceptación funcional por parte del Registro</td><td style="text-align:right">20</td><td style="text-align:right">600.000</td></tr>
         <tr><td class="k">9. Puesta en marcha</td><td>Despliegue, procedimiento de reversión, panel de seguimiento operativo y estabilización</td><td style="text-align:right">12</td><td style="text-align:right">360.000</td></tr>
         <tr><td class="k">10. Gestión, documentación y capacitación</td><td>Seguimiento del proyecto, manuales operativos, transferencia al equipo de RC y cierre</td><td style="text-align:right">12</td><td style="text-align:right">360.000</td></tr>
-        <tr><td colspan="2"><strong>Total</strong></td><td style="text-align:right"><strong>200</strong></td><td style="text-align:right"><strong>6.000.000</strong></td></tr>
+        <tr><td colspan="2"><strong>Total estimado</strong></td><td style="text-align:right"><strong>~200</strong></td><td style="text-align:right"><strong>≈ 6.000.000</strong></td></tr>
       </tbody>
     </table>
 
-    <h2 class="reveal">5. Plazo</h2>
+    <div class="callout blue reveal">
+      <h4>Sobre el presupuesto</h4>
+      <p>El valor de referencia es de <strong>ARS 6.000.000</strong>. Las horas se distribuyen entre fases según lo que muestre la medición inicial sobre actas reales. Si durante el proyecto surge una necesidad que exceda el presupuesto de referencia, se informa y se acuerda con el Registro <strong>antes</strong> de ejecutarla; nunca se factura un excedente sin aprobación previa por escrito.</p>
+    </div>
+
+    <h2 class="reveal">7. Plazo</h2>
     <p class="reveal"><strong>Duración estimada: 6 semanas</strong>, con trabajo coordinado entre GG Soluciones y referentes del Registro Civil.</p>
 
     <table class="ptable reveal">
@@ -196,27 +263,44 @@
       <p>El plazo supone que el Registro Civil puede entregar los documentos de la muestra y responder observaciones dentro de 48 horas hábiles. Demoras en el acceso a las actas o en la validación de resultados desplazan el calendario sin afectar las horas comprometidas.</p>
     </div>
 
-    <h2 class="reveal">6. Criterios de aceptación propuestos</h2>
-    <p class="reveal">Estos valores son una base para discutir con RC; se cierran después de medir la muestra real de actas.</p>
+    <h2 class="reveal">8. Criterios de aceptación</h2>
+    <p class="reveal">Los criterios se dividen en dos grupos según su naturaleza. Los primeros son garantías absolutas: dependen del diseño del sistema y GG Soluciones responde por ellos al 100%. Los segundos dependen del estado real de las imágenes del Registro, por lo que se comprometen valores mínimos conservadores y se ajustan al alza —nunca a la baja— después de la medición inicial.</p>
+
+    <h3 class="reveal">8.1 Garantías del sistema (comprometidas al 100%)</h3>
     <table class="ptable reveal">
-      <thead><tr><th>Criterio</th><th>Valor propuesto</th></tr></thead>
+      <thead><tr><th>Criterio</th><th>Compromiso</th></tr></thead>
       <tbody>
-        <tr><td class="k">Muestra mínima de pruebas</td><td>150 actas de nacimiento, de distintas épocas, formatos y calidades de imagen</td></tr>
-        <tr><td class="k">Actas legibles que se procesan sin error</td><td class="ok">Al menos 95 de cada 100</td></tr>
-        <tr><td class="k">Precisión en número y fecha de acta</td><td class="ok">Al menos 90 de cada 100 valores detectados son correctos</td></tr>
-        <tr><td class="k">Cobertura en número y fecha</td><td class="ok">Al menos 85 de cada 100 actas legibles tienen esos campos detectados</td></tr>
-        <tr><td class="k">Actas incorporadas al registro con revisión completa</td><td class="ok">100%</td></tr>
+        <tr><td class="k">Actas incorporadas al registro sin revisión humana previa</td><td class="ok">Ninguna — 100% pasa por aprobación de un operador</td></tr>
         <tr><td class="k">Datos de RENAPER modificados por el sistema</td><td class="ok">Ninguno</td></tr>
-        <tr><td class="k">Incorporaciones y correcciones con registro de operador y fecha</td><td class="ok">100%</td></tr>
-        <tr><td class="k">Reducción del tiempo de validación vs. proceso manual</td><td class="ok">Al menos 30% menos (medido durante las pruebas de aceptación)</td></tr>
+        <tr><td class="k">Datos ya cargados en el registro sobrescritos por el sistema</td><td class="ok">Ninguno — solo se completan campos vacíos</td></tr>
+        <tr><td class="k">Aprobaciones y correcciones con registro de operador y fecha</td><td class="ok">100%</td></tr>
+        <tr><td class="k">Actas duplicadas por reprocesamiento</td><td class="ok">Ninguna</td></tr>
       </tbody>
     </table>
 
-    <h2 class="reveal">7. Riesgos principales</h2>
+    <h3 class="reveal">8.2 Valores mínimos de lectura (dependen de la calidad de imagen)</h3>
+    <table class="ptable reveal">
+      <thead><tr><th>Criterio</th><th>Mínimo comprometido</th><th>Valor esperado</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Muestra de pruebas de aceptación</td><td colspan="2">120 actas de nacimiento, de distintas épocas, formatos y calidades de imagen</td></tr>
+        <tr><td class="k">Actas legibles que se procesan sin error del sistema</td><td class="ok">85 de cada 100</td><td>90 a 95</td></tr>
+        <tr><td class="k">Precisión en número y fecha de acta</td><td class="ok">75 de cada 100 valores detectados son correctos</td><td>85 a 90</td></tr>
+        <tr><td class="k">Cobertura en número y fecha sobre actas legibles</td><td class="ok">65 de cada 100</td><td>80 a 85</td></tr>
+        <tr><td class="k">Reducción del tiempo de validación vs. proceso manual</td><td class="ok">15% menos</td><td>25 a 35% menos</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout amber reveal">
+      <h4>Por qué los mínimos son conservadores</h4>
+      <p>Los valores de la columna "mínimo comprometido" son los que GG Soluciones asume formalmente como condición de aceptación. Son deliberadamente prudentes porque hoy no está medida la calidad real del conjunto de actas del Registro. La columna "valor esperado" refleja lo que razonablemente se estima alcanzar. Después de la medición inicial —al cierre de la semana 1— ambas partes revisan estos números con datos reales: si el resultado lo permite, los mínimos se ajustan al alza y quedan documentados. Nunca se ajustan a la baja.</p>
+    </div>
+
+    <h2 class="reveal">9. Riesgos principales</h2>
     <table class="ptable reveal">
       <thead><tr><th>Riesgo</th><th>Cómo se trata</th></tr></thead>
       <tbody>
-        <tr><td class="k">No se conoce la precisión sobre actas reales hasta medirlas</td><td>Se mide primero, antes de comprometer ningún resultado de automatización</td></tr>
+        <tr><td class="k">No se conoce la precisión sobre actas reales hasta medirlas</td><td>Los mínimos comprometidos en la sección 8.2 son conservadores por ese motivo; se miden en la semana 1 y se revisan con datos reales</td></tr>
+        <tr><td class="k">El esfuerzo real difiere de lo estimado</td><td>Las horas se redistribuyen entre fases sin afectar el presupuesto; cualquier excedente requiere acuerdo previo por escrito</td></tr>
         <tr><td class="k">Imágenes rotadas, borrosas, muy antiguas o manuscritas</td><td>Se clasifica cada documento por legibilidad; los que no son legibles van a revisión manual</td></tr>
         <tr><td class="k">Inconsistencias entre partes del sistema</td><td>Pruebas de integración entre módulos; ante cualquier duda el sistema rechaza la operación antes de aprobar algo incompleto</td></tr>
         <tr><td class="k">Actas sin imagen disponible en el sistema</td><td>No se procesan; quedan marcadas como excepción para resolución del Registro</td></tr>
@@ -225,7 +309,7 @@
       </tbody>
     </table>
 
-    <h2 class="reveal">8. Fuera de alcance</h2>
+    <h2 class="reveal">10. Fuera de alcance</h2>
     <ul class="bullets reveal">
       <li>Incorporación automática de datos al sistema oficial sin revisión humana.</li>
       <li>Lectura de actas de matrimonio o defunción.</li>
@@ -236,22 +320,25 @@
       <li>Garantía de resultados sobre actas ilegibles o manuscritas en mal estado.</li>
     </ul>
 
-    <h2 class="reveal">9. Condiciones comerciales</h2>
+    <h2 class="reveal">11. Condiciones comerciales</h2>
     <table class="ptable reveal">
       <thead><tr><th>Concepto</th><th>Detalle</th></tr></thead>
       <tbody>
-        <tr><td class="k">Modalidad</td><td>Proyecto cerrado con presupuesto fijo</td></tr>
+        <tr><td class="k">Modalidad</td><td>Proyecto por alcance definido, con presupuesto de referencia acordado</td></tr>
         <tr><td class="k">Tarifa</td><td>ARS 30.000 por hora</td></tr>
-        <tr><td class="k">Total del proyecto</td><td>200 horas · ARS 6.000.000</td></tr>
+        <tr><td class="k">Esfuerzo estimado</td><td>Del orden de 200 horas</td></tr>
+        <tr><td class="k">Presupuesto de referencia</td><td>ARS 6.000.000</td></tr>
         <tr><td class="k">Forma de pago</td><td>50% al inicio · 50% al entregar</td></tr>
+        <tr><td class="k">Condición de la segunda cuota</td><td>Se factura contra la aceptación de las pruebas realizadas por el Registro Civil</td></tr>
+        <tr><td class="k">Garantía</td><td>60 días de corrección sin costo sobre lo entregado y aceptado</td></tr>
         <tr><td class="k">Validez de la propuesta</td><td>15 días desde la fecha de emisión</td></tr>
-        <tr><td class="k">No incluye</td><td>Impuestos, infraestructura de servidores, servicios de terceros y soporte mensual posterior</td></tr>
-        <tr><td class="k">Cambios de alcance</td><td>Requieren estimación y aprobación previa por escrito</td></tr>
+        <tr><td class="k">No incluye</td><td>Impuestos, infraestructura de servidores, licencias, servicios de terceros y soporte mensual posterior</td></tr>
+        <tr><td class="k">Cambios de alcance</td><td>Requieren estimación y aprobación previa por escrito antes de ejecutarse</td></tr>
       </tbody>
     </table>
 
     <h2 class="reveal">Anexo A — Revisión operativa de las actas</h2>
-    <p class="reveal">La revisión de cada acta procesada no está incluida en las 200 horas del proyecto. Es una actividad operativa posterior y obligatoria: el sistema propone datos, pero una persona del Registro debe comparar la imagen, corregir lo que sea necesario y aprobar o descartar cada campo.</p>
+    <p class="reveal">La revisión de cada acta procesada <strong>no está incluida</strong> en el presupuesto de este proyecto, tal como se detalla en la sección 4.2. Es una actividad operativa posterior y obligatoria: el sistema propone los datos, pero una persona del Registro debe comparar la imagen, corregir lo que sea necesario y aprobar o descartar cada campo. El proyecto entrega la herramienta y el equipo capacitado para hacerlo; el volumen de trabajo operativo lo administra el Registro.</p>
 
     <h3 class="reveal">Alternativa 1: equipo de revisión contratado</h3>
     <p class="reveal">Para auditar la totalidad de las actas disponibles en el sistema se puede contratar un equipo dedicado:</p>
