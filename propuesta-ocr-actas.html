@@ -225,7 +225,7 @@
       <thead><tr><th>Fase</th><th>Entregable</th><th style="text-align:right">Horas</th><th style="text-align:right">Costo ARS</th></tr></thead>
       <tbody>
         <tr><td class="k">1. Definición y cierre funcional</td><td>Alcance acordado, responsables, muestra de actas, reglas de autoridad y criterios de aceptación</td><td style="text-align:right">12</td><td style="text-align:right">360.000</td></tr>
-        <tr><td class="k">2. Muestra y medición inicial</td><td>Muestra etiquetada con valores esperados, medición de precisión inicial y análisis de calidad</td><td style="text-align:right">20</td><td style="text-align:right">600.000</td></tr>
+        <tr><td class="k">2. Muestra y medición inicial</td><td>Muestra de 400 actas etiquetadas con valores esperados, medición de precisión con margen de ±5 puntos y análisis de calidad documental</td><td style="text-align:right">20</td><td style="text-align:right">600.000</td></tr>
         <tr><td class="k">3. Lectura automática de actas</td><td>Extracción de datos, nivel de certeza, normalización y funcionamiento estable ante variaciones de imagen</td><td style="text-align:right">32</td><td style="text-align:right">960.000</td></tr>
         <tr><td class="k">4. Base de datos de revisión</td><td>Cola de trabajo, revisión, vista previa, incorporación al registro, historial y correcciones</td><td style="text-align:right">24</td><td style="text-align:right">720.000</td></tr>
         <tr><td class="k">5. Sistema de administración</td><td>Acceso por rol, seguridad, repositorio de imágenes y respuesta controlada ante fallas</td><td style="text-align:right">20</td><td style="text-align:right">600.000</td></tr>
@@ -323,17 +323,26 @@
     <table class="ptable reveal">
       <thead><tr><th>Criterio</th><th>Mínimo comprometido</th><th>Valor esperado</th></tr></thead>
       <tbody>
-        <tr><td class="k">Muestra de pruebas de aceptación</td><td colspan="2">120 actas de nacimiento, de distintas épocas, formatos y calidades de imagen</td></tr>
+        <tr><td class="k">Muestra de calibración (fase 2, dentro del proyecto)</td><td colspan="2">400 actas etiquetadas — fija los valores definitivos con un margen de ±5 puntos</td></tr>
+        <tr><td class="k">Muestra de aceptación funcional con RC</td><td colspan="2">120 actas — verifica que el circuito completo opere de punta a punta</td></tr>
         <tr><td class="k">Actas legibles que se procesan sin error del sistema</td><td class="ok">85 de cada 100</td><td>90 a 95</td></tr>
-        <tr><td class="k">Precisión en número y fecha de acta</td><td class="ok">75 de cada 100 valores detectados son correctos</td><td>85 a 90</td></tr>
-        <tr><td class="k">Cobertura en número y fecha sobre actas legibles</td><td class="ok">65 de cada 100</td><td>80 a 85</td></tr>
+        <tr><td class="k">Precisión en <strong>fecha</strong> de acta</td><td class="ok">85 de cada 100 valores detectados</td><td>90 a 95</td></tr>
+        <tr><td class="k">Cobertura en <strong>fecha</strong> sobre actas legibles</td><td class="ok">80 de cada 100</td><td>85 a 95</td></tr>
+        <tr><td class="k">Precisión en <strong>número</strong> de acta</td><td class="ok">70 de cada 100 valores detectados</td><td>80 a 90</td></tr>
+        <tr><td class="k">Cobertura en <strong>número</strong> sobre actas legibles</td><td class="ok">55 de cada 100</td><td>70 a 85</td></tr>
         <tr><td class="k">Reducción del tiempo de validación vs. proceso manual</td><td class="ok">15% menos</td><td>25 a 35% menos</td></tr>
       </tbody>
     </table>
 
     <div class="callout amber reveal">
       <h4>Por qué los mínimos son conservadores</h4>
-      <p>Los valores de la columna "mínimo comprometido" son los que GG Soluciones asume formalmente como condición de aceptación. Son deliberadamente prudentes porque hoy no está medida la calidad real del conjunto de actas del Registro. La columna "valor esperado" refleja lo que razonablemente se estima alcanzar. Después de la medición inicial —al cierre de la semana 1— ambas partes revisan estos números con datos reales: si el resultado lo permite, los mínimos se ajustan al alza y quedan documentados. Nunca se ajustan a la baja.</p>
+      <p>Los valores de la columna "mínimo comprometido" son los que GG Soluciones asume formalmente como condición de aceptación. Son deliberadamente prudentes porque hoy no está medida la calidad real del conjunto de actas del Registro. La columna "valor esperado" refleja lo que razonablemente se estima alcanzar. Después de la medición del ensayo controlado, ambas partes revisan estos números con datos reales: si el resultado lo permite, los mínimos se ajustan al alza y quedan documentados. Nunca se ajustan a la baja.</p>
+    </div>
+
+    <div class="callout blue reveal">
+      <h4>Por qué el número de acta se compromete por separado y con un piso más bajo</h4>
+      <p>Las fechas y los números se comportan de manera distinta. Una fecha tiene estructura reconocible y contexto que ayuda a interpretarla; un número de acta es una secuencia de dígitos sin contexto, muchas veces manuscrita o sellada, donde confundir un 3 con un 8 no deja ninguna señal de que hubo error. Comprometer un único valor para ambos escondería esa diferencia y crearía un punto de falla innecesario en la aceptación.</p>
+      <p><strong>Esto importa menos de lo que parece</strong>, por una razón de fondo: las actas que se procesan <em>ya existen</em> en la base del Registro. El sistema no necesita leer el número para crear un registro nuevo — necesita vincular cada imagen con el registro correcto que ya está cargado. Y para eso dispone de mucha más evidencia que el número solo: la fecha, los nombres, el lugar de registración y el orden dentro del libro. Un número mal leído se detecta porque el resto de los datos no coincide, y una imagen cuyo número no se pudo leer igual puede resolverse si los demás campos identifican un único registro.</p>
     </div>
 
     <h2 class="reveal">9. Riesgos principales</h2>
