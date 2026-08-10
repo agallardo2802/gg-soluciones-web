@@ -243,6 +243,38 @@
       <p>El valor de referencia es de <strong>ARS 6.000.000</strong>. Las horas se distribuyen entre fases según lo que muestre la medición inicial sobre actas reales. Si durante el proyecto surge una necesidad que exceda el presupuesto de referencia, se informa y se acuerda con el Registro <strong>antes</strong> de ejecutarla; nunca se factura un excedente sin aprobación previa por escrito.</p>
     </div>
 
+    <h3 class="reveal">6.1 Costo de procesamiento por volumen</h3>
+    <p class="reveal">La lectura automática de cada imagen se realiza a través de un servicio de inteligencia artificial externo que se factura por consumo real. <strong>Este costo es independiente del desarrollo</strong>: no forma parte de las 200 horas, escala con la cantidad de actas procesadas y se traslada al Registro sin recargo, contra comprobante del proveedor.</p>
+
+    <table class="ptable reveal">
+      <thead><tr><th>Concepto</th><th style="text-align:right">Valor de referencia</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Consumo medido en el ensayo inicial</td><td style="text-align:right">4.480 unidades por imagen (promedio de 7 actas)</td></tr>
+        <tr><td class="k">Valor de referencia adoptado</td><td style="text-align:right">7.000 unidades por imagen (margen del 55%)</td></tr>
+        <tr><td class="k">Costo por cada 1.000 imágenes · una lectura</td><td style="text-align:right">USD 11 a USD 55 según nivel de servicio</td></tr>
+        <tr><td class="k">Costo por cada 1.000 imágenes · doble lectura</td><td style="text-align:right">USD 22 a USD 110</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout blue reveal">
+      <h4>Por qué se contempla doble lectura</h4>
+      <p>Una de las reglas de validación automática más confiables consiste en leer cada acta <strong>dos veces de forma independiente</strong> y aceptar el dato solo si ambas lecturas coinciden. Eso duplica el costo de procesamiento, pero es lo que permite reducir drásticamente la revisión humana posterior — que, como se ve en el Anexo A, es el costo dominante del proyecto. La doble lectura puede aplicarse solo a los campos críticos (número y fecha de acta) en lugar de al documento completo; el ensayo controlado determinará si eso alcanza.</p>
+    </div>
+
+    <table class="ptable reveal">
+      <thead><tr><th>Volumen</th><th style="text-align:right">Una lectura</th><th style="text-align:right">Doble lectura</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Ensayo controlado (5.000 actas)</td><td style="text-align:right">USD 55 a 275</td><td style="text-align:right">USD 110 a 550</td></tr>
+        <tr><td class="k">Base actual (976.668 actas)</td><td style="text-align:right">USD 10.700 a 53.700</td><td style="text-align:right">USD 21.500 a 107.400</td></tr>
+        <tr><td class="k">Escenario ampliado (1.300.000 actas)</td><td style="text-align:right">USD 14.300 a 71.500</td><td style="text-align:right">USD 28.600 a 143.000</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout amber reveal">
+      <h4>Condiciones de este costo</h4>
+      <p>Los valores están expresados en dólares porque así los factura el proveedor del servicio; la conversión a pesos se realiza al tipo de cambio vigente al momento de cada facturación. El rango depende del nivel de servicio que se elija, decisión que se toma con datos del ensayo controlado: un nivel más económico puede ser suficiente para actas legibles y reservarse el nivel superior para las de peor calidad. <strong>No se procesa ningún lote masivo sin autorización previa del Registro.</strong></p>
+    </div>
+
     <h2 class="reveal">7. Plazo</h2>
     <p class="reveal"><strong>Duración estimada: 6 semanas</strong>, con trabajo coordinado entre GG Soluciones y referentes del Registro Civil.</p>
 
@@ -301,6 +333,8 @@
       <tbody>
         <tr><td class="k">No se conoce la precisión sobre actas reales hasta medirlas</td><td>Los mínimos comprometidos en la sección 8.2 son conservadores por ese motivo; se miden en la semana 1 y se revisan con datos reales</td></tr>
         <tr><td class="k">El esfuerzo real difiere de lo estimado</td><td>Las horas se redistribuyen entre fases sin afectar el presupuesto; cualquier excedente requiere acuerdo previo por escrito</td></tr>
+        <tr><td class="k">El porcentaje de actas que requiere revisión humana resulta alto</td><td>Es el riesgo económico principal del proyecto (Anexo A). Se mide con el ensayo controlado de 5.000 actas antes de comprometer el procesamiento masivo; si el resultado no es aceptable, se ajustan las reglas de validación antes de continuar</td></tr>
+        <tr><td class="k">El costo de procesamiento está en dólares</td><td>Se factura contra consumo real y comprobante del proveedor; ningún lote masivo se procesa sin autorización previa del Registro</td></tr>
         <tr><td class="k">Imágenes rotadas, borrosas, muy antiguas o manuscritas</td><td>Se clasifica cada documento por legibilidad; los que no son legibles van a revisión manual</td></tr>
         <tr><td class="k">Inconsistencias entre partes del sistema</td><td>Pruebas de integración entre módulos; ante cualquier duda el sistema rechaza la operación antes de aprobar algo incompleto</td></tr>
         <tr><td class="k">Actas sin imagen disponible en el sistema</td><td>No se procesan; quedan marcadas como excepción para resolución del Registro</td></tr>
@@ -333,31 +367,86 @@
         <tr><td class="k">Condición de la segunda cuota</td><td>Se factura contra la entrega del sistema terminado, según la definición anterior</td></tr>
         <tr><td class="k">Garantía</td><td>60 días desde la entrega, corrección sin costo sobre el alcance entregado</td></tr>
         <tr><td class="k">Validez de la propuesta</td><td>15 días desde la fecha de emisión</td></tr>
+        <tr><td class="k">Costo de procesamiento</td><td>Se factura aparte, contra consumo real y comprobante del proveedor, sin recargo — ver sección 6.1</td></tr>
+        <tr><td class="k">Revisión operativa de las actas</td><td>Se cotiza aparte según el resultado del ensayo controlado — ver Anexo A</td></tr>
         <tr><td class="k">No incluye</td><td>Impuestos, infraestructura de servidores, licencias, servicios de terceros y soporte mensual posterior</td></tr>
         <tr><td class="k">Cambios de alcance</td><td>Requieren estimación y aprobación previa por escrito antes de ejecutarse</td></tr>
       </tbody>
     </table>
 
     <h2 class="reveal">Anexo A — Revisión operativa de las actas</h2>
-    <p class="reveal">La revisión de cada acta procesada <strong>no está incluida</strong> en el presupuesto de este proyecto, tal como se detalla en la sección 4.2. Es una actividad operativa posterior y obligatoria: el sistema propone los datos, pero una persona del Registro debe comparar la imagen, corregir lo que sea necesario y aprobar o descartar cada campo. El proyecto entrega la herramienta y el equipo capacitado para hacerlo; el volumen de trabajo operativo lo administra el Registro.</p>
+    <p class="reveal">La revisión de cada acta procesada <strong>no está incluida</strong> en el presupuesto de este proyecto, tal como se detalla en la sección 4.2. Es una actividad operativa posterior y obligatoria: el sistema propone los datos, pero una persona del Registro debe comparar la imagen, corregir lo que sea necesario y aprobar o descartar cada campo.</p>
+    <p class="reveal">Este anexo merece atención particular porque, en volumen, <strong>la revisión es el costo dominante de toda la iniciativa</strong> — muy por encima del desarrollo. Las decisiones que se tomen acá pesan más que cualquier otra del proyecto.</p>
 
-    <h3 class="reveal">Alternativa 1: equipo de revisión contratado</h3>
-    <p class="reveal">Si el Registro prefiere no afectar a su propio personal a esta tarea, GG Soluciones puede aportar el equipo de revisión:</p>
+    <h3 class="reveal">A.1 Por qué revisar acta por acta no es viable</h3>
+    <p class="reveal">La base actual contiene aproximadamente <strong>976.668 imágenes</strong>. Si cada una requiere revisión humana completa, el volumen de trabajo es el siguiente:</p>
+
     <table class="ptable reveal">
-      <thead><tr><th>Concepto</th><th style="text-align:right">Detalle</th><th style="text-align:right">Costo</th></tr></thead>
+      <thead><tr><th>Concepto</th><th style="text-align:right">Valor</th></tr></thead>
       <tbody>
-        <tr><td class="k">Revisores</td><td style="text-align:right">2 personas · 4 horas diarias</td><td style="text-align:right">ARS 500.000/mes c/u</td></tr>
-        <tr><td class="k"><strong>Costo mensual del equipo</strong></td><td style="text-align:right">—</td><td style="text-align:right"><strong>ARS 1.000.000</strong></td></tr>
+        <tr><td class="k">Tiempo estimado de revisión por acta</td><td style="text-align:right">1,5 minutos</td></tr>
+        <tr><td class="k">Actas revisadas por persona por mes (4 h diarias)</td><td style="text-align:right">3.520</td></tr>
+        <tr><td class="k">Personas-mes necesarias para el total</td><td style="text-align:right">277</td></tr>
+        <tr><td class="k">Costo total a ARS 500.000 por persona/mes</td><td style="text-align:right"><strong>ARS 138.700.000</strong></td></tr>
+        <tr><td class="k">Duración con 2 revisores dedicados</td><td style="text-align:right" class="bad"><strong>11,6 años</strong></td></tr>
       </tbody>
     </table>
+
     <div class="callout amber reveal">
-      <h4>Modalidad de contratación</h4>
-      <p>Este servicio se contrata <strong>por mes</strong>, de forma independiente del proyecto, y puede darse de baja cuando el Registro lo decida. La cantidad de meses necesarios depende del volumen total de actas a revisar, dato que se define una vez que el sistema está en funcionamiento y se conoce el ritmo real de revisión por operador. A modo de referencia inicial se estiman entre 2 y 4 meses, pero ese número se ajusta con datos reales durante el primer mes de operación.</p>
+      <h4>La conclusión que hay que tomar en serio</h4>
+      <p>Revisar manualmente las 976.668 actas costaría <strong>23 veces más que el desarrollo del sistema</strong> y llevaría más de una década. No es una cuestión de presupuesto: es matemáticamente inviable con cualquier equipo de tamaño razonable. Por eso el objetivo real del proyecto no es "leer las actas automáticamente" sino <strong>lograr que la mayoría de las actas no necesiten revisión humana</strong>.</p>
     </div>
 
-    <h3 class="reveal">Alternativa 2: revisión con el propio equipo del Registro</h3>
+    <h3 class="reveal">A.2 La variable que decide todo: el porcentaje que requiere revisión</h3>
+    <p class="reveal">El sistema confirma automáticamente los datos cuando existe evidencia suficiente: cuando dos lecturas independientes coinciden, cuando el valor detectado coincide con lo que ya figura en la base del Registro, o cuando el lugar detectado resuelve de forma única contra el catálogo oficial. Solo los casos con contradicción, ambigüedad o imagen ilegible pasan a una persona.</p>
+    <p class="reveal">El costo y el plazo de la operación dependen enteramente de ese porcentaje:</p>
+
+    <table class="ptable reveal">
+      <thead><tr><th>Requieren revisión humana</th><th style="text-align:right">Actas</th><th style="text-align:right">Costo ARS</th><th style="text-align:right">Meses con 2 revisores</th></tr></thead>
+      <tbody>
+        <tr><td class="k">100% (sin validación automática)</td><td style="text-align:right">976.668</td><td style="text-align:right">138.700.000</td><td style="text-align:right" class="bad">139</td></tr>
+        <tr><td class="k">30%</td><td style="text-align:right">293.000</td><td style="text-align:right">41.600.000</td><td style="text-align:right">42</td></tr>
+        <tr><td class="k">20%</td><td style="text-align:right">195.334</td><td style="text-align:right">27.700.000</td><td style="text-align:right">28</td></tr>
+        <tr><td class="k">10%</td><td style="text-align:right">97.667</td><td style="text-align:right">13.900.000</td><td style="text-align:right">14</td></tr>
+        <tr><td class="k">5%</td><td style="text-align:right">48.833</td><td style="text-align:right" class="ok">6.900.000</td><td style="text-align:right" class="ok">7</td></tr>
+        <tr><td class="k">2%</td><td style="text-align:right">19.533</td><td style="text-align:right" class="ok">2.800.000</td><td style="text-align:right" class="ok">3</td></tr>
+      </tbody>
+    </table>
+
     <div class="callout blue reveal">
-      <p><strong>Sin costo adicional para el Registro.</strong> El propio equipo de RC realiza la revisión con el tiempo y los recursos que ya dispone. GG Soluciones brinda la capacitación inicial como parte del proyecto; RC administra la operación diaria y define su propio ritmo de avance.</p>
+      <h4>Dónde se paga y dónde se ahorra</h4>
+      <p>Invertir en doble lectura automática cuesta del orden de <strong>USD 21.500</strong> adicionales sobre el total de la base (sección 6.1). Si eso lleva la revisión humana del 100% al 5%, el ahorro en trabajo operativo es de <strong>ARS 131.800.000</strong>. Esa es la razón por la que conviene procesar bien antes que revisar mucho.</p>
+    </div>
+
+    <h3 class="reveal">A.3 Cómo se mide antes de comprometerse: ensayo controlado</h3>
+    <p class="reveal">Hoy nadie puede afirmar qué porcentaje de actas quedará auto-validado, y comprometerlo sin medirlo sería irresponsable. Por eso, antes de procesar la base completa, se propone un <strong>ensayo controlado sobre 5.000 actas</strong> con las siguientes condiciones:</p>
+    <ul class="bullets reveal">
+      <li>Se procesan 5.000 actas, pero <strong>ningún dato se incorpora al registro oficial</strong>: el sistema solo propone y registra.</li>
+      <li>El 100% de los casos con contradicción se revisa manualmente.</li>
+      <li>Se revisa además una muestra del 5% de los casos que el sistema dio por válidos, para verificar que efectivamente lo eran.</li>
+      <li>Se revisa el 100% de los casos donde el sistema pretenda reemplazar un dato ya existente.</li>
+      <li>Se mide por separado el resultado en lugar de nacimiento, filiación paterna/materna y datos de matrimonio.</li>
+    </ul>
+
+    <div class="callout amber reveal">
+      <h4>Costo y valor del ensayo</h4>
+      <p>El costo de procesamiento del ensayo es de <strong>USD 110 a 550</strong> (sección 6.1) — irrelevante frente a lo que está en juego. A cambio, entrega el único dato que permite decidir con fundamento si la base completa se procesa, con qué configuración y con qué equipo de revisión. Es la inversión de menor costo y mayor retorno de todo el proyecto.</p>
+    </div>
+
+    <h3 class="reveal">A.4 Equipo de revisión para el remanente</h3>
+    <p class="reveal">Una vez conocido el porcentaje real de excepciones, el Registro elige cómo cubrir esa revisión. Ambas alternativas siguen vigentes:</p>
+
+    <table class="ptable reveal">
+      <thead><tr><th>Alternativa</th><th>Detalle</th><th style="text-align:right">Costo mensual</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Equipo contratado a GG Soluciones</td><td>2 revisores · 4 horas diarias · servicio mensual, se da de baja cuando el Registro lo decida</td><td style="text-align:right">ARS 1.000.000</td></tr>
+        <tr><td class="k">Equipo propio del Registro</td><td>RC aporta operadores y supervisión; GGS capacita como parte del proyecto</td><td style="text-align:right" class="ok">Sin costo adicional</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout blue reveal">
+      <h4>Recomendación</h4>
+      <p>No contratar equipo de revisión hasta tener el resultado del ensayo controlado. Dimensionar el equipo antes de conocer el porcentaje de excepciones lleva a contratar de más o de menos, y ambos errores son caros.</p>
     </div>
 
     <h2 class="reveal">Base tecnológica existente</h2>
