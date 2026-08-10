@@ -244,7 +244,7 @@
     </div>
 
     <h3 class="reveal">6.1 Costo de procesamiento por volumen</h3>
-    <p class="reveal">La lectura automática de cada imagen se realiza a través de un servicio de inteligencia artificial externo que se factura por consumo real. <strong>Este costo es independiente del desarrollo</strong>: no forma parte de las 200 horas, escala con la cantidad de actas procesadas y se traslada al Registro sin recargo, contra comprobante del proveedor.</p>
+    <p class="reveal">La lectura automática de cada imagen se realiza a través de un servicio de inteligencia artificial externo que se factura por consumo real. <strong>Este costo es independiente del desarrollo</strong>: no forma parte de las 200 horas, escala con la cantidad de actas procesadas y se traslada al Registro sin recargo, contra comprobante del proveedor. La elección final del proveedor se define durante la fase 2, evaluando precisión, estabilidad, condiciones de uso y tratamiento de datos — ver la nota al pie de esta sección.</p>
 
     <table class="ptable reveal">
       <thead><tr><th>Concepto</th><th style="text-align:right">Valor de referencia</th></tr></thead>
@@ -252,12 +252,18 @@
         <tr><td class="k">Consumo medido en el ensayo inicial</td><td style="text-align:right">4.480 unidades por imagen (promedio de 7 actas)</td></tr>
         <tr><td class="k">Valor de referencia adoptado</td><td style="text-align:right">7.000 unidades por imagen (margen del 55%)</td></tr>
         <tr><td class="k">Tipo de cambio de referencia</td><td style="text-align:right">ARS 1.525 por USD</td></tr>
-        <tr><td class="k">Nivel de servicio adoptado</td><td style="text-align:right">Económico (USD 1 / USD 5 por millón de unidades)</td></tr>
-        <tr><td class="k">Costo por imagen · una lectura</td><td style="text-align:right">ARS 16,78</td></tr>
-        <tr><td class="k">Costo por cada 1.000 imágenes · una lectura</td><td style="text-align:right">ARS 16.775</td></tr>
-        <tr><td class="k">Costo por cada 1.000 imágenes · doble lectura</td><td style="text-align:right">ARS 33.550</td></tr>
+        <tr><td class="k">Tarifa presupuestada</td><td style="text-align:right">USD 0,048 por millón de unidades (con margen de seguridad — ver nota)</td></tr>
+        <tr><td class="k">Costo por imagen · una lectura</td><td style="text-align:right">ARS 0,51</td></tr>
+        <tr><td class="k">Costo por cada 1.000 imágenes · una lectura</td><td style="text-align:right">ARS 512</td></tr>
+        <tr><td class="k">Costo por cada 1.000 imágenes · doble lectura</td><td style="text-align:right">ARS 1.025</td></tr>
       </tbody>
     </table>
+
+    <div class="callout amber reveal">
+      <h4>Por qué la tarifa presupuestada tiene margen de seguridad</h4>
+      <p>Existen distintos proveedores de este tipo de servicio, con precios que varían en más de un orden de magnitud entre sí según el modelo y el plan de uso. Para no atar la propuesta a un proveedor puntual — que puede cambiar de condiciones, dejar de estar disponible, o no ser el que finalmente se apruebe por criterios de tratamiento de datos — se presupuesta con una tarifa <strong>cinco veces superior</strong> a la del proveedor más económico evaluado hasta ahora. Esto da margen para absorber variaciones de precio, cambio de proveedor o mayor consumo por reintentos, sin necesidad de ajustar el presupuesto del proyecto.</p>
+      <p>Aun con ese margen, el costo total de procesar la base completa dos veces (sección A.3) se mantiene muy por debajo de un millón de pesos — sigue siendo irrelevante frente al costo de desarrollo y de revisión humana. La conclusión del Anexo A no depende de qué proveedor se termine usando.</p>
+    </div>
 
     <div class="callout blue reveal">
       <h4>Por qué se contempla doble lectura</h4>
@@ -267,21 +273,15 @@
     <table class="ptable reveal">
       <thead><tr><th>Volumen</th><th style="text-align:right">Una lectura</th><th style="text-align:right">Doble lectura</th></tr></thead>
       <tbody>
-        <tr><td class="k">Ensayo controlado (5.000 actas)</td><td style="text-align:right">ARS 84.000</td><td style="text-align:right">ARS 168.000</td></tr>
-        <tr><td class="k">Base actual (976.668 actas)</td><td style="text-align:right">ARS 16,4 millones</td><td style="text-align:right">ARS 32,8 millones</td></tr>
-        <tr><td class="k">Escenario ampliado (1.300.000 actas)</td><td style="text-align:right">ARS 21,8 millones</td><td style="text-align:right">ARS 43,6 millones</td></tr>
+        <tr><td class="k">Ensayo controlado (5.000 actas)</td><td style="text-align:right">ARS 2.560</td><td style="text-align:right">ARS 5.120</td></tr>
+        <tr><td class="k">Base actual (976.668 actas)</td><td style="text-align:right">ARS 500.000</td><td style="text-align:right">ARS 1.000.000</td></tr>
+        <tr><td class="k">Escenario ampliado (1.300.000 actas)</td><td style="text-align:right">ARS 666.000</td><td style="text-align:right">ARS 1.332.000</td></tr>
       </tbody>
     </table>
 
-    <div class="callout blue reveal">
-      <h4>Por qué se adopta el nivel económico</h4>
-      <p>Existen niveles de servicio superiores, con mejor precisión y costo hasta cinco veces mayor. A este volumen no se justifican: como se demuestra en el Anexo A, pasar al nivel intermedio agrega <strong>ARS 65,5 millones</strong> de costo de procesamiento, y ese dinero rinde mucho más aplicado a revisión humana — alcanza para <strong>131 meses-persona de revisión</strong>, equivalente a once revisores trabajando un año completo.</p>
-      <p>El nivel económico tendría que generar <strong>47 puntos porcentuales más</strong> de casos a revisar que el nivel intermedio para que convenga pagar la diferencia. Ningún resultado plausible del ensayo se acerca a esa brecha.</p>
-    </div>
-
     <div class="callout amber reveal">
       <h4>Condiciones de este costo</h4>
-      <p>Los valores están expresados en dólares porque así los factura el proveedor del servicio; la conversión a pesos se realiza al tipo de cambio vigente al momento de cada facturación. El rango depende del nivel de servicio que se elija, decisión que se toma con datos del ensayo controlado: un nivel más económico puede ser suficiente para actas legibles y reservarse el nivel superior para las de peor calidad. <strong>No se procesa ningún lote masivo sin autorización previa del Registro.</strong></p>
+      <p>Los valores del servicio de lectura se expresan originalmente en dólares y se convierten a pesos al tipo de cambio vigente al momento de cada facturación. <strong>No se procesa ningún lote masivo sin autorización previa del Registro.</strong> Como se detalla en el Anexo A, este costo — incluso con el margen de seguridad aplicado — resulta irrelevante frente al costo de desarrollo y, sobre todo, frente al costo de la revisión humana posterior, que es el verdadero factor económico del proyecto.</p>
     </div>
 
     <h2 class="reveal">7. Plazo</h2>
@@ -431,49 +431,48 @@
       </tbody>
     </table>
 
-    <h3 class="reveal">A.3 Cuánto conviene gastar en procesamiento automático</h3>
-    <p class="reveal">Procesar automáticamente cuesta dinero, y revisar manualmente también. La pregunta correcta no es cuál es más barato por separado, sino <strong>cuál es el costo total de cada camino</strong>. Suponiendo que la validación automática deje el 5% de las actas para revisión humana:</p>
+    <h3 class="reveal">A.3 Cuánto puede fallar el presupuesto de procesamiento sin afectar la decisión</h3>
+    <p class="reveal">El costo de procesamiento de la sección 6.1 ya incluye un margen de seguridad de cinco veces sobre la tarifa más económica evaluada, para no depender de qué proveedor se termine usando. Pero conviene ir más allá y preguntar: <strong>¿qué tan mal tendría que salir esa estimación para que la automatización deje de convenir?</strong></p>
 
     <table class="ptable reveal">
-      <thead><tr><th>Camino</th><th style="text-align:right">Procesamiento</th><th style="text-align:right">Revisión</th><th style="text-align:right">Total</th><th style="text-align:right">Resultado</th></tr></thead>
+      <thead><tr><th>Escenario</th><th style="text-align:right">Costo de procesar la base (doble lectura)</th></tr></thead>
       <tbody>
-        <tr><td class="k">Revisión manual acta por acta</td><td style="text-align:right">—</td><td style="text-align:right">138,7 M</td><td style="text-align:right">138,7 M</td><td style="text-align:right">Referencia</td></tr>
-        <tr><td class="k">Nivel económico · doble lectura</td><td style="text-align:right">32,8 M</td><td style="text-align:right">6,9 M</td><td style="text-align:right"><strong>39,7 M</strong></td><td style="text-align:right" class="ok"><strong>Ahorra 99,0 M</strong></td></tr>
-        <tr><td class="k">Nivel intermedio · doble lectura</td><td style="text-align:right">98,3 M</td><td style="text-align:right">6,9 M</td><td style="text-align:right">105,2 M</td><td style="text-align:right">Ahorra 33,5 M</td></tr>
-        <tr><td class="k">Nivel premium · doble lectura</td><td style="text-align:right">163,8 M</td><td style="text-align:right">6,9 M</td><td style="text-align:right">170,8 M</td><td style="text-align:right" class="bad"><strong>Pierde 32,0 M</strong></td></tr>
-      </tbody>
-    </table>
-
-    <div class="callout amber reveal">
-      <h4>El hallazgo que condiciona la configuración del sistema</h4>
-      <p>A este volumen, <strong>el nivel de servicio más costoso con doble lectura sale más caro que no automatizar nada</strong>. La automatización no es rentable por definición: lo es solo por debajo de cierto costo de procesamiento. El punto de equilibrio está en <strong>ARS 131,8 millones</strong> de procesamiento total — por encima de eso, conviene revisar a mano.</p>
-      <p>Por ese motivo <strong>el proyecto adopta el nivel económico</strong> como configuración base, y las cifras de la sección 6.1 corresponden a ese nivel.</p>
-    </div>
-
-    <h3 class="reveal">A.4 Qué tan robusta es esa decisión</h3>
-    <p class="reveal">La objeción razonable al nivel económico es que podría detectar peor y, por lo tanto, derivar más actas a revisión humana. La tabla siguiente responde esa objeción: muestra el costo total del nivel económico para distintas tasas de excepción, contra los ARS 138,7 millones de revisar todo a mano.</p>
-
-    <table class="ptable reveal">
-      <thead><tr><th>Requieren revisión</th><th style="text-align:right">Procesar</th><th style="text-align:right">Revisar</th><th style="text-align:right">Total</th><th style="text-align:right">Resultado</th><th style="text-align:right">Meses c/2 revisores</th></tr></thead>
-      <tbody>
-        <tr><td class="k">5%</td><td style="text-align:right">32,8 M</td><td style="text-align:right">6,9 M</td><td style="text-align:right">39,7 M</td><td style="text-align:right" class="ok">Ahorra 99,0 M</td><td style="text-align:right" class="ok">7</td></tr>
-        <tr><td class="k">10%</td><td style="text-align:right">32,8 M</td><td style="text-align:right">13,9 M</td><td style="text-align:right">46,6 M</td><td style="text-align:right" class="ok">Ahorra 92,1 M</td><td style="text-align:right" class="ok">14</td></tr>
-        <tr><td class="k">20%</td><td style="text-align:right">32,8 M</td><td style="text-align:right">27,7 M</td><td style="text-align:right">60,5 M</td><td style="text-align:right" class="ok">Ahorra 78,2 M</td><td style="text-align:right">28</td></tr>
-        <tr><td class="k">40%</td><td style="text-align:right">32,8 M</td><td style="text-align:right">55,5 M</td><td style="text-align:right">88,3 M</td><td style="text-align:right" class="ok">Ahorra 50,5 M</td><td style="text-align:right" class="bad">55</td></tr>
-        <tr><td class="k">60%</td><td style="text-align:right">32,8 M</td><td style="text-align:right">83,2 M</td><td style="text-align:right">116,0 M</td><td style="text-align:right">Ahorra 22,7 M</td><td style="text-align:right" class="bad">83</td></tr>
-        <tr><td class="k">76%</td><td style="text-align:right">32,8 M</td><td style="text-align:right">105,4 M</td><td style="text-align:right">138,2 M</td><td style="text-align:right">Equilibrio</td><td style="text-align:right" class="bad">105</td></tr>
+        <tr><td class="k">Presupuestado (con margen de seguridad)</td><td style="text-align:right" class="ok">ARS 1.000.000</td></tr>
+        <tr><td class="k">Punto de equilibrio frente a revisión manual completa</td><td style="text-align:right" class="bad">ARS 131.800.000</td></tr>
+        <tr><td class="k"><strong>Margen disponible</strong></td><td style="text-align:right"><strong>132 veces</strong></td></tr>
       </tbody>
     </table>
 
     <div class="callout blue reveal">
-      <h4>En dinero, la decisión es sólida</h4>
-      <p>El nivel económico conviene mientras la tasa de excepciones se mantenga <strong>por debajo del 76%</strong>. Es un margen amplísimo: incluso un resultado mediocre del ensayo deja la decisión en pie. No hay escenario realista en el que pagar cinco veces más por el procesamiento se justifique.</p>
+      <h4>Por qué esto cierra la discusión sobre el costo de procesamiento</h4>
+      <p>El precio real tendría que ser <strong>132 veces mayor</strong> al presupuestado para que automatizar deje de convenir frente a revisar las 976.668 actas a mano. No existe un escenario de mercado, cambio de proveedor o variación cambiaria que se acerque a esa magnitud. El costo de procesamiento queda, entonces, fuera de discusión: la decisión del proyecto no depende de él.</p>
+      <p>Lo que sí decide el resultado económico y operativo del proyecto es <strong>qué porcentaje de actas requiere revisión humana</strong> — desarrollado en la sección siguiente.</p>
+    </div>
+
+    <h3 class="reveal">A.4 La variable que realmente decide: el porcentaje que requiere revisión</h3>
+    <p class="reveal">Con el costo de procesamiento neutralizado, todo el resultado económico depende de un solo número: cuántas actas de cada cien necesitan pasar por un revisor humano. La siguiente tabla muestra el costo total — procesamiento más revisión — para distintas tasas de excepción, contra los ARS 138,7 millones de revisar todo a mano.</p>
+
+    <table class="ptable reveal">
+      <thead><tr><th>Requieren revisión</th><th style="text-align:right">Revisar</th><th style="text-align:right">Total</th><th style="text-align:right">Resultado</th><th style="text-align:right">Meses c/2 revisores</th></tr></thead>
+      <tbody>
+        <tr><td class="k">5%</td><td style="text-align:right">6,9 M</td><td style="text-align:right">7,9 M</td><td style="text-align:right" class="ok">Ahorra 130,8 M</td><td style="text-align:right" class="ok">7</td></tr>
+        <tr><td class="k">10%</td><td style="text-align:right">13,9 M</td><td style="text-align:right">14,9 M</td><td style="text-align:right" class="ok">Ahorra 123,8 M</td><td style="text-align:right" class="ok">14</td></tr>
+        <tr><td class="k">20%</td><td style="text-align:right">27,7 M</td><td style="text-align:right">28,7 M</td><td style="text-align:right" class="ok">Ahorra 110,0 M</td><td style="text-align:right">28</td></tr>
+        <tr><td class="k">40%</td><td style="text-align:right">55,5 M</td><td style="text-align:right">56,5 M</td><td style="text-align:right" class="ok">Ahorra 82,2 M</td><td style="text-align:right" class="bad">55</td></tr>
+        <tr><td class="k">60%</td><td style="text-align:right">83,2 M</td><td style="text-align:right">84,2 M</td><td style="text-align:right">Ahorra 54,5 M</td><td style="text-align:right" class="bad">83</td></tr>
+        <tr><td class="k">95%</td><td style="text-align:right">131,8 M</td><td style="text-align:right">132,8 M</td><td style="text-align:right">Equilibrio</td><td style="text-align:right" class="bad">132</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout blue reveal">
+      <h4>En dinero, la decisión es sólida en casi cualquier escenario</h4>
+      <p>Con el costo de procesamiento neutralizado, automatizar conviene económicamente hasta una tasa de excepciones cercana al <strong>95%</strong>. Es un margen amplísimo: prácticamente ningún resultado del ensayo pone en duda que conviene procesar automáticamente antes que revisar todo a mano.</p>
     </div>
 
     <div class="callout amber reveal">
       <h4>El límite real no es el dinero, es el tiempo</h4>
-      <p>La tabla muestra algo que el análisis de costos por sí solo oculta: con una tasa de excepciones del 40%, el proyecto sigue ahorrando ARS 50 millones pero la revisión toma <strong>55 meses con dos revisores</strong> — más de cuatro años. El Registro no tendría los datos consolidados en un plazo útil.</p>
-      <p>Por eso el criterio de decisión sobre el resultado del ensayo no es económico sino operativo: si la tasa de excepciones supera el <strong>20%</strong>, la respuesta correcta no es contratar un servicio de procesamiento más caro, sino <strong>ampliar el equipo de revisión</strong> o ajustar las reglas de validación automática. Los ARS 65,5 millones que costaría subir de nivel alcanzan para once revisores durante un año — mucho más efectivo que mejorar el motor de lectura.</p>
+      <p>La tabla muestra algo que el análisis de costos por sí solo oculta: con una tasa de excepciones del 40%, el proyecto sigue ahorrando ARS 82 millones pero la revisión toma <strong>55 meses con dos revisores</strong> — más de cuatro años. El Registro no tendría los datos consolidados en un plazo útil, aunque la cuenta económica cierre.</p>
+      <p>Por eso el criterio de decisión sobre el resultado del ensayo no es económico sino operativo: si la tasa de excepciones supera el <strong>20%</strong>, la respuesta correcta no es un problema de presupuesto de procesamiento — que ya vimos que no lo es — sino <strong>ampliar el equipo de revisión</strong> o ajustar las reglas de validación automática hasta bajar esa tasa.</p>
     </div>
 
     <h3 class="reveal">A.5 Cómo se mide antes de comprometerse: ensayo controlado</h3>
@@ -488,8 +487,8 @@
 
     <div class="callout amber reveal">
       <h4>Costo y valor del ensayo</h4>
-      <p>El costo de procesamiento del ensayo es de <strong>ARS 168.000</strong> con doble lectura en el nivel adoptado (sección 6.1) — irrelevante frente a los ARS 138,7 millones que están en juego. A cambio entrega los dos datos que permiten decidir con fundamento: qué porcentaje de actas queda auto-validado y, en consecuencia, de qué tamaño debe ser el equipo de revisión y cuánto va a durar la operación.</p>
-      <p>Es la inversión de menor costo y mayor retorno de todo el proyecto: por menos de doscientos mil pesos se evita comprometer una operación de escala desconocida.</p>
+      <p>El costo de procesamiento del ensayo es de <strong>ARS 5.120</strong> con doble lectura, según el presupuesto de la sección 6.1 — irrelevante frente a los ARS 138,7 millones que están en juego. A cambio entrega el único dato que realmente importa para la decisión: qué porcentaje de actas queda auto-validado y, en consecuencia, de qué tamaño debe ser el equipo de revisión y cuánto va a durar la operación.</p>
+      <p>Es la inversión de menor costo y mayor retorno de todo el proyecto: por poco más de cinco mil pesos se evita comprometer una operación de escala desconocida.</p>
     </div>
 
     <div class="callout amber reveal">
