@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
 <title>Propuesta · OCR Asistido para RC Actas — Registro Civil | GG Soluciones</title>
-<meta name="description" content="Propuesta para implementar lectura automática con revisión humana en actas de nacimiento del Registro Civil Provincial. Del orden de 100 horas, 6 semanas." />
+<meta name="description" content="Propuesta para implementar lectura automática con revisión humana en actas de nacimiento del Registro Civil Provincial. Del orden de 80 horas, 6 semanas." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -78,15 +78,15 @@
       <tr><td class="k">Ejecutor</td><td>GG Soluciones</td></tr>
       <tr><td class="k">Responsable</td><td>Alejandro Gallardo — Dirección de proyecto y arquitectura</td></tr>
       <tr><td class="k">Versión</td><td>1.3 — 5 de agosto de 2026</td></tr>
-      <tr><td class="k">Esfuerzo estimado</td><td>Del orden de 100 horas (tarifa ARS 68.625/h)</td></tr>
-      <tr><td class="k">Presupuesto de referencia</td><td>ARS 6.862.500</td></tr>
+      <tr><td class="k">Esfuerzo estimado</td><td>Del orden de 80 horas (tarifa ARS 68.625/h)</td></tr>
+      <tr><td class="k">Presupuesto de referencia</td><td>ARS 5.490.000</td></tr>
       <tr><td class="k">Plazo estimado</td><td>6 semanas</td></tr>
       <tr><td class="k">Clasificación</td><td>Confidencial · Uso interno</td></tr>
     </table>
 
     <div class="callout blue reveal">
       <h4>Sobre este presupuesto</h4>
-      <p>El proyecto parte de un sistema de lectura automática que ya existe y fue desarrollado por GG Soluciones. Eso permite concentrar el trabajo en lo que RC realmente necesita hoy: actas de nacimiento. El presupuesto refleja ese punto de partida; no contempla rediseño general ni nuevos tipos de actas. El uso de herramientas de desarrollo asistidas por inteligencia artificial en la propia construcción del sistema también reduce el tiempo respecto a un desarrollo tradicional, sin afectar el proceso de pruebas ni los criterios de aceptación.</p>
+      <p>El proyecto parte de un sistema de lectura automática que ya existe y fue desarrollado por GG Soluciones. Eso permite concentrar el trabajo en lo que RC realmente necesita hoy: actas de nacimiento. El presupuesto refleja ese punto de partida; no contempla rediseño general ni nuevos tipos de actas. El uso de herramientas de desarrollo asistidas por inteligencia artificial en la propia construcción del sistema también reduce el tiempo respecto a un desarrollo tradicional, sin afectar el proceso de pruebas ni los criterios de aceptación — es la misma razón por la que las horas bajan de las 200 originales a 80.</p>
     </div>
 
     <h2 class="reveal">1. Resumen</h2>
@@ -224,27 +224,27 @@
     <table class="ptable reveal">
       <thead><tr><th>Fase</th><th>Entregable</th><th style="text-align:right">Horas</th><th style="text-align:right">Costo ARS</th></tr></thead>
       <tbody>
-        <tr><td class="k">1. Definición y cierre funcional</td><td>Alcance acordado, responsables, muestra de actas, reglas de autoridad y criterios de aceptación</td><td style="text-align:right">6</td><td style="text-align:right">411.750</td></tr>
-        <tr><td class="k">2. Muestra y medición inicial</td><td>Muestra de 400 actas etiquetadas con valores esperados, medición de precisión con margen de ±5 puntos y análisis de calidad documental</td><td style="text-align:right">10</td><td style="text-align:right">686.250</td></tr>
-        <tr><td class="k">3. Lectura automática de actas</td><td>Extracción de datos, nivel de certeza, normalización y funcionamiento estable ante variaciones de imagen</td><td style="text-align:right">16</td><td style="text-align:right">1.098.000</td></tr>
-        <tr><td class="k">4. Base de datos de revisión</td><td>Cola de trabajo, revisión, vista previa, incorporación al registro, historial y correcciones</td><td style="text-align:right">12</td><td style="text-align:right">823.500</td></tr>
-        <tr><td class="k">5. Sistema de administración</td><td>Acceso por rol, seguridad, repositorio de imágenes y respuesta controlada ante fallas</td><td style="text-align:right">10</td><td style="text-align:right">686.250</td></tr>
-        <tr><td class="k">6. Pantalla de revisión</td><td>Cola, visor de imagen, edición de campos, asignación de casos, aprobación e historial</td><td style="text-align:right">12</td><td style="text-align:right">823.500</td></tr>
-        <tr><td class="k">7. Pruebas del sistema completo</td><td>Pruebas por módulo, integración entre partes, verificación de consistencia y casos sin duplicados</td><td style="text-align:right">12</td><td style="text-align:right">823.500</td></tr>
-        <tr><td class="k">8. Pruebas de aceptación con RC</td><td>Pruebas con documentos reales, ajustes y aceptación funcional por parte del Registro</td><td style="text-align:right">10</td><td style="text-align:right">686.250</td></tr>
-        <tr><td class="k">9. Puesta en marcha</td><td>Despliegue, procedimiento de reversión, panel de seguimiento operativo y estabilización</td><td style="text-align:right">6</td><td style="text-align:right">411.750</td></tr>
-        <tr><td class="k">10. Gestión, documentación y capacitación</td><td>Seguimiento del proyecto, manuales operativos, transferencia al equipo de RC y cierre</td><td style="text-align:right">6</td><td style="text-align:right">411.750</td></tr>
-        <tr><td colspan="2"><strong>Total estimado</strong></td><td style="text-align:right"><strong>~100</strong></td><td style="text-align:right"><strong>≈ 6.862.500</strong></td></tr>
+        <tr><td class="k">1. Definición y cierre funcional</td><td>Alcance acordado, responsables, muestra de actas, reglas de autoridad y criterios de aceptación</td><td style="text-align:right">5</td><td style="text-align:right">343.125</td></tr>
+        <tr><td class="k">2. Muestra y medición inicial</td><td>Muestra de 400 actas etiquetadas con valores esperados, medición de precisión con margen de ±5 puntos y análisis de calidad documental</td><td style="text-align:right">8</td><td style="text-align:right">549.000</td></tr>
+        <tr><td class="k">3. Lectura automática de actas</td><td>Extracción de datos, nivel de certeza, normalización y funcionamiento estable ante variaciones de imagen</td><td style="text-align:right">13</td><td style="text-align:right">892.125</td></tr>
+        <tr><td class="k">4. Base de datos de revisión</td><td>Cola de trabajo, revisión, vista previa, incorporación al registro, historial y correcciones</td><td style="text-align:right">9</td><td style="text-align:right">617.625</td></tr>
+        <tr><td class="k">5. Sistema de administración</td><td>Acceso por rol, seguridad, repositorio de imágenes y respuesta controlada ante fallas</td><td style="text-align:right">8</td><td style="text-align:right">549.000</td></tr>
+        <tr><td class="k">6. Pantalla de revisión</td><td>Cola, visor de imagen, edición de campos, asignación de casos, aprobación e historial</td><td style="text-align:right">9</td><td style="text-align:right">617.625</td></tr>
+        <tr><td class="k">7. Pruebas del sistema completo</td><td>Pruebas por módulo, integración entre partes, verificación de consistencia y casos sin duplicados</td><td style="text-align:right">10</td><td style="text-align:right">686.250</td></tr>
+        <tr><td class="k">8. Pruebas de aceptación con RC</td><td>Pruebas con documentos reales, ajustes y aceptación funcional por parte del Registro</td><td style="text-align:right">8</td><td style="text-align:right">549.000</td></tr>
+        <tr><td class="k">9. Puesta en marcha</td><td>Despliegue, procedimiento de reversión, panel de seguimiento operativo y estabilización</td><td style="text-align:right">5</td><td style="text-align:right">343.125</td></tr>
+        <tr><td class="k">10. Gestión, documentación y capacitación</td><td>Seguimiento del proyecto, manuales operativos, transferencia al equipo de RC y cierre</td><td style="text-align:right">5</td><td style="text-align:right">343.125</td></tr>
+        <tr><td colspan="2"><strong>Total estimado</strong></td><td style="text-align:right"><strong>~80</strong></td><td style="text-align:right"><strong>≈ 5.490.000</strong></td></tr>
       </tbody>
     </table>
 
     <div class="callout blue reveal">
       <h4>Sobre el presupuesto</h4>
-      <p>El valor de referencia es de <strong>ARS 6.862.500</strong>. Las horas se distribuyen entre fases según lo que muestre la medición inicial sobre actas reales. Si durante el proyecto surge una necesidad que exceda el presupuesto de referencia, se informa y se acuerda con el Registro <strong>antes</strong> de ejecutarla; nunca se factura un excedente sin aprobación previa por escrito.</p>
+      <p>El valor de referencia es de <strong>ARS 5.490.000</strong>. Las horas se distribuyen entre fases según lo que muestre la medición inicial sobre actas reales. Si durante el proyecto surge una necesidad que exceda el presupuesto de referencia, se informa y se acuerda con el Registro <strong>antes</strong> de ejecutarla; nunca se factura un excedente sin aprobación previa por escrito.</p>
     </div>
 
     <h3 class="reveal">6.1 Costo de procesamiento por volumen</h3>
-    <p class="reveal">La lectura automática de cada imagen se realiza a través de un servicio de inteligencia artificial externo que se factura por consumo real. <strong>Este costo es independiente del desarrollo</strong>: no forma parte de las 100 horas, escala con la cantidad de actas procesadas y se traslada al Registro sin recargo, contra comprobante del proveedor. La elección final del proveedor se define durante la fase 2, evaluando precisión, estabilidad, condiciones de uso y tratamiento de datos — ver la nota al pie de esta sección.</p>
+    <p class="reveal">La lectura automática de cada imagen se realiza a través de un servicio de inteligencia artificial externo que se factura por consumo real. <strong>Este costo es independiente del desarrollo</strong>: no forma parte de las 80 horas, escala con la cantidad de actas procesadas y se traslada al Registro sin recargo, contra comprobante del proveedor. La elección final del proveedor se define durante la fase 2, evaluando precisión, estabilidad, condiciones de uso y tratamiento de datos — ver la nota al pie de esta sección.</p>
 
     <table class="ptable reveal">
       <thead><tr><th>Concepto</th><th style="text-align:right">Valor de referencia</th></tr></thead>
@@ -378,8 +378,8 @@
       <tbody>
         <tr><td class="k">Modalidad</td><td>Proyecto por alcance definido, con presupuesto de referencia acordado</td></tr>
         <tr><td class="k">Tarifa</td><td>ARS 68.625 por hora</td></tr>
-        <tr><td class="k">Esfuerzo estimado</td><td>Del orden de 100 horas</td></tr>
-        <tr><td class="k">Presupuesto de referencia</td><td>ARS 6.862.500</td></tr>
+        <tr><td class="k">Esfuerzo estimado</td><td>Del orden de 80 horas</td></tr>
+        <tr><td class="k">Presupuesto de referencia</td><td>ARS 5.490.000</td></tr>
         <tr><td class="k">Forma de pago</td><td>50% al inicio · 50% al entregar</td></tr>
         <tr><td class="k">Qué se considera entrega</td><td>Sistema instalado y funcionando en el entorno del Registro Civil, equipo capacitado y documentación entregada</td></tr>
         <tr><td class="k">Condición de la segunda cuota</td><td>Se factura contra la entrega del sistema terminado, según la definición anterior</td></tr>
@@ -497,15 +497,26 @@
     </div>
 
     <h3 class="reveal">A.6 Equipo de revisión para el remanente</h3>
-    <p class="reveal">Una vez conocido el porcentaje real de excepciones, el Registro elige cómo cubrir esa revisión. Ambas alternativas siguen vigentes:</p>
+    <p class="reveal">Una vez conocido el porcentaje real de excepciones, el Registro elige cómo cubrir esa revisión. Hay dos caminos, y ninguno de los dos es gratis — cada uno paga con algo distinto.</p>
 
     <table class="ptable reveal">
-      <thead><tr><th>Alternativa</th><th>Detalle</th><th style="text-align:right">Costo mensual</th></tr></thead>
+      <thead><tr><th>Alternativa</th><th>Detalle</th><th style="text-align:right">Costo</th></tr></thead>
       <tbody>
-        <tr><td class="k">Equipo contratado a GG Soluciones</td><td>2 revisores · 4 horas diarias · servicio mensual, se da de baja cuando el Registro lo decida</td><td style="text-align:right">ARS 1.000.000</td></tr>
-        <tr><td class="k">Equipo propio del Registro</td><td>RC aporta operadores y supervisión; GGS capacita como parte del proyecto</td><td style="text-align:right" class="ok">Sin costo adicional</td></tr>
+        <tr><td class="k">Equipo contratado a GG Soluciones</td><td>2 revisores dedicados · 3 meses · coordinados directamente por Alejandro Gallardo</td><td style="text-align:right">ARS 4.800.000</td></tr>
+        <tr><td class="k">Equipo propio del Registro</td><td>RC aporta operadores; GGS capacita como parte del proyecto</td><td style="text-align:right" class="ok">Sin costo monetario adicional</td></tr>
       </tbody>
     </table>
+
+    <div class="callout blue reveal">
+      <h4>Alternativa 1: paquete cerrado, a mi cargo</h4>
+      <p>2 personas por 3 meses, a ARS 800.000 por persona por mes = <strong>ARS 4.800.000</strong> en total. No es una suscripción abierta: es un alcance cerrado, con la misma lógica de responsabilidad directa que el resto del proyecto. Al ritmo de referencia (4 horas diarias, 1,5 minutos por acta) ese equipo cubre aproximadamente <strong>21.000 actas — cerca del 2,2% de la base</strong>. Si el ensayo controlado muestra una tasa de excepciones mayor, se define una extensión con el mismo criterio: alcance y costo acordados antes de ejecutar.</p>
+      <p style="margin-top:8px;font-size:0.9rem;">La tarifa de ARS 500.000 por persona/mes usada en las secciones A.1 y A.4 es una referencia neutral, sin coordinación de GGS, para dimensionar órdenes de magnitud. La oferta real de esta alternativa incluye coordinación directa y por eso cotiza distinto.</p>
+    </div>
+
+    <div class="callout amber reveal">
+      <h4>Alternativa 2: sin costo monetario, pero no gratis</h4>
+      <p>Que el Registro use su propio personal no significa que esta tarea salga "gratis" — significa que el costo no aparece en una factura. Cada hora que un empleado de RC dedica a revisar actas es una hora que no dedica a sus tareas habituales. Ese costo de oportunidad es real y lo termina pagando el Registro en atención postergada, trámites demorados u horas extra en otras áreas. Vale la pena que RC lo dimensione internamente antes de decidir, comparándolo con el costo cerrado de la Alternativa 1.</p>
+    </div>
 
     <div class="callout blue reveal">
       <h4>Recomendación</h4>
