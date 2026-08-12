@@ -111,7 +111,29 @@
 
     <h2 class="reveal">3. Alcance del proyecto</h2>
 
-    <h3 class="reveal">3.1 Lectura y procesamiento de actas</h3>
+    <h3 class="reveal">3.1 Por qué no alcanza con una herramienta de lectura existente</h3>
+    <p class="reveal">Existen herramientas de lectura de documentos, libres y comerciales, que convierten una imagen en texto. Todas resuelven ese problema razonablemente bien, y este proyecto usa una de ellas. Pero convertir imagen en texto es aproximadamente <strong>una quinta parte</strong> de lo que el Registro Civil necesita. El resto no existe como producto y por eso requiere desarrollo a medida.</p>
+
+    <table class="ptable reveal">
+      <thead><tr><th>Lo que el Registro necesita</th><th>¿Lo resuelve una herramienta genérica?</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Convertir la imagen del acta en texto</td><td class="ok">Sí</td></tr>
+        <tr><td class="k">Saber qué texto corresponde a qué campo</td><td>No — las actas no son formularios estándar; el formato cambia según la época y el libro</td></tr>
+        <tr><td class="k">Determinar si la persona del acta es la misma que ya figura en el registro</td><td>No — requiere contrastar contra la base del Registro y RENAPER</td></tr>
+        <tr><td class="k">Decidir qué fuente tiene autoridad sobre cada dato</td><td>No — RENAPER para identidad, el acta para filiación, el catálogo para lugares</td></tr>
+        <tr><td class="k">Representar vínculos familiares como hechos con validez en el tiempo</td><td>No — un vínculo vigente en 1960 puede no serlo hoy</td></tr>
+        <tr><td class="k">Registrar por qué se tomó cada decisión, de forma auditable</td><td>No</td></tr>
+        <tr><td class="k">Impedir que un dato entre al registro sin aprobación humana</td><td>No</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout amber reveal">
+      <h4>Un ejemplo concreto del ensayo inicial</h4>
+      <p>Durante las primeras pruebas de procesamiento, el sistema detectó <strong>337 casos en los que la condición de "fallecido" estaba siendo tratada como un vínculo familiar</strong>, al mismo nivel que "padre" o "cónyuge". Es un error estructural: fallecer no es una relación con otra persona, es un hecho registral de la propia persona.</p>
+      <p>Ninguna herramienta genérica de lectura puede detectar algo así, porque no conoce el modelo de datos del Registro Civil ni el significado jurídico de cada campo. Solo se detecta con desarrollo que entienda el dominio — y si no se detecta, se incorporan al registro cientos de miles de vínculos familiares inexistentes.</p>
+    </div>
+
+    <h3 class="reveal">3.2 Lectura y procesamiento de actas</h3>
     <ul class="bullets reveal">
       <li>El sistema obtiene la imagen de cada acta desde el repositorio de documentos del Registro.</li>
       <li>Lee automáticamente el texto, su posición en el documento y el nivel de certeza de cada dato detectado.</li>
@@ -120,7 +142,7 @@
       <li>Cada acta ingresa al sistema como borrador pendiente de revisión humana.</li>
     </ul>
 
-    <h3 class="reveal">3.2 Revisión humana</h3>
+    <h3 class="reveal">3.3 Revisión humana</h3>
     <ul class="bullets reveal">
       <li>Cola de casos pendientes, en revisión, aprobados y vencidos.</li>
       <li>Un operador toma un caso; mientras lo trabaja, nadie más puede modificarlo.</li>
@@ -131,7 +153,7 @@
       <li>Un supervisor puede asignar casos con prioridad y agregar un motivo.</li>
     </ul>
 
-    <h3 class="reveal">3.3 Aprobación e incorporación al registro</h3>
+    <h3 class="reveal">3.4 Aprobación e incorporación al registro</h3>
     <ul class="bullets reveal">
       <li>Antes de confirmar, el operador ve exactamente qué datos se van a incorporar.</li>
       <li>El sistema verifica que la información no haya cambiado desde que el operador empezó la revisión.</li>
@@ -141,7 +163,42 @@
       <li>Los datos de identidad cuya autoridad corresponde a RENAPER se muestran para comparar, pero no se modifican.</li>
     </ul>
 
-    <h3 class="reveal">3.4 Historial y auditoría</h3>
+    <h3 class="reveal">3.5 Curación de vínculos familiares</h3>
+    <p class="reveal">Esta es la parte más delicada del proyecto y merece tratamiento separado. Un dato mal leído y un vínculo mal establecido no tienen la misma gravedad, aunque ambos sean "un error del sistema".</p>
+
+    <table class="ptable reveal">
+      <thead><tr><th>Tipo de error</th><th>Consecuencia</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Una fecha con un dígito cambiado</td><td>Error de dato. Se detecta al contrastar y se corrige.</td></tr>
+        <tr><td class="k">Un vínculo familiar incorrecto</td><td class="bad">Se afirma que una persona es hija de otra cuando no lo es. Es un hecho jurídico falso incorporado al registro oficial.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout amber reveal">
+      <h4>Por qué un vínculo incorrecto es especialmente grave</h4>
+      <p>Un vínculo mal cargado <strong>no se ve como un error</strong>: parece un dato válido. Nadie lo detecta hasta que alguien tramita un documento de identidad, inicia una sucesión o solicita un beneficio y el registro dice algo que no corresponde. Para entonces está propagado a otros trámites y a otras actas que referencian a esas mismas personas.</p>
+      <p>El mecanismo más frecuente es sutil: un DNI leído con un dígito equivocado <strong>no falla</strong> — resuelve a otra persona real, existente, y le atribuye una filiación que no tiene. Por eso todo DNI que no coincida exactamente con RENAPER se deriva a revisión, aunque resuelva a alguien.</p>
+    </div>
+
+    <p class="reveal">Por ese motivo el sistema no trata todos los vínculos igual. Una parte puede confirmarse automáticamente cuando la evidencia es sólida y proviene de fuentes que se corroboran entre sí; el resto pasa obligatoriamente por una persona:</p>
+
+    <table class="ptable reveal">
+      <thead><tr><th>Situación</th><th>Tratamiento</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Filiación paterna/materna donde DNI, acta y RENAPER coinciden entre sí</td><td class="ok">Puede confirmarse automáticamente</td></tr>
+        <tr><td class="k">Vínculo que reemplazaría uno ya vigente en el registro</td><td class="bad">Revisión humana obligatoria</td></tr>
+        <tr><td class="k">Cónyuge actual o cambio de estado civil</td><td class="bad">Revisión humana obligatoria</td></tr>
+        <tr><td class="k">Vínculo sostenido por una sola fuente, sin corroboración</td><td class="bad">Revisión humana obligatoria</td></tr>
+        <tr><td class="k">DNI que no coincide exactamente con RENAPER</td><td class="bad">Revisión humana obligatoria</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout blue reveal">
+      <h4>El estado civil se construye como historia, no como dato suelto</h4>
+      <p>Un acta de matrimonio prueba que ese matrimonio existió, pero no prueba que esa persona esté casada hoy. Entre medio puede haber un divorcio, un nuevo matrimonio o un fallecimiento. Por eso el sistema registra cada hecho registral en una línea de tiempo y <strong>nunca deduce el cónyuge actual de un acta aislada</strong>: para afirmar el estado civil vigente necesita la cadena completa de hechos, y mientras no la tenga, deriva el caso a revisión.</p>
+    </div>
+
+    <h3 class="reveal">3.6 Historial y auditoría</h3>
     <ul class="bullets reveal">
       <li>Cada revisión queda registrada con el nombre del operador, la fecha y el resultado.</li>
       <li>Los supervisores pueden consultar el historial completo de cualquier acta.</li>
@@ -149,7 +206,7 @@
       <li>Si un dato aprobado necesita corrección posterior, se registra el motivo y el historial de cambios sin alterar el registro original de aprobación.</li>
     </ul>
 
-    <h3 class="reveal">3.5 Pruebas, aceptación y puesta en marcha</h3>
+    <h3 class="reveal">3.7 Pruebas, aceptación y puesta en marcha</h3>
     <ul class="bullets reveal">
       <li>Se arma junto con RC una muestra representativa de actas de nacimiento reales para calibrar el sistema.</li>
       <li>Se mide la precisión inicial y se hacen ajustes según los formatos y calidades de imagen presentes en la muestra.</li>
@@ -314,6 +371,9 @@
         <tr><td class="k">Actas incorporadas al registro sin revisión humana previa</td><td class="ok">Ninguna — 100% pasa por aprobación de un operador</td></tr>
         <tr><td class="k">Datos de RENAPER modificados por el sistema</td><td class="ok">Ninguno</td></tr>
         <tr><td class="k">Datos ya cargados en el registro sobrescritos por el sistema</td><td class="ok">Ninguno — solo se completan campos vacíos</td></tr>
+        <tr><td class="k">Vínculos familiares vigentes reemplazados sin revisión humana</td><td class="ok">Ninguno</td></tr>
+        <tr><td class="k">Cónyuge actual o estado civil modificado automáticamente</td><td class="ok">Ninguno — siempre pasa por revisión</td></tr>
+        <tr><td class="k">Vínculos incorporados con DNI que no coincide exactamente con RENAPER</td><td class="ok">Ninguno</td></tr>
         <tr><td class="k">Aprobaciones y correcciones con registro de operador y fecha</td><td class="ok">100%</td></tr>
         <tr><td class="k">Actas duplicadas por reprocesamiento</td><td class="ok">Ninguna</td></tr>
       </tbody>
@@ -349,6 +409,7 @@
     <table class="ptable reveal">
       <thead><tr><th>Riesgo</th><th>Cómo se trata</th></tr></thead>
       <tbody>
+        <tr><td class="k">Incorporar un vínculo familiar incorrecto</td><td class="bad">Es el riesgo más grave del proyecto: no se detecta a simple vista porque parece un dato válido. Se mitiga con las reglas de la sección 3.5 — revisión humana obligatoria para todo vínculo que reemplace uno vigente, para cónyuge y estado civil, y para cualquier DNI que no coincida exactamente con RENAPER</td></tr>
         <tr><td class="k">No se conoce la precisión sobre actas reales hasta medirlas</td><td>Los mínimos comprometidos en la sección 8.2 son conservadores por ese motivo; se miden en la semana 1 y se revisan con datos reales</td></tr>
         <tr><td class="k">El esfuerzo real difiere de lo estimado</td><td>Las horas se redistribuyen entre fases sin afectar el presupuesto; cualquier excedente requiere acuerdo previo por escrito</td></tr>
         <tr><td class="k">El porcentaje de actas que requiere revisión humana resulta alto</td><td>Es el riesgo económico principal del proyecto (Anexo A). Se mide con el ensayo controlado de 5.000 actas antes de comprometer el procesamiento masivo; si el resultado no es aceptable, se ajustan las reglas de validación antes de continuar</td></tr>
