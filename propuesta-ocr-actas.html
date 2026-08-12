@@ -77,7 +77,7 @@
       <tr><td class="k">Cliente</td><td>Registro Civil de la Provincia de Jujuy</td></tr>
       <tr><td class="k">Ejecutor</td><td>GG Soluciones</td></tr>
       <tr><td class="k">Responsable</td><td>Alejandro Gallardo — Dirección de proyecto y arquitectura</td></tr>
-      <tr><td class="k">Versión</td><td>1.6 — 12 de agosto de 2026</td></tr>
+      <tr><td class="k">Versión</td><td>1.7 — 12 de agosto de 2026</td></tr>
       <tr><td class="k">Alcance base</td><td>Actas de nacimiento</td></tr>
       <tr><td class="k">Desarrollo</td><td>80 horas · 6 semanas · ARS 5.490.000</td></tr>
       <tr><td class="k">Clasificación</td><td>Confidencial · Uso interno</td></tr>
@@ -85,7 +85,7 @@
 
     <div class="callout blue reveal">
       <h4>Decisión solicitada</h4>
-      <p>Aprobar un alcance inicial acotado a <strong>actas de nacimiento</strong>, por <strong>ARS 5.490.000</strong> de desarrollo, más el consumo real de inteligencia artificial. La validación humana posterior no está incluida en ese valor: el Registro podrá realizarla con personal propio o contratar el paquete opcional de dos meses detallado en el Anexo A.</p>
+      <p>Aprobar un alcance inicial acotado a <strong>actas de nacimiento</strong>, por <strong>ARS 5.490.000</strong> de desarrollo, más un costo estimado de <strong>USD 600 de inteligencia artificial</strong>, sujeto al consumo real. La validación humana posterior no está incluida en ese valor: el Registro podrá realizarla con personal propio o contratar el paquete opcional de dos validadores durante dos meses detallado en el Anexo A.</p>
       <p>La decisión sobre quién valida y sobre cualquier ampliación de volumen se toma después del piloto, con la tasa real de excepciones, el consumo promedio por acta y la evidencia de seguridad disponibles.</p>
     </div>
 
@@ -96,7 +96,7 @@
       <thead><tr><th>Capa</th><th>Qué cubre</th><th style="text-align:right">Importe</th></tr></thead>
       <tbody>
         <tr><td class="k">1. Desarrollo</td><td>Consolidación para nacimientos, integración controlada, pruebas, piloto, auditoría, capacitación y puesta en marcha acordada.</td><td style="text-align:right"><strong>ARS 5.490.000</strong><br/>80 h × ARS 68.625</td></tr>
-        <tr><td class="k">2. IA / tokens</td><td>Procesamiento del proveedor de IA, medido por tokens de entrada y salida. Se factura por consumo real, sin recargo y contra comprobante.</td><td style="text-align:right">Variable<br/>No incluido</td></tr>
+        <tr><td class="k">2. IA / tokens</td><td>Procesamiento del proveedor de IA, medido por tokens de entrada y salida. Se factura por consumo real, sin recargo y contra comprobante.</td><td style="text-align:right"><strong>USD 600 estimados</strong><br/>Variable según consumo</td></tr>
         <tr><td class="k">3. Validación humana</td><td>Revisión de excepciones por un operador. Puede resolverla el Registro o contratarse a GGS por separado.</td><td style="text-align:right">Opcional<br/>Ver Anexo A</td></tr>
       </tbody>
     </table>
@@ -106,8 +106,9 @@
       <p>Las 80 horas son un precio de referencia para un alcance acotado a nacimientos y aprovechan componentes ya desarrollados, automatización interna y conocimiento acumulado del dominio. No incluyen matrimonio, defunción, operación humana masiva, consumo del proveedor de IA ni ampliaciones derivadas de dependencias o reglas nuevas.</p>
     </div>
 
-    <h3 class="reveal">1.1 Costo variable de IA</h3>
-    <p class="reveal">El consumo se calcula con los tokens informados por el proveedor para cada ejecución. Como referencia revisable, la documentación oficial consultada para <strong>MiniMax-M2.7</strong> publica USD 0,30 por millón de tokens de entrada y USD 1,20 por millón de tokens de salida en modalidad pay-as-you-go.</p>
+  <h3 class="reveal">1.1 Costo variable de IA</h3>
+  <p class="reveal">Para dimensionar la inversión se establece un <strong>presupuesto estimado de USD 600</strong> para IA y tokens. No es un precio fijo: el importe definitivo será el consumo efectivamente informado por el proveedor, sin recargo y contra comprobante. Antes de ampliar cada lote se controlará el saldo disponible y se requerirá autorización si la proyección supera ese monto.</p>
+  <p class="reveal">El consumo se calcula con los tokens informados por el proveedor para cada ejecución. Como referencia revisable, la documentación oficial consultada para <strong>MiniMax-M2.7</strong> publica USD 0,30 por millón de tokens de entrada y USD 1,20 por millón de tokens de salida en modalidad pay-as-you-go.</p>
     <div class="callout blue reveal">
       <h4>Fórmula de control</h4>
       <p><strong>Costo IA (USD) = (tokens de entrada ÷ 1.000.000 × 0,30) + (tokens de salida ÷ 1.000.000 × 1,20)</strong></p>
@@ -216,14 +217,14 @@
     <table class="ptable reveal">
       <thead><tr><th>Opción</th><th>Alcance</th><th style="text-align:right">Costo adicional GGS</th></tr></thead>
       <tbody>
-        <tr><td class="k">A. Validador provisto por GGS</td><td>1 persona durante 2 meses, con coordinación y seguimiento de GGS. Alcance cerrado; cualquier excedente requiere aprobación previa.</td><td style="text-align:right"><strong>ARS 1.600.000</strong><br/>2 × ARS 800.000</td></tr>
+        <tr><td class="k">A. Validadores provistos por GGS</td><td>2 personas durante 2 meses para revisar actas de nacimiento y relaciones derivadas a revisión, con coordinación y seguimiento de GGS. Alcance cerrado; cualquier excedente requiere aprobación previa.</td><td style="text-align:right"><strong>ARS 3.200.000</strong><br/>2 personas × 2 meses × ARS 800.000</td></tr>
         <tr><td class="k">B. Personal del Registro</td><td>Operadores aportados y supervisados por RC. La capacitación de uso está incluida en el proyecto base.</td><td style="text-align:right" class="ok">Sin factura adicional</td></tr>
       </tbody>
     </table>
 
     <h3 class="reveal">A.1 Capacidad estimada de la opción GGS</h3>
-    <p class="reveal">La referencia de capacidad utiliza un supuesto explícito: 4 horas efectivas por día, 1,5 minutos por acta y 22 días laborables por mes. El cálculo es 240 minutos ÷ 1,5 = 160 actas por día; 160 × 22 = aproximadamente <strong>3.520 actas por mes</strong>, o <strong>7.040 actas en dos meses</strong>.</p>
-    <p class="reveal">Es una estimación de planificación, no una garantía independiente de la complejidad. La capacidad real cambia según calidad de imagen, cantidad de campos en excepción, tiempos de consulta y necesidad de escalamiento. GGS informa avance y causas de desvío; no procesa excedentes sin autorización.</p>
+  <p class="reveal">La referencia de capacidad utiliza un supuesto explícito por persona: 4 horas efectivas por día, 1,5 minutos por acta y 22 días laborables por mes. Cada validador puede revisar aproximadamente <strong>3.520 actas por mes</strong>; dos validadores durante dos meses representan una capacidad estimada de <strong>14.080 actas</strong>.</p>
+  <p class="reveal">El paquete se aplica exclusivamente a actas de nacimiento y relaciones que el sistema derive a revisión. Es una estimación de planificación, no una garantía de cubrir todo el histórico: la capacidad real cambia según calidad de imagen, cantidad de campos en excepción, tiempos de consulta y necesidad de escalamiento. GGS informa avance y causas de desvío; no procesa excedentes sin autorización.</p>
 
     <h3 class="reveal">A.2 Personal del Registro</h3>
     <p class="reveal">Esta alternativa no genera una factura adicional de GGS por validación. Sin embargo, RC aporta horas de operadores, supervisión funcional y disponibilidad para resolver casos dudosos. También asume el costo de oportunidad de reasignar personal desde sus tareas habituales. La capacitación de la herramienta está incluida; la organización cotidiana y la cobertura del volumen corresponden al Registro.</p>
