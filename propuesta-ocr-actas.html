@@ -275,6 +275,17 @@
       <p>La calidad de lectura depende directamente del estado de las imágenes. No es posible garantizar resultados sobre actas manuscritas, muy deterioradas o fuera de los formatos presentes en la muestra acordada. Esos casos se derivan a revisión manual, que es el comportamiento esperado del sistema y no una falla.</p>
     </div>
 
+    <div class="callout amber reveal">
+      <h4>Situaciones que no constituyen falla del sistema</h4>
+      <p>Conviene dejarlas explícitas antes de empezar, para que durante la ejecución no se discuta si corresponden o no al alcance:</p>
+      <ul class="bullets" style="margin-top:10px;">
+        <li><strong>Decisiones del operador.</strong> El sistema presenta la evidencia, bloquea las operaciones inseguras y registra cada aprobación. La decisión sobre el contenido de un dato aprobado es del Registro Civil.</li>
+        <li><strong>Calidad de los datos preexistentes.</strong> Buena parte de la base proviene de migraciones anteriores cuya exactitud no está verificada. El sistema <em>expone</em> esas diferencias, no las origina. Que aparezcan discrepancias entre la imagen y la base es el sistema funcionando, no fallando — y corregir el histórico previo está fuera de alcance.</li>
+        <li><strong>Proporción de casos que requieren revisión humana.</strong> Depende de la calidad documental y del estado de la base, ninguno de los dos bajo control de GG Soluciones. El compromiso es medirla con el ensayo controlado y ajustar las reglas de validación dentro del alcance; no se compromete un porcentaje determinado.</li>
+        <li><strong>Servicios de terceros.</strong> Disponibilidad de RENAPER, del servicio de lectura automática o de la infraestructura del Registro. Sus interrupciones o cambios de condiciones no son defectos del sistema entregado.</li>
+      </ul>
+    </div>
+
     <h2 class="reveal">6. Plan, esfuerzo y costo</h2>
     <p class="reveal">La siguiente distribución es la estimación de trabajo por frente. Las horas son de referencia para dimensionar el proyecto y pueden redistribuirse entre fases según lo que muestre la medición inicial, sin alterar el presupuesto total acordado.</p>
 
@@ -362,22 +373,30 @@
     </div>
 
     <h2 class="reveal">8. Criterios de aceptación</h2>
-    <p class="reveal">Los criterios se dividen en dos grupos según su naturaleza. Los primeros son garantías absolutas: dependen del diseño del sistema y GG Soluciones responde por ellos al 100%. Los segundos dependen del estado real de las imágenes del Registro, por lo que se comprometen valores mínimos conservadores y se ajustan al alza —nunca a la baja— después de la medición inicial.</p>
+    <p class="reveal">Los criterios se dividen en dos grupos según su naturaleza. Los primeros son <strong>reglas de diseño</strong>: comportamientos que el sistema hace cumplir por construcción y que GG Soluciones verifica mediante pruebas. Los segundos son <strong>valores de lectura</strong>, que dependen del estado real de las imágenes del Registro y por eso se comprometen como mínimos conservadores, sujetos a la medición de calibración.</p>
 
-    <h3 class="reveal">8.1 Garantías del sistema (comprometidas al 100%)</h3>
+    <h3 class="reveal">8.1 Reglas de diseño que el sistema hace cumplir</h3>
+    <p class="reveal">Estas no son metas estadísticas sino <strong>restricciones incorporadas al diseño del sistema</strong>: no existe camino en la aplicación que permita realizar estas operaciones. Se verifican con pruebas automatizadas durante el desarrollo y se comprueban en las pruebas de aceptación.</p>
+
     <table class="ptable reveal">
-      <thead><tr><th>Criterio</th><th>Compromiso</th></tr></thead>
+      <thead><tr><th>Regla</th><th>Comportamiento del sistema</th></tr></thead>
       <tbody>
-        <tr><td class="k">Actas incorporadas al registro sin revisión humana previa</td><td class="ok">Ninguna — 100% pasa por aprobación de un operador</td></tr>
-        <tr><td class="k">Datos de RENAPER modificados por el sistema</td><td class="ok">Ninguno</td></tr>
-        <tr><td class="k">Datos ya cargados en el registro sobrescritos por el sistema</td><td class="ok">Ninguno — solo se completan campos vacíos</td></tr>
-        <tr><td class="k">Vínculos familiares vigentes reemplazados sin revisión humana</td><td class="ok">Ninguno</td></tr>
-        <tr><td class="k">Cónyuge actual o estado civil modificado automáticamente</td><td class="ok">Ninguno — siempre pasa por revisión</td></tr>
-        <tr><td class="k">Vínculos incorporados con DNI que no coincide exactamente con RENAPER</td><td class="ok">Ninguno</td></tr>
-        <tr><td class="k">Aprobaciones y correcciones con registro de operador y fecha</td><td class="ok">100%</td></tr>
-        <tr><td class="k">Actas duplicadas por reprocesamiento</td><td class="ok">Ninguna</td></tr>
+        <tr><td class="k">Incorporación al registro oficial</td><td class="ok">Requiere aprobación registrada de un operador. El sistema no escribe datos canónicos por decisión propia.</td></tr>
+        <tr><td class="k">Datos cuya autoridad corresponde a RENAPER</td><td class="ok">Se muestran para comparar; el sistema no los modifica.</td></tr>
+        <tr><td class="k">Datos ya cargados en el registro</td><td class="ok">No se sobrescriben. El sistema solo propone completar campos vacíos.</td></tr>
+        <tr><td class="k">Vínculos familiares vigentes</td><td class="ok">No se reemplazan sin revisión humana.</td></tr>
+        <tr><td class="k">Cónyuge actual y estado civil</td><td class="ok">No se modifican automáticamente; siempre pasan por revisión.</td></tr>
+        <tr><td class="k">DNI que no coincide exactamente con RENAPER</td><td class="ok">No habilita la incorporación automática de un vínculo.</td></tr>
+        <tr><td class="k">Aprobaciones y correcciones</td><td class="ok">Quedan registradas con operador, fecha y valores de cada fuente.</td></tr>
+        <tr><td class="k">Reprocesamiento de una misma acta</td><td class="ok">No genera registros duplicados.</td></tr>
       </tbody>
     </table>
+
+    <div class="callout blue reveal">
+      <h4>Alcance de estas reglas</h4>
+      <p>Se trata de restricciones de diseño verificadas mediante pruebas, no de una garantía estadística sobre el universo completo de actas. Como en cualquier sistema de software, si durante el período de garantía se detecta un comportamiento que se aparta de estas reglas, <strong>GG Soluciones lo corrige sin costo</strong> — ése es el remedio aplicable y la vía prevista para resolverlo.</p>
+      <p>Estas reglas gobiernan lo que hace el sistema. No alcanzan a lo que decide un operador: si una persona autorizada revisa un caso y aprueba un valor incorrecto, el sistema registra esa decisión con su autor y fecha, pero la decisión registral es del Registro Civil.</p>
+    </div>
 
     <h3 class="reveal">8.2 Valores mínimos de lectura (dependen de la calidad de imagen)</h3>
     <table class="ptable reveal">
@@ -396,7 +415,8 @@
 
     <div class="callout amber reveal">
       <h4>Por qué los mínimos son conservadores</h4>
-      <p>Los valores de la columna "mínimo comprometido" son los que GG Soluciones asume formalmente como condición de aceptación. Son deliberadamente prudentes porque hoy no está medida la calidad real del conjunto de actas del Registro. La columna "valor esperado" refleja lo que razonablemente se estima alcanzar. Después de la medición del ensayo controlado, ambas partes revisan estos números con datos reales: si el resultado lo permite, los mínimos se ajustan al alza y quedan documentados. Nunca se ajustan a la baja.</p>
+      <p>Los valores de la columna "mínimo comprometido" son los que GG Soluciones asume formalmente como condición de aceptación. Son deliberadamente prudentes porque hoy no está medida la calidad real del conjunto de actas del Registro. La columna "valor esperado" refleja lo que razonablemente se estima alcanzar. Después de la medición de calibración, ambas partes revisan estos números con datos reales: si el resultado lo permite, los mínimos se ajustan al alza y quedan documentados.</p>
+      <p><strong>Sobre qué supuesto descansan.</strong> Estos mínimos asumen un conjunto documental de calidad consistente con la muestra acordada en la fase 1. Si la medición de calibración muestra que el conjunto real es materialmente distinto —más manuscritos, mayor deterioro, formatos no representados en la muestra—, los valores se revisan entre ambas partes antes de continuar. No se trata de una condición incumplida sino de un supuesto que la medición corrigió, y se resuelve como definición de alcance, no como falla de la entrega.</p>
     </div>
 
     <div class="callout blue reveal">
@@ -444,7 +464,7 @@
         <tr><td class="k">Forma de pago</td><td>50% al inicio · 50% al entregar</td></tr>
         <tr><td class="k">Qué se considera entrega</td><td>Sistema instalado y funcionando en el entorno del Registro Civil, equipo capacitado y documentación entregada</td></tr>
         <tr><td class="k">Condición de la segunda cuota</td><td>Se factura contra la entrega del sistema terminado, según la definición anterior</td></tr>
-        <tr><td class="k">Garantía</td><td>60 días desde la entrega, corrección sin costo sobre el alcance entregado</td></tr>
+        <tr><td class="k">Garantía</td><td>60 días desde la entrega, corrección sin costo sobre el alcance entregado. No cubre funcionalidad nueva, calidad de datos preexistentes, decisiones de operadores ni cambios en servicios de terceros</td></tr>
         <tr><td class="k">Validez de la propuesta</td><td>15 días desde la fecha de emisión</td></tr>
         <tr><td class="k">Costo de procesamiento</td><td>Se factura aparte, contra consumo real y comprobante del proveedor, sin recargo — ver sección 6.1</td></tr>
         <tr><td class="k">Revisión operativa de las actas</td><td>Se cotiza aparte según el resultado del ensayo controlado — ver Anexo A</td></tr>
