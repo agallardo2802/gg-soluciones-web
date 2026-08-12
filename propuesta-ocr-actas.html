@@ -77,7 +77,7 @@
       <tr><td class="k">Cliente</td><td>Registro Civil de la Provincia de Jujuy</td></tr>
       <tr><td class="k">Ejecutor</td><td>GG Soluciones</td></tr>
       <tr><td class="k">Responsable</td><td>Alejandro Gallardo — Dirección de proyecto y arquitectura</td></tr>
-      <tr><td class="k">Versión</td><td>1.4 — 12 de agosto de 2026</td></tr>
+      <tr><td class="k">Versión</td><td>1.5 — 12 de agosto de 2026</td></tr>
       <tr><td class="k">Esfuerzo estimado</td><td>Del orden de 80 horas (tarifa ARS 68.625/h)</td></tr>
       <tr><td class="k">Presupuesto de referencia</td><td>ARS 5.490.000</td></tr>
       <tr><td class="k">Plazo estimado</td><td>6 semanas</td></tr>
@@ -131,7 +131,7 @@
 
     <div class="callout amber reveal">
       <h4>Un ejemplo concreto del ensayo inicial</h4>
-      <p>Durante las primeras pruebas de procesamiento, el sistema detectó <strong>337 casos en los que la condición de "fallecido" estaba siendo tratada como un vínculo familiar</strong>, al mismo nivel que "padre" o "cónyuge". Es un error estructural: fallecer no es una relación con otra persona, es un hecho registral de la propia persona.</p>
+      <p>En una medición sobre 421 actas ya extraídas (12 de agosto de 2026), el sistema detectó <strong>337 casos en los que la condición de "fallecido" estaba siendo tratada como un vínculo familiar</strong>, al mismo nivel que "padre" o "cónyuge". Es un error estructural: fallecer no es una relación con otra persona, es un hecho registral de la propia persona.</p>
       <p>Ninguna herramienta genérica de lectura puede detectar algo así, porque no conoce el modelo de datos del Registro Civil ni el significado jurídico de cada campo. Solo se detecta con desarrollo que entienda el dominio — y si no se detecta, se incorporan al registro cientos de miles de vínculos familiares inexistentes.</p>
     </div>
 
@@ -160,9 +160,9 @@
       <li>Antes de confirmar, el operador ve exactamente qué datos se van a incorporar.</li>
       <li>El sistema verifica que la información no haya cambiado desde que el operador empezó la revisión.</li>
       <li>Solo se incorporan datos cuando la revisión está completa y el caso sigue asignado al operador.</li>
-      <li>El sistema completa los campos vacíos; no reemplaza datos que el Registro ya tiene cargados.</li>
-      <li>Si hay diferencias entre lo detectado y lo existente, quedan registradas para análisis, sin sobrescribir nada.</li>
-      <li>Los datos de identidad cuya autoridad corresponde a RENAPER se muestran para comparar, pero no se modifican.</li>
+      <li>Sobre los hechos que prueba el acta (número, fecha y lugar de nacimiento), el sistema completa los campos vacíos; no reemplaza en silencio lo que el Registro ya tiene cargado.</li>
+      <li>Si hay diferencias entre lo detectado en el acta y lo existente, quedan registradas para análisis y van a revisión humana — nunca se sobrescriben solas.</li>
+      <li>Nombre, CUIL, género y domicilio tienen autoridad de RENAPER: cuando la identidad queda comprobada, esos campos <strong>sí</strong> se actualizan desde RENAPER. El sistema nunca los toma ni los corrige a partir de la lectura del acta.</li>
     </ul>
 
     <h3 class="reveal">3.5 Curación de vínculos familiares</h3>
@@ -367,8 +367,8 @@
     </div>
 
     <div class="callout blue reveal">
-      <h4>Por qué se contempla doble lectura</h4>
-      <p>Una de las reglas de validación automática más confiables consiste en leer cada acta <strong>dos veces de forma independiente</strong> y aceptar el dato solo si ambas lecturas coinciden. Eso duplica el costo de procesamiento, pero es lo que permite reducir drásticamente la revisión humana posterior — que, como se ve en el Anexo A, es el costo dominante del proyecto. La doble lectura puede aplicarse solo a los campos críticos (número y fecha de acta) en lugar de al documento completo; el ensayo controlado determinará si eso alcanza.</p>
+      <h4>Por qué se contempla una segunda lectura</h4>
+      <p>Una de las señales que ayuda a decidir si un dato se confirma solo es que dos lecturas del mismo documento coincidan. Esa coincidencia <strong>no reemplaza</strong> el contraste contra la base del Registro o RENAPER: dos lecturas del mismo modelo pueden repetir el mismo error, así que se trata como una señal de apoyo, no como prueba independiente por sí sola. Eso duplica el costo de procesamiento, pero es lo que permite reducir drásticamente la revisión humana posterior — que, como se ve en el Anexo A, es el costo dominante del proyecto. La segunda lectura puede aplicarse solo a los campos críticos (número y fecha de acta) en lugar de al documento completo; el ensayo controlado determinará si eso alcanza.</p>
     </div>
 
     <table class="ptable reveal">
@@ -441,8 +441,8 @@
       <thead><tr><th>Regla</th><th>Comportamiento del sistema</th></tr></thead>
       <tbody>
         <tr><td class="k">Incorporación al registro oficial</td><td class="ok">Requiere aprobación registrada de un operador. El sistema no escribe datos canónicos por decisión propia.</td></tr>
-        <tr><td class="k">Datos cuya autoridad corresponde a RENAPER</td><td class="ok">Se muestran para comparar; el sistema no los modifica.</td></tr>
-        <tr><td class="k">Datos ya cargados en el registro</td><td class="ok">No se sobrescriben. El sistema solo propone completar campos vacíos.</td></tr>
+        <tr><td class="k">Nombre, CUIL, género y domicilio (autoridad RENAPER)</td><td class="ok">Se actualizan automáticamente desde RENAPER cuando la identidad queda comprobada. El sistema nunca los infiere ni los corrige a partir de la lectura del acta — los toma de la única fuente con autoridad sobre ellos.</td></tr>
+        <tr><td class="k">Número, fecha y lugar de nacimiento (autoridad el acta)</td><td class="ok">No se sobrescriben si ya están cargados. El sistema completa el campo si está vacío; si hay una diferencia con lo cargado, queda registrada como discrepancia y va a revisión humana — nunca se reemplaza en silencio.</td></tr>
         <tr><td class="k">Vínculos familiares vigentes</td><td class="ok">No se reemplazan sin revisión humana.</td></tr>
         <tr><td class="k">Cónyuge actual y estado civil</td><td class="ok">No se modifican automáticamente; siempre pasan por revisión.</td></tr>
         <tr><td class="k">DNI que no coincide exactamente con RENAPER</td><td class="ok">No habilita la incorporación automática de un vínculo.</td></tr>
@@ -462,7 +462,7 @@
       <thead><tr><th>Criterio</th><th>Mínimo comprometido</th><th>Valor esperado</th></tr></thead>
       <tbody>
         <tr><td class="k">Muestra de calibración (fase 2, dentro del proyecto)</td><td colspan="2">400 actas etiquetadas — fija los valores definitivos con un margen de ±5 puntos</td></tr>
-        <tr><td class="k">Muestra de aceptación funcional con RC</td><td colspan="2">120 actas — verifica que el circuito completo opere de punta a punta</td></tr>
+        <tr><td class="k">Muestra de aceptación funcional con RC</td><td colspan="2">120 actas, <strong>distintas</strong> de las usadas para calibrar — verifica que el circuito completo opere de punta a punta sin medir sobre los mismos documentos que ajustaron las reglas</td></tr>
         <tr><td class="k">Actas legibles que se procesan sin error del sistema</td><td class="ok">85 de cada 100</td><td>90 a 95</td></tr>
         <tr><td class="k">Precisión en <strong>fecha</strong> de acta</td><td class="ok">85 de cada 100 valores detectados</td><td>90 a 95</td></tr>
         <tr><td class="k">Cobertura en <strong>fecha</strong> sobre actas legibles</td><td class="ok">80 de cada 100</td><td>85 a 95</td></tr>
@@ -611,9 +611,34 @@
       <p>Por eso el criterio de decisión sobre el resultado del ensayo no es económico sino operativo: si la tasa de excepciones supera el <strong>20%</strong>, la respuesta correcta no es un problema de presupuesto de procesamiento — que ya vimos que no lo es — sino <strong>ampliar el equipo de revisión</strong> o ajustar las reglas de validación automática hasta bajar esa tasa.</p>
     </div>
 
-    <h3 class="reveal">A.5 Cómo se mide antes de comprometerse: ensayo controlado</h3>
+    <h3 class="reveal">A.5 Dónde estamos parados hoy, con datos reales</h3>
+    <p class="reveal">El 12 de agosto de 2026 se reprocesaron internamente, sin consumir el servicio de lectura ni escribir en el registro, <strong>421 actas ya extraídas</strong> aplicando el contrato de datos acotado a los campos que el acta puede probar. El resultado:</p>
+
+    <table class="ptable reveal">
+      <thead><tr><th>Resultado</th><th style="text-align:right">Actas</th><th style="text-align:right">%</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Automáticas inmediatas</td><td style="text-align:right">48</td><td style="text-align:right">11,4%</td></tr>
+        <tr><td class="k">Automáticas una vez resuelta la identidad en RENAPER</td><td style="text-align:right">134</td><td style="text-align:right">31,8%</td></tr>
+        <tr><td class="k">Revisión humana</td><td style="text-align:right" class="bad">237</td><td style="text-align:right" class="bad">56,3%</td></tr>
+        <tr><td class="k">Reintento técnico</td><td style="text-align:right">2</td><td style="text-align:right">0,5%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout amber reveal">
+      <h4>Por qué esto no contradice el resto de la propuesta</h4>
+      <p>56,3% está por encima del rango de referencia de la sección A.4, y conviene decirlo sin rodeos. Pero hay dos motivos concretos por los que no es la cifra final:</p>
+      <ul class="bullets" style="margin-top:10px;">
+        <li><strong>134 de esas 237 actas (31,8% del total) dependen de RENAPER</strong>, cuya reconciliación todavía no terminó — es la precondición de la sección 5.1. Una vez cerrada, esas actas se resuelven solas y el potencial automático sube a <strong>43,2%</strong> sin cambiar una línea de código.</li>
+        <li>La medición es sobre <strong>respuestas ya extraídas con las reglas de clasificación aún sin ajustar</strong> a partir de lo que mostró este mismo replay — no es una corrida productiva con el motor final.</li>
+      </ul>
+      <p>Lo que este número demuestra es lo contrario de un problema oculto: que medir antes de comprometer un porcentaje era la decisión correcta, y que RENAPER como precondición no es un capricho de arquitectura sino la diferencia entre 43% y 12% de automatización.</p>
+    </div>
+
+    <h3 class="reveal">A.6 Cómo se mide antes de comprometerse: ensayo controlado</h3>
     <p class="reveal">Hoy nadie puede afirmar qué porcentaje de actas quedará auto-validado, y comprometerlo sin medirlo sería irresponsable. Por eso, antes de procesar la base completa, se propone un <strong>ensayo controlado sobre 5.000 actas</strong> con las siguientes condiciones:</p>
     <ul class="bullets reveal">
+      <li>Es una muestra <strong>distinta</strong> de las 400 de calibración y las 120 de aceptación: mide a escala, no ajusta reglas.</li>
+      <li>Se selecciona de forma <strong>estratificada</strong> — por época, formato, departamento y calidad de imagen — para que el resultado represente a la base real y no solo a las actas más fáciles.</li>
       <li>Se procesan 5.000 actas, pero <strong>ningún dato se incorpora al registro oficial</strong>: el sistema solo propone y registra.</li>
       <li>El 100% de los casos con contradicción se revisa manualmente.</li>
       <li>Se revisa además una muestra del 5% de los casos que el sistema dio por válidos, para verificar que efectivamente lo eran.</li>
@@ -632,7 +657,7 @@
       <p>Si la tasa de excepciones resulta <strong>igual o menor al 20%</strong>, se procede con el procesamiento masivo y se dimensiona el equipo de revisión con el dato real. Si resulta <strong>mayor al 20%</strong>, se detiene antes de procesar la base completa y se trabaja sobre las reglas de validación automática hasta bajarla — que es más barato y más rápido que cualquier alternativa de procesamiento.</p>
     </div>
 
-    <h3 class="reveal">A.6 Equipo de revisión para el remanente</h3>
+    <h3 class="reveal">A.7 Equipo de revisión para el remanente</h3>
     <p class="reveal">Una vez conocido el porcentaje real de excepciones, el Registro elige cómo cubrir esa revisión. Hay dos caminos, y ninguno de los dos es gratis — cada uno paga con algo distinto.</p>
 
     <table class="ptable reveal">
