@@ -77,7 +77,7 @@
       <tr><td class="k">Cliente</td><td>Registro Civil de la Provincia de Jujuy</td></tr>
       <tr><td class="k">Ejecutor</td><td>GG Soluciones</td></tr>
       <tr><td class="k">Responsable</td><td>Alejandro Gallardo — Dirección de proyecto y arquitectura</td></tr>
-      <tr><td class="k">Versión</td><td>1.3 — 5 de agosto de 2026</td></tr>
+      <tr><td class="k">Versión</td><td>1.4 — 12 de agosto de 2026</td></tr>
       <tr><td class="k">Esfuerzo estimado</td><td>Del orden de 80 horas (tarifa ARS 68.625/h)</td></tr>
       <tr><td class="k">Presupuesto de referencia</td><td>ARS 5.490.000</td></tr>
       <tr><td class="k">Plazo estimado</td><td>6 semanas</td></tr>
@@ -86,15 +86,17 @@
 
     <div class="callout blue reveal">
       <h4>Sobre este presupuesto</h4>
-      <p>El proyecto parte de un sistema de lectura automática que ya existe y fue desarrollado por GG Soluciones. Eso permite concentrar el trabajo en lo que RC realmente necesita hoy: actas de nacimiento. El presupuesto refleja ese punto de partida; no contempla rediseño general ni nuevos tipos de actas. El uso de herramientas de desarrollo asistidas por inteligencia artificial en la propia construcción del sistema también reduce el tiempo respecto a un desarrollo tradicional, sin afectar el proceso de pruebas ni los criterios de aceptación — es la misma razón por la que las horas bajan de las 200 originales a 80.</p>
+      <p>El proyecto parte de un sistema de lectura automática que ya existe y fue desarrollado por GG Soluciones. Eso permite concentrar el trabajo en lo que RC realmente necesita hoy: actas de nacimiento.</p>
+      <p>Las 80 horas presupuestadas se explican por tres factores concretos: los componentes centrales <strong>ya están construidos y en funcionamiento</strong>, el equipo <strong>conoce el modelo de datos del Registro</strong> por trabajos previos sobre el mismo sistema, y buena parte de la verificación está automatizada desde desarrollos anteriores. No se reduce alcance ni se relajan los criterios de aceptación: se aprovecha lo que ya existe.</p>
     </div>
 
     <h2 class="reveal">1. Resumen</h2>
-    <p class="reveal">El proyecto pone en funcionamiento un proceso de lectura automática de actas de nacimiento con revisión humana obligatoria. El sistema extrae los datos de cada acta a partir de su imagen, los muestra a un operador para que los revise y corrija, y solo los incorpora al registro oficial después de una aprobación explícita.</p>
+    <p class="reveal">El proyecto pone en funcionamiento un proceso de lectura automática de actas de nacimiento. El sistema extrae los datos de cada acta a partir de su imagen, los contrasta contra la base del Registro, RENAPER y los catálogos oficiales, y clasifica cada dato según la evidencia que lo respalda. Lo que queda corroborado se confirma solo; lo que presenta contradicción, ambigüedad o riesgo se deriva a una persona.</p>
     <p class="reveal">Los componentes principales —lectura de imágenes, almacenamiento, base de datos de revisión y pantalla de trabajo— ya están construidos. El proyecto los consolida, los calibra con documentos reales del Registro Civil, completa las pruebas de aceptación y deja la operación funcionando de forma controlada.</p>
     <div class="callout amber reveal">
-      <h4>Sin carga automática al sistema oficial</h4>
-      <p>El sistema nunca incorpora datos al registro oficial sin que una persona los revise y apruebe primero. Un acta procesada queda como "borrador pendiente de revisión" hasta que un operador confirma cada campo.</p>
+      <h4>Validación por evidencia, revisión humana por excepción</h4>
+      <p>Este es el principio que gobierna todo el sistema. Un dato se confirma automáticamente <strong>solo cuando existe evidencia corroborada entre fuentes</strong> —por ejemplo, cuando lo que dice la imagen coincide con lo que ya figura en el registro—. Todo lo demás va a revisión humana: contradicciones, ambigüedades, datos sin corroborar e imágenes ilegibles.</p>
+      <p>Ningún dato entra al registro por inercia: o hay evidencia que lo respalda, o hay una persona que lo aprueba. Y hay tres operaciones que <strong>siempre</strong> requieren revisión humana, sin importar cuánta evidencia haya: reemplazar un vínculo familiar vigente, modificar el estado civil, y cualquier caso donde el DNI no coincida exactamente con RENAPER.</p>
     </div>
 
     <h2 class="reveal">2. Qué gana el Registro Civil</h2>
@@ -198,6 +200,12 @@
       <p>Un acta de matrimonio prueba que ese matrimonio existió, pero no prueba que esa persona esté casada hoy. Entre medio puede haber un divorcio, un nuevo matrimonio o un fallecimiento. Por eso el sistema registra cada hecho registral en una línea de tiempo y <strong>nunca deduce el cónyuge actual de un acta aislada</strong>: para afirmar el estado civil vigente necesita la cadena completa de hechos, y mientras no la tenga, deriva el caso a revisión.</p>
     </div>
 
+    <div class="callout amber reveal">
+      <h4>Aclaración de alcance: estas son reglas de protección, no lectura de actas de matrimonio</h4>
+      <p>El alcance base de este proyecto es <strong>actas de nacimiento</strong>. Las reglas sobre cónyuge y estado civil existen porque el sistema <em>se encuentra</em> con esos datos —ya están cargados en la base del Registro, o aparecen como anotaciones marginales en el propio acta de nacimiento—, y necesita saber qué hacer con ellos. La respuesta es: no tocarlos automáticamente.</p>
+      <p>Leer e incorporar actas de matrimonio y defunción es un trabajo distinto, con su propio contrato de extracción y sus propias reglas. Está cotizado por separado en la sección 6.2.</p>
+    </div>
+
     <h3 class="reveal">3.6 Historial y auditoría</h3>
     <ul class="bullets reveal">
       <li>Cada revisión queda registrada con el nombre del operador, la fecha y el resultado.</li>
@@ -237,7 +245,7 @@
       <thead><tr><th>Actividad</th><th>Quién la asume</th></tr></thead>
       <tbody>
         <tr><td class="k">Revisión y aprobación de cada acta del histórico</td><td>Registro Civil — ver Anexo A (no incluida en este presupuesto)</td></tr>
-        <tr><td class="k">Actas de matrimonio y defunción</td><td>Etapa posterior, se presupuesta por separado</td></tr>
+        <tr><td class="k">Actas de matrimonio y defunción</td><td>Fuera del alcance base. Cotizadas como extensión en la sección 6.2, a decisión del Registro</td></tr>
         <tr><td class="k">Mejora de imágenes deterioradas o manuscritas</td><td>Etapa posterior o resolución manual del Registro</td></tr>
         <tr><td class="k">Operación diaria y supervisión del proceso</td><td>Registro Civil</td></tr>
         <tr><td class="k">Soporte y evolución posterior al cierre</td><td>Se acuerda por separado si el Registro lo requiere</td></tr>
@@ -264,6 +272,31 @@
         <tr><td class="k">Infraestructura de servidores y licencias</td><td>Define requerimientos</td><td class="ok">Responsable de proveerlos</td></tr>
       </tbody>
     </table>
+
+    <h3 class="reveal">5.1 Condiciones que deben cumplirse antes de procesar</h3>
+    <p class="reveal">Hay dos cuestiones que deben quedar resueltas <strong>antes</strong> de que empiece el procesamiento de actas. No son trámites administrativos: si alguna no está cerrada, el trabajo posterior queda comprometido.</p>
+
+    <table class="ptable reveal">
+      <thead><tr><th>Condición</th><th>Por qué es previa</th><th>Quién la resuelve</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Reconciliación de RENAPER completa</td><td>RENAPER es la fuente de autoridad para identificar personas. Si la reconciliación no está terminada, el sistema no puede resolver a quién corresponde cada dato ni validar vínculos con seguridad. Procesar antes genera resultados que habría que rehacer.</td><td class="ok">Registro Civil</td></tr>
+        <tr><td class="k">Aprobación del tratamiento de datos</td><td>Las actas contienen datos personales de ciudadanos. Enviarlas a un servicio externo requiere definición institucional previa.</td><td class="ok">Registro Civil, con asesoramiento de GGS</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout amber reveal">
+      <h4>Tratamiento de datos personales: qué hay que definir</h4>
+      <p>El servicio de lectura automática es un proveedor externo que recibe imágenes de actas con datos personales. Antes de enviar cualquier acta que no sea de prueba, el Registro debe aprobar formalmente estos puntos:</p>
+      <ul class="bullets" style="margin-top:10px;">
+        <li><strong>Retención:</strong> cuánto tiempo conserva el proveedor las imágenes y los datos enviados.</li>
+        <li><strong>Uso para entrenamiento:</strong> si el proveedor puede utilizar el contenido para entrenar sus modelos, y cómo se desactiva esa opción.</li>
+        <li><strong>Ubicación de los datos:</strong> en qué jurisdicción se procesan y almacenan.</li>
+        <li><strong>Subprocesadores:</strong> qué terceros intervienen en la cadena de procesamiento.</li>
+        <li><strong>Cifrado:</strong> en tránsito y en reposo.</li>
+        <li><strong>Eliminación:</strong> procedimiento y plazo para borrar lo enviado, y constancia de la eliminación.</li>
+      </ul>
+      <p style="margin-top:10px;">GG Soluciones aporta la información técnica de cada proveedor evaluado y acompaña el análisis. <strong>La aprobación es del Registro Civil</strong>, que puede requerir intervención de Fiscalía de Estado o del área legal según corresponda. Si el Registro define que los datos no pueden salir de su infraestructura, se evalúa una alternativa de procesamiento local — con impacto en costo y plazo que se cotiza por separado.</p>
+    </div>
 
     <div class="callout blue reveal">
       <h4>Garantía de funcionamiento</h4>
@@ -352,6 +385,31 @@
       <p>Los valores del servicio de lectura se expresan originalmente en dólares y se convierten a pesos al tipo de cambio vigente al momento de cada facturación. <strong>No se procesa ningún lote masivo sin autorización previa del Registro.</strong> Como se detalla en el Anexo A, este costo — incluso con el margen de seguridad aplicado — resulta irrelevante frente al costo de desarrollo y, sobre todo, frente al costo de la revisión humana posterior, que es el verdadero factor económico del proyecto.</p>
     </div>
 
+    <div class="callout amber reveal">
+      <h4>Esta tarifa es una estimación, no un valor contractual</h4>
+      <p>Los proveedores de este tipo de servicio manejan <strong>esquemas de precio distintos según la modalidad</strong>: planes de suscripción con cuota mensual, o pago por consumo con precios diferenciados para entrada, salida y contexto. Además aplican cuotas variables y límites de uso que pueden condicionar un procesamiento masivo.</p>
+      <p>Por eso el valor de esta sección se presenta como <strong>estimación presupuestaria para dimensionar el proyecto</strong>, no como precio cerrado. La tarifa definitiva y la modalidad de contratación se confirman durante el ensayo controlado, antes de cualquier procesamiento masivo y con autorización expresa del Registro. Si la tarifa confirmada difiere de la estimada, se informa antes de ejecutar.</p>
+    </div>
+
+    <h3 class="reveal">6.2 Extensiones cotizadas: matrimonio y defunción</h3>
+    <p class="reveal">El alcance base cubre actas de nacimiento. Incorporar los otros dos tipos de acta requiere trabajo adicional: cada tipo tiene su propio contrato de extracción, sus campos, sus reglas de vínculo y su propia muestra de calibración. Se cotizan por separado para que el Registro decida si los incorpora ahora o más adelante.</p>
+
+    <table class="ptable reveal">
+      <thead><tr><th>Extensión</th><th>Qué incluye</th><th style="text-align:right">Horas</th><th style="text-align:right">Costo ARS</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Actas de matrimonio</td><td>Contrato de extracción, identificación de ambos cónyuges, vínculo conyugal con validez temporal, anotaciones marginales de divorcio, muestra de calibración y pruebas</td><td style="text-align:right">40</td><td style="text-align:right">2.745.000</td></tr>
+        <tr><td class="k">Actas de defunción</td><td>Contrato de extracción, hecho registral de fallecimiento, efecto sobre el estado civil del cónyuge supérstite, muestra de calibración y pruebas</td><td style="text-align:right">28</td><td style="text-align:right">1.921.500</td></tr>
+        <tr><td colspan="2"><strong>Ambas extensiones</strong></td><td style="text-align:right"><strong>68</strong></td><td style="text-align:right"><strong>4.666.500</strong></td></tr>
+        <tr><td colspan="2"><strong>Alcance base + ambas extensiones</strong></td><td style="text-align:right"><strong>148</strong></td><td style="text-align:right"><strong>10.156.500</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout blue reveal">
+      <h4>Por qué matrimonio cuesta más que defunción</h4>
+      <p>Una defunción es un hecho de una sola persona con una fecha. Un matrimonio involucra a dos personas que hay que identificar por separado contra RENAPER, crea un vínculo que puede terminar, y arrastra anotaciones marginales de divorcio que modifican el estado civil de ambos. Es el tipo de acta con mayor riesgo de generar vínculos incorrectos, y por eso lleva más horas de reglas y pruebas.</p>
+      <p><strong>Recomendación:</strong> incorporar las extensiones recién después de que el alcance base esté aceptado y el ensayo controlado haya medido la tasa real de excepciones sobre nacimientos. Sumar tres tipos de acta antes de tener ese dato multiplica el riesgo sin ninguna ventaja.</p>
+    </div>
+
     <h2 class="reveal">7. Plazo</h2>
     <p class="reveal"><strong>Duración estimada: 6 semanas</strong>, con trabajo coordinado entre GG Soluciones y referentes del Registro Civil.</p>
 
@@ -370,6 +428,7 @@
     <div class="callout amber reveal">
       <h4>Condición de plazo</h4>
       <p>El plazo supone que el Registro Civil puede entregar los documentos de la muestra y responder observaciones dentro de 48 horas hábiles. Demoras en el acceso a las actas o en la validación de resultados desplazan el calendario sin afectar las horas comprometidas.</p>
+      <p><strong>Estas 6 semanas cuentan desde que están cumplidas las condiciones previas de la sección 5.1</strong> —reconciliación de RENAPER terminada y tratamiento de datos aprobado—. El desarrollo puede avanzar en paralelo a esas definiciones, pero el procesamiento de actas reales no arranca hasta que estén cerradas.</p>
     </div>
 
     <h2 class="reveal">8. Criterios de aceptación</h2>
@@ -438,14 +497,15 @@
         <tr><td class="k">Inconsistencias entre partes del sistema</td><td>Pruebas de integración entre módulos; ante cualquier duda el sistema rechaza la operación antes de aprobar algo incompleto</td></tr>
         <tr><td class="k">Actas sin imagen disponible en el sistema</td><td>No se procesan; quedan marcadas como excepción para resolución del Registro</td></tr>
         <tr><td class="k">Asumir que el sistema funciona sin hacer pruebas reales</td><td>Las pruebas de aceptación con el equipo de RC son obligatorias antes de la puesta en marcha</td></tr>
-        <tr><td class="k">Querer sumar matrimonios o defunciones sin planificación</td><td>Quedan fuera del alcance; se presupuestan como una etapa posterior separada</td></tr>
+        <tr><td class="k">Sumar matrimonios o defunciones sin cerrar antes el alcance base</td><td>Están cotizados como extensión separada (sección 6.2). La recomendación es incorporarlos recién con el alcance base aceptado y la tasa de excepciones de nacimientos ya medida</td></tr>
+        <tr><td class="k">Iniciar el procesamiento antes de reconciliar RENAPER</td><td>Es condición previa (sección 5.1): sin la identificación de personas resuelta, los vínculos no pueden validarse y el trabajo habría que rehacerlo</td></tr>
       </tbody>
     </table>
 
     <h2 class="reveal">10. Fuera de alcance</h2>
     <ul class="bullets reveal">
       <li>Incorporación automática de datos al sistema oficial sin revisión humana.</li>
-      <li>Lectura de actas de matrimonio o defunción.</li>
+      <li>Lectura de actas de matrimonio o defunción — cotizadas aparte en la sección 6.2.</li>
       <li>Digitalización física o mejora manual de imágenes deterioradas.</li>
       <li>Corrección de datos históricos fuera de la muestra acordada.</li>
       <li>Reemplazar a RENAPER como fuente de datos de identidad.</li>
@@ -466,7 +526,9 @@
         <tr><td class="k">Condición de la segunda cuota</td><td>Se factura contra la entrega del sistema terminado, según la definición anterior</td></tr>
         <tr><td class="k">Garantía</td><td>60 días desde la entrega, corrección sin costo sobre el alcance entregado. No cubre funcionalidad nueva, calidad de datos preexistentes, decisiones de operadores ni cambios en servicios de terceros</td></tr>
         <tr><td class="k">Validez de la propuesta</td><td>15 días desde la fecha de emisión</td></tr>
-        <tr><td class="k">Costo de procesamiento</td><td>Se factura aparte, contra consumo real y comprobante del proveedor, sin recargo — ver sección 6.1</td></tr>
+        <tr><td class="k">Alcance base</td><td>Actas de nacimiento. Matrimonio y defunción se cotizan como extensión — ver sección 6.2</td></tr>
+        <tr><td class="k">Condiciones previas</td><td>Reconciliación de RENAPER y aprobación del tratamiento de datos — ver sección 5.1</td></tr>
+        <tr><td class="k">Costo de procesamiento</td><td>Se factura aparte, contra consumo real y comprobante del proveedor, sin recargo. Es estimación, no precio cerrado — ver sección 6.1</td></tr>
         <tr><td class="k">Revisión operativa de las actas</td><td>Se cotiza aparte según el resultado del ensayo controlado — ver Anexo A</td></tr>
         <tr><td class="k">No incluye</td><td>Impuestos, infraestructura de servidores, licencias, servicios de terceros y soporte mensual posterior</td></tr>
         <tr><td class="k">Cambios de alcance</td><td>Requieren estimación y aprobación previa por escrito antes de ejecutarse</td></tr>
@@ -496,21 +558,14 @@
       <p>Revisar manualmente las 976.668 actas costaría <strong>23 veces más que el desarrollo del sistema</strong> y llevaría más de una década. No es una cuestión de presupuesto: es matemáticamente inviable con cualquier equipo de tamaño razonable. Por eso el objetivo real del proyecto no es "leer las actas automáticamente" sino <strong>lograr que la mayoría de las actas no necesiten revisión humana</strong>.</p>
     </div>
 
-    <h3 class="reveal">A.2 La variable que decide todo: el porcentaje que requiere revisión</h3>
-    <p class="reveal">El sistema confirma automáticamente los datos cuando existe evidencia suficiente: cuando dos lecturas independientes coinciden, cuando el valor detectado coincide con lo que ya figura en la base del Registro, o cuando el lugar detectado resuelve de forma única contra el catálogo oficial. Solo los casos con contradicción, ambigüedad o imagen ilegible pasan a una persona.</p>
-    <p class="reveal">El costo y el plazo de la operación dependen enteramente de ese porcentaje:</p>
-
-    <table class="ptable reveal">
-      <thead><tr><th>Requieren revisión humana</th><th style="text-align:right">Actas</th><th style="text-align:right">Costo ARS</th><th style="text-align:right">Meses con 2 revisores</th></tr></thead>
-      <tbody>
-        <tr><td class="k">100% (sin validación automática)</td><td style="text-align:right">976.668</td><td style="text-align:right">138.700.000</td><td style="text-align:right" class="bad">139</td></tr>
-        <tr><td class="k">30%</td><td style="text-align:right">293.000</td><td style="text-align:right">41.600.000</td><td style="text-align:right">42</td></tr>
-        <tr><td class="k">20%</td><td style="text-align:right">195.334</td><td style="text-align:right">27.700.000</td><td style="text-align:right">28</td></tr>
-        <tr><td class="k">10%</td><td style="text-align:right">97.667</td><td style="text-align:right">13.900.000</td><td style="text-align:right">14</td></tr>
-        <tr><td class="k">5%</td><td style="text-align:right">48.833</td><td style="text-align:right" class="ok">6.900.000</td><td style="text-align:right" class="ok">7</td></tr>
-        <tr><td class="k">2%</td><td style="text-align:right">19.533</td><td style="text-align:right" class="ok">2.800.000</td><td style="text-align:right" class="ok">3</td></tr>
-      </tbody>
-    </table>
+    <h3 class="reveal">A.2 Cómo la validación automática reduce esa cola</h3>
+    <p class="reveal">La única salida a ese volumen es que la mayoría de las actas no necesite pasar por una persona. Para eso el sistema confirma un dato automáticamente cuando la evidencia lo respalda:</p>
+    <ul class="bullets reveal">
+      <li>El valor leído en la imagen <strong>coincide con lo que ya figura</strong> en la base del Registro.</li>
+      <li>El lugar detectado <strong>resuelve de forma única</strong> contra el catálogo oficial.</li>
+      <li>La identidad de la persona <strong>queda corroborada</strong> contra RENAPER.</li>
+    </ul>
+    <p class="reveal">Pasan a una persona los casos con contradicción entre fuentes, ambigüedad sin resolver, imagen ilegible, y las operaciones de riesgo que la sección 3.5 marca como revisión obligatoria. El porcentaje que cae de cada lado es lo que determina el costo y el plazo de toda la operación — y se cuantifica en la sección A.4.</p>
 
     <h3 class="reveal">A.3 Cuánto puede fallar el presupuesto de procesamiento sin afectar la decisión</h3>
     <p class="reveal">El costo de procesamiento de la sección 6.1 ya incluye un margen de seguridad de cinco veces sobre la tarifa más económica evaluada, para no depender de qué proveedor se termine usando. Pero conviene ir más allá y preguntar: <strong>¿qué tan mal tendría que salir esa estimación para que la automatización deje de convenir?</strong></p>
@@ -530,7 +585,7 @@
       <p>Lo que sí decide el resultado económico y operativo del proyecto es <strong>qué porcentaje de actas requiere revisión humana</strong> — desarrollado en la sección siguiente.</p>
     </div>
 
-    <h3 class="reveal">A.4 La variable que realmente decide: el porcentaje que requiere revisión</h3>
+    <h3 class="reveal">A.4 Cuánto cuesta y cuánto tarda según ese porcentaje</h3>
     <p class="reveal">Con el costo de procesamiento neutralizado, todo el resultado económico depende de un solo número: cuántas actas de cada cien necesitan pasar por un revisor humano. La siguiente tabla muestra el costo total — procesamiento más revisión — para distintas tasas de excepción, contra los ARS 138,7 millones de revisar todo a mano.</p>
 
     <table class="ptable reveal">
@@ -563,7 +618,7 @@
       <li>El 100% de los casos con contradicción se revisa manualmente.</li>
       <li>Se revisa además una muestra del 5% de los casos que el sistema dio por válidos, para verificar que efectivamente lo eran.</li>
       <li>Se revisa el 100% de los casos donde el sistema pretenda reemplazar un dato ya existente.</li>
-      <li>Se mide por separado el resultado en lugar de nacimiento, filiación paterna/materna y datos de matrimonio.</li>
+      <li>Se mide por separado el resultado en lugar de nacimiento y en filiación paterna/materna, que son los dos frentes de mayor riesgo.</li>
     </ul>
 
     <div class="callout amber reveal">
