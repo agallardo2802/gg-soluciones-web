@@ -62,7 +62,7 @@
   <div class="wrap">
     <span class="eyebrow"><span class="dot"></span> Propuesta técnica y económica · Confidencial · Agosto 2026</span>
     <h1>OCR asistido para actas de <span class="accent-text">nacimiento</span></h1>
-    <p class="lead">Consolidación de una solución para extraer hechos registrales desde imágenes, contrastarlos con RENAPER y catálogos oficiales, y operar primero sin modificar datos canónicos. La incorporación al Registro sólo se habilita de forma controlada, trazable y autorizada.</p>
+    <p class="lead">El sistema leerá actas de nacimiento, comparará los datos con RENAPER y los catálogos oficiales, y separará los casos seguros de los que necesitan revisión humana. Las primeras pruebas no modificarán el registro oficial; cualquier incorporación posterior será controlada, trazable y autorizada.</p>
     <div class="doc-actions" style="display:flex;gap:12px;flex-wrap:wrap;">
       <button class="btn btn-primary" onclick="window.print()">Descargar / Imprimir PDF</button>
       <a class="btn btn-ghost" href="https://wa.me/5493885120704" target="_blank" rel="noopener">Coordinar reunión</a>
@@ -75,17 +75,19 @@
 
     <table class="ptable">
       <tr><td class="k">Cliente</td><td>Registro Civil de la Provincia de Jujuy</td></tr>
+      <tr><td class="k">Destinatario</td><td>Octavio Rivas — Director</td></tr>
       <tr><td class="k">Ejecutor</td><td>GG Soluciones</td></tr>
       <tr><td class="k">Responsable</td><td>Alejandro Gallardo — Dirección de proyecto y arquitectura</td></tr>
-      <tr><td class="k">Versión</td><td>1.7 — 12 de agosto de 2026</td></tr>
+      <tr><td class="k">Versión</td><td>1.8 — 12 de agosto de 2026</td></tr>
       <tr><td class="k">Alcance base</td><td>Actas de nacimiento</td></tr>
-      <tr><td class="k">Desarrollo</td><td>80 horas · 6 semanas · ARS 5.490.000</td></tr>
+      <tr><td class="k">Desarrollo</td><td>80 horas estimadas · 6 semanas · ARS 8.490.000</td></tr>
       <tr><td class="k">Clasificación</td><td>Confidencial · Uso interno</td></tr>
     </table>
 
     <div class="callout blue reveal">
       <h4>Decisión solicitada</h4>
-      <p>Aprobar un alcance inicial acotado a <strong>actas de nacimiento</strong>, por <strong>ARS 5.490.000</strong> de desarrollo, más un costo estimado de <strong>USD 600 de inteligencia artificial</strong>, sujeto al consumo real. La validación humana posterior no está incluida en ese valor: el Registro podrá realizarla con personal propio o contratar el paquete opcional de dos validadores durante dos meses detallado en el Anexo A.</p>
+      <p>Se solicita aprobar el desarrollo del alcance inicial para <strong>actas de nacimiento</strong> por <strong>ARS 8.490.000</strong>, más un costo estimado de <strong>USD 600 de inteligencia artificial</strong>, sujeto al consumo real.</p>
+      <p>La validación humana posterior se decide por separado: puede realizarla personal del Registro sin una factura adicional de GGS, o puede contratarse el paquete opcional de dos validadores durante dos meses por <strong>ARS 3.200.000</strong>. Si se elige esta opción, la inversión en servicios GGS será de <strong>ARS 11.690.000</strong>, más el consumo de IA.</p>
       <p>La decisión sobre quién valida y sobre cualquier ampliación de volumen se toma después del piloto, con la tasa real de excepciones, el consumo promedio por acta y la evidencia de seguridad disponibles.</p>
     </div>
 
@@ -95,7 +97,7 @@
     <table class="ptable reveal">
       <thead><tr><th>Capa</th><th>Qué cubre</th><th style="text-align:right">Importe</th></tr></thead>
       <tbody>
-        <tr><td class="k">1. Desarrollo</td><td>Consolidación para nacimientos, integración controlada, pruebas, piloto, auditoría, capacitación y puesta en marcha acordada.</td><td style="text-align:right"><strong>ARS 5.490.000</strong><br/>80 h × ARS 68.625</td></tr>
+        <tr><td class="k">1. Desarrollo</td><td>Consolidación para nacimientos, integración controlada, pruebas, piloto, auditoría, capacitación y puesta en marcha acordada.</td><td style="text-align:right"><strong>ARS 8.490.000</strong><br/>Precio cerrado del alcance</td></tr>
         <tr><td class="k">2. IA / tokens</td><td>Procesamiento del proveedor de IA, medido por tokens de entrada y salida. Se factura por consumo real, sin recargo y contra comprobante.</td><td style="text-align:right"><strong>USD 600 estimados</strong><br/>Variable según consumo</td></tr>
         <tr><td class="k">3. Validación humana</td><td>Revisión de excepciones por un operador. Puede resolverla el Registro o contratarse a GGS por separado.</td><td style="text-align:right">Opcional<br/>Ver Anexo A</td></tr>
       </tbody>
@@ -103,7 +105,7 @@
 
     <div class="callout amber reveal">
       <h4>Qué significa el precio de desarrollo</h4>
-      <p>Las 80 horas son un precio de referencia para un alcance acotado a nacimientos y aprovechan componentes ya desarrollados, automatización interna y conocimiento acumulado del dominio. No incluyen matrimonio, defunción, operación humana masiva, consumo del proveedor de IA ni ampliaciones derivadas de dependencias o reglas nuevas.</p>
+      <p>Los ARS 8.490.000 corresponden al desarrollo completo del alcance base de nacimientos. Las 80 horas son una estimación de planificación; el precio no cambia por la distribución interna de esas horas. No incluye matrimonio, defunción, validación humana masiva, consumo del proveedor de IA ni nuevas funcionalidades.</p>
     </div>
 
   <h3 class="reveal">1.1 Costo variable de IA</h3>
@@ -117,21 +119,21 @@
     </div>
 
     <h2 class="reveal">2. Qué existe y qué falta</h2>
-    <p class="reveal">La propuesta no parte de cero, pero tampoco presenta como productivo un flujo que todavía debe completar sus gates. Esta distinción es central para evaluar correctamente el plazo y el riesgo.</p>
+  <p class="reveal">La propuesta no parte de cero, pero el circuito completo todavía debe superar etapas de control antes de operar sobre el registro oficial. Esta distinción permite evaluar con claridad el plazo y el riesgo.</p>
     <table class="ptable reveal">
       <thead><tr><th>Estado comprobado</th><th>Pendiente técnico antes de escribir</th></tr></thead>
       <tbody>
-        <tr><td>Worker OCR y ejecución en modo shadow.</td><td>Finalizar y reconciliar la migración RENAPER.</td></tr>
-        <tr><td>Persistencia de extracciones, evidencia, campos, relaciones y auditoría.</td><td>Conectar el contrato registral reducido al worker mediante feature flag.</td></tr>
-        <tr><td>Cola de revisión, visor de imagen y aprobación administrativa.</td><td>Completar el upsert RENAPER y la aplicación transaccional de hechos y filiaciones.</td></tr>
-        <tr><td>Control de ritmo, cuotas, reintentos y alertas operativas.</td><td>Completar catálogos, validar concurrencia, backup y rollback.</td></tr>
-        <tr><td>Proyección histórica sin nuevas llamadas de IA ni escrituras canónicas.</td><td>Ejecutar el piloto de 25 actas y acordar aceptación con usuarios del Registro.</td></tr>
+        <tr><td>Motor OCR y ejecución de prueba sin modificar el registro oficial.</td><td>Finalizar y reconciliar la migración RENAPER.</td></tr>
+        <tr><td>Almacenamiento de extracciones, evidencia, campos, relaciones y auditoría.</td><td>Conectar las reglas de nacimientos al motor mediante activación controlada.</td></tr>
+        <tr><td>Cola de revisión, visor de imagen y aprobación administrativa.</td><td>Completar la actualización segura desde RENAPER y la incorporación controlada de hechos y filiaciones.</td></tr>
+        <tr><td>Control de ritmo, cuotas, reintentos y alertas operativas.</td><td>Completar catálogos y verificar respaldo, trabajo simultáneo y reversión.</td></tr>
+        <tr><td>Proyección histórica sin nuevas llamadas de IA ni modificaciones oficiales.</td><td>Ejecutar el piloto de 25 actas y acordar la aceptación con usuarios del Registro.</td></tr>
       </tbody>
     </table>
     <p class="reveal">Por lo tanto, existe una base tecnológica reutilizable y evidencia de procesamiento previo, pero <strong>no se afirma que hoy esté probado el circuito productivo completo</strong>. Esa prueba forma parte del trabajo propuesto y se realiza de manera gradual.</p>
 
     <h3 class="reveal">2.1 Evidencia histórica disponible</h3>
-    <p class="reveal">Un replay sobre 421 actas ya persistidas proyectó la clasificación del contrato reducido sin consumir MiniMax y sin modificar la base canónica. Es una medición histórica para orientar el diseño; no es una corrida productiva ni una promesa de automatización futura.</p>
+  <p class="reveal">Un nuevo análisis sobre 421 actas ya procesadas permitió proyectar la clasificación sin consumir IA adicional ni modificar la base oficial. Es una medición histórica para orientar el diseño; no es una ejecución productiva ni una promesa de automatización futura.</p>
     <table class="ptable reveal">
       <thead><tr><th>Clasificación proyectada</th><th style="text-align:right">Actas</th><th style="text-align:right">Proporción</th></tr></thead>
       <tbody>
@@ -147,46 +149,46 @@
     <h2 class="reveal">3. Alcance y entregables</h2>
     <p class="reveal">El alcance base cubre exclusivamente actas de nacimiento. El OCR extrae los hechos que el acta puede demostrar —tipo y número de acta, DNI vinculados, fecha y lugar de nacimiento— y utiliza RENAPER como autoridad para identidad y domicilio. La filiación sólo puede proponerse cuando las personas se resuelven de forma segura.</p>
     <ul class="bullets reveal">
-      <li>Integración del contrato reducido de nacimientos con el worker productivo bajo feature flag.</li>
+    <li>Integración de las reglas de nacimientos con el motor productivo mediante activación controlada.</li>
       <li>Clasificación por campo y relación: listo, pendiente de RENAPER, revisión humana o reintento técnico.</li>
       <li>Resolución de personas por DNI mediante RENAPER y catálogos oficiales para lugares.</li>
       <li>Cola de excepciones con imagen, evidencia, diferencias y decisión del operador.</li>
-      <li>Aplicación idempotente y transaccional de los casos expresamente autorizados.</li>
-      <li>Auditoría reconstruible: fuente, decisión, usuario, fecha, before-image y resultado.</li>
+    <li>Incorporación segura de los casos expresamente autorizados, sin generar duplicados.</li>
+    <li>Auditoría completa: fuente, decisión, usuario, fecha, valores anteriores y resultado.</li>
       <li>Métricas de actas, campos, relaciones, excepciones, reintentos, tokens, latencia y costo.</li>
       <li>Capacitación operativa, procedimiento de reversión y acompañamiento del piloto.</li>
     </ul>
     <div class="callout amber reveal">
       <h4>Fuera del alcance base</h4>
-      <p>La lectura y curación de actas de matrimonio o defunción, la inferencia de estado civil vigente, una corrida de hasta 5.000 actas, el procesamiento histórico masivo y el soporte evolutivo posterior se cotizan aparte. La arquitectura puede contemplarlos como evolución, pero no forman parte de las 80 horas ni de la aceptación de esta propuesta.</p>
+  <p>La lectura y curación de actas de matrimonio o defunción, la definición del estado civil vigente, una corrida de hasta 5.000 actas, el procesamiento histórico masivo y el soporte posterior se cotizan aparte. Pueden incorporarse en una etapa futura, pero no forman parte del precio ni de la aceptación de esta propuesta.</p>
     </div>
 
     <h2 class="reveal">4. Implementación segura por etapas</h2>
     <p class="reveal">Se adopta un único modelo operativo: primero se observa y mide; después se habilitan escrituras sólo para candidatos controlados y autorizados. La validación automática clasifica evidencia, pero no habilita por sí sola una corrida masiva.</p>
     <table class="ptable reveal">
-      <thead><tr><th>Etapa</th><th>Objetivo</th><th>Escritura canónica</th></tr></thead>
+      <thead><tr><th>Etapa</th><th>Objetivo</th><th>Modifica el registro oficial</th></tr></thead>
       <tbody>
         <tr><td class="k">0. RENAPER</td><td>Finalizar migración, deduplicación y reconciliación de personas.</td><td>Gobernada por el proceso RENAPER.</td></tr>
-        <tr><td class="k">1. Integración</td><td>Conectar el motor reducido mediante feature flag y verificar dependencias.</td><td>No.</td></tr>
-        <tr><td class="k">2. Piloto shadow</td><td>Procesar 25 actas balanceadas y revisar el 100% de campos y relaciones.</td><td class="bad">Cero escrituras.</td></tr>
-        <tr><td class="k">3. Aplicación controlada</td><td>Seleccionar sólo 5 casos sin conflicto, capturar before-image y probar rollback.</td><td>Sólo los 5 casos autorizados.</td></tr>
+        <tr><td class="k">1. Integración</td><td>Conectar el motor mediante activación controlada y verificar sus dependencias.</td><td>No.</td></tr>
+        <tr><td class="k">2. Piloto sin escrituras</td><td>Procesar 25 actas balanceadas y revisar el 100% de campos y relaciones.</td><td class="bad">No.</td></tr>
+        <tr><td class="k">3. Aplicación controlada</td><td>Seleccionar sólo 5 casos sin conflicto, guardar los valores anteriores y comprobar la reversión.</td><td>Sólo los 5 casos autorizados.</td></tr>
         <tr><td class="k">4. Ampliación gradual</td><td>Escalar a lotes mayores con límites, monitoreo y muestras de control.</td><td>Según política aprobada.</td></tr>
       </tbody>
     </table>
-    <p class="reveal">Un ensayo estratificado de hasta 5.000 actas puede acordarse como etapa posterior opcional. No reemplaza el piloto shadow de 25 ni las 5 escrituras controladas. Si un gate falla, el sistema se detiene, conserva la evidencia y se corrige antes de ampliar.</p>
+  <p class="reveal">Un ensayo representativo de hasta 5.000 actas puede acordarse como etapa posterior opcional. No reemplaza el piloto inicial de 25 ni las 5 incorporaciones controladas. Si una etapa de control falla, el sistema se detiene, conserva la evidencia y se corrige antes de ampliar.</p>
 
     <h2 class="reveal">5. Aceptación</h2>
     <p class="reveal">La aceptación no se basa en una cifra comercial aislada. Las métricas se informan por acta, campo y relación, y separan los errores técnicos de las excepciones registrales.</p>
     <table class="ptable reveal">
       <thead><tr><th>Dimensión</th><th>Criterio</th></tr></thead>
       <tbody>
-        <tr><td class="k">Integridad shadow</td><td>Cero modificaciones canónicas durante el piloto de 25.</td></tr>
+        <tr><td class="k">Prueba sin escrituras</td><td>Cero modificaciones del registro oficial durante el piloto de 25.</td></tr>
         <tr><td class="k">Seguridad registral</td><td>Cero filiaciones falsas en el piloto revisado al 100%.</td></tr>
         <tr><td class="k">Identidad</td><td>Ninguna relación se aplica sin resolución exacta y comprobable de DNI.</td></tr>
-        <tr><td class="k">Idempotencia</td><td>El reproceso no duplica hechos, personas ni relaciones.</td></tr>
+        <tr><td class="k">Sin duplicados</td><td>Volver a procesar una misma acta no duplica hechos, personas ni relaciones.</td></tr>
         <tr><td class="k">Auditoría</td><td>Toda decisión y toda escritura autorizada pueden reconstruirse.</td></tr>
         <tr><td class="k">Operación y costo</td><td>Se registran tokens, latencia, reintentos y costo real por acta.</td></tr>
-        <tr><td class="k">Rollback</td><td>Los 5 casos controlados cuentan con before-image y reversión verificada.</td></tr>
+        <tr><td class="k">Reversión</td><td>Los 5 casos controlados conservan los valores anteriores y permiten deshacer el cambio.</td></tr>
       </tbody>
     </table>
     <p class="reveal">No se promete de antemano un porcentaje de automatización. La tasa real de excepciones y la precisión por campo surgen del piloto y determinan si corresponde ajustar reglas, mantener revisión humana o avanzar a una etapa mayor.</p>
@@ -204,12 +206,12 @@
 
     <h2 class="reveal">7. Condiciones comerciales</h2>
     <ul class="bullets reveal">
-      <li><strong>Precio de desarrollo:</strong> ARS 5.490.000, calculado como 80 horas a ARS 68.625 por hora.</li>
+    <li><strong>Precio de desarrollo:</strong> ARS 8.490.000 por el alcance base completo de actas de nacimiento. Las 80 horas son una estimación de planificación.</li>
       <li><strong>Plazo estimado:</strong> 6 semanas desde el inicio y con accesos, RENAPER reconciliado, catálogos, muestra y referentes disponibles.</li>
       <li><strong>Consumo de IA:</strong> se paga aparte por uso real, sin recargo de GGS y contra comprobante del proveedor.</li>
       <li><strong>Validación humana:</strong> no incluida; se define después del piloto entre las opciones del Anexo A.</li>
       <li><strong>Vigencia:</strong> 15 días corridos. Cambios de alcance, dependencias no disponibles o nuevas reglas se estiman y aprueban antes de ejecutar.</li>
-      <li><strong>Forma de pago sugerida:</strong> 40% al inicio, 30% al completar el piloto shadow y 30% contra aceptación del alcance base.</li>
+    <li><strong>Forma de pago sugerida:</strong> 40% al inicio, 30% al completar el piloto de 25 actas sin modificar el registro oficial y 30% contra aceptación del alcance base.</li>
     </ul>
 
     <h2 class="reveal">Anexo A — Opciones de validación humana</h2>
