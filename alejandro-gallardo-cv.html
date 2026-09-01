@@ -12,8 +12,20 @@
   
   <!-- Inline script to load theme immediately and prevent FOUC -->
   <script>
+    // Storage is unavailable in private mode, blocked-cookie setups and opaque
+    // origins, where a raw localStorage access throws. Every preference read or
+    // write goes through these helpers so a failure never aborts the scripts
+    // that reveal the CV content.
+    window.ggsStore = {
+      get: function(key) {
+        try { return localStorage.getItem(key); } catch (e) { return null; }
+      },
+      set: function(key, value) {
+        try { localStorage.setItem(key, value); } catch (e) { /* preference not persisted */ }
+      }
+    };
     (function() {
-      var saved = localStorage.getItem('theme') || 'dark';
+      var saved = window.ggsStore.get('theme') || 'dark';
       document.documentElement.setAttribute('data-theme', saved);
     })();
   </script>
@@ -339,6 +351,34 @@
     }
     .l-info-row .val {
       word-break: break-all;
+    }
+
+    /* Executive impact grid */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .impact-item {
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-sm);
+      background: var(--surface-glass);
+      padding: 10px 12px;
+    }
+    .impact-metric {
+      display: block;
+      font-family: var(--font-title);
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 3px;
+    }
+    .impact-text {
+      display: block;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--text-muted);
     }
 
     /* Section Headings */
@@ -844,6 +884,8 @@
     }
 
     @media (max-width: 600px) {
+      .impact-grid { grid-template-columns: 1fr; }
+
       .left, .right {
         padding: 28px 20px;
       }
@@ -884,11 +926,63 @@
         size: A4 portrait;
       }
 
-      body {
-        background: #fff !important;
-        color: #000 !important;
+      /* The active theme is kept on <html>, so a CV printed in dark mode used to
+         resolve --text / --text-muted to near-white on white paper. Redefining
+         the tokens here makes every token-based rule print-safe at once. */
+      :root,
+      [data-theme="dark"],
+      [data-theme="light"] {
+        color-scheme: light;
+        --bg: #ffffff;
+        --bg-gradient: none;
+        --surface: #ffffff;
+        --surface-glass: #ffffff;
+        --border: #c7d0dd;
+        --border-hover: #93a4bb;
+        --text: #101418;
+        --text-muted: #3b4859;
+        --primary: #123a78;
+        --primary-light: #1a4fa0;
+        --accent: #123a78;
+        --accent-light: #eef2f8;
+        --accent-glow: transparent;
+        --shadow: none;
+        --shadow-lg: none;
+        --shadow-xl: none;
+        --orb-a: transparent;
+        --orb-b: transparent;
+      }
+
+      html, body, * {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+        text-shadow: none !important;
+        /* Print can snapshot a half-finished fade, which is what left cards and
+           counters washed out on paper. Nothing animates when printing. */
+        transition: none !important;
+        animation: none !important;
+        backdrop-filter: none !important;
+        filter: none !important;
+      }
+
+      body {
+        background: #fff !important;
+        color: #101418 !important;
+      }
+
+      /* Links print as plain text: blue underlined URLs hurt readability on paper. */
+      a { color: inherit !important; text-decoration: none !important; }
+
+      /* Tinted chips relied on low-opacity fills that vanish when printed. */
+      .badge-current, .badge-grad {
+        background: #e6f4ec !important;
+        color: #10613a !important;
+        border: 1px solid #9ccfb5 !important;
+      }
+      .proj-tag, .chip, .tag {
+        background: #eef2f8 !important;
+        color: #1f3350 !important;
+        border-color: #c7d0dd !important;
       }
       body::before, .glow-orb, .topbar, .filter-group, .cv-footer {
         display: none !important;
@@ -958,6 +1052,16 @@
         padding: 8px 10px !important;
         page-break-inside: avoid;
       }
+
+      .impact-grid { gap: 8px !important; }
+      .impact-item {
+        background: #fff !important;
+        border: 1px solid #c7d0dd !important;
+        border-left: 3px solid #123a78 !important;
+        padding: 7px 9px !important;
+        page-break-inside: avoid;
+      }
+      .impact-metric { color: #123a78 !important; }
 
       .exp-entry, .l-section {
         page-break-inside: avoid;
@@ -1049,7 +1153,7 @@
         </div>
         <div class="stats-grid">
           <div class="stat-box">
-            <div class="stat-num" data-count="12" data-suffix="+">0</div>
+            <div class="stat-num" data-experience-since="2014-03" data-count="12" data-suffix="+">0</div>
             <div class="stat-lbl" data-en="Years experience">Años experiencia</div>
           </div>
           <div class="stat-box">
@@ -1191,6 +1295,41 @@
         Mi diferencial es que me muevo en los dos planos que realmente importan: <strong>la estrategia y la arquitectura</strong>.
       </p>
 
+      <!-- Executive Impact — consolidated career-wide results -->
+      <section class="r-section reveal">
+        <div class="s-head">
+          <div class="bar"></div>
+          <div class="title" data-en="Executive Impact">Impacto ejecutivo</div>
+          <div class="sub" data-en="Measurable results">Resultados medibles</div>
+        </div>
+        <div class="impact-grid">
+          <div class="impact-item">
+            <span class="impact-metric" data-en="+100,000">+100.000</span>
+            <span class="impact-text" data-en="Citizens reached by patient management and COVID-19 monitoring systems I designed and implemented for provincial public health.">Ciudadanos alcanzados por sistemas de gestión de pacientes y monitoreo COVID-19 que diseñé e implementé para salud pública provincial.</span>
+          </div>
+          <div class="impact-item">
+            <span class="impact-metric">45%</span>
+            <span class="impact-text" data-en="Reduction in annual Azure infrastructure spend, sustained through cost dashboards for Finance and technical teams.">Reducción del gasto anual de infraestructura Azure, sostenida con dashboards de costos para Finanzas y equipos técnicos.</span>
+          </div>
+          <div class="impact-item">
+            <span class="impact-metric">35</span>
+            <span class="impact-text" data-en="Developers led in agile squads, with a redesigned SDLC: kickoffs, bug management, QA and standardized deploys.">Desarrolladores liderados en squads ágiles, con SDLC rediseñado: kickoffs, bug management, QA y deploys estandarizados.</span>
+          </div>
+          <div class="impact-item">
+            <span class="impact-metric">+300</span>
+            <span class="impact-text" data-en="Concurrent users on MAS Salud, a provincial digital health record where I acted as lead architect.">Usuarios simultáneos en MAS Salud, historia clínica digital de alcance provincial donde fui arquitecto principal.</span>
+          </div>
+          <div class="impact-item">
+            <span class="impact-metric" data-en="Provincial Persons Node">NODO Provincial de Personas</span>
+            <span class="impact-text" data-en="Persons-and-relationships model for the Civil Registry, with a digital records system and interoperable APIs consumed by companies and government agencies.">Modelo de personas y relaciones personales para el Registro Civil, con sistema de actas y APIs interoperables consumidas por empresas y reparticiones públicas.</span>
+          </div>
+          <div class="impact-item">
+            <span class="impact-metric">L1 · L2 · L3</span>
+            <span class="impact-text" data-en="IT governance framework in production: service catalog, escalation tiers, SLAs and full incident traceability.">Marco de gobernanza IT en producción: catálogo de servicios, niveles de escalamiento, SLAs y trazabilidad completa de incidentes.</span>
+          </div>
+        </div>
+      </section>
+
       <!-- Professional Experience Section -->
       <section class="r-section reveal">
         <div class="s-head">
@@ -1209,7 +1348,9 @@
                   <span class="exp-role">Head of IT</span>
                   <span class="exp-company">El Cuatro Jujuy <span class="badge-current" data-en="Present">Actual</span></span>
                 </div>
-                <span class="exp-period" data-en="Oct 2025 · Present · 9 months">Oct 2025 · Presente · 9 meses</span>
+                <span class="exp-period" data-period-start="2025-10"
+                      data-period-es="Oct 2025 · Presente"
+                      data-period-en="Oct 2025 · Present">Oct 2025 · Presente</span>
               </div>
               <ul class="exp-bullets">
                 <li data-en="Designed and implemented the &lt;strong&gt;IT Governance&lt;/strong&gt; framework: service catalog, L1/L2/L3 flows, SLAs and roles.">Diseñé e implementé el marco de <strong>Gobernanza IT</strong>: catálogo de servicios, flujos L1/L2/L3, SLAs y roles.</li>
@@ -1310,7 +1451,9 @@
                   <span class="exp-role">Founder &amp; Tech Lead</span>
                   <span class="exp-company">GG Soluciones <span class="badge-current" data-en="Active">Activo</span></span>
                 </div>
-                <span class="exp-period" data-en="Mar 2014 · Present · 11 years">Mar 2014 · Presente · 11 años</span>
+                <span class="exp-period" data-period-start="2014-03"
+                      data-period-es="Mar 2014 · Presente"
+                      data-period-en="Mar 2014 · Present">Mar 2014 · Presente</span>
               </div>
               <ul class="exp-bullets">
                 <li data-en="Architecture consulting, technology modernization and AI adoption for public and private organizations.">Consultoría en arquitectura, modernización tecnológica y adopción de IA para organizaciones públicas y privadas.</li>
@@ -1384,14 +1527,16 @@
           </div>
 
           <!-- Proj 5 -->
-          <div class="proj-card" data-category="ux cloud">
-            <span class="proj-name" data-en="Digital Records System — Civil Registry">Sistema de Actas Digitales — Registro Civil</span>
-            <p class="proj-desc" data-en="System for issuing digital records in under 24 hours, eliminating in-person procedures. Web frontend + integration with RENAPER and Treasury for document validation and signing.">Sistema para emisión de actas digitales en menos de 24 horas, eliminando trámites presenciales. Frontend web + integración con RENAPER y Hacienda para validación y firma de documentos.</p>
+          <div class="proj-card" data-category="ux cloud ia">
+            <span class="proj-name" data-en="RC Actas Digitales — Civil Registry">RC Actas Digitales — Registro Civil</span>
+            <p class="proj-desc" data-en="End-to-end platform for the Civil Registry of Jujuy: it centralizes request, tracking, validation and delivery of records, with case assignment, payments, users and roles, operational monitoring and OCR-assisted document review. It integrates &lt;strong&gt;RENAPER&lt;/strong&gt; and the &lt;strong&gt;Treasury&lt;/strong&gt; for document validation and signing, and adds a governed portal for external integrators — access, credentials, API consumption, auditing and reporting — connecting citizens, internal teams and institutional integrations in a single traceable ecosystem.">Plataforma integral para el Registro Civil de Jujuy: centraliza solicitud, seguimiento, validación y entrega de partidas, con asignación de trámites, pagos, usuarios y roles, monitoreo operativo y revisión documental asistida por OCR. Integra <strong>RENAPER</strong> y <strong>Hacienda</strong> para validación y firma de documentos, y suma un portal gobernado para integradores externos — accesos, credenciales, consumo de APIs, auditoría y reportes — conectando ciudadanía, equipos internos e integraciones institucionales en un único ecosistema trazable.</p>
             <div class="proj-tags">
               <span class="proj-tag">.NET</span>
-              <span class="proj-tag">Frontend Web</span>
+              <span class="proj-tag">OCR</span>
               <span class="proj-tag">RENAPER</span>
-              <span class="proj-tag">Estado Digital</span>
+              <span class="proj-tag" data-en="Integrator Portal">Portal de integradores</span>
+              <span class="proj-tag">API Governance</span>
+              <span class="proj-tag" data-en="Digital Government">Estado Digital</span>
             </div>
           </div>
 
@@ -1487,14 +1632,63 @@
           var cur = document.documentElement.getAttribute('data-theme') || 'dark';
           var next = cur === 'dark' ? 'light' : 'dark';
           document.documentElement.setAttribute('data-theme', next);
-          localStorage.setItem('theme', next);
+          window.ggsStore.set('theme', next);
         });
       }
 
+      // ─── LIVE DURATIONS ───
+      // Ongoing roles and the years-of-experience stat are derived from their
+      // start date on every load, so the CV never ships a stale figure.
+      function monthsSince(year, month) {
+        var now = new Date();
+        return (now.getFullYear() - year) * 12 + (now.getMonth() - (month - 1));
+      }
+
+      function formatDuration(totalMonths, lang) {
+        var years = Math.floor(totalMonths / 12);
+        var months = totalMonths % 12;
+        var parts = [];
+        if (lang === 'en') {
+          if (years) parts.push(years + (years === 1 ? ' year' : ' years'));
+          if (months) parts.push(months + (months === 1 ? ' month' : ' months'));
+          return parts.length ? parts.join(' ') : '1 month';
+        }
+        if (years) parts.push(years + (years === 1 ? ' año' : ' años'));
+        if (months) parts.push(months + (months === 1 ? ' mes' : ' meses'));
+        return parts.length ? parts.join(' ') : '1 mes';
+      }
+
+      function renderLiveDurations(lang) {
+        document.querySelectorAll('[data-period-start]').forEach(function(el) {
+          var start = el.getAttribute('data-period-start').split('-');
+          var total = monthsSince(parseInt(start[0], 10), parseInt(start[1], 10));
+          var label = el.getAttribute('data-period-' + (lang === 'en' ? 'en' : 'es'));
+          el.textContent = label + ' · ' + formatDuration(total, lang);
+        });
+
+        var yearsEl = document.querySelector('[data-experience-since]');
+        if (yearsEl) {
+          var since = yearsEl.getAttribute('data-experience-since').split('-');
+          var months = monthsSince(parseInt(since[0], 10), parseInt(since[1], 10));
+          yearsEl.setAttribute('data-count', String(Math.floor(months / 12)));
+        }
+      }
+
+      renderLiveDurations(window.ggsStore.get('ggs_lang') === 'en' ? 'en' : 'es');
+      document.querySelectorAll('.lang-opt').forEach(function(opt) {
+        opt.addEventListener('click', function() {
+          renderLiveDurations(opt.getAttribute('data-lang'));
+        });
+      });
+
       // ─── SCROLL REVEAL ───
+      // Declared up front so finalizeForPrint can disconnect them even when
+      // IntersectionObserver is unavailable and they stay undefined.
+      var revealObserver, skillsObserver, statsObserver;
+
       var revealEls = document.querySelectorAll('.reveal');
       if ('IntersectionObserver' in window) {
-        var revealObserver = new IntersectionObserver(function(entries) {
+        revealObserver = new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {
             if (entry.isIntersecting) {
               entry.target.classList.add('in');
@@ -1515,7 +1709,7 @@
       var skillFills = document.querySelectorAll('.skill-bar-fill');
       var skillsList = document.querySelector('.skills-list');
       if ('IntersectionObserver' in window && skillsList) {
-        var skillsObserver = new IntersectionObserver(function(entries) {
+        skillsObserver = new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {
             if (entry.isIntersecting) {
               skillFills.forEach(function(fill) {
@@ -1537,6 +1731,16 @@
       }
 
       // ─── IMPACT STATS COUNTER ───
+      // Set once printing starts so a late observer callback cannot restart the
+      // count animation and leave a half-counted number on paper.
+      var printMode = false;
+
+      function setStatFinal(el) {
+        var countTo = parseInt(el.getAttribute('data-count'), 10);
+        var suffix = el.getAttribute('data-suffix') || '';
+        el.textContent = countTo >= 1000 ? '100K+' : countTo + suffix;
+      }
+
       function animateCount(el) {
         var countTo = parseInt(el.getAttribute('data-count'), 10);
         var suffix = el.getAttribute('data-suffix') || '';
@@ -1544,7 +1748,16 @@
         var start = 0;
         var startTime = null;
 
+        if (printMode) {
+          setStatFinal(el);
+          return;
+        }
+
         function step(timestamp) {
+          if (printMode) {
+            setStatFinal(el);
+            return;
+          }
           if (!startTime) startTime = timestamp;
           var progress = Math.min((timestamp - startTime) / duration, 1);
           // cubic out easing
@@ -1572,7 +1785,7 @@
 
       var statsGrid = document.querySelector('.stats-grid');
       if ('IntersectionObserver' in window && statsGrid) {
-        var statsObserver = new IntersectionObserver(function(entries) {
+        statsObserver = new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {
             if (entry.isIntersecting) {
               entry.target.querySelectorAll('.stat-num').forEach(function(num) {
@@ -1626,6 +1839,41 @@
           });
         });
       });
+
+      // ─── PRINT SAFETY NET ───
+      // Counters, skill bars and reveals are driven by IntersectionObserver, so
+      // printing a section that never scrolled into view would freeze it at its
+      // initial state — zeroed stats and empty skill bars on paper.
+      function finalizeForPrint() {
+        printMode = true;
+
+        // Stop the observers first: a pending callback would otherwise re-trigger
+        // the animations we are about to finalize.
+        [revealObserver, skillsObserver, statsObserver].forEach(function(obs) {
+          if (obs && obs.disconnect) obs.disconnect();
+        });
+
+        document.querySelectorAll('.reveal').forEach(function(el) {
+          el.classList.add('in');
+        });
+        skillFills.forEach(function(fill) {
+          var w = fill.getAttribute('data-width');
+          fill.style.width = w;
+          fill.style.setProperty('--print-width', w);
+        });
+        document.querySelectorAll('.stat-num').forEach(setStatFinal);
+      }
+
+      window.addEventListener('beforeprint', finalizeForPrint);
+      // Safari and some mobile browsers fire the media query instead of beforeprint.
+      if (window.matchMedia) {
+        var printMq = window.matchMedia('print');
+        if (printMq.addEventListener) {
+          printMq.addEventListener('change', function(e) {
+            if (e.matches) finalizeForPrint();
+          });
+        }
+      }
     })();
   </script>
 
@@ -1646,7 +1894,7 @@
         document.querySelectorAll('.lang-opt').forEach(function(btn) {
           btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
         });
-        localStorage.setItem('ggs_lang', lang);
+        window.ggsStore.set('ggs_lang', lang);
         document.documentElement.lang = lang;
       }
 
@@ -1656,7 +1904,7 @@
       });
 
       // Apply saved preference
-      var savedLang = localStorage.getItem('ggs_lang');
+      var savedLang = window.ggsStore.get('ggs_lang');
       if (savedLang === 'en') {
         applyCVLang('en');
       } else {
