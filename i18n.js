@@ -7,7 +7,18 @@
 (function () {
   const T = window.GGS_TRANSLATIONS || {};
   const STORAGE = 'ggs_lang';
-  let lang = localStorage.getItem(STORAGE) || 'es';
+
+  // Acceso protegido: en navegación privada localStorage lanza y la
+  // excepción abortaría el switch de idioma completo.
+  function store(key, value) {
+    try {
+      if (value === undefined) return localStorage.getItem(key);
+      localStorage.setItem(key, value);
+    } catch (e) { /* preferencia no persistida */ }
+    return null;
+  }
+
+  let lang = store(STORAGE) || 'es';
 
   const ATTRS = ['placeholder', 'alt', 'title', 'aria-label'];
 
@@ -71,7 +82,7 @@
 
   function setLang(l) {
     lang = l;
-    localStorage.setItem(STORAGE, l);
+    store(STORAGE, l);
     apply();
   }
   window.GGS_setLang = setLang;

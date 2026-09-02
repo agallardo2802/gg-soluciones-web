@@ -1,8 +1,19 @@
 /* app.js — comportamiento compartido: tema, reveal, galería, nav mobile.
    El idioma lo maneja i18n.js (cargado aparte). */
 (function () {
+  // localStorage lanza en navegación privada y con cookies bloqueadas.
+  // Sin guarda, la excepción aborta este IIFE entero y, como .reveal
+  // arranca en opacity:0, la página queda completamente en blanco.
+  function store(key, value) {
+    try {
+      if (value === undefined) return localStorage.getItem(key);
+      localStorage.setItem(key, value);
+    } catch (e) { /* preferencia no persistida */ }
+    return null;
+  }
+
   // ── TEMA (default dark, compartido por localStorage) ──
-  var saved = localStorage.getItem('theme') || 'dark';
+  var saved = store('theme') || 'dark';
   document.documentElement.setAttribute('data-theme', saved);
 
   function bindTheme() {
@@ -12,7 +23,7 @@
       var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
       var next = cur === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
+      store('theme', next);
     });
   }
 
