@@ -553,7 +553,7 @@
   function normalize(text) {
     return String(text || '')
       .toLowerCase()
-      .normalize('NFD').replace(/[̀-ͯ]/g, '')  // á→a, ñ→n
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')  // á→a, ñ→n
       .replace(/[^a-z0-9\s]/g, ' ')
       .replace(/\s+/g, ' ')
       .trim();
