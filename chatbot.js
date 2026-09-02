@@ -1,5 +1,5 @@
 /* ──────────────────────────────────────────────────────────
-   chatbot.js — Tilcarito, el asistente de GG Soluciones.
+   chatbot.js — Suni, el asistente de GG Soluciones.
 
    Robot con chullo andino que responde sobre el sitio, la
    historia de la consultora y los proyectos realizados.
@@ -16,7 +16,7 @@
 (function () {
   'use strict';
 
-  var BOT_NAME = 'Tilcarito';
+  var BOT_NAME = 'Suni';
   var WHATSAPP = '5493885120704';
   var STORAGE_LANG = 'ggs_lang';
   var STORAGE_SEEN = 'ggs_bot_seen';
