@@ -1,0 +1,380 @@
+/* ──────────────────────────────────────────────────────────
+   chatbot.css — Tilcarito, el asistente de GG Soluciones.
+   Robot con chullo andino. Responde sobre el sitio, la
+   historia y los proyectos, sin backend.
+
+   Depende de los tokens de app.css (--bg, --text, --accent…)
+   y define los suyos para las superficies opacas del panel,
+   porque --surface es semitransparente en tema oscuro.
+   ────────────────────────────────────────────────────────── */
+
+.ggsbot {
+  /* Superficies propias: el panel flota sobre la página y
+     necesita fondo opaco, no el --surface translúcido. */
+  --bot-surface: #ffffff;
+  --bot-surface-2: #f2f6fc;
+  --bot-line: rgba(15, 28, 46, 0.12);
+  --bot-text: #0f1c2e;
+  --bot-muted: #51647d;
+  --bot-shadow: 0 24px 60px rgba(15, 28, 46, 0.18);
+
+  position: fixed;
+  right: clamp(16px, 3vw, 28px);
+  bottom: clamp(16px, 3vw, 28px);
+  z-index: 9998;
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.55;
+}
+
+[data-theme="dark"] .ggsbot {
+  --bot-surface: #0c1426;
+  --bot-surface-2: #131f36;
+  --bot-line: rgba(255, 255, 255, 0.12);
+  --bot-text: #eaf0fb;
+  --bot-muted: #8ea2c0;
+  --bot-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* ─── Lanzador ─── */
+
+.ggsbot-launcher {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  padding: 0;
+  border: 1px solid var(--bot-line);
+  border-radius: 50%;
+  background: var(--bot-surface);
+  box-shadow: var(--bot-shadow);
+  cursor: pointer;
+  transition: transform .25s cubic-bezier(.16, 1, .3, 1), box-shadow .25s;
+}
+.ggsbot-launcher:hover { transform: translateY(-3px) scale(1.04); }
+.ggsbot-launcher:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+.ggsbot-launcher svg { width: 50px; height: 48px; overflow: visible; }
+
+/* Anillo que late para que el robot se note sin ser intrusivo. */
+.ggsbot-launcher::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  opacity: 0;
+  animation: ggsbot-ring 3.6s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes ggsbot-ring {
+  0%   { opacity: .55; transform: scale(1); }
+  70%  { opacity: 0;   transform: scale(1.35); }
+  100% { opacity: 0;   transform: scale(1.35); }
+}
+
+/* Globito de invitación */
+.ggsbot-hint {
+  position: absolute;
+  right: 78px;
+  bottom: 14px;
+  /* .ggsbot es fixed y se encoge al ancho del lanzador, asi que el
+     bloque contenedor no deja lugar: sin max-content el globo se
+     comprime a tres lineas. */
+  width: max-content;
+  max-width: min(220px, 50vw);
+  padding: 9px 13px;
+  border: 1px solid var(--bot-line);
+  border-radius: 14px 14px 4px 14px;
+  background: var(--bot-surface);
+  color: var(--bot-text);
+  box-shadow: var(--bot-shadow);
+  font-size: 13px;
+  white-space: normal;
+  opacity: 0;
+  transform: translateX(10px);
+  pointer-events: none;
+  transition: opacity .3s, transform .3s;
+}
+.ggsbot-hint.show { opacity: 1; transform: translateX(0); }
+
+.ggsbot.open .ggsbot-launcher,
+.ggsbot.open .ggsbot-hint { display: none; }
+
+/* ─── Panel ─── */
+
+.ggsbot-panel {
+  display: none;
+  flex-direction: column;
+  width: min(384px, calc(100vw - 32px));
+  height: min(560px, calc(100vh - 120px));
+  border: 1px solid var(--bot-line);
+  border-radius: 20px;
+  background: var(--bot-surface);
+  box-shadow: var(--bot-shadow);
+  overflow: hidden;
+}
+.ggsbot.open .ggsbot-panel {
+  display: flex;
+  animation: ggsbot-in .28s cubic-bezier(.16, 1, .3, 1);
+}
+@keyframes ggsbot-in {
+  from { opacity: 0; transform: translateY(16px) scale(.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+.ggsbot-head {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--bot-line);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+}
+.ggsbot-head svg { width: 40px; height: 38px; flex-shrink: 0; overflow: visible; }
+.ggsbot-id { flex: 1; min-width: 0; }
+.ggsbot-name {
+  font-family: 'Space Grotesk', Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.ggsbot-role {
+  font-size: 11.5px;
+  opacity: .85;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.ggsbot-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  flex-shrink: 0;
+}
+.ggsbot-close {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .2s;
+}
+.ggsbot-close:hover { background: rgba(255, 255, 255, 0.3); }
+.ggsbot-close:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* ─── Mensajes ─── */
+
+.ggsbot-log {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 16px 14px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  background: var(--bot-surface);
+}
+.ggsbot-log::-webkit-scrollbar { width: 8px; }
+.ggsbot-log::-webkit-scrollbar-thumb {
+  background: var(--bot-line);
+  border-radius: 4px;
+}
+
+.ggsbot-msg {
+  max-width: 88%;
+  padding: 10px 13px;
+  border-radius: 15px;
+  font-size: 13.5px;
+  animation: ggsbot-pop .22s ease-out;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+@keyframes ggsbot-pop {
+  from { opacity: 0; transform: translateY(7px); }
+  to   { opacity: 1; transform: none; }
+}
+.ggsbot-msg.bot {
+  align-self: flex-start;
+  border: 1px solid var(--bot-line);
+  border-bottom-left-radius: 5px;
+  background: var(--bot-surface-2);
+  color: var(--bot-text);
+}
+.ggsbot-msg.user {
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+  background: var(--accent);
+  color: #fff;
+}
+.ggsbot-msg strong { font-weight: 700; }
+.ggsbot-msg a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.ggsbot-msg.user a { color: #fff; }
+.ggsbot-msg ul { margin: 6px 0 0; padding-left: 17px; }
+.ggsbot-msg li { margin: 2px 0; }
+
+/* Indicador de escritura */
+.ggsbot-typing {
+  align-self: flex-start;
+  display: flex;
+  gap: 4px;
+  padding: 13px;
+  border: 1px solid var(--bot-line);
+  border-radius: 15px 15px 15px 5px;
+  background: var(--bot-surface-2);
+}
+.ggsbot-typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--bot-muted);
+  animation: ggsbot-blip 1.3s ease-in-out infinite;
+}
+.ggsbot-typing span:nth-child(2) { animation-delay: .18s; }
+.ggsbot-typing span:nth-child(3) { animation-delay: .36s; }
+@keyframes ggsbot-blip {
+  0%, 60%, 100% { opacity: .3; transform: translateY(0); }
+  30%           { opacity: 1;  transform: translateY(-4px); }
+}
+
+/* ─── Sugerencias ─── */
+
+.ggsbot-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 14px 4px;
+  background: var(--bot-surface);
+}
+.ggsbot-chip {
+  padding: 6px 11px;
+  border: 1px solid var(--bot-line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--bot-muted);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .18s, color .18s, border-color .18s;
+}
+.ggsbot-chip:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+.ggsbot-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ─── Entrada ─── */
+
+.ggsbot-form {
+  display: flex;
+  gap: 8px;
+  padding: 11px 14px 13px;
+  border-top: 1px solid var(--bot-line);
+  background: var(--bot-surface);
+}
+.ggsbot-input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 13px;
+  border: 1px solid var(--bot-line);
+  border-radius: 11px;
+  background: var(--bot-surface-2);
+  color: var(--bot-text);
+  font-family: inherit;
+  font-size: 13.5px;
+}
+.ggsbot-input::placeholder { color: var(--bot-muted); }
+.ggsbot-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.18);
+}
+.ggsbot-send {
+  display: grid;
+  place-items: center;
+  width: 41px;
+  height: 41px;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  border-radius: 11px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  transition: filter .2s, transform .2s;
+}
+.ggsbot-send:hover { filter: brightness(1.1); transform: scale(1.05); }
+.ggsbot-send:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ggsbot-send svg { width: 17px; height: 17px; fill: currentColor; }
+
+.ggsbot-legal {
+  padding: 0 14px 10px;
+  background: var(--bot-surface);
+  color: var(--bot-muted);
+  font-size: 10.5px;
+  text-align: center;
+}
+
+/* ─── Mascota: animaciones ─── */
+
+.ggsbot-mascot .ggsbot-body { animation: ggsbot-bob 3.4s ease-in-out infinite; transform-origin: 50% 90%; }
+.ggsbot-mascot .ggsbot-pompom { animation: ggsbot-sway 2.8s ease-in-out infinite; transform-origin: 50px 20px; }
+.ggsbot-mascot .ggsbot-eye { animation: ggsbot-blink 5s infinite; transform-origin: center; transform-box: fill-box; }
+
+@keyframes ggsbot-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-2.5px); }
+}
+@keyframes ggsbot-sway {
+  0%, 100% { transform: rotate(-6deg); }
+  50%      { transform: rotate(6deg); }
+}
+@keyframes ggsbot-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95%           { transform: scaleY(.12); }
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 520px) {
+  .ggsbot { right: 12px; bottom: 12px; left: 12px; }
+  .ggsbot-panel {
+    width: 100%;
+    height: min(76vh, calc(100vh - 90px));
+  }
+  .ggsbot-launcher { margin-left: auto; }
+  .ggsbot-hint { display: none; }
+}
+
+/* ─── Preferencias del visitante ─── */
+
+@media (prefers-reduced-motion: reduce) {
+  .ggsbot *,
+  .ggsbot *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* El asistente no forma parte del documento impreso. */
+@media print {
+  .ggsbot { display: none !important; }
+}
