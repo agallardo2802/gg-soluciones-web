@@ -159,7 +159,17 @@ resuelva (`ciudad` y `ciudades`, por ejemplo).
 
 **`p` — frases.** Expresan **intención**, no tema. "cuanto cuesta" es una
 frase; "precio" es un término. Reciben un bonus grande en el scoring, así que
-tienen que ser inequívocas. **Nunca frases de una o dos letras.**
+tienen que ser inequívocas.
+
+Dos reglas que salieron de romperlo:
+
+- **Nunca frases de una o dos letras.** `"hi"` vive dentro de `"historias"`.
+- **Preferí frases de dos palabras o más.** Una frase de una sola palabra es un
+  tema disfrazado de intención, y el motor solo la cuenta si es la consulta
+  entera. Si una entrada de sección compite con la general, dale su propia
+  frase de intención: sin `"que reglas"`, la pregunta *"qué reglas tiene el
+  sistema de actas"* se la lleva la entrada general por contener el tema
+  `"sistema de actas"`.
 
 **`a` — respuesta.** HTML que vos escribís, no entrada de usuario. Reglas:
 
@@ -218,9 +228,14 @@ function stem(token) {
     var cut = token.replace(ENCLITIC, '$1');
     if (cut.length >= 4) token = cut;
   }
-  if (token.length > 3 && token.charAt(token.length - 1) === 's') {
-    token = token.slice(0, -1);   // plural simple
-  }
+  // El español forma DOS plurales: "-s" tras vocal (acta → actas) y "-es"
+  // tras consonante (solicitud → solicitudes). Quitar solo la "s" deja
+  // "solicitude", que jamás se encuentra con el singular de la base.
+  if (token.length > 4 && token.slice(-2) === 'es') token = token.slice(0, -2);
+  else if (token.length > 3 && token.charAt(token.length - 1) === 's') token = token.slice(0, -1);
+  // Y se cae una "e" final para que ambos caminos converjan:
+  // "agentes" → "agent" y "agente" → "agent".
+  if (token.length > 4 && token.charAt(token.length - 1) === 'e') token = token.slice(0, -1);
   return token;
 }
 ```
@@ -229,9 +244,10 @@ function stem(token) {
 "quiero contactarlos" no encuentra "contactar" y cae al fallback — justo la
 intención más valiosa del bot.
 
-La regla de plural es deliberadamente tosca: quita una `s` final. `ciudades`
-queda mal (`ciudade`), pero se resuelve poniendo las dos formas en `k`. Un
-stemmer completo tipo Snowball no paga su complejidad acá.
+El stem resultante no es una palabra real, y **no necesita serlo**: solo tiene
+que ser la misma clave para el singular y el plural, del lado de la consulta y
+del lado de la base. Un stemmer completo tipo Snowball no paga su complejidad
+acá.
 
 ### 5.3 Stopwords
 
@@ -282,6 +298,11 @@ pesos a mano.
 // coincida DENTRO de otra palabra. Como la consulta ya viene normalizada a
 // palabras separadas por un espacio, alcanza con acolcharla en los bordes.
 function hasPhrase(paddedQuery, phrase) {
+  // Una frase de UNA palabra es un TEMA, no una intención. Si contara por
+  // estar contenida, "capacitacion" dentro de "cuanto sale la capacitacion"
+  // le roba el bonus a la intención de precio. Solo cuenta como consulta
+  // entera; así "capacitacion" sola sigue funcionando.
+  if (phrase.indexOf(' ') === -1) return paddedQuery === ' ' + phrase + ' ';
   return paddedQuery.indexOf(' ' + phrase + ' ') !== -1;
 }
 
@@ -510,9 +531,115 @@ Si el dominio deja de ser cerrado:
 
 ---
 
-## 12. Errores ya cometidos
+## 12. Ejemplo trabajado — portal del Registro Civil
 
-Los cuatro salieron de probar, no de leer el código.
+Segunda implementación, sobre un stack distinto: **Next.js Pages Router +
+React + MUI + Vitest**, en un portal de gobierno en producción. Sirve como
+plantilla de portabilidad.
+
+### 12.1 Cuando el sistema ya tiene contenido aprobado: derivá, no escribas
+
+El portal tenía en `src/content/publicAccess.ts` un catálogo de manuales
+públicos, con este comentario:
+
+> *"This catalog is intentionally empty until a content owner approves a
+> public, non-sensitive guidance item."*
+
+Es decir: **una compuerta de aprobación de contenido público**. Escribir a mano
+las respuestas del bot habría pasado por encima de esa gobernanza.
+
+La solución no fue pedir permiso: fue cambiar la arquitectura. La base **se
+deriva** del catálogo aprobado en vez de repetirlo.
+
+```ts
+function entriesForManual(manual: PublicSystemManual): KnowledgeEntry[] {
+  return [
+    { id: manual.id,               answer: [manual.system, manual.purpose, manual.overview].join('\n\n') },
+    { id: `${manual.id}-flujos`,   answer: renderWorkflows(manual.workflows) },
+    { id: `${manual.id}-estados`,  answer: renderStates(manual.states) },
+    // …
+  ];
+}
+```
+
+Tres cosas se ganan de una:
+
+1. El bot **no puede** afirmar nada que un content owner no haya aprobado.
+2. Cuando alguien edita el contenido, el bot lo sigue sin tocar código.
+3. El vocabulario de matching sigue siendo autoral, pero **nunca se renderiza**,
+   así que no afirma nada.
+
+Se comprobó en vivo: a mitad del trabajo ampliaron los manuales con `overview`,
+`workflows`, `roleAccess`, `states`, `paymentStates` y `businessRules`. El bot
+lo incorporó sin cambiar la lógica — solo hubo que extender la derivación para
+exponer los campos nuevos.
+
+### 12.2 Los dos tests que se necesitan cuando la base es derivada
+
+Uno solo no alcanza, y esa es la lección:
+
+| Test | Qué prueba | Qué atrapa |
+|---|---|---|
+| **Procedencia** | Nada de lo que el bot dice está sin aprobar | Una respuesta inventada |
+| **Cobertura** | Nada de lo aprobado queda inalcanzable | Un campo nuevo que la derivación ignora |
+
+Yo tenía solo el de procedencia. Cuando ampliaron los manuales, **siguió en
+verde** — porque solo verifica lo que el bot ya dice. El hueco lo encontró el
+de cobertura, escrito después:
+
+```ts
+it('surfaces every field of every approved manual', () => {
+  const allAnswers = knowledgeBase.map((entry) => entry.answer).join('\n');
+  const missing: string[] = [];
+  for (const manual of publicSystemManuals) {
+    if (!allAnswers.includes(manual.overview)) missing.push(`${manual.id}.overview`);
+    manual.states.forEach((state, i) => {
+      if (!allAnswers.includes(state.description)) missing.push(`${manual.id}.states[${i}]`);
+    });
+    // …un chequeo por campo
+  }
+  expect(missing, `contenido aprobado inalcanzable: ${missing.join(', ')}`).toEqual([]);
+});
+```
+
+### 12.3 Qué cambia al portarlo a React
+
+- **El motor no cambia.** Se tipa y queda como funciones puras, testeables sin
+  DOM.
+- **Se elimina `innerHTML` por completo.** Las respuestas son texto plano con
+  `whiteSpace: 'pre-line'` y la entrada del visitante es un hijo de texto de
+  React. No queda superficie de XSS: no hay `dangerouslySetInnerHTML` en
+  ninguna parte.
+- **Montaje solo de cliente**, con `next/dynamic` y `ssr: false`. Un guard con
+  `useState` + `useEffect` también funciona, pero el linter lo marca con razón
+  y deja el widget en el bundle del servidor.
+- **Los ids de `<defs>` del SVG** se generan con `useId()`: la mascota se dibuja
+  dos veces y dos gradientes con el mismo id son HTML inválido.
+
+### 12.4 Una entrada de rechazo, obligatoria en contexto público
+
+Un asistente público que dialoga sobre credenciales entrena a la gente a
+divulgarlas. La base lleva una entrada específica para pedidos de contraseñas,
+credenciales o datos de terceros, que responde con una negativa y deriva al
+canal oficial. Se testea como cualquier otro ruteo.
+
+---
+
+## 13. Errores ya cometidos
+
+Los seis salieron de probar, no de leer el código.
+
+**Un solo plural contemplado.** El stemmer quitaba únicamente la `s` final, que
+sirve para los plurales de vocal (`acta` → `actas`) pero no para los de
+consonante: `solicitud` → `solicitud**es**` quedaba en `solicitude` y nunca se
+encontraba con el singular. En un portal de actas, "solicitudes" es *el*
+término central y no matcheaba con nada.
+
+**Un tema ganándole a una intención.** El bonus de frase se otorgaba con solo
+estar contenida, así que `"sistema de actas"` —un tema— vencía a la intención
+real de la pregunta *"qué reglas tiene el sistema de actas"*. Una frase de una
+palabra ahora solo puntúa si es la consulta completa. Es violar la propia regla
+del punto anterior: las frases son intención, no tema.
 
 **Frases sin límite de palabra.** El match de frases usaba `indexOf` sobre el
 texto crudo, y `"hi"` está dentro de `"historias"`: el bot respondía el saludo
@@ -547,8 +674,12 @@ fuera de pantalla y te da falsos positivos en las dos direcciones.
 
 ## Referencia
 
-Implementación completa: [`chatbot.js`](../chatbot.js) y
-[`chatbot.css`](../chatbot.css) en la raíz del repositorio.
+Dos implementaciones vivas del mismo patrón:
+
+| | Stack | Base de conocimiento |
+|---|---|---|
+| [`chatbot.js`](../chatbot.js) · [`chatbot.css`](../chatbot.css) | HTML estático, JS sin dependencias | Curada a mano desde el copy del sitio |
+| Portal del Registro Civil | Next.js + React + MUI + Vitest | Derivada del catálogo aprobado del propio sistema |
 
 Este documento vive en `_docs/`: Jekyll excluye del sitio publicado los
 directorios que empiezan con guión bajo, así que queda versionado en git pero

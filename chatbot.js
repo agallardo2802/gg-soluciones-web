@@ -570,11 +570,17 @@
       var cut = token.replace(ENCLITIC, '$1');
       if (cut.length >= 4) token = cut;
     }
-    // Plural simple, aplicado igual a la consulta y a la base para
-    // que "agentes" y "agente" terminen en la misma forma.
-    if (token.length > 3 && token.charAt(token.length - 1) === 's') {
-      token = token.slice(0, -1);
-    }
+    // El espanol forma dos plurales: "-s" tras vocal (acta -> actas) y "-es"
+    // tras consonante (solicitud -> solicitudes). Quitar solo la "s" final
+    // deja "solicitude", que nunca se encuentra con el singular de la base.
+    //
+    // Se contemplan los dos, y despues se cae una "e" final para que ambos
+    // caminos converjan: "agentes" -> "agent" y "agente" -> "agent". El stem
+    // no es una palabra real, y no necesita serlo: solo tiene que ser la
+    // misma clave para el singular y el plural, en la consulta y en la base.
+    if (token.length > 4 && token.slice(-2) === 'es') token = token.slice(0, -2);
+    else if (token.length > 3 && token.charAt(token.length - 1) === 's') token = token.slice(0, -1);
+    if (token.length > 4 && token.charAt(token.length - 1) === 'e') token = token.slice(0, -1);
     return token;
   }
 
@@ -610,6 +616,12 @@
   // "historias". Como la consulta ya viene normalizada a palabras
   // separadas por un espacio, alcanza con acolcharla en los bordes.
   function hasPhrase(paddedQuery, phrase) {
+    // Una frase de una sola palabra es un TEMA, no una intencion. Si cuenta
+    // por estar contenida, "capacitacion" dentro de "cuanto sale la
+    // capacitacion" le roba el bonus a la intencion de precio: el tema le
+    // gana a la intencion, justo al reves de lo que queremos. Solo cuenta
+    // cuando es la consulta entera.
+    if (phrase.indexOf(' ') === -1) return paddedQuery === ' ' + phrase + ' ';
     return paddedQuery.indexOf(' ' + phrase + ' ') !== -1;
   }
 
